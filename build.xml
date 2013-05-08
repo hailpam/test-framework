@@ -1,4 +1,4 @@
-<project name="test-framework" default="dist" basedir=".">
+<project name="test-framework" default="all" basedir=".">
     <description>
 	Ant build system for test-framework project
     </description>
@@ -7,6 +7,11 @@
   <property name="src" location="src/it/testbench"/>
   <property name="obj" location="obj/it/testbench"/>
   <property name="lib" location="lib"/>
+  <!-- The "tn" property is the number of threads used to build each single target -->
+  <property name="tn" value="1"/>
+
+  <target name="all" depends="build-all">
+  </target>
 
   <target name="init">
     <!-- Create the time stamp -->
@@ -14,31 +19,45 @@
   </target>
 
   <target name="build-data">
-    <exec dir="${src}/data" executable="make -j ${cpucount}"/>
+    <exec dir="${src}/data" executable="make">
+        <arg line="-j ${tn}"/>
+    </exec>
   </target>
 
   <target name="build-formatter">
-    <exec dir="${src}/formatter" executable="make -j ${cpucount}"/>
+    <exec dir="${src}/formatter" executable="make">
+        <arg line="-j ${tn}"/>
+    </exec>
   </target>
 
   <target name="build-ioutil">
-    <exec dir="${src}/ioutil" executable="make -j ${cpucount}"/>
+    <exec dir="${src}/ioutil" executable="make">
+        <arg line="-j ${tn}"/>
+    </exec>
   </target>
 
   <target name="build-parser">
-    <exec dir="${src}/parser" executable="make -j ${cpucount}"/>
+    <exec dir="${src}/parser" executable="make">
+        <arg line="-j ${tn}"/>
+    </exec>
   </target>
 
   <target name="build-presentation">
-    <exec dir="${src}/presentation" executable="make -j ${cpucount}"/>
+    <exec dir="${src}/presentation" executable="make">
+        <arg line="-j ${tn}"/>
+    </exec>
   </target>
 
   <target name="build-rte">
-    <exec dir="${src}/rte" executable="make -j ${cpucount}"/>
+    <exec dir="${src}/rte" executable="make">
+        <arg line="-j ${tn}"/>
+    </exec>
   </target>
 
   <target name="build-tcworker">
-    <exec dir="${src}/tcworker" executable="make -j ${cpucount}"/>
+    <exec dir="${src}/tcworker" executable="make">
+        <arg line="-j ${tn}"/>
+    </exec>
   </target>
 
   <target name="build-branch-1">
@@ -54,7 +73,7 @@
     <antcall target="build-parser"/>
   </target>
 
-  <target name="build" depends="init"
+  <target name="build-all" depends="init"
         description="compile all packages">
     <!-- First: build data package -->
     <antcall target="build-data"/>
@@ -67,21 +86,30 @@
     <antcall target="build-presentation"/>
   </target>
 
-  <target name="dist" depends="compile"
-        description="generate the distribution">
-        <!-- TODO -->
-  </target>
-
   <target name="clean"
         description="clean up all packages" >
-    <parallel threadcount="${cpucount}">
-        <exec dir="${src}/data" executable="make clean"/>
-        <exec dir="${src}/ioutil" executable="make clean"/>
-        <exec dir="${src}/parser" executable="make clean"/>
-        <exec dir="${src}/formatter" executable="make clean"/>
-        <exec dir="${src}/tcworker" executable="make clean"/>
-        <exec dir="${src}/rte" executable="make clean"/>
-        <exec dir="${src}/presentation" executable="make clean"/>
+    <parallel threadcount="${tn}">
+        <exec dir="${src}/data" executable="make">
+            <arg value="clean"/>
+        </exec>
+        <exec dir="${src}/ioutil" executable="make">
+            <arg value="clean"/>
+        </exec>
+        <exec dir="${src}/parser" executable="make">
+            <arg value="clean"/>
+        </exec>
+        <exec dir="${src}/formatter" executable="make">
+            <arg value="clean"/>
+        </exec>
+        <exec dir="${src}/tcworker" executable="make">
+            <arg value="clean"/>
+        </exec>
+        <exec dir="${src}/rte" executable="make">
+            <arg value="clean"/>
+        </exec>
+        <exec dir="${src}/presentation" executable="make">
+            <arg value="clean"/>
+        </exec>
     </parallel>
   </target>
 

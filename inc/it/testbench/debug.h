@@ -1,7 +1,7 @@
 #ifndef DEBUG_H_
 #define DEBUG_H_
 
-#include <stdio.h>
+#include <iostream>
 
 //#define DEBUG_PRINT_ENABLED   1
 

@@ -1,0 +1,19 @@
+export SRC_ROOT=$PWD
+export SRC_DATA=src/it/testbench/data
+export SRC_FORMATTER=src/it/testbench/formatter
+export SRC_IOUTIL=src/it/testbench/ioutil
+export SRC_PARSER=src/it/testbench/parser
+export SRC_PRESENTATION=src/it/testbench/presentation
+export SRC_RTE=src/it/testbench/rte
+export SRC_TCWORKER=src/it/testbench/tcworker
+export BIN_DIR=bin
+
+alias goroot='cd $SRC_ROOT'
+alias godata='cd $SRC_ROOT/$SRC_DATA'
+alias goformatter='cd $SRC_ROOT/$SRC_FORMATTER'
+alias goioutil='cd $SRC_ROOT/$SRC_IOUTIL'
+alias goparser='cd $SRC_ROOT/$SRC_PARSER'
+alias gopresentation='cd $SRC_ROOT/$SRC_PRESENTATION'
+alias gorte='cd $SRC_ROOT/$SRC_RTE'
+alias gotcworker='cd $SRC_ROOT/$SRC_TCWORKER'
+alias gobin='cd $SRC_ROOT/$BIN_DIR'

@@ -5,7 +5,7 @@ OBJ_DIR = ../../../../obj/${PACKAGE}
 INC_DIR = ../../../../inc/${PACKAGE}
 DST_DIR = ../../../../dist
 TST_DIR = ../../../../test/${PACKAGE}
-BIN_DIR = ../../../../bin/
+BIN_DIR = ../../../../bin
 
 CC      = g++
 CCFLAGS  = -I${INC_DIR}
@@ -15,20 +15,20 @@ TARGET  = rte
 TEST    = test_rte
 DIST	= librte.a
 
-.PHONY: clean cleantest runtest
+.PHONY: clean cleantest runtest distributable
 
 
-all: ${TARGET}.o ${TEST}.o ${TEST}
+all: ${OBJ_DIR}/${TARGET}.o ${OBJ_DIR}/${TEST}.o ${TEST}
 
 ${TEST}: ${OBJ_DIR}/${TEST}.o ${OBJ_DIR}/${TARGET}.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 	mv ${TEST} ${BIN_DIR}/
 
-${TARGET}.o: ${TARGET}.cpp ${INC_DIR}/${TARGET}.h
+${OBJ_DIR}/${TARGET}.o: ${TARGET}.cpp ${INC_DIR}/${TARGET}.h
 	$(CC) -Wall -c $(CCFLAGS) $<
 	mv *.o ${OBJ_DIR}/
 
-${TEST}.o: ${TST_DIR}/${TEST}.cpp ${OBJ_DIR}/${TARGET}.o
+${OBJ_DIR}/${TEST}.o: ${TST_DIR}/${TEST}.cpp ${OBJ_DIR}/${TARGET}.o
 	$(CC) -Wall -c $(CCFLAGS) $<
 	mv *.o ${OBJ_DIR}/
 

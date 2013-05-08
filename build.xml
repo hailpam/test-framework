@@ -1,4 +1,4 @@
-<project name="test-framework" default="all" basedir=".">
+<project name="test-framework" default="build-all" basedir=".">
     <description>
 	Ant build system for test-framework project
     </description>
@@ -7,11 +7,10 @@
   <property name="src" location="src/it/testbench"/>
   <property name="obj" location="obj/it/testbench"/>
   <property name="lib" location="lib"/>
+  
   <!-- The "tn" property is the number of threads used to build each single target -->
   <property name="tn" value="1"/>
 
-  <target name="all" depends="build-all">
-  </target>
 
   <target name="init">
     <!-- Create the time stamp -->
@@ -90,25 +89,25 @@
         description="clean up all packages" >
     <parallel threadcount="${tn}">
         <exec dir="${src}/data" executable="make">
-            <arg value="clean"/>
+            <arg value="cleantest"/>
         </exec>
         <exec dir="${src}/ioutil" executable="make">
-            <arg value="clean"/>
+            <arg value="cleantest"/>
         </exec>
         <exec dir="${src}/parser" executable="make">
-            <arg value="clean"/>
+            <arg value="cleantest"/>
         </exec>
         <exec dir="${src}/formatter" executable="make">
-            <arg value="clean"/>
+            <arg value="cleantest"/>
         </exec>
         <exec dir="${src}/tcworker" executable="make">
-            <arg value="clean"/>
+            <arg value="cleantest"/>
         </exec>
         <exec dir="${src}/rte" executable="make">
-            <arg value="clean"/>
+            <arg value="cleantest"/>
         </exec>
         <exec dir="${src}/presentation" executable="make">
-            <arg value="clean"/>
+            <arg value="cleantest"/>
         </exec>
     </parallel>
   </target>

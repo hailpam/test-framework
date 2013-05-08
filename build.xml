@@ -1,0 +1,88 @@
+<project name="test-framework" default="dist" basedir=".">
+    <description>
+	Ant build system for test-framework project
+    </description>
+
+  <!-- set global properties for this build -->
+  <property name="src" location="src/it/testbench"/>
+  <property name="obj" location="obj/it/testbench"/>
+  <property name="lib" location="lib"/>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+  </target>
+
+  <target name="build-data">
+    <exec dir="${src}/data" executable="make -j ${cpucount}"/>
+  </target>
+
+  <target name="build-formatter">
+    <exec dir="${src}/formatter" executable="make -j ${cpucount}"/>
+  </target>
+
+  <target name="build-ioutil">
+    <exec dir="${src}/ioutil" executable="make -j ${cpucount}"/>
+  </target>
+
+  <target name="build-parser">
+    <exec dir="${src}/parser" executable="make -j ${cpucount}"/>
+  </target>
+
+  <target name="build-presentation">
+    <exec dir="${src}/presentation" executable="make -j ${cpucount}"/>
+  </target>
+
+  <target name="build-rte">
+    <exec dir="${src}/rte" executable="make -j ${cpucount}"/>
+  </target>
+
+  <target name="build-tcworker">
+    <exec dir="${src}/tcworker" executable="make -j ${cpucount}"/>
+  </target>
+
+  <target name="build-branch-1">
+    <!-- First building branch with formatter->tcworker->rte -->
+    <antcall target="build-formatter"/>
+    <antcall target="build-tcworker"/>
+    <antcall target="build-rte"/>
+  </target>
+
+  <target name="build-branch-2">
+    <!-- Second building branch with ioutil->parser -->
+    <antcall target="build-ioutil"/>
+    <antcall target="build-parser"/>
+  </target>
+
+  <target name="build" depends="init"
+        description="compile all packages">
+    <!-- First: build data package -->
+    <antcall target="build-data"/>
+    <!-- Second: build other packages in 2 parallel building branches -->
+    <parallel threadcount="2">
+        <antcall target="build-branch-1"/>
+        <antcall target="build-branch-2"/>
+    </parallel>
+    <!-- Third: build presentation package -->
+    <antcall target="build-presentation"/>
+  </target>
+
+  <target name="dist" depends="compile"
+        description="generate the distribution">
+        <!-- TODO -->
+  </target>
+
+  <target name="clean"
+        description="clean up all packages" >
+    <parallel threadcount="${cpucount}">
+        <exec dir="${src}/data" executable="make clean"/>
+        <exec dir="${src}/ioutil" executable="make clean"/>
+        <exec dir="${src}/parser" executable="make clean"/>
+        <exec dir="${src}/formatter" executable="make clean"/>
+        <exec dir="${src}/tcworker" executable="make clean"/>
+        <exec dir="${src}/rte" executable="make clean"/>
+        <exec dir="${src}/presentation" executable="make clean"/>
+    </parallel>
+  </target>
+
+</project>

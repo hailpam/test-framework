@@ -4,17 +4,13 @@
 #include <debug.h>
 
 using namespace std;
+using namespace it::testbench::logger;
 
-namespace it
-{
-namespace testbench
-{
-namespace logger
-{
+RawLogger* RawLogger::instance = 0; /*!< static pointer to ensure a single instance */
+fstream RawLogger::fs;          /*!< File stream used for log file */
 
 RawLogger::RawLogger(){
-    /* Follow a lazy initialization strategy, just set 0 here */
-    instance = 0;
+    /* Follow a lazy initialization strategy, do nothing here */
 }
 
 RawLogger::~RawLogger(){
@@ -29,10 +25,11 @@ RawLogger* RawLogger::getInstance(){
 
 RawLogger* RawLogger::getInstance(const string logFile){
     /* Lazy initialization */
-    if (!instance){
-        instance = new RawLogger();
-        if (!fs.is_open())
-            fs.open(logFile.c_str(), std::fstream::out);
+    if (!instance && !fs.is_open()) {
+        fs.open(logFile.c_str(), std::fstream::out);
+        if (!fs.fail()) {
+            instance = new RawLogger();
+        }
     }
     return instance;
 }
@@ -78,7 +75,3 @@ void RawLogger::logF(const string str){
     fs <<"F: " <<str.c_str() <<endl;
     fs.flush();
 }
-
-} /* LOGGER */
-} /* TESTBENCH */
-} /* IT */

@@ -27,12 +27,23 @@ namespace testbench
 {
 namespace data
 {
-    /*!
+
+/*!
 * Code enumeration
 */
 enum Code {
     ERROR,          /**< error indicator*/
     SUCCESS         /**< success indicator*/
+};
+
+/*!
+* Supported formats enumeration (for serialization)
+*/
+enum SupportedFormats {
+    CSV,            /**< CSV data format */
+    JSON,           /**< JSON data format */
+    XML,            /**< XML data format */
+    CUSTOM          /**< CUSTOM data format */
 };
 
 /*!
@@ -47,10 +58,19 @@ struct ReturnCode {
 * Formatted resource data structure
 */
 struct FormattedResource {
-    string ext;     /**< */
-    string content; /**< */
-    string name;    /**< */
-    string hash;    /**< */
+    string ext;     /**< resource extension */
+    string content; /**< resource content */
+    string name;    /**< resource name */
+    string hash;    /**< resource hash */
+};
+
+/*!
+* Range data structure: useful to defines ranges to be taken into
+* consideration at runtime
+*/
+struct Range {
+    int from;       /**< start index */
+    int to;         /**< end index */
 };
 
 /*!

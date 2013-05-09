@@ -3,33 +3,39 @@ PACKAGE = it/testbench/logger
 SRC_DIR = src
 OBJ_DIR = ../../../../obj/${PACKAGE}
 INC_DIR = ../../../../inc/${PACKAGE}
+INC_TST = ../../../../inc/it/testbench
 DST_DIR = ../../../../dist
 TST_DIR = ../../../../test/${PACKAGE}
 BIN_DIR = ../../../../bin
 
 CC      = g++
-CCFLAGS  = -I${INC_DIR}
+CCFLAGS  = -I${INC_DIR} -I${INC_TST}
 LDFLAGS = -lrt
 
-TARGET  = logger
-TEST    = test_logger
-DIST	= liblogger.a
+#TARGET  = logger
+#TEST    = test_logger
+#DIST	= liblogger.a
 
 .PHONY: clean cleantest distributable runtest
 
-all: ${OBJ_DIR}/${TARGET}.o ${OBJ_DIR}/${TEST}.o ${TEST}
+#all: ${OBJ_DIR}/${TARGET}.o ${OBJ_DIR}/${TEST}.o ${TEST}
+all: ${OBJ_DIR}/rawlogger.o
 
-${TEST}: ${OBJ_DIR}/${TEST}.o ${OBJ_DIR}/${TARGET}.o
-	$(CC) -o $@ $^ $(LDFLAGS)
-	mv ${TEST} ${BIN_DIR}/
+#${TEST}: ${OBJ_DIR}/${TEST}.o ${OBJ_DIR}/${TARGET}.o
+#	$(CC) -o $@ $^ $(LDFLAGS)
+#	mv ${TEST} ${BIN_DIR}/
 
-${OBJ_DIR}/${TARGET}.o: ${TARGET}.cpp ${INC_DIR}/${TARGET}.h
+#${OBJ_DIR}/${TARGET}.o: ${TARGET}.cpp ${INC_DIR}/${TARGET}.h
+#	$(CC) -Wall -c $(CCFLAGS) $<
+#	mv *.o ${OBJ_DIR}/
+
+#${OBJ_DIR}/${TEST}.o: ${TST_DIR}/${TEST}.cpp ${OBJ_DIR}/${TARGET}.o
+#	$(CC) -Wall -c $(CCFLAGS) $<
+#	mv *.o ${OBJ_DIR}/
+
+${OBJ_DIR}/rawlogger.o: rawlogger.cpp ${INC_DIR}/rawlogger.h
 	$(CC) -Wall -c $(CCFLAGS) $<
-	mv *.o ${OBJ_DIR}/
-
-${OBJ_DIR}/${TEST}.o: ${TST_DIR}/${TEST}.cpp ${OBJ_DIR}/${TARGET}.o
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv *.o ${OBJ_DIR}/
+	mv rawlogger.o ${OBJ_DIR}/
 
 distributable:
 	ar -cvq ${DIST} ${OBJ_DIR}/${TARGET}.o

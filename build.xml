@@ -104,6 +104,9 @@
         <exec dir="${src}/ioutil" executable="make">
             <arg value="cleantest"/>
         </exec>
+        <exec dir="${src}/logger" executable="make">
+            <arg value="cleantest"/>
+        </exec>
         <exec dir="${src}/parser" executable="make">
             <arg value="cleantest"/>
         </exec>

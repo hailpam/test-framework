@@ -1,9 +1,34 @@
 #include <rawlogger.h>
 #include <debug.h>
 #include <string>
+#include <sstream>
+#include <iostream>
 
 using namespace std;
 using namespace it::testbench::logger;
+
+const int THD_NUM = 100;    /* Number of threads writing to log */
+const int MSG_NUM = 1000;   /* Number of messages sent by each thread */
+
+void* log_bombing_function(void *arg){
+    /**
+     * Get the thread index from the caller and
+     * initialize all local variables
+     */
+    int thd_idx = *((int*)arg);
+    stringstream strStream;
+    strStream.str(string());
+    RawLogger *log = RawLogger::getInstance();
+    /**
+     * Storm the log with messages and then return
+     */
+    for (int i = 0; i < MSG_NUM; i++) {
+        strStream <<"thread " <<thd_idx <<": message " <<i;
+        log->logD(strStream.str());
+        strStream.str(string());
+    }
+    pthread_exit(0);
+}
 
 int main(int argc, char *argv[]){
     /**
@@ -25,8 +50,8 @@ int main(int argc, char *argv[]){
      * Expected value: 0
      */
     log = RawLogger::getInstance();
-    DEBUG("RawLogger TI: getInstance() from uninitialized RawLogger");
-    DEBUG("    returned pointer: " <<log);
+    PRINT("getInstance() from uninitialized RawLogger");
+    PRINT("    returned pointer: " <<log);
     ASSERT_EQUAL(log, 0);
 
     /**
@@ -36,8 +61,8 @@ int main(int argc, char *argv[]){
      * Expected value: 0
      */
     log = RawLogger::getInstance(badLogFile);
-    DEBUG("RawLogger TI: getInstance(file) with bad filename");
-    DEBUG("    returned pointer: " <<log);
+    PRINT("getInstance(file) with bad filename");
+    PRINT("    returned pointer: " <<log);
     ASSERT_EQUAL(log, 0);
 
     /**
@@ -47,8 +72,8 @@ int main(int argc, char *argv[]){
      * Expected value: &RawLogger
      */
     log = RawLogger::getInstance(goodLogFile);
-    DEBUG("RawLogger TI: getInstance(file) with good filename");
-    DEBUG("    returned pointer: " <<log);
+    PRINT("getInstance(file) with good filename");
+    PRINT("    returned pointer: " <<log);
     ASSERT_NOT_EQUAL(log, 0);
 
     /**
@@ -59,8 +84,8 @@ int main(int argc, char *argv[]){
     log->logT(traceMsg);
     log->logD(debugMsg);
     log->logI(infoMsg);
-    DEBUG("Rawlogger TI: log Trace/Debug/Info");
-    DEBUG("    >> check if they have been written on file");
+    PRINT("log Trace/Debug/Info");
+    PRINT("    >> check if they have been written on file");
 
     /**
      * drop &RawLogger, call getInstance() from initialized RawLogger
@@ -69,8 +94,8 @@ int main(int argc, char *argv[]){
      */
     log = 0;
     log = RawLogger::getInstance();
-    DEBUG("RawLogger TI: getInstance(file) from initialized RawLogger");
-    DEBUG("    returned pointer: " <<log);
+    PRINT("getInstance(file) from initialized RawLogger");
+    PRINT("    returned pointer: " <<log);
     ASSERT_NOT_EQUAL(log, 0);
 
     /**
@@ -81,8 +106,47 @@ int main(int argc, char *argv[]){
     log->logW(warningMsg);
     log->logE(errorMsg);
     log->logF(fatalMsg);
-    DEBUG("Rawlogger TI: log Warning/Error/Fatal");
-    DEBUG("    >> check if they have been written on file");
+    PRINT("log Warning/Error/Fatal");
+    PRINT("    >> check if they have been written on file");
+
+    PRINT("   --------------------   ");
+    /**
+     * Concurrency test: launch N threads that will storm the log
+     */
+
+    /**
+     * Start THD_NUM threads successfully
+     *
+     * Expected value: for() exist when thd_idx == THD_NUM
+     */
+    stringstream strStream;
+    strStream.str(string());
+    pthread_t logThread[THD_NUM];
+    int thd_idx;
+    for (thd_idx = 0; thd_idx < THD_NUM; thd_idx++){
+        if (pthread_create(&logThread[thd_idx], 0, log_bombing_function, (void*) &thd_idx) < 0)
+            break;
+        strStream <<"thread " <<thd_idx <<" has started";
+        log->logD(strStream.str());
+        strStream.str(string());
+    }
+    PRINT("start THD_NUM threads successfully");
+    ASSERT_EQUAL(thd_idx, THD_NUM);
+
+    /**
+     * Join all launched threads
+     */
+    strStream.str(string());
+    int thd_jn;
+    for (thd_jn = 0; thd_jn < thd_idx; thd_jn++){
+        if (pthread_join(logThread[thd_jn], 0) < 0)
+            break;
+        strStream <<"thread " <<thd_jn <<" has joined";
+        log->logD(strStream.str());
+        strStream.str(string());
+    }
+    PRINT("join all started threads");
+    ASSERT_EQUAL(thd_jn, thd_idx);
 
     return 0;
 }

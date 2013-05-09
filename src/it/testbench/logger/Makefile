@@ -17,7 +17,7 @@ LDFLAGS = -lrt
 
 all: ${OBJ_DIR}/rawlogger.o ${OBJ_DIR}/test_rawlogger.o ${BIN_DIR}/test_rawlogger
 
-debug: CCFLAGS += -DDEBUG_PRINT_ENABLED
+debug: CCFLAGS += -DDEBUG_PRINT_ENABLED -g3
 debug: all
 
 ${BIN_DIR}/test_rawlogger: ${OBJ_DIR}/test_rawlogger.o ${OBJ_DIR}/rawlogger.o

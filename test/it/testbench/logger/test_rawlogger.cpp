@@ -2,11 +2,6 @@
 #include <debug.h>
 #include <string>
 
-#define ASSERT_EQUAL(a,b) \
-    ( ((a) == (b)) ? "    PASS" : "    * FAIL *" )
-    #define ASSERT_NOT_EQUAL(a,b) \
-    ( ((a) != (b)) ? "    PASS" : "    * FAIL *" )
-
 using namespace std;
 using namespace it::testbench::logger;
 
@@ -32,7 +27,7 @@ int main(int argc, char *argv[]){
     log = RawLogger::getInstance();
     DEBUG("RawLogger TI: getInstance() from uninitialized RawLogger");
     DEBUG("    returned pointer: " <<log);
-    DEBUG(ASSERT_EQUAL(log, 0));
+    ASSERT_EQUAL(log, 0);
 
     /**
      * getInstance(logFile) performs lazy initialization
@@ -43,7 +38,7 @@ int main(int argc, char *argv[]){
     log = RawLogger::getInstance(badLogFile);
     DEBUG("RawLogger TI: getInstance(file) with bad filename");
     DEBUG("    returned pointer: " <<log);
-    DEBUG(ASSERT_EQUAL(log, 0));
+    ASSERT_EQUAL(log, 0);
 
     /**
      * getInstance(logFile) performs lazy initialization
@@ -54,7 +49,7 @@ int main(int argc, char *argv[]){
     log = RawLogger::getInstance(goodLogFile);
     DEBUG("RawLogger TI: getInstance(file) with good filename");
     DEBUG("    returned pointer: " <<log);
-    DEBUG(ASSERT_NOT_EQUAL(log, 0));
+    ASSERT_NOT_EQUAL(log, 0);
 
     /**
      * logT, logD, logI
@@ -76,7 +71,7 @@ int main(int argc, char *argv[]){
     log = RawLogger::getInstance();
     DEBUG("RawLogger TI: getInstance(file) from initialized RawLogger");
     DEBUG("    returned pointer: " <<log);
-    DEBUG(ASSERT_NOT_EQUAL(log, 0));
+    ASSERT_NOT_EQUAL(log, 0);
 
     /**
      * logW, logE, logF

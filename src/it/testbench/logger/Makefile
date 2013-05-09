@@ -13,26 +13,12 @@ CC      = g++
 CCFLAGS  = -I${INC_DIR} -I${INC_TST}
 LDFLAGS = -lrt
 
-#TARGET  = logger
-#TEST    = test_logger
-#DIST	= liblogger.a
-
 .PHONY: clean cleantest distributable runtest
 
-#all: ${OBJ_DIR}/${TARGET}.o ${OBJ_DIR}/${TEST}.o ${TEST}
 all: ${OBJ_DIR}/rawlogger.o ${OBJ_DIR}/test_rawlogger.o ${BIN_DIR}/test_rawlogger
 
-#${TEST}: ${OBJ_DIR}/${TEST}.o ${OBJ_DIR}/${TARGET}.o
-#	$(CC) -o $@ $^ $(LDFLAGS)
-#	mv ${TEST} ${BIN_DIR}/
-
-#${OBJ_DIR}/${TARGET}.o: ${TARGET}.cpp ${INC_DIR}/${TARGET}.h
-#	$(CC) -Wall -c $(CCFLAGS) $<
-#	mv *.o ${OBJ_DIR}/
-
-#${OBJ_DIR}/${TEST}.o: ${TST_DIR}/${TEST}.cpp ${OBJ_DIR}/${TARGET}.o
-#	$(CC) -Wall -c $(CCFLAGS) $<
-#	mv *.o ${OBJ_DIR}/
+debug: CCFLAGS += -DDEBUG_PRINT_ENABLED
+debug: all
 
 ${BIN_DIR}/test_rawlogger: ${OBJ_DIR}/test_rawlogger.o ${OBJ_DIR}/rawlogger.o
 	$(CC) -o test_rawlogger $^ $(LDFLAGS)

@@ -10,20 +10,24 @@ RawLogger* RawLogger::instance = 0; /*!< static pointer to ensure a single insta
 fstream RawLogger::fs;          /*!< File stream used for log file */
 
 RawLogger::RawLogger(){
+    DEBUG("");
     /* Follow a lazy initialization strategy, do nothing here */
 }
 
 RawLogger::~RawLogger(){
+    DEBUG("");
     /*  Close File stream if opened */
     if (fs.is_open())
         fs.close();
 }
 
 RawLogger* RawLogger::getInstance(){
+    DEBUG("");
     return instance;
 }
 
 RawLogger* RawLogger::getInstance(const string logFile){
+    DEBUG("");
     /* Lazy initialization */
     if (!instance && !fs.is_open()) {
         fs.open(logFile.c_str(), std::fstream::out);
@@ -35,6 +39,7 @@ RawLogger* RawLogger::getInstance(const string logFile){
 }
 
 void RawLogger::logT(const string str){
+    DEBUG("");
     /* TODO: no concurrency control here!!! */
     /* TODO: get timestamp!!! */
     fs <<"T: " <<str.c_str() <<endl;
@@ -42,6 +47,7 @@ void RawLogger::logT(const string str){
 }
 
 void RawLogger::logD(const string str){
+    DEBUG("");
     /* TODO: no concurrency control here!!! */
     /* TODO: get timestamp!!! */
     fs <<"D: " <<str.c_str() <<endl;
@@ -49,6 +55,7 @@ void RawLogger::logD(const string str){
 }
 
 void RawLogger::logI(const string str){
+    DEBUG("");
     /* TODO: no concurrency control here!!! */
     /* TODO: get timestamp!!! */
     fs <<"I: " <<str.c_str() <<endl;
@@ -56,6 +63,7 @@ void RawLogger::logI(const string str){
 }
 
 void RawLogger::logW(const string str){
+    DEBUG("");
     /* TODO: no concurrency control here!!! */
     /* TODO: get timestamp!!! */
     fs <<"W: " <<str.c_str() <<endl;
@@ -63,6 +71,7 @@ void RawLogger::logW(const string str){
 }
 
 void RawLogger::logE(const string str){
+    DEBUG("");
     /* TODO: no concurrency control here!!! */
     /* TODO: get timestamp!!! */
     fs <<"E: " <<str.c_str() <<endl;
@@ -70,6 +79,7 @@ void RawLogger::logE(const string str){
 }
 
 void RawLogger::logF(const string str){
+    DEBUG("");
     /* TODO: no concurrency control here!!! */
     /* TODO: get timestamp!!! */
     fs <<"F: " <<str.c_str() <<endl;

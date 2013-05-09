@@ -2,7 +2,7 @@
 #define RAWLOGGER_H
 
 #include <logger.h>
-
+#include <pthread.h>
 #include <fstream>
 
 // $Id$
@@ -32,6 +32,7 @@ class RawLogger : public Logger {
     private:
         static RawLogger *instance; /*!< static pointer to ensure a single instance */
         static fstream fs;          /*!< File stream used for log file */
+        static pthread_mutex_t logMux;  /*!< mutex for protecting static variables */
         /**
          * Logging service initialization is done at configuration time when
          * a log file path and name is passed.

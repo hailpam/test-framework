@@ -2,6 +2,7 @@
 #define SUPPORT_H
 
 #include <debug.h>
+#include <exception>
 
 #include <string>
 
@@ -69,8 +70,8 @@ struct FormattedResource {
 * consideration at runtime
 */
 struct Range {
-    int from;       /**< start index */
-    int to;         /**< end index */
+    int from;           /**< start index */
+    int to;             /**< end index */
 };
 
 /*!
@@ -79,14 +80,15 @@ struct Range {
 */
 class TestFrameworkException : public exception {
     public:
-        TestFrameworkException(string msg): msg("Runtime Unexpected Exception");
-        ~TestFrameworkException();
+        TestFrameworkException(string msg) throw();     //!< specific Exception constructor
+        virtual ~TestFrameworkException() throw();                                              //!< specific Exception distructor
         /**
           * Overrides the standard behaviour and returns a char pointer to the error string.
           *
           * @return Pointer to the error string.
          */
-        const char* what() const throw() {return errMsg.c_str();} //!< it overwrites the standard version
+        const char* what() const throw() {return errMsg.c_str();}                               //!< it overwrites the standard version
+
     private:
         string errMsg;  /*!< runtime error message */
 };
@@ -100,7 +102,7 @@ class Report {
         string* testPlanId;             /*!< test plan unique identifier */
         string* testId;                 /*!< test case unique identifier */
         bool outcome;                   /*!< elaboration outocome */
-        FormattedResource* resource;    /*!< resource formatted according to initial settings */
+        FormattedResource resource;    /*!< resource formatted according to initial settings */
 
     public:
         Report();
@@ -128,7 +130,7 @@ class Report {
           *
           * @param[in] A pointer to a string containing the session identifier.
          */
-        void setSessionId(const string* sessionId);             //!< set the session Id
+        void setSessionId(const string* sId);             //!< set the session Id
 
         /**
           * Return the testplan Id which is the unique identifier for the running Test Plan.
@@ -141,7 +143,7 @@ class Report {
           *
           * @param[in] A pointer to a string containing the test plan identifier.
          */
-        void setTestPlanId(const string* testPlanId);           //!< set the test plan Id
+        void setTestPlanId(const string* tpId);           //!< set the test plan Id
 
         /**
           * Return the test Id which is a unique identifier for the Test Case in the running context.
@@ -154,15 +156,15 @@ class Report {
           *
           * @param[in] A pointer to a string containing the test plan identifier..
          */
-        void setTestId(const string* testId);                   //!< set the test Id
+        void setTestId(const string* tId);                   //!< set the test Id
 
         /**
           * Set the formatted resource provided by the Formatter (it takes care to mediate
           * among the formats, according to the configuration).
           *
-          * @param[in] A copy of the received formatted resource.
+          * @param[in] A pointer to the received formatted resource.
          */
-        void setFormattedResorce(FormattedResource resource);   //!< set the formatted resource
+        void setFormattedResorce(FormattedResource* res);   //!< set the formatted resource
         /**
           * Return the formatted resource.
           *

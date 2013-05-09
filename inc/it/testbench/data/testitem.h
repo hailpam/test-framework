@@ -37,8 +37,8 @@ namespace data
 */
 class TestCaseContext {
     public:
-        TestItem();
-        ~TestItem() {}
+        TestCaseContext();
+        ~TestCaseContext() {}
         /**
           * Set the Test Case Context Description
           *
@@ -86,7 +86,7 @@ class TestItem {
 * Specific version of Test Item that specifically looks after the creation
 * of data structures to be passed using the contextual object.
 */
-class SetupTestItem {
+class SetupTestItem : public TestItem {
     public:
         virtual TestCaseContext* setupItem();
 };
@@ -98,7 +98,7 @@ class SetupTestItem {
 * It uses the context object to retrieve the specific instances of data
 * structures to work on.
 */
-class RunnableTestItem {
+class RunnableTestItem : public TestItem {
     public:
         virtual Report* runItem(const TestCaseContext* ctxObject);
 };
@@ -107,7 +107,7 @@ class RunnableTestItem {
 * Specific version of Test Item that looks after the deallocation aspects
 * of the data structures allocated and wrapped in the context object.
 */
-class TearDownTestItem {
+class TearDownTestItem : public TestItem {
     public:
         virtual void tearDownItem(TestCaseContext* ctxObject);
 };

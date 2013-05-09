@@ -2,7 +2,11 @@
 #define TESTBENCH_H
 
 #include <support.h>
-#incluse <testitem.h>
+#include <list>
+#include <map>
+
+#include <testitem.h>
+
 
 // $Id$
 /**
@@ -29,38 +33,6 @@ namespace testbench
 {
 namespace data
 {
-
-/*!
-* Test Bench configuration abstract Data Type.
-*
-* It maintains alle the needed information to automatically run the Test Plan
-* (on Test Case basis) in a specialized instance of Testbench.
-*/
-class TestBenchConfiguration {
-    public:
-        TestBenchConfiguration();
-        ~TestBenchConfiguration();
-
-
-
-    private:
-        string* sessionId;
-        string* contextId;
-        string* testPlanId;
-        list<Range*> tcToBeExecuted;
-        SupportedFormats format;
-        int nrOfThreads;
-        TestPlan* pTestPlan;
-};
-
-/*!
-* It defines a Data Structure that is basically a collection of Test Cases.
-*
-* Each Test Case will be executed independently.
-*/
-class TestPlan {
-
-};
 
 /*!
 * Abstract Data Type defining a Context Object that is used among the several
@@ -124,9 +96,138 @@ class TestCase {
     private:
         SetupTestItem* sTestItem;           /*!< specific test item looking after the setup */
         list<RunnableTestItem*> rTestItem;  /*!< specific test item looking after the run aspects */
-        TearDownTestItem tdTestItem;        /*!< specific test item looking after the deallocation */
+        TearDownTestItem* tdTestItem;        /*!< specific test item looking after the deallocation */
         list<Report*> tcReports;            /*!< list of reports (one for each runnable item */
         TestCaseContext* ctxObject;         /*!< context object: it maintanis the pointers to specific data structures to be used */
+};
+
+/*!
+* It defines a Data Structure that is basically a collection of Test Cases.
+*
+* Each Test Case will be executed independently.
+*/
+class TestPlan {
+    public:
+        TestPlan();
+        ~TestPlan();
+
+        /**
+          * Add a Test Case (addressed by an ordinal number)
+          *
+          * @param[in] Index where to put the Test Case
+          * @param[in] Pointer to a Test Case object
+         */
+        void addTestCase(int tcIdx, const TestCase* tCase);        //!< add a Test Case
+        /**
+          * Retrieve a specific Test Case (addressed by an ordinal number)
+          *
+          * @param[in] Index of the Test Case
+          * @return Pointer to a Test Case object
+         */
+        const TestCase* retrieveTestCase(int tcIdx);               //!< retrieve a Test Case
+        /**
+          * Remove a specific Test Case (addressed by an ordinal number)
+          *
+          * @param[in] Index of the Test Case
+          * @return Boolean value, true if the Test Case was present and updated
+         */
+        bool removeTestCase(int tcIdx);                             //!< remove a Test Case
+        /**
+          * Update a specific Test Case (addressed by an ordinal number)
+          *
+          * @param[in] Index of the Test Case
+          * @return Boolean value, true if the Test Case was present and updated
+         */
+        bool updateTestCase(int tcIdx, const TestCase* tCase);      //!< update a Test Case
+
+    private:
+        list<TestCase*> lisOfTests;                                 /*!< list of Test Cases composing this Test Plan */
+
+};
+
+
+/*!
+* Test Bench configuration abstract Data Type.
+*
+* It maintains alle the needed information to automatically run the Test Plan
+* (on Test Case basis) in a specialized instance of Testbench.
+*/
+class TestBenchConfiguration {
+    public:
+        TestBenchConfiguration();
+        ~TestBenchConfiguration();
+
+        /**
+          * Set the Session Id (unique identifier for a Testbench context)
+          *
+          * @param[in] Pointer to a string containing the session Id
+         */
+        void setSessionId(const string* sId);                                 //!< set the session Id (unique identifier for each test bench instance)
+        /**
+          * Retrieve the Sesssion Id
+          *
+          * @return Pointer to a string containing the session Id
+         */
+        const string* getSessionId();                                         //!< get the session Id
+        /**
+          * Add a Range data structure (identifying the range of Test Cases to be run)
+          *
+          * @param[in] Pointer to a string containing the test plan Id
+          * @param[in] Pointer to a Range data structure
+         */
+        void addRange(const string* tPlanId, const Range* range);             //!< add a Range
+        /**
+          * Retrieve the Range associated to a specific Test Plan
+          *
+          * @param[in] Pointer to a string containing the test plan Id
+          * @return Pointer to a Range data structure
+         */
+        const Range* retrieveRange(const string* tPlanId);                    //!< retrieve a Range
+        /**
+          * Set the supported format (specific for data serialization matters)
+          *
+          * @param[in] Supported format
+         */
+        void setSupporterFormat(SupportedFormats format);                     //!< set the supported Format
+        /**
+          * Retrieve the supported format
+          *
+          * @return The supported format
+         */
+        SupportedFormats getSupportedFormat();                                //!< get the supported Format
+        /**
+          * Set the number of threads (to be used at runtime by the testbench)
+          *
+          * @param[in] The number of threads desired to run the test plan
+         */
+        void setNrOfThreads(int threadNo);                                    //!< set the number of threads to be used
+        /**
+          * Get the number of threads (used at runtime by the testbench)
+          *
+          * @return The number of threads
+         */
+        int getNrOfThreads();                                                 //!< get the defined number of threads
+        /**
+          * Add a Test Plan object
+          *
+          * @param[in] Pointer to a string containing the test plan Id
+          * @param[in] Pointer to a Test Plan object
+         */
+        void addTestPlan(const string* tPlanId, const TestPlan* tPlan);       //!< add a test plan
+        /**
+          * Retrieve a specific Test Plan object
+          *
+          * @param[in] Pointer to a string containing the test plan Id
+          * @return Pointer to a Test Plan object
+         */
+        const TestPlan* retrieveTestPlan(const string* tPlanId);             //!< retrieve a test plan
+
+    private:
+        string* sessionId;                                                  /*!< specific and unique session Id */
+        map<string, Range*> tcToBeExecuted;                                 /*!< for each Test Plan, a range of tests to be executed */
+        SupportedFormats format;                                            /*!< supported format */
+        int nrOfThreads;                                                    /*!< number of thread to be used at runtime */
+        map<string, TestPlan*> pTestPlan;                                   /*!< the set of Test Plan to be executed in this testbench */
 };
 
 /*!
@@ -139,7 +240,14 @@ class TestCase {
 * Applying the buildre pattern strategy, the engine will be completely decoupled.
 */
 class TestCaseBuilder {
-
+    public:
+        /**
+          * To be overriden specifically. Each concrete Test Case builder provides the ability
+          * to fully decouple the building process.
+          *
+          * @return Boolean value, true iff the building has been performed successfully
+         */
+        virtual bool buildTestCase() = 0;   //!< build a specific instance of Test Case
 };
 
 /*!
@@ -150,7 +258,42 @@ class TestCaseBuilder {
 * already created) from the entity delegated to concretely build the Test Cases instances.
 */
 class TestCaseLoader {
+    public:
+        TestCaseLoader();
+        ~TestCaseLoader();
 
+        /**
+          * To be overriden specifically. Each concrete Test Case builder provides the ability
+          * to fully decouple the building process.
+          *
+          * @return Boolean value, true iff the loading has been performed successfully
+         */
+        bool loadTestCase(int tcIdx);               //!< load a specific test case
+        /**
+          * To be overriden specifically. Each concrete Test Case builder provides the ability
+          * to fully decouple the building process.
+          *
+          * @return Boolean value, true iff the loading has been performed successfully
+         */
+        bool loadAllTestCases();                    //!< load all test cases
+
+        /**
+          * To be overriden specifically. Each concrete Test Case builder provides the ability
+          * to fully decouple the building process.
+          *
+          * @return Point to the Test Case, 0 iff the Test Case has not been built yet
+         */
+        TestCase* getLoadedTestCase(int tcIdx);     //!< retrieve the specified test case
+        /**
+          * To be overriden specifically. Each concrete Test Case builder provides the ability
+          * to fully decouple the building process.
+          *
+          * @return List of Test Cases pointers, it is empty iff the test cases have not been yet built
+         */
+        list<TestCase*> getAllLoadedTestCases();    //!< retrieve all test cases
+
+    private:
+        list<TestCase*> tcList;                     /*!< list of test cases */
 };
 
 

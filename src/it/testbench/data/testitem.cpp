@@ -7,21 +7,34 @@ namespace testbench
 namespace data
 {
 
-TestCaseContext* SetupTestItem::setupItem()
+/// SETUP TEST ITEM
+
+Report* SetupTestItem::runItem(const TestCaseContext* ctxObject)
 {
-    /* TODO basic behaviour */
     return 0;
 }
 
+void SetupTestItem::tearDownItem(TestCaseContext* ctxObject) {}
 
-Report* RunnableTestItem::runItem(const TestCaseContext* ctxObject)
+/// RUNNABLE TEST ITEM
+
+TestCaseContext* RunnableTestItem::setupItem()
 {
-    /* TODO basic behaviour */
     return 0;
 }
 
-void TearDownTestItem::tearDownItem(TestCaseContext* ctxObject)
+void RunnableTestItem::tearDownItem(TestCaseContext* ctxObject) {}
+
+/// TEARDOWN TEST ITEM
+
+TestCaseContext* TearDownTestItem::setupItem()
 {
+    return 0;
+}
+
+Report* TearDownTestItem::runItem(const TestCaseContext* ctxObject)
+{
+    return 0;
 }
 
 } /* DATA */

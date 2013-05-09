@@ -37,8 +37,8 @@ namespace data
 */
 class TestCaseContext {
     public:
-        TestCaseContext();
-        ~TestCaseContext() {}
+        TestCaseContext() {}
+        virtual ~TestCaseContext() {}
         /**
           * Set the Test Case Context Description
           *
@@ -50,9 +50,9 @@ class TestCaseContext {
           *
           * @return Pointer to a string containing the description
          */
-        virtual const string* getDescription() = 0;                 //!< get the test case description
+        virtual const string* getDescription() const = 0;                 //!< get the test case description
 
-    private:
+    protected:
         string* description;                                        /*!< context descriptionc */
 };
 
@@ -62,6 +62,7 @@ class TestCaseContext {
 */
 class TestItem {
     public:
+        TestItem() {}
         ~TestItem() {}
         /**
           * Set up the Test Item in terms of
@@ -88,7 +89,9 @@ class TestItem {
 */
 class SetupTestItem : public TestItem {
     public:
-        virtual TestCaseContext* setupItem();
+        virtual TestCaseContext* setupItem() = 0;
+        Report* runItem(const TestCaseContext* ctxObject);
+        void tearDownItem(TestCaseContext* ctxObject);
 };
 
 /*!
@@ -100,7 +103,9 @@ class SetupTestItem : public TestItem {
 */
 class RunnableTestItem : public TestItem {
     public:
-        virtual Report* runItem(const TestCaseContext* ctxObject);
+        TestCaseContext* setupItem();
+        virtual Report* runItem(const TestCaseContext* ctxObject) = 0;
+        void tearDownItem(TestCaseContext* ctxObject);
 };
 
 /*!
@@ -109,7 +114,9 @@ class RunnableTestItem : public TestItem {
 */
 class TearDownTestItem : public TestItem {
     public:
-        virtual void tearDownItem(TestCaseContext* ctxObject);
+        TestCaseContext* setupItem();
+        Report* runItem(const TestCaseContext* ctxObject);
+        virtual void tearDownItem(TestCaseContext* ctxObject) = 0;
 };
 
 } /* DATA */

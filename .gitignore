@@ -1,6 +1,11 @@
 # Temporary files
 *~
 
+# Text files
+*.dat
+*.log
+*.txt
+
 # Compiled Object files
 *.slo
 *.lo

@@ -16,6 +16,7 @@ void* log_bombing_function(void *arg){
      * initialize all local variables
      */
     int thd_idx = *((int*)arg);
+    delete (int*)arg;
     stringstream strStream;
     strStream.str(string());
     RawLogger *log = RawLogger::getInstance();
@@ -124,7 +125,9 @@ int main(int argc, char *argv[]){
     pthread_t logThread[THD_NUM];
     int thd_idx;
     for (thd_idx = 0; thd_idx < THD_NUM; thd_idx++){
-        if (pthread_create(&logThread[thd_idx], 0, log_bombing_function, (void*) &thd_idx) < 0)
+        int *idx = new int;
+        *idx = thd_idx;
+        if (pthread_create(&logThread[thd_idx], 0, log_bombing_function, (void*) idx) < 0)
             break;
         strStream <<"thread " <<thd_idx <<" has started";
         log->logD(strStream.str());

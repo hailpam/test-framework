@@ -1,6 +1,7 @@
 #include <fstream>
 #include <sys/stat.h>
 #include <cstdio>
+#include <cstring>
 
 #include <rawfsmanager.h>
 #include <debug.h>
@@ -92,18 +93,19 @@ void RawFSManager::create(const FormattedResource *fres){
     /* lockRes() - acquire mutex on fstream */
     if (pthread_mutex_lock(&fsMux) < 0)
         return; // exception
-    DEBUG("mutex acquired");
+    DEBUG("lock acquired");
     /* create file */
     if (!fs.is_open()) { // exception
         fs.open(fileName.c_str(), std::fstream::out);
         if (!fs.fail()){ //exception
             DEBUG("fstream opened");
+            fs.flush();
             fs.close();
         }
     }
     /* unlockRes() - release mutex */
     pthread_mutex_unlock(&fsMux);
-    DEBUG("mutex released");
+    DEBUG("lock released");
 }
 
 void RawFSManager::read(FormattedResource *fres){
@@ -119,21 +121,30 @@ void RawFSManager::read(FormattedResource *fres){
     /* lockRes() - acquire mutex on fstream */
     if (pthread_mutex_lock(&fsMux) < 0)
         return; // exception
+    DEBUG("lock acquired");
     /* read file */
     if (!fs.is_open()) { // exception
         fs.open(fileName.c_str(), std::fstream::in);
         if (!fs.fail()) { //exception
+            DEBUG("fstream opened");
             char buffer[BUF_SIZE];
+            memset(buffer, 0, BUF_SIZE);
             fres->content.clear();
             while (!fs.eof()) {
                 fs.read(buffer, sizeof(buffer));
                 fres->content += buffer;
+                DEBUG("buffer:" <<buffer);
+                DEBUG("buffer length:" <<strlen(buffer));
+                DEBUG("fres->content:" <<fres->content);
+                DEBUG("fres->content length:" <<fres->content.length());
             }
+            fs.sync();
             fs.close();
         }
     }
     /* unlockRes() - release mutex */
     pthread_mutex_unlock(&fsMux);
+    DEBUG("lock released");
 }
 
 void RawFSManager::update(const FormattedResource *fres){
@@ -149,17 +160,24 @@ void RawFSManager::update(const FormattedResource *fres){
     /* lockRes() - acquire mutex on fstream */
     if (pthread_mutex_lock(&fsMux) < 0)
         return; // exception
+    DEBUG("lock acquired");
     /* write file */
     if (!fs.is_open()) { // exception
         fs.open(fileName.c_str(), std::fstream::out | std::fstream::trunc);
         if (!fs.fail()) { //exception
+            DEBUG("fstream opened");
             char buffer[BUF_SIZE];
+            memset(buffer, 0, BUF_SIZE);
             size_t read_bytes, pos = 0, len_bytes = fres->content.length();
             while (len_bytes) {
                 read_bytes = fres->content.copy(buffer, sizeof(buffer), pos);
                 len_bytes -= read_bytes;
                 pos += read_bytes;
                 fs.write(buffer, read_bytes);
+                DEBUG("buffer:" <<buffer);
+                DEBUG("buffer length:" <<strlen(buffer));
+                DEBUG("fres->content:" <<fres->content);
+                DEBUG("fres->content length:" <<fres->content.length());
             }
             fs.flush();
             fs.close();
@@ -167,6 +185,7 @@ void RawFSManager::update(const FormattedResource *fres){
     }
     /* unlockRes() - release mutex */
     pthread_mutex_unlock(&fsMux);
+    DEBUG("lock released");
 }
 
 void RawFSManager::remove(const FormattedResource* fres){
@@ -182,7 +201,9 @@ void RawFSManager::remove(const FormattedResource* fres){
     /* lockRes() - acquire mutex on fstream */
     if (pthread_mutex_lock(&fsMux) < 0)
         return; // exception
+    DEBUG("lock acquired");
     std::remove(fileName.c_str());
     /* unlockRes() - release mutex */
     pthread_mutex_unlock(&fsMux);
+    DEBUG("lock released");
 }

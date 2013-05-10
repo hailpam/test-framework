@@ -15,19 +15,27 @@ LDFLAGS = -lrt
 
 .PHONY: clean cleantest distributable runtest
 
-all: ${OBJ_DIR}/rawfsmanager.o ${OBJ_DIR}/test_rawfsmanager.o ${BIN_DIR}/test_rawfsmanager
+all: \
+	${OBJ_DIR}/rawfsmanager.o \
+	${OBJ_DIR}/test_rawfsmanager.o \
+	${OBJ_DIR}/test_stubfsmanager.o \
+	${BIN_DIR}/test_rawfsmanager \
 
 debug: CCFLAGS += -DDEBUG_PRINT_ENABLED -g3
 debug: all
 
-${BIN_DIR}/test_rawfsmanager: ${OBJ_DIR}/test_rawfsmanager.o ${OBJ_DIR}/rawfsmanager.o
+${BIN_DIR}/test_rawfsmanager: ${OBJ_DIR}/test_rawfsmanager.o ${OBJ_DIR}/rawfsmanager.o ${OBJ_DIR}/test_stubfsmanager.o
 	$(CC) -o test_rawfsmanager $^ $(LDFLAGS)
 	mv test_rawfsmanager ${BIN_DIR}/
 	cp ${TST_DIR}/test_rawfsmanager.txt ${BIN_DIR}/
 
-${OBJ_DIR}/test_rawfsmanager.o: ${TST_DIR}/test_rawfsmanager.cpp ${OBJ_DIR}/rawfsmanager.o
+${OBJ_DIR}/test_rawfsmanager.o: ${TST_DIR}/test_rawfsmanager.cpp ${OBJ_DIR}/rawfsmanager.o ${OBJ_DIR}/test_stubfsmanager.o
 	$(CC) -Wall -c $(CCFLAGS) $<
 	mv test_rawfsmanager.o ${OBJ_DIR}/
+
+${OBJ_DIR}/test_stubfsmanager.o: ${TST_DIR}/test_stubfsmanager.cpp ${TST_DIR}/test_stubfsmanager.h
+	$(CC) -Wall -c $(CCFLAGS) $<
+	mv test_stubfsmanager.o ${OBJ_DIR}/
 
 ${OBJ_DIR}/rawfsmanager.o: rawfsmanager.cpp ${INC_DIR}/rawfsmanager.h
 	$(CC) -Wall -c $(CCFLAGS) $<

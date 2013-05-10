@@ -1,7 +1,7 @@
 #ifndef RAWFSMANAGER_H
 #define RAWFSMANAGER_H
 
-#include <logger.h>
+#include <fsmanager.h>
 #include <pthread.h>
 #include <fstream>
 
@@ -70,7 +70,7 @@ class RawFSManager : public FSManager {
          *
          * @param[in] fres Resource to delete
          */
-        void del(const FormattedResource* fres); //!< Delete file
+        void remove(const FormattedResource* fres); //!< Delete file
 };
 
 } /* IOUTIL */

@@ -4,6 +4,7 @@
 
 #include <rawfsmanager.h>
 #include <debug.h>
+#include <sstream>
 
 using namespace std;
 using namespace it::testbench::ioutil;
@@ -16,8 +17,7 @@ const int BUF_SIZE = 4096;
 
 RawFSManager::RawFSManager(){
     DEBUG("");
-    /* Follow an eager initialization strategy */
-    instance = new RawFSManager();
+    /* Follow a lazy initialization strategy, do nothing here */
 }
 
 RawFSManager::~RawFSManager(){
@@ -27,12 +27,21 @@ RawFSManager::~RawFSManager(){
 
 RawFSManager* RawFSManager::getInstance(){
     DEBUG("");
+    if (!instance)
+        instance = new RawFSManager();
     return instance;
 }
 
 /**
  * Helper functions
  */
+
+bool invalidRes(const FormattedResource *fres){
+    stringstream strStream;
+    strStream <<"ext.length = " <<fres->ext.length() <<" name.length() = " <<fres->name.length();
+    DEBUG(strStream.str());
+    return ( !fres->ext.length() || !fres->name.length() );
+}
 
 /**
  * Gets the complete file name, in the format name.ext, from
@@ -41,15 +50,14 @@ RawFSManager* RawFSManager::getInstance(){
 inline string stringName(const FormattedResource *fres){
     string fileName = fres->name + ".";
     fileName += fres->ext;
-    return fileName;
     DEBUG("file name is " <<fileName);
+    return fileName;
 }
 
 /**
  * Check if file exists
  */
-bool fileExists(const string filename)
-{
+bool fileExists(const string filename){
     struct stat buf;
     if (stat(filename.c_str(), &buf) != -1) {
         DEBUG("file " <<filename <<" exists");
@@ -76,26 +84,34 @@ void RawFSManager::create(const FormattedResource *fres){
     /* sanity check first */
     if (!instance)
         return; // exception
+    if (invalidRes(fres))
+        return; // exception
     string fileName = stringName(fres);
-    if fileExists(fileName)
+    if (fileExists(fileName))
         return; // exception
     /* lockRes() - acquire mutex on fstream */
     if (pthread_mutex_lock(&fsMux) < 0)
         return; // exception
+    DEBUG("mutex acquired");
     /* create file */
     if (!fs.is_open()) { // exception
         fs.open(fileName.c_str(), std::fstream::out);
-        if (!fs.fail()) //exception
+        if (!fs.fail()){ //exception
+            DEBUG("fstream opened");
             fs.close();
+        }
     }
     /* unlockRes() - release mutex */
     pthread_mutex_unlock(&fsMux);
+    DEBUG("mutex released");
 }
 
 void RawFSManager::read(FormattedResource *fres){
     DEBUG("");
     /* sanity check first */
     if (!instance)
+        return; // exception
+    if (invalidRes(fres))
         return; // exception
     string fileName = stringName(fres);
     if (!fileExists(fileName))
@@ -125,6 +141,8 @@ void RawFSManager::update(const FormattedResource *fres){
     /* sanity check first */
     if (!instance)
         return; // exception
+    if (invalidRes(fres))
+        return; // exception
     string fileName = stringName(fres);
     if (!fileExists(fileName))
         return; // exception
@@ -151,10 +169,12 @@ void RawFSManager::update(const FormattedResource *fres){
     pthread_mutex_unlock(&fsMux);
 }
 
-void RawFSManager::del(const FormattedResource* fres){
+void RawFSManager::remove(const FormattedResource* fres){
     DEBUG("");
 /* sanity check first */
     if (!instance)
+        return; // exception
+    if (invalidRes(fres))
         return; // exception
     string fileName = stringName(fres);
     if (!fileExists(fileName))
@@ -162,7 +182,7 @@ void RawFSManager::del(const FormattedResource* fres){
     /* lockRes() - acquire mutex on fstream */
     if (pthread_mutex_lock(&fsMux) < 0)
         return; // exception
-    remove(fres->content.c_str());
+    std::remove(fileName.c_str());
     /* unlockRes() - release mutex */
     pthread_mutex_unlock(&fsMux);
 }

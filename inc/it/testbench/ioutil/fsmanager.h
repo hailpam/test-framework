@@ -62,7 +62,7 @@ class FSManager {
          *
          * @param[in] fres Resource to delete
          */
-        virtual void del(const FormattedResource* fres) = 0; //!< Delete file
+        virtual void remove(const FormattedResource* fres) = 0; //!< Delete file
 };
 
 } /* IOUTIL */

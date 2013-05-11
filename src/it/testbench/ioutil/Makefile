@@ -3,45 +3,56 @@ PACKAGE = it/testbench/ioutil
 SRC_DIR = src
 OBJ_DIR = ../../../../obj/${PACKAGE}
 INC_DIR = ../../../../inc/${PACKAGE}
+INC_TST = ../../../../inc/it/testbench
 DST_DIR = ../../../../dist
 TST_DIR = ../../../../test/${PACKAGE}
 BIN_DIR = ../../../../bin
+LOG_DIR = ../../../../log
 
 CC      = g++
-CCFLAGS  = -I${INC_DIR}
+CCFLAGS  = -I${INC_DIR} -I${INC_TST}
 LDFLAGS = -lrt
-
-TARGET  = ioutil
-TEST    = test_ioutil
-DIST	= libioutil.a
 
 .PHONY: clean cleantest distributable runtest
 
-all: ${OBJ_DIR}/${TARGET}.o ${OBJ_DIR}/${TEST}.o ${TEST}
+all: \
+	${OBJ_DIR}/rawfsmanager.o \
+	${OBJ_DIR}/test_rawfsmanager.o \
+	${OBJ_DIR}/test_stubfsmanager.o \
+	${BIN_DIR}/test_rawfsmanager \
 
-${TEST}: ${OBJ_DIR}/${TEST}.o ${OBJ_DIR}/${TARGET}.o
-	$(CC) -o $@ $^ $(LDFLAGS)
-	mv ${TEST} ${BIN_DIR}/
+debug: CCFLAGS += -DDEBUG_PRINT_ENABLED -g3
+debug: all
 
-${OBJ_DIR}/${TARGET}.o: ${TARGET}.cpp ${INC_DIR}/${TARGET}.h
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv *.o ${OBJ_DIR}/
+${BIN_DIR}/test_rawfsmanager: ${OBJ_DIR}/test_rawfsmanager.o ${OBJ_DIR}/rawfsmanager.o ${OBJ_DIR}/test_stubfsmanager.o \
+				${OBJ_DIR}/testframeworkexception.o
+	$(CC) -o ${BIN_DIR}/test_rawfsmanager $^ $(LDFLAGS)
+	cp ${TST_DIR}/test_rawfsmanager.txt ${BIN_DIR}/
 
-${OBJ_DIR}/${TEST}.o: ${TST_DIR}/${TEST}.cpp ${OBJ_DIR}/${TARGET}.o
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv *.o ${OBJ_DIR}
+${OBJ_DIR}/test_rawfsmanager.o: ${TST_DIR}/test_rawfsmanager.cpp ${OBJ_DIR}/rawfsmanager.o ${OBJ_DIR}/test_stubfsmanager.o \
+				${OBJ_DIR}/testframeworkexception.o
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/test_rawfsmanager.o
+
+${OBJ_DIR}/test_stubfsmanager.o: ${TST_DIR}/test_stubfsmanager.cpp ${OBJ_DIR}/testframeworkexception.o
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/test_stubfsmanager.o
+
+${OBJ_DIR}/testframeworkexception.o: testframeworkexception.cpp
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/testframeworkexception.o
+
+${OBJ_DIR}/rawfsmanager.o: rawfsmanager.cpp ${OBJ_DIR}/testframeworkexception.o
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/rawfsmanager.o
 
 distributable:
 	ar -cvq ${DIST} ${OBJ_DIR}/${TARGET}.o
 	mv *.a ${DST_DIR}/
 
 clean:
-	rm ${OBJ_DIR}/*.o
+	rm -f ${OBJ_DIR}/*.o
 
 cleantest: clean
-	rm ${BIN_DIR}/${TEST}
+	rm -f ${BIN_DIR}/test_rawfsmanager ${BIN_DIR}/*.txt ${LOG_DIR}/*.log
 
 runtest:
-	valgrind --tool=memcheck --leak-check=yes --log-file=${TEST}-valgrind.log  -v ${BIN_DIR}/${TEST}
-	mv ${TEST}-valgrind.log ${LOG_DIR}/
+	valgrind --tool=memcheck --leak-check=yes --log-file=test_rawfsmanager-valgrind.log  -v ${BIN_DIR}/test_rawfsmanager
+	mv test_rawfsmanager-valgrind.log ${LOG_DIR}/
 

@@ -24,7 +24,7 @@ StubFSManager::~StubFSManager() {
  * Only if file is not present, set it as created and
  * put content as empty
  */
-void StubFSManager::create(const FormattedResource *fres){
+void StubFSManager::create(const FormattedResource *fres) throw (TestFrameworkException){
     if (pthread_mutex_lock(&fsMux) < 0)
         return;
     if (!fileCreated){
@@ -37,7 +37,7 @@ void StubFSManager::create(const FormattedResource *fres){
 /**
  *Only if file is present, return the content
  */
-void StubFSManager::read(FormattedResource *fres){
+void StubFSManager::read(FormattedResource *fres) throw (TestFrameworkException){
     if (pthread_mutex_lock(&fsMux) < 0)
         return;
     if (fileCreated)
@@ -48,7 +48,7 @@ void StubFSManager::read(FormattedResource *fres){
 /**
  * Only if file is present, overwrite the content
  */
-void StubFSManager::update(const FormattedResource *fres){
+void StubFSManager::update(const FormattedResource *fres) throw (TestFrameworkException){
     if (pthread_mutex_lock(&fsMux) < 0)
         return;
     if (fileCreated)
@@ -59,7 +59,7 @@ void StubFSManager::update(const FormattedResource *fres){
 /**
  * Only if file is present, set it as not created
  */
-void StubFSManager::remove(const FormattedResource* fres){
+void StubFSManager::remove(const FormattedResource* fres) throw (TestFrameworkException){
     if (pthread_mutex_lock(&fsMux) < 0)
         return;
     if (fileCreated)

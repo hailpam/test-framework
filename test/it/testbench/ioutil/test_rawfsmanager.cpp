@@ -70,14 +70,22 @@ void* fs_bombing_function(void *arg){
             continue;
         switch ( (i + thd_idx) % 4)  {
                 case 0 : { // create
-                    fsMng->create(fresActual);
-                    stubMng->create(fresStub);
+                    try {
+                        fsMng->create(fresActual);
+                        stubMng->create(fresStub);
+                    } catch (exception &e) {
+                        PRINT(e.what());
+                    }
                     PRINT(">> Create");
                     break;
                 }
                 case 1 : { // read
-                    fsMng->read(fresActual);
-                    stubMng->read(fresStub);
+                    try {
+                        fsMng->read(fresActual);
+                        stubMng->read(fresStub);
+                    } catch (exception &e) {
+                        PRINT(e.what());
+                    }
                     PRINT(">> Read");
                     break;
                 }
@@ -86,14 +94,22 @@ void* fs_bombing_function(void *arg){
                     strStream <<"[thread " <<thd_idx <<": iteration " <<i <<"]";
                     fresActual->content = strStream.str();
                     fresStub->content = strStream.str();
-                    fsMng->update(fresActual);
-                    stubMng->update(fresStub);
+                    try {
+                        fsMng->update(fresActual);
+                        stubMng->update(fresStub);
+                    } catch (exception &e) {
+                        PRINT(e.what());
+                    }
                     PRINT(">> Update " <<fresActual->content);
                     break;
                 }
                 case 3 : { // remove
-                    fsMng->create(fresActual);
-                    stubMng->create(fresStub);
+                    try {
+                        fsMng->create(fresActual);
+                        stubMng->create(fresStub);
+                    } catch (exception &e) {
+                        PRINT(e.what());
+                    }
                     PRINT(">> Remove");
                     break;
                 }
@@ -141,7 +157,11 @@ int main(int argc, char *argv[]){
     clearRes(fres);
     fres->ext = fileTxt;
     fres->name = wrongFile;
-    fsman->create(fres);
+    try {
+        fsman->create(fres);
+    } catch (exception &e) {
+        PRINT(e.what());
+    }
     PRINT("create file with wrong filename");
     PRINT("    " <<wrongFile <<".txt");
     ASSERT_EQUAL(fileExists(wrongFile + ".txt"), false);
@@ -152,7 +172,11 @@ int main(int argc, char *argv[]){
     clearRes(fres);
     fres->ext = fileTxt;
     fres->name = newFile;
-    fsman->create(fres);
+    try {
+        fsman->create(fres);
+    } catch (exception &e) {
+        PRINT(e.what());
+    }
     PRINT("create file that doesn't exist");
     PRINT("    " <<newFile <<".txt");
     ASSERT_EQUAL(fileExists(newFile + ".txt"), true);
@@ -164,13 +188,21 @@ int main(int argc, char *argv[]){
     clearRes(fres);
     fres->ext = fileTxt;
     fres->name = existingFile;
-    fsman->create(fres);
+    try {
+        fsman->create(fres);
+    } catch (exception &e) {
+        PRINT(e.what());
+    }
     PRINT("create file with existing filename");
     PRINT("    " <<existingFile <<".txt");
     clearRes(fres);
     fres->ext = fileTxt;
     fres->name = existingFile;
-    fsman->read(fres);
+    try {
+        fsman->read(fres);
+    } catch (exception &e) {
+        PRINT(e.what());
+    }
     PRINT("read existing filename");
     PRINT("    " <<fres->content);
     PRINT("hex print of fres->content");
@@ -185,7 +217,11 @@ int main(int argc, char *argv[]){
     clearRes(fres);
     fres->ext = fileTxt;
     fres->name = wrongFile;
-    fsman->read(fres);
+    try {
+        fsman->read(fres);
+    } catch (exception &e) {
+        PRINT(e.what());
+    }
     PRINT("read file with wrong filename");
     PRINT("    " <<fres->content);
     ASSERT_STRING_EQUAL(testEmptyString, fres->content);
@@ -197,7 +233,11 @@ int main(int argc, char *argv[]){
     fres->ext = fileTxt;
     fres->name = newFile;
     fres->content = testDirtyString;
-    fsman->read(fres);
+    try {
+        fsman->read(fres);
+    } catch (exception &e) {
+        PRINT(e.what());
+    }
     PRINT("read newly created file");
     PRINT("    " <<fres->content);
     ASSERT_STRING_EQUAL(testEmptyString, fres->content);
@@ -208,7 +248,11 @@ int main(int argc, char *argv[]){
     clearRes(fres);
     fres->ext = fileTxt;
     fres->name = wrongFile;
-    fsman->update(fres);
+    try {
+        fsman->update(fres);
+    } catch (exception &e) {
+        PRINT(e.what());
+    }
     PRINT("update file with wrong filename");
     PRINT("    " <<wrongFile <<".txt");
     ASSERT_EQUAL(fileExists(wrongFile + ".txt"), false);
@@ -220,13 +264,21 @@ int main(int argc, char *argv[]){
     fres->ext = fileTxt;
     fres->name = newFile;
     fres->content = testNewString;
-    fsman->update(fres);
+    try {
+        fsman->update(fres);
+    } catch (exception &e) {
+        PRINT(e.what());
+    }
     PRINT("update new file with new string");
     PRINT("    " <<testNewString);
     clearRes(fres);
     fres->ext = fileTxt;
     fres->name = newFile;
-    fsman->read(fres);
+    try {
+        fsman->read(fres);
+    } catch (exception &e) {
+        PRINT(e.what());
+    }
     PRINT("read new file");
     PRINT("    " <<fres->content);
     PRINT("hex print of fres->content");
@@ -242,13 +294,21 @@ int main(int argc, char *argv[]){
     fres->ext = fileTxt;
     fres->name = newFile;
     fres->content = testEmptyString;
-    fsman->update(fres);
+    try {
+        fsman->update(fres);
+    } catch (exception &e) {
+        PRINT(e.what());
+    }
     PRINT("update new file with empty string");
     PRINT("    " <<testEmptyString);
     clearRes(fres);
     fres->ext = fileTxt;
     fres->name = newFile;
-    fsman->read(fres);
+    try {
+        fsman->read(fres);
+    } catch (exception &e) {
+        PRINT(e.what());
+    }
     PRINT("read new file");
     PRINT("    " <<fres->content);
     ASSERT_STRING_EQUAL(testEmptyString, fres->content);
@@ -259,7 +319,11 @@ int main(int argc, char *argv[]){
     clearRes(fres);
     fres->ext = fileTxt;
     fres->name = newFile;
-    fsman->remove(fres);
+    try {
+        fsman->remove(fres);
+    } catch (exception &e) {
+        PRINT(e.what());
+    }
     PRINT("remove new file");
     PRINT("    " <<newFile <<".txt");
     ASSERT_EQUAL(fileExists(newFile + ".txt"), false);

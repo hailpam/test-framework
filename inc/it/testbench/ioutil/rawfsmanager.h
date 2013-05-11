@@ -52,25 +52,25 @@ class RawFSManager : public FSManager {
          *
          * @param[in] fres Resource to create
          */
-        void create(const FormattedResource *fres);    //!< Create new file
+        void create(const FormattedResource *fres) throw (TestFrameworkException);    //!< Create new file
         /**
          * Read file
          *
          * @param[inout] fres Resource to read
          */
-        void read(FormattedResource *fres);   //!< Read file
+        void read(FormattedResource *fres) throw (TestFrameworkException);   //!< Read file
         /**
          * Update file
          *
          * @param[in] fres Resource to write
          */
-        void update(const FormattedResource *fres); //!< Update file
+        void update(const FormattedResource *fres) throw (TestFrameworkException); //!< Update file
         /**
          * Delete file
          *
          * @param[in] fres Resource to delete
          */
-        void remove(const FormattedResource* fres); //!< Delete file
+        void remove(const FormattedResource* fres) throw (TestFrameworkException); //!< Delete file
 };
 
 } /* IOUTIL */

@@ -46,25 +46,25 @@ class StubFSManager : public FSManager {
          *
          * @param[in] fres Resource to create
          */
-        void create(const FormattedResource *fres);
+        void create(const FormattedResource *fres) throw (TestFrameworkException);
         /**
          * Read file
          *
          * @param[inout] fres Resource to read
          */
-        void read(FormattedResource *fres);
+        void read(FormattedResource *fres) throw (TestFrameworkException);
         /**
          * Update file
          *
          * @param[in] fres Resource to write
          */
-        void update(const FormattedResource *fres);
+        void update(const FormattedResource *fres) throw (TestFrameworkException);
         /**
          * Delete file
          *
          * @param[in] fres Resource to delete
          */
-        void remove(const FormattedResource* fres);
+        void remove(const FormattedResource* fres) throw (TestFrameworkException);
 };
 
 } /* IOUTIL */

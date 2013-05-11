@@ -10,11 +10,11 @@
 using namespace std;
 using namespace it::testbench::ioutil;
 
-RawFSManager* RawFSManager::instance = 0; /*!< static pointer to ensure a single instance */
-fstream RawFSManager::fs;          /*!< File stream used for log file */
+RawFSManager* RawFSManager::instance = 0;   /*!< static pointer to ensure a single instance */
+fstream RawFSManager::fs;                   /*!< File stream used for log file */
 pthread_mutex_t RawFSManager::fsMux = PTHREAD_MUTEX_INITIALIZER;  /*!< mutex for protecting static variables */
 
-const int BUF_SIZE = 4096;
+const int BUF_SIZE = 4096;      /*!< Buffer used for decoupling Read and Update from the string */
 
 RawFSManager::RawFSManager(){
     DEBUG("");
@@ -37,11 +37,8 @@ RawFSManager* RawFSManager::getInstance(){
  * Helper functions
  */
 
-bool invalidRes(const FormattedResource *fres){
-    stringstream strStream;
-    strStream <<"ext.length = " <<fres->ext.length() <<" name.length() = " <<fres->name.length();
-    DEBUG(strStream.str());
-    return ( !fres->ext.length() || !fres->name.length() );
+bool validRes(const FormattedResource *fres){
+    return ( fres->ext.length() && fres->name.length() );
 }
 
 /**
@@ -80,130 +77,129 @@ bool fileExists(const string filename){
  * single-threaded)
  */
 
-void RawFSManager::create(const FormattedResource *fres){
+void RawFSManager::create(const FormattedResource *fres) throw (TestFrameworkException){
     DEBUG("");
-    /* sanity check first */
     if (!instance)
-        return; // exception
-    if (invalidRes(fres))
-        return; // exception
+        throw TestFrameworkException("Uninitialized RawFSManager");
+    if (!validRes(fres))
+        throw TestFrameworkException("Invalid FormattedResource");
     string fileName = stringName(fres);
     if (fileExists(fileName))
-        return; // exception
-    /* lockRes() - acquire mutex on fstream */
+        throw TestFrameworkException("File already exists");
     if (pthread_mutex_lock(&fsMux) < 0)
-        return; // exception
+        throw TestFrameworkException("Can't acquire lock on mutex");
     DEBUG("lock acquired");
     /* create file */
-    if (!fs.is_open()) { // exception
-        fs.open(fileName.c_str(), std::fstream::out);
-        if (!fs.fail()){ //exception
-            DEBUG("fstream opened");
-            fs.flush();
-            fs.close();
-        }
+    if (fs.is_open()) {
+        pthread_mutex_unlock(&fsMux);
+        throw TestFrameworkException("File stream is busy");
     }
-    /* unlockRes() - release mutex */
+    fs.open(fileName.c_str(), std::fstream::out);
+    if (fs.fail()) {
+        pthread_mutex_unlock(&fsMux);
+        throw TestFrameworkException("File opening failed");
+    }
+    fs.flush();
+    fs.close();
     pthread_mutex_unlock(&fsMux);
     DEBUG("lock released");
 }
 
-void RawFSManager::read(FormattedResource *fres){
+void RawFSManager::read(FormattedResource *fres) throw (TestFrameworkException){
     DEBUG("");
-    /* sanity check first */
     if (!instance)
-        return; // exception
-    if (invalidRes(fres))
-        return; // exception
+        throw TestFrameworkException("Uninitialized RawFSManager");
+    if (!validRes(fres))
+        throw TestFrameworkException("Invalid FormattedResource");
     string fileName = stringName(fres);
     if (!fileExists(fileName))
-        return; // exception
-    /* lockRes() - acquire mutex on fstream */
+        throw TestFrameworkException("File doesn't exist");
     if (pthread_mutex_lock(&fsMux) < 0)
-        return; // exception
+        throw TestFrameworkException("Can't acquire lock on mutex");
     DEBUG("lock acquired");
     /* read file */
-    if (!fs.is_open()) { // exception
-        fs.open(fileName.c_str(), std::fstream::in);
-        if (!fs.fail()) { //exception
-            DEBUG("fstream opened");
-            char buffer[BUF_SIZE];
-            memset(buffer, 0, BUF_SIZE);
-            fres->content.clear();
-            while (!fs.eof()) {
-                fs.read(buffer, sizeof(buffer));
-                fres->content += buffer;
-                DEBUG("buffer:" <<buffer);
-                DEBUG("buffer length:" <<strlen(buffer));
-                DEBUG("fres->content:" <<fres->content);
-                DEBUG("fres->content length:" <<fres->content.length());
-            }
-            fs.sync();
-            fs.close();
-        }
+    if (fs.is_open()) {
+        pthread_mutex_unlock(&fsMux);
+        throw TestFrameworkException("File stream is busy");
     }
+    fs.open(fileName.c_str(), std::fstream::in);
+    if (fs.fail()) {
+        pthread_mutex_unlock(&fsMux);
+        throw TestFrameworkException("File opening failed");
+    }
+    char buffer[BUF_SIZE];
+    memset(buffer, 0, BUF_SIZE);
+    fres->content.clear();
+    while (!fs.eof()) {
+        fs.read(buffer, sizeof(buffer));
+        fres->content += buffer;
+        DEBUG("buffer:" <<buffer);
+        DEBUG("buffer length:" <<strlen(buffer));
+        DEBUG("fres->content:" <<fres->content);
+        DEBUG("fres->content length:" <<fres->content.length());
+    }
+    fs.sync();
+    fs.close();
+
     /* unlockRes() - release mutex */
     pthread_mutex_unlock(&fsMux);
     DEBUG("lock released");
 }
 
-void RawFSManager::update(const FormattedResource *fres){
+void RawFSManager::update(const FormattedResource *fres) throw (TestFrameworkException){
     DEBUG("");
-    /* sanity check first */
     if (!instance)
-        return; // exception
-    if (invalidRes(fres))
-        return; // exception
+        throw TestFrameworkException("Uninitialized RawFSManager");
+    if (!validRes(fres))
+        throw TestFrameworkException("Invalid FormattedResource");
     string fileName = stringName(fres);
     if (!fileExists(fileName))
-        return; // exception
-    /* lockRes() - acquire mutex on fstream */
+        throw TestFrameworkException("File doesn't exist");
     if (pthread_mutex_lock(&fsMux) < 0)
-        return; // exception
+        throw TestFrameworkException("Can't acquire lock on mutex");
     DEBUG("lock acquired");
     /* write file */
-    if (!fs.is_open()) { // exception
-        fs.open(fileName.c_str(), std::fstream::out | std::fstream::trunc);
-        if (!fs.fail()) { //exception
-            DEBUG("fstream opened");
-            char buffer[BUF_SIZE];
-            memset(buffer, 0, BUF_SIZE);
-            size_t read_bytes, pos = 0, len_bytes = fres->content.length();
-            while (len_bytes) {
-                read_bytes = fres->content.copy(buffer, sizeof(buffer), pos);
-                len_bytes -= read_bytes;
-                pos += read_bytes;
-                fs.write(buffer, read_bytes);
-                DEBUG("buffer:" <<buffer);
-                DEBUG("buffer length:" <<strlen(buffer));
-                DEBUG("fres->content:" <<fres->content);
-                DEBUG("fres->content length:" <<fres->content.length());
-            }
-            fs.flush();
-            fs.close();
-        }
+    if (fs.is_open()) {
+        pthread_mutex_unlock(&fsMux);
+        throw TestFrameworkException("File stream is busy");
     }
-    /* unlockRes() - release mutex */
+    fs.open(fileName.c_str(), std::fstream::out | std::fstream::trunc);
+    if (fs.fail()) {
+        pthread_mutex_unlock(&fsMux);
+        throw TestFrameworkException("File opening failed");
+    }
+    char buffer[BUF_SIZE];
+    memset(buffer, 0, BUF_SIZE);
+    size_t read_bytes, pos = 0, len_bytes = fres->content.length();
+    while (len_bytes) {
+        read_bytes = fres->content.copy(buffer, sizeof(buffer), pos);
+        len_bytes -= read_bytes;
+        pos += read_bytes;
+        fs.write(buffer, read_bytes);
+        DEBUG("buffer:" <<buffer);
+        DEBUG("buffer length:" <<strlen(buffer));
+        DEBUG("fres->content:" <<fres->content);
+        DEBUG("fres->content length:" <<fres->content.length());
+    }
+    fs.flush();
+    fs.close();
     pthread_mutex_unlock(&fsMux);
     DEBUG("lock released");
 }
 
-void RawFSManager::remove(const FormattedResource* fres){
+void RawFSManager::remove(const FormattedResource* fres) throw (TestFrameworkException){
     DEBUG("");
-/* sanity check first */
     if (!instance)
-        return; // exception
-    if (invalidRes(fres))
-        return; // exception
+        throw TestFrameworkException("Uninitialized RawFSManager");
+    if (!validRes(fres))
+        throw TestFrameworkException("Invalid FormattedResource");
     string fileName = stringName(fres);
     if (!fileExists(fileName))
-        return; // exception
-    /* lockRes() - acquire mutex on fstream */
+        throw TestFrameworkException("File already exists");
     if (pthread_mutex_lock(&fsMux) < 0)
-        return; // exception
+        throw TestFrameworkException("Can't acquire lock on mutex");
     DEBUG("lock acquired");
     std::remove(fileName.c_str());
-    /* unlockRes() - release mutex */
     pthread_mutex_unlock(&fsMux);
     DEBUG("lock released");
 }

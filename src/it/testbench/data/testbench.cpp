@@ -358,6 +358,7 @@ TestCaseLoader::~TestCaseLoader() {/* Do nothing */}
 
 ReturnCode TestCaseLoader::loadTestCase(unsigned int tcIdx)
 {
+    // TODO : to be reviewed : segmentation fault without the initial PAD
     ReturnCode retCode;
     if(tcList.size() == 0) {
         tcList.reserve((tcIdx + 10));
@@ -372,20 +373,19 @@ ReturnCode TestCaseLoader::loadTestCase(unsigned int tcIdx)
         DATA_INFO("Index Out of Bound :: Operation Failed");
         retCode.code = ERROR;
         retCode.desc = "Index Out of Bound :: Operation Failed";
+
         return retCode;
     }
     TestCaseBuilder* tcBuild = tcBuilders[tcIdx];
     TestCase* ptrToTC = tcBuild->buildTestCase();
     DATA_INFO("Test Case built successfully");
     itrList = tcList.begin();
-    DATA_INFO("1");
     std::advance(itrList,tcIdx);
-    DATA_INFO("2");
     tcList.insert(itrList, ptrToTC);
-    DATA_INFO("3");
     DATA_INFO("Test Case inserted successfully");
     retCode.code = SUCCESS;
     retCode.desc = "Test Case loaded";
+
     return retCode;
 }
 
@@ -398,6 +398,7 @@ ReturnCode TestCaseLoader::loadAllTestCases()
         DATA_INFO("No Test Case Builder Registered :: Operation Failed");
         retCode.code = ERROR;
         retCode.desc = "No Test Case Builder Registered :: Operation Failed";
+
         return retCode;
     }
     vector<TestCaseBuilder*>::iterator itrVector;
@@ -412,6 +413,7 @@ ReturnCode TestCaseLoader::loadAllTestCases()
     }
     retCode.code = SUCCESS;
     retCode.desc = "All Test Cases loaded";
+
     return retCode;
 }
 
@@ -419,14 +421,21 @@ const TestCase* TestCaseLoader::getLoadedTestCase(unsigned int tcIdx) const
 {
     if(tcIdx > tcList.size()) {
         DATA_INFO("Index Out of Bound :: Operation Failed");
+
         return 0;
     }
     if(tcList.size() == 0) {
         DATA_INFO("No Test Cases Loaded:: Operation Failed");
+
         return 0;
     }
-    DATA_INFO_VAL("Test Case Id", 1000000);
-    return tcList[tcIdx];
+    TestCase* tmpPtr = tcList[tcIdx];
+    if(tmpPtr != 0)
+        DATA_INFO_VAL("Retrieved the Test Case#", tmpPtr->getTestCaseNumber());
+    else
+        DATA_ERR_VAL("Retrieved a NULL Pointer::BE CAREFUL", tmpPtr);
+
+    return tmpPtr;
 }
 
 const vector<TestCase*>* TestCaseLoader::getAllLoadedTestCases() const
@@ -444,6 +453,8 @@ ReturnCode TestCaseLoader::registerTestCaseBuilder(unsigned const int tcIdx, con
     tcBuilders.insert(itrBuildList, const_cast<TestCaseBuilder*>(tcBuilder));
     retCode.code = SUCCESS;
     retCode.desc = "Test Case Builder registered";
+    DATA_INFO_VAL("Test Case Builder has been correctly inserted, at#", tcIdx);
+
     return retCode;
 }
 

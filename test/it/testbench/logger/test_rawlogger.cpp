@@ -1,8 +1,8 @@
-#include <rawlogger.h>
-#include <debug.h>
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <rawlogger.h>
+#include <debug.h>
 
 using namespace std;
 using namespace it::testbench::logger;

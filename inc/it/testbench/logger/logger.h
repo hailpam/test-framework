@@ -30,39 +30,39 @@ class Logger {
         /**
          * Trace level logging
          *
-         * @param[in] s Log message
+         * @param[in] str Log message
          */
-        virtual void logT(const string str) = 0;  //!< Trace level logging
+        virtual void logT(const string &str) = 0;  //!< Trace level logging
         /**
          * Debug level logging
          *
-         * @param[in] s Log message
+         * @param[in] str Log message
          */
-        virtual void logD(const string str) = 0;  //!< Debug level logging
+        virtual void logD(const string &str) = 0;  //!< Debug level logging
         /**
          * Information level logging
          *
-         * @param[in] s Log message
+         * @param[in] str Log message
          */
-        virtual void logI(const string str) = 0;  //!< Information level logging
+        virtual void logI(const string &str) = 0;  //!< Information level logging
         /**
          * Warning level logging
          *
-         * @param[in] s Log message
+         * @param[in] str Log message
          */
-        virtual void logW(const string str) = 0;  //!< Warning level logging
+        virtual void logW(const string &str) = 0;  //!< Warning level logging
         /**
          * Error level logging
          *
-         * @param[in] s Log message
+         * @param[in] str Log message
          */
-        virtual void logE(const string str) = 0;  //!< Error level logging
+        virtual void logE(const string &str) = 0;  //!< Error level logging
         /**
          * Fatal level logging
          *
-         * @param[in] s Log message
+         * @param[in] str Log message
          */
-        virtual void logF(const string str) = 0;  //!< Fatal level logging
+        virtual void logF(const string &str) = 0;  //!< Fatal level logging
 };
 
 } /* LOGGER */

@@ -2,7 +2,6 @@
 #define RAWLOGGER_H
 
 #include <logger.h>
-#include <pthread.h>
 #include <fstream>
 
 // $Id$
@@ -52,43 +51,43 @@ class RawLogger : public Logger {
          *
          * @param[in] logFile Log file pathname
          */
-        static RawLogger* getInstance(const string logFile); //!< gets instance, lazy initialization
+        static RawLogger* getInstance(const string &logFile); //!< gets instance, lazy initialization
         /**
          * Trace level logging
          *
-         * @param[in] s Log message
+         * @param[in] str Log message
          */
-        void logT(const string str);  //!< Trace level logging
+        void logT(const string &str);  //!< Trace level logging
         /**
          * Debug level logging
          *
-         * @param[in] s Log message
+         * @param[in] str Log message
          */
-        void logD(const string str);  //!< Debug level logging
+        void logD(const string &str);  //!< Debug level logging
         /**
          * Information level logging
          *
-         * @param[in] s Log message
+         * @param[in] str Log message
          */
-        void logI(const string str);  //!< Information level logging
+        void logI(const string &str);  //!< Information level logging
         /**
          * Warning level logging
          *
-         * @param[in] s Log message
+         * @param[in] str Log message
          */
-        void logW(const string str);  //!< Warning level logging
+        void logW(const string &str);  //!< Warning level logging
         /**
          * Error level logging
          *
-         * @param[in] s Log message
+         * @param[in] str Log message
          */
-        void logE(const string str);  //!< Error level logging
+        void logE(const string &str);  //!< Error level logging
         /**
          * Fatal level logging
          *
-         * @param[in] s Log message
+         * @param[in] str Log message
          */
-        void logF(const string str);  //!< Fatal level logging
+        void logF(const string &str);  //!< Fatal level logging
 };
 
 } /* LOGGER */

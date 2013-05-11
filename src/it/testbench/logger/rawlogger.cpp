@@ -1,5 +1,4 @@
 #include <fstream>
-
 #include <rawlogger.h>
 #include <debug.h>
 
@@ -30,7 +29,7 @@ RawLogger* RawLogger::getInstance(){
     return instance;
 }
 
-RawLogger* RawLogger::getInstance(const string logFile){
+RawLogger* RawLogger::getInstance(const string &logFile){
     DEBUG("");
     /* Lazy initialization */
     if (pthread_mutex_lock(&logMux) < 0)
@@ -45,7 +44,7 @@ RawLogger* RawLogger::getInstance(const string logFile){
     return instance;
 }
 
-void RawLogger::logT(const string str){
+void RawLogger::logT(const string &str){
     DEBUG("");
     /* TODO: no concurrency control here!!! */
     /* TODO: get timestamp!!! */
@@ -56,7 +55,7 @@ void RawLogger::logT(const string str){
     pthread_mutex_unlock(&logMux);
 }
 
-void RawLogger::logD(const string str){
+void RawLogger::logD(const string &str){
     DEBUG("");
     /* TODO: no concurrency control here!!! */
     /* TODO: get timestamp!!! */
@@ -67,7 +66,7 @@ if (pthread_mutex_lock(&logMux) < 0)
     pthread_mutex_unlock(&logMux);
 }
 
-void RawLogger::logI(const string str){
+void RawLogger::logI(const string &str){
     DEBUG("");
     /* TODO: no concurrency control here!!! */
     /* TODO: get timestamp!!! */
@@ -78,7 +77,7 @@ void RawLogger::logI(const string str){
     pthread_mutex_unlock(&logMux);
 }
 
-void RawLogger::logW(const string str){
+void RawLogger::logW(const string &str){
     DEBUG("");
     /* TODO: no concurrency control here!!! */
     /* TODO: get timestamp!!! */
@@ -89,7 +88,7 @@ void RawLogger::logW(const string str){
     pthread_mutex_unlock(&logMux);
 }
 
-void RawLogger::logE(const string str){
+void RawLogger::logE(const string &str){
     DEBUG("");
     /* TODO: no concurrency control here!!! */
     /* TODO: get timestamp!!! */
@@ -100,7 +99,7 @@ void RawLogger::logE(const string str){
     pthread_mutex_unlock(&logMux);
 }
 
-void RawLogger::logF(const string str){
+void RawLogger::logF(const string &str){
     DEBUG("");
     /* TODO: no concurrency control here!!! */
     /* TODO: get timestamp!!! */

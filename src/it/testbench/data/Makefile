@@ -21,13 +21,14 @@ TEST    = test_data
 TEST_1  = fake_observer
 TEST_2  = concrete_ctxobject
 TEST_3  = custom_testitems
+TEST_4  = concrete_testbuilder
 DIST	= libdata.a
 
 .PHONY: clean cleantest distributable runtest
 
-all: ${OBJ_DIR}/${TARGET}.o ${OBJ_DIR}/${TGT_1}.o ${OBJ_DIR}/${TGT_2}.o ${OBJ_DIR}/${TGT_3}.o ${OBJ_DIR}/${TGT_4}.o ${OBJ_DIR}/${TEST}.o ${OBJ_DIR}/${TEST_1}.o ${OBJ_DIR}/${TEST_2}.o ${OBJ_DIR}/${TEST_3}.o ${TEST}
+all: ${OBJ_DIR}/${TARGET}.o ${OBJ_DIR}/${TGT_1}.o ${OBJ_DIR}/${TGT_2}.o ${OBJ_DIR}/${TGT_3}.o ${OBJ_DIR}/${TGT_4}.o ${OBJ_DIR}/${TEST}.o ${OBJ_DIR}/${TEST_1}.o ${OBJ_DIR}/${TEST_2}.o ${OBJ_DIR}/${TEST_3}.o ${OBJ_DIR}/${TEST_4}.o ${TEST}
 
-${TEST}: ${OBJ_DIR}/${TARGET}.o ${OBJ_DIR}/${TGT_1}.o ${OBJ_DIR}/${TGT_2}.o ${OBJ_DIR}/${TGT_3}.o  ${OBJ_DIR}/${TGT_4}.o ${OBJ_DIR}/${TEST}.o ${OBJ_DIR}/${TEST_1}.o ${OBJ_DIR}/${TEST_2}.o ${OBJ_DIR}/${TEST_3}.o
+${TEST}: ${OBJ_DIR}/${TARGET}.o ${OBJ_DIR}/${TGT_1}.o ${OBJ_DIR}/${TGT_2}.o ${OBJ_DIR}/${TGT_3}.o  ${OBJ_DIR}/${TGT_4}.o ${OBJ_DIR}/${TEST}.o ${OBJ_DIR}/${TEST_1}.o ${OBJ_DIR}/${TEST_2}.o ${OBJ_DIR}/${TEST_3}.o ${OBJ_DIR}/${TEST_4}.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 	mv ${TEST} ${BIN_DIR}/
 
@@ -64,6 +65,10 @@ ${OBJ_DIR}/${TEST_2}.o: ${TST_DIR}/${TEST_2}.cpp ${OBJ_DIR}/${TARGET}.o
 	mv *.o ${OBJ_DIR}/
 
 ${OBJ_DIR}/${TEST_3}.o: ${TST_DIR}/${TEST_3}.cpp ${OBJ_DIR}/${TARGET}.o
+	$(CC) -Wall -c $(CCFLAGS) $<
+	mv *.o ${OBJ_DIR}/
+
+${OBJ_DIR}/${TEST_4}.o: ${TST_DIR}/${TEST_4}.cpp ${OBJ_DIR}/${TARGET}.o
 	$(CC) -Wall -c $(CCFLAGS) $<
 	mv *.o ${OBJ_DIR}/
 

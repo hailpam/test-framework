@@ -63,7 +63,7 @@ class TestCaseContext {
 class TestItem {
     public:
         TestItem() {}
-        ~TestItem() {}
+        virtual ~TestItem() {}
         /**
           * Set up the Test Item in terms of
           *

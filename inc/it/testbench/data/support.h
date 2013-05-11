@@ -6,6 +6,8 @@
 
 #include <string>
 
+#define NR_OF_THREADS 50
+
 // $Id$
 /**
  * @file support.h

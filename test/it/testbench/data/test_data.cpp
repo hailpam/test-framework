@@ -182,11 +182,11 @@ int main(int argc, char* argv[])
     cout << "\n+++ TEST CASE LOADER                                                             +++";
     cout << "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
     TestCaseLoader* tcLoader = new TestCaseLoader();
-    bool bTCLoad = tcLoader->loadAllTestCases();
-    TEST_EQ(1,"Test Case Loader - No Builders","tcLoader->loadAllTestCases()","Load all Test Cases",bTCLoad,1);
+    ReturnCode bTCLoad = tcLoader->loadAllTestCases();
+    TEST_EQ(1,"Test Case Loader - No Builders","tcLoader->loadAllTestCases()","Load all Test Cases",bTCLoad.code,SUCCESS);
 
     bTCLoad = tcLoader->loadTestCase(1);
-    TEST_EQ(2,"Test Case Loader - No Builders","tcLoader->loadTestCase(1)","Load Test Case #1",bTCLoad,1);
+    TEST_EQ(2,"Test Case Loader - No Builders","tcLoader->loadTestCase(1)","Load Test Case #1",bTCLoad.code,SUCCESS);
 
     TestCase* retTC = const_cast<TestCase*>(tcLoader->getLoadedTestCase(1));
     TEST_EQ(3,"Test Case Loader - No Builders","tcLoader->getLoadedTestCase(1)","Get Test Case Number #1",retTC,0);
@@ -213,40 +213,36 @@ int main(int argc, char* argv[])
     TEST_EQ(8,"Test Case Loader","tcBuilt3->getTestCaseNumber()","Get Test Case Number",tcBuilt3->getTestCaseNumber(),3);
 
 
-    bool regTCBuild = tcLoader->registerTestCaseBuilder(0, ctb1);
-    TEST_EQ(9,"Test Case Loader","tcLoader->registerTestCaseBuilder(0, ctb1)","Regist 1st Builder",regTCBuild,1);
+    ReturnCode regTCBuild = tcLoader->registerTestCaseBuilder(0, ctb1);
+    TEST_EQ(9,"Test Case Loader","tcLoader->registerTestCaseBuilder(0, ctb1)","Regist 1st Builder",regTCBuild.code,SUCCESS);
 
     regTCBuild = tcLoader->registerTestCaseBuilder(1, ctb2);
-    TEST_EQ(10,"Test Case Loader","tcLoader->registerTestCaseBuilder(1, ctb2)","Regist 2st Builder",regTCBuild,1);
+    TEST_EQ(10,"Test Case Loader","tcLoader->registerTestCaseBuilder(1, ctb2)","Regist 2st Builder",regTCBuild.code,SUCCESS);
 
     regTCBuild = tcLoader->registerTestCaseBuilder(2, ctb3);
-    TEST_EQ(11,"Test Case Loader","tcLoader->registerTestCaseBuilder(2, ctb3)","Regist 2st Builder",regTCBuild,1);
+    TEST_EQ(11,"Test Case Loader","tcLoader->registerTestCaseBuilder(2, ctb3)","Regist 2st Builder",regTCBuild.code,SUCCESS);
 
     bTCLoad = tcLoader->loadTestCase(1);
-    cout << regTCBuild;
-    TEST_EQ(12,"Test Case Loader","tcLoader->loadTestCase(1)","Load 1st Test Case",regTCBuild,1);
+    TEST_EQ(12,"Test Case Loader","tcLoader->loadTestCase(1)","Load 1st Test Case",regTCBuild.code,SUCCESS);
 
     TestCase* loadTC = const_cast<TestCase*>(tcLoader->getLoadedTestCase(1));
     TEST_NEQ(13,"Test Case Loader","tcLoader->getLoadedTestCase(1)","Get 1st Test Case",loadTC,0);
     TEST_EQ(14,"Test Case Loader","tcLoader->getLoadedTestCase(1)","1st Test Case ID",loadTC->getTestCaseNumber(),(1+1));
 
     bTCLoad = tcLoader->loadAllTestCases();
-    TEST_EQ(15,"Test Case Loader","tcLoader->loadAllTestCases()","Load all Test Cases Registered",regTCBuild,1);
+    TEST_EQ(15,"Test Case Loader","tcLoader->loadAllTestCases()","Load all Test Cases Registered",regTCBuild.code,SUCCESS);
 
     TestCase* loadTC0 = const_cast<TestCase*>(tcLoader->getLoadedTestCase(0+1));
     TEST_NEQ(16,"Test Case Loader","tcLoader->getLoadedTestCase(0)","Get 1st Test Case",loadTC0,0);
     TEST_EQ(17,"Test Case Loader","tcLoader->getLoadedTestCase(0)","1st Test Case ID",loadTC0->getTestCaseNumber(),(0+1));
-    cout << "testCase0::"<<loadTC0->getTestCaseNumber()<< endl;
 
     TestCase* loadTC1 = const_cast<TestCase*>(tcLoader->getLoadedTestCase(1+1));
     TEST_NEQ(18,"Test Case Loader","tcLoader->getLoadedTestCase(1)","Get 1st Test Case",loadTC1,0);
     TEST_EQ(19,"Test Case Loader","tcLoader->getLoadedTestCase(1)","1st Test Case ID",loadTC1->getTestCaseNumber(),(1+1));
-    cout << "testCase1::"<<loadTC1->getTestCaseNumber()<< endl;
 
     TestCase* loadTC2 = const_cast<TestCase*>(tcLoader->getLoadedTestCase(2+1));
     TEST_NEQ(20,"Test Case Loader","tcLoader->getLoadedTestCase(2)","Get 1st Test Case",loadTC2,0);
     TEST_EQ(21,"Test Case Loader","tcLoader->getLoadedTestCase(2)","1st Test Case ID",loadTC2->getTestCaseNumber(),(2+1));
-    cout << "testCase2::"<<loadTC2->getTestCaseNumber()<< endl;
 
 
     //delete tCase;

@@ -356,8 +356,9 @@ TestCaseLoader::TestCaseLoader() {/* Do nothing */}
 
 TestCaseLoader::~TestCaseLoader() {/* Do nothing */}
 
-bool TestCaseLoader::loadTestCase(unsigned int tcIdx)
+ReturnCode TestCaseLoader::loadTestCase(unsigned int tcIdx)
 {
+    ReturnCode retCode;
     if(tcList.size() == 0) {
         tcList.reserve((tcIdx + 10));
         TestCase* pad = new TestCase();
@@ -365,57 +366,63 @@ bool TestCaseLoader::loadTestCase(unsigned int tcIdx)
         pad->setSetupTestItem(0);
         pad->setTearDownTestItem(0);
         pad->addRunnableTestItem(0);
-        cout <<"chitammuort!";
         tcList.push_back(pad);
     }
     if(tcIdx > tcBuilders.size()) {
-        DATA_INFO("TestCaseLoader::loadTestCase Index Out of Bound :: Operation Failed");
-        return false;
+        DATA_INFO("Index Out of Bound :: Operation Failed");
+        retCode.code = ERROR;
+        retCode.desc = "Index Out of Bound :: Operation Failed";
+        return retCode;
     }
     TestCaseBuilder* tcBuild = tcBuilders[tcIdx];
     TestCase* ptrToTC = tcBuild->buildTestCase();
-    DATA_INFO("TestCaseLoader::loadTestCase Test Case built successfully");
+    DATA_INFO("Test Case built successfully");
     itrList = tcList.begin();
-    cout << 1;
+    DATA_INFO("1");
     std::advance(itrList,tcIdx);
-    cout << 2;
+    DATA_INFO("2");
     tcList.insert(itrList, ptrToTC);
-    cout << 3;
-    DATA_INFO("TestCaseLoader::loadTestCase Test Case inserted successfully");
-
-    return true;
+    DATA_INFO("3");
+    DATA_INFO("Test Case inserted successfully");
+    retCode.code = SUCCESS;
+    retCode.desc = "Test Case loaded";
+    return retCode;
 }
 
-bool TestCaseLoader::loadAllTestCases()
+ReturnCode TestCaseLoader::loadAllTestCases()
 {
+    ReturnCode retCode;
     if(tcList.size() == 0)
         tcList.reserve(20);
     if(tcBuilders.size() == 0) {
-        DATA_INFO("TestCaseLoader::loadAllTestCases No Test Case Builder Registered :: Operation Failed");
-        return false;
+        DATA_INFO("No Test Case Builder Registered :: Operation Failed");
+        retCode.code = ERROR;
+        retCode.desc = "No Test Case Builder Registered :: Operation Failed";
+        return retCode;
     }
     vector<TestCaseBuilder*>::iterator itrVector;
     for(itrVector = tcBuilders.begin(); itrVector != tcBuilders.end(); ++itrVector) {
         TestCase* ptrToTC = (*itrVector)->buildTestCase();
-        DATA_INFO("TestCaseLoader::loadAllTestCases Test Case built successfully");
+        DATA_INFO("Test Case built successfully");
         int idx = (int)(ptrToTC->getTestCaseNumber());
         itrList = tcList.begin();
         std::advance(itrList,idx);
         tcList.insert(itrList, ptrToTC);
-        DATA_INFO("TestCaseLoader::loadTestCase Test Case inserted successfully");
+        DATA_INFO("Test Case inserted successfully");
     }
-
-    return true;
+    retCode.code = SUCCESS;
+    retCode.desc = "All Test Cases loaded";
+    return retCode;
 }
 
 const TestCase* TestCaseLoader::getLoadedTestCase(unsigned int tcIdx) const
 {
     if(tcIdx > tcList.size()) {
-        DATA_INFO("TestCaseLoader::getLoadedTestCase Index Out of Bound :: Operation Failed");
+        DATA_INFO("Index Out of Bound :: Operation Failed");
         return 0;
     }
     if(tcList.size() == 0) {
-        DATA_INFO("TestCaseLoader::getLoadedTestCase No Test Cases Loaded:: Operation Failed");
+        DATA_INFO("No Test Cases Loaded:: Operation Failed");
         return 0;
     }
     DATA_INFO_VAL("Test Case Id", 1000000);
@@ -427,15 +434,17 @@ const vector<TestCase*>* TestCaseLoader::getAllLoadedTestCases() const
     return &tcList;
 }
 
-bool TestCaseLoader::registerTestCaseBuilder(unsigned const int tcIdx, const TestCaseBuilder* tcBuilder)
+ReturnCode TestCaseLoader::registerTestCaseBuilder(unsigned const int tcIdx, const TestCaseBuilder* tcBuilder)
 {
+    ReturnCode retCode;
     if(tcBuilders.size() == 0)
         tcBuilders.reserve((tcIdx + 10));
     itrBuildList = tcBuilders.begin();
     std::advance(itrBuildList, tcIdx);
     tcBuilders.insert(itrBuildList, const_cast<TestCaseBuilder*>(tcBuilder));
-
-    return true;
+    retCode.code = SUCCESS;
+    retCode.desc = "Test Case Builder registered";
+    return retCode;
 }
 
 } /* DATA */

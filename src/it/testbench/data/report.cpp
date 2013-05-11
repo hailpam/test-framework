@@ -7,20 +7,9 @@ namespace testbench
 namespace data
 {
 
-Report::Report()
-{
-    sessionId = new string("");
-    testPlanId = new string("");
-    testId = new string("");
-    outcome = false;
-}
+Report::Report() : outcome(false) {}
 
-Report::~Report()
-{
-    delete sessionId;
-    delete testPlanId;
-    delete testId;
-}
+Report::~Report() {/* pointers to external resources (owned by others) are not deallocated */}
 
 bool Report::getOutcome()
 {
@@ -41,8 +30,8 @@ void Report::setSessionId(const string* sId)
 {
     if(sId->size() == 0)
         return;
-    *sessionId = *sId;
-    DEBUG("Report::setSessionId::Value Set ["+(*sessionId)+"]");
+    sessionId = const_cast<string*>(sId);
+    DATA_INFO_VAL("Set Session Id",*sessionId);
 }
 
 const string* Report::getTestPlanId()
@@ -54,8 +43,8 @@ void Report::setTestPlanId(const string* tpId)
 {
     if(tpId->size() == 0)
         return;
-    *testPlanId = *tpId;
-    DEBUG("Report::setTestPlanId::Value Set ["+(*testPlanId)+"]");
+    testPlanId = const_cast<string*>(tpId);
+    DATA_INFO_VAL("Set Test Plan Id",*testPlanId);
 }
 
 const string* Report::getTestId()
@@ -67,25 +56,21 @@ void Report::setTestId(const string* tId)
 {
     if(tId->size() == 0)
         return;
-    *testId = *tId;
-    DEBUG("Report::setTestId::Value Set ["+(*testId)+"]");
+    testId = const_cast<string*>(tId);
+    DATA_INFO_VAL("Set Test Id",*testId);
 }
 
 void Report::setFormattedResorce(FormattedResource* res)
 {
     if(res->content.length() == 0 || res->ext.length() == 0 || res->name.length() == 0)
         return;
-    resource.content = res->content;
-    resource.ext = res->ext;
-    resource.name = res->name;
-    if(res->hash.length() != 0)
-        resource.hash = res->hash;
-    DEBUG("Report::setFormattedResorce::Value Set ["<<resource.content<<"||"<<resource.ext<<"||"<<resource.name<<"||"<<resource.hash<<"]");
+    resource = const_cast<FormattedResource*>(res);
+    DATA_INFO_VAL("Pointer Associated",resource);
 }
 
 const FormattedResource* Report::getFormattedResource()
 {
-    return &resource;
+    return resource;
 }
 
 } /* DATA */

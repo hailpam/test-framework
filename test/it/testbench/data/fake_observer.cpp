@@ -11,16 +11,14 @@ namespace data
 
 FakeObserver::FakeObserver()
 {
-    whoAmI = new  string("");
+    Observer::whoAmI = "FakeObserver";
 }
 
-FakeObserver::~FakeObserver()
+FakeObserver::~FakeObserver() {/* Do nothing */}
+
+void FakeObserver::notify(Report* report)
 {
-    delete whoAmI;
-}
-
-void FakeObserver::notify(const Report* report) {
-    cout << "FakeObserver::notify::whoAmI ["<< *whoAmI <<"]"<< endl;
+    DATA_INFO_VAL("Notified the Fake Observer, Report in Session",report->getTestPlanId());
 }
 
 } /* DATA */

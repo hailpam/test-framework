@@ -11,7 +11,7 @@ class FakeObserver : public Observer {
     public:
         FakeObserver();
         ~FakeObserver();
-        void notify(const Report* report);
+        void notify(Report* report);
 };
 
 } /* DATA */

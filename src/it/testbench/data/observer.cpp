@@ -11,55 +11,76 @@ namespace data
 
 /// SUBJECT
 
-Subject::Subject()
+Subject::Subject() {/* Do nothing */}
+
+Subject::~Subject() {/* Do nothing */}
+
+ReturnCode Subject::addObserver(Observer* obs)
 {
+    ReturnCode retCond;
+    if(obs == 0) {
+        DATA_ERR_VAL("NULL Pointer", obs);
+        retCond.code = ERROR;
+        retCond.desc = "Null Point for the Observer";
+
+        return retCond;
+    }
+    //
+    DATA_INFO_VAL("Setting the Observer", obs->getWhoAmI());
+    obsEntities[obs->getWhoAmI()] = obs;
+    DATA_INFO_VAL("Observer Count", obsEntities.size());
+    //
+    retCond.code = SUCCESS;
+    retCond.desc = "Observer correctly registered";
+    //
+    return retCond;
 }
 
-Subject::~Subject()
+ReturnCode Subject::removeObserver(const string& identifier)
 {
+    ReturnCode retCond;
+    if(obsEntities.count(identifier) == 0) {
+        DATA_ERR_VAL("Observer not present", identifier);
+        retCond.code = ERROR;
+        retCond.desc = "Blanck Identifier in Input";
+
+        return retCond;
+    }
+    DATA_INFO_VAL("Removing the Observer", identifier);
+    obsEntities.erase(identifier);
+    DATA_INFO_VAL("Observer Count", obsEntities.size());
+    //
+    retCond.code = SUCCESS;
+    retCond.desc = "Observer correctly registered";
+    //
+    return retCond;
 }
 
-void Subject::addObserver(Observer* obs)
+void Subject::notifyObservers(Report* report)
 {
-    obsEntities[*(obs->getWhoAmI())] = obs;
-    stringstream strStream;
-    strStream << obsEntities.count(*(obs->getWhoAmI()));
-    DEBUG("Subject::addObserver::Observer Counts ["+*(obs->getWhoAmI())+","+strStream.str()+"]");
-}
-
-void Subject::removeObserver(const string* identifier)
-{
-    if(obsEntities.count(*identifier) == 0)
-        return;
-    obsEntities.erase(*identifier);
-    stringstream strStream;
-    strStream << obsEntities.count(*identifier);
-    DEBUG("Subject::removeObserver::Observer Counts ["+*identifier+","+strStream.str()+"]");
-}
-
-void Subject::notifyObservers(const Report* report)
-{
-    map<string, Observer*>::iterator mapItr;
     for(mapItr= obsEntities.begin(); mapItr != obsEntities.end(); ++mapItr) {
         Observer* tmpObserver = mapItr->second;
+        DATA_INFO_VAL("Notifying the Observer", tmpObserver->getWhoAmI());
         tmpObserver->notify(report);
-        DEBUG("Subject::notifyObservers::Notified ["+mapItr->first+"]");
+        DATA_INFO_VAL("Observer Notified with Report", report->getTestPlanId());
     }
 }
 
 /// OBSERVER
 
-const string* Observer::getWhoAmI() const
+const string& Observer::getWhoAmI() const
 {
     return whoAmI;
 }
 
-void Observer::setWhoAmI(const string* identifier)
+void Observer::setWhoAmI(const string& identifier)
 {
-    if(identifier->size() == 0)
+    if(identifier.size() == 0) {
+        DATA_ERR_VAL("Emptry String provided in input", identifier);
         return;
-    *whoAmI = *identifier;
-    DEBUG("Observer::setWhoAmI:: ["+(*whoAmI)+"]");
+    }
+    whoAmI = identifier;
+    DATA_INFO_VAL("Setting Observer Identifier",whoAmI);
 }
 
 } /* DATA */

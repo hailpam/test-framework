@@ -29,12 +29,11 @@ string B::getBString()
 
 ConcreteContextObject::ConcreteContextObject()
 {
-    description = new string("Simple Context Object");
+    description = "Simple Context Object";
 }
 
 ConcreteContextObject::~ConcreteContextObject()
 {
-    delete description;
 }
 
 A* ConcreteContextObject::getA()
@@ -57,15 +56,15 @@ void ConcreteContextObject::setB(B* bVar)
     b = bVar;
 }
 
-void ConcreteContextObject::setDescription(const string* desc)
+void ConcreteContextObject::setDescription(const string& desc)
 {
-    if(description->size() == 0)
+    if(desc.size() == 0)
         return;
-    *description = *desc;
-    DEBUG("ConcreteContextObject::setDescription ["+*description+"]");
+    description = desc;
+    DATA_INFO_VAL("Description Set at", description);
 }
 
-const string* ConcreteContextObject::getDescription() const
+const string& ConcreteContextObject::getDescription() const
 {
     return description;
 }

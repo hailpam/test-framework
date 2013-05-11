@@ -31,8 +31,8 @@ class ConcreteContextObject: public TestCaseContext {
     public:
         ConcreteContextObject();
         ~ConcreteContextObject();
-        void setDescription(const string* description);
-        const string* getDescription() const;
+        void setDescription(const string& description);
+        const string& getDescription() const;
         A* getA();
         B* getB();
         void setA(A* aVar);

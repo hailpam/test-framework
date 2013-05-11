@@ -47,14 +47,14 @@ int main(int argc, char* argv[])
     cout << "\n\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
     cout << "\n+++ OBESERVER TEST                                                               +++";
     cout << "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
-    string* obsId1 = new string("Observer#1");
-    string* obsId2 = new string("Observer#2");
+    string obsId1 = "Observer#1";
+    string obsId2 = "Observer#2";
     FakeObserver* fakeObs1 = new FakeObserver();
     FakeObserver* fakeObs2 = new FakeObserver();
     fakeObs1->setWhoAmI(obsId1);
     fakeObs2->setWhoAmI(obsId2);
-    TEST_EQ(1,"Observer","fakeObs1->getWhoAmI()","Check WhoAmI",(obsId1->compare(*(fakeObs1->getWhoAmI()))),0);
-    TEST_EQ(2,"Observer","fakeObs2->getWhoAmI()","Check WhoAmI",(obsId2->compare(*(fakeObs2->getWhoAmI()))),0);
+    TEST_EQ(1,"Observer","fakeObs1->getWhoAmI()","Check WhoAmI",(obsId1.compare(fakeObs1->getWhoAmI())),0);
+    TEST_EQ(2,"Observer","fakeObs2->getWhoAmI()","Check WhoAmI",(obsId2.compare(fakeObs2->getWhoAmI())),0);
     /// SUBJECT TEST
     Subject* aSubject = new Subject();
     aSubject->addObserver(fakeObs1);
@@ -68,9 +68,9 @@ int main(int argc, char* argv[])
     A* aVar = new A();
     B* bVar = new B();
     ConcreteContextObject* ctxObj = new ConcreteContextObject();
-    string* myDescription = new string("MyFavouriteDescription");
+    string myDescription = "MyFavouriteDescription";
     ctxObj->setDescription(myDescription);
-    TEST_EQ(1,"Concrete Context Object","ctxObj->setDescription(myDescription)","Check Description",(ctxObj->getDescription()->compare(*myDescription)),0);
+    TEST_EQ(1,"Concrete Context Object","ctxObj->setDescription(myDescription)","Check Description",(ctxObj->getDescription().compare(myDescription)),0);
     ctxObj->setA(aVar);
     ctxObj->setB(bVar);
     string tmp1 = aVar->getAString();
@@ -86,7 +86,7 @@ int main(int argc, char* argv[])
     cout << "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
     SetupTestItem* cSetItem = new CustomSetupItem();
     TestCaseContext* tcCtx = cSetItem->setupItem();
-    string tmp5 = *(tcCtx->getDescription());
+    string tmp5 = tcCtx->getDescription();
     TEST_EQ(1,"Test Item","string tmp5 = *(tcCtx->getDescription())","Check Description",(tmp5.compare("MyFavouriteDescription")),0);
     RunnableTestItem* cRunItem = new CustomRunnableTestItem();
     Report* tcRep = cRunItem->runItem(tcCtx);
@@ -104,14 +104,32 @@ int main(int argc, char* argv[])
     tCase->setSetupTestItem(cSetItem);
     tCase->setTearDownTestItem(ctdItem);
     tCase->addRunnableTestItem(cRunItem);
-    bool bSetup = tCase->setupTestCase();
+    bool bSetup = true;
+    try {
+        tCase->setupTestCase();
+    }catch(TestFrameworkException& exception) {
+        bSetup = false;
+        DATA_ERR_VAL("Exception Catched", exception);
+     }
     TEST_EQ(1,"Test Case","bSetup = tCase->setupTestCase()","Check Session Id",bSetup,1);
     //
-    bool rTC = tCase->runTestCase();
+    bool rTC = true;
+    try {
+        tCase->runTestCase();
+    }catch(TestFrameworkException& exception) {
+        rTC = false;
+        DATA_ERR_VAL("Exception Catched", exception);
+    }
     TEST_EQ(2,"Test Case","rTC = tCase->runTestCase()","Run Test Case and Check the Result",rTC,1);
     //
-    bool tdTC = tCase->tearDownTestCase();
-    TEST_EQ(3,"Test Case","tdTC = tCase->tearDownTestCase()","Tear Down and Check Result",tdTC,0);
+    bool tdTC = true;
+    try {
+        tCase->tearDownTestCase();
+    }catch(TestFrameworkException& exception) {
+        tdTC = false;
+        DATA_ERR_VAL("Exception Catched", exception);
+    }
+    TEST_EQ(3,"Test Case","tdTC = tCase->tearDownTestCase()","Tear Down and Check Result",tdTC,1);
 
     /// TEST PLAN
     cout << "\n\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
@@ -236,13 +254,10 @@ int main(int argc, char* argv[])
     delete sessionId;
     delete testPlanId;
     delete testId;
-    delete obsId1;
-    delete obsId2;
     delete report;
     delete aVar;
     delete bVar;
     delete ctxObj;
-    delete myDescription;
 
 	return 0;
 }

@@ -44,16 +44,16 @@ class TestCaseContext {
           *
           * @param[in] Pointer to a string containing the description
          */
-        virtual void setDescription(const string* description) = 0; //!< set the test case description
+        virtual void setDescription(const string& description) = 0; //!< set the test case description
         /**
           * Retrieve the Test Case Description
           *
           * @return Pointer to a string containing the description
          */
-        virtual const string* getDescription() const = 0;                 //!< get the test case description
+        virtual const string& getDescription() const = 0;                 //!< get the test case description
 
     protected:
-        string* description;                                        /*!< context descriptionc */
+        string description;                                        /*!< context descriptionc */
 };
 
 /*!
@@ -74,7 +74,7 @@ class TestItem {
           *
           * @return Pointer to the Report containing the run outcome
          */
-        virtual Report* runItem(const TestCaseContext* ctxObject) = 0;      //!< it runs the item
+        virtual Report* runItem(TestCaseContext* ctxObject) = 0;      //!< it runs the item
         /**
           * Tear Down the Test Item
           *
@@ -90,7 +90,7 @@ class TestItem {
 class SetupTestItem : public TestItem {
     public:
         virtual TestCaseContext* setupItem() = 0;
-        Report* runItem(const TestCaseContext* ctxObject);
+        Report* runItem(TestCaseContext* ctxObject);
         void tearDownItem(TestCaseContext* ctxObject);
 };
 
@@ -104,7 +104,7 @@ class SetupTestItem : public TestItem {
 class RunnableTestItem : public TestItem {
     public:
         TestCaseContext* setupItem();
-        virtual Report* runItem(const TestCaseContext* ctxObject) = 0;
+        virtual Report* runItem(TestCaseContext* ctxObject) = 0;
         void tearDownItem(TestCaseContext* ctxObject);
 };
 
@@ -115,7 +115,7 @@ class RunnableTestItem : public TestItem {
 class TearDownTestItem : public TestItem {
     public:
         TestCaseContext* setupItem();
-        Report* runItem(const TestCaseContext* ctxObject);
+        Report* runItem(TestCaseContext* ctxObject);
         virtual void tearDownItem(TestCaseContext* ctxObject) = 0;
 };
 

@@ -53,19 +53,19 @@ class TestCase {
           *
           * @return Boolean value, true if everythig gone well
          */
-        bool setupTestCase();                                                   //!< set up a Test Case
+        void setupTestCase() throw(TestFrameworkException);                     //!< set up a Test Case
         /**
           * Executes the Test Items specific to this Test Case
           *
           * @return Boolean value, true if everythig gone well
          */
-        bool runTestCase();                                                     //!< execute a Test Case
+        void runTestCase() throw(TestFrameworkException);                       //!< execute a Test Case
         /**
           * Tear down the data structures initialized for this Test Case
           *
           * @return Boolean value, true if everythig gone well
          */
-        bool tearDownTestCase();                                                //!< tear down a Test Case
+        void tearDownTestCase() throw(TestFrameworkException);                  //!< tear down a Test Case
 
         /**
           * Set up the specific SetupTestItem (particularized instance)
@@ -109,6 +109,12 @@ class TestCase {
           * @return An integer representing the test case number
          */
         const int getTestCaseNumber() const;                                     //!< return the test case number
+        /**
+          * Finalize the reports by the single Items creating a merged and final Report
+          *
+          * @return Pointer to a newly created Report
+         */
+        Report* finalizeReport();                                               //!< finalize the report by the reports of the single test items
 
     private:
         SetupTestItem* sTestItem;               /*!< specific test item looking after the setup */
@@ -116,8 +122,7 @@ class TestCase {
         TearDownTestItem* tdTestItem;           /*!< specific test item looking after the deallocation */
         list<Report*> tcReports;                /*!< list of reports (one for each runnable item */
         TestCaseContext* ctxObject;             /*!< context object: it maintanis the pointers to specific data structures to be used */
-        ostringstream strStream;                /*!< useful string stream used for internal conversions */
-        unsigned int tcNumber;
+        unsigned int tcNumber;                  /*!< test case number: it is an identifier */
 };
 
 /*!

@@ -82,14 +82,14 @@ struct Range {
 */
 class TestFrameworkException : public exception {
     public:
-        TestFrameworkException(string msg) throw();     //!< specific Exception constructor
-        virtual ~TestFrameworkException() throw();                                              //!< specific Exception distructor
+        TestFrameworkException(string msg)  throw();                                    //!< specific Exception constructor
+        ~TestFrameworkException() throw();                                              //!< specific Exception distructor
         /**
           * Overrides the standard behaviour and returns a char pointer to the error string.
           *
           * @return Pointer to the error string.
          */
-        const char* what() const throw() {return errMsg.c_str();}                               //!< it overwrites the standard version
+        const char* what() const throw();                       //!< it overwrites the standard version
 
     private:
         string errMsg;  /*!< runtime error message */
@@ -104,7 +104,7 @@ class Report {
         string* testPlanId;             /*!< test plan unique identifier */
         string* testId;                 /*!< test case unique identifier */
         bool outcome;                   /*!< elaboration outocome */
-        FormattedResource resource;    /*!< resource formatted according to initial settings */
+        FormattedResource* resource;    /*!< resource formatted according to initial settings */
 
     public:
         Report();

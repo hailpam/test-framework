@@ -26,26 +26,21 @@ debug: all
 
 ${BIN_DIR}/test_rawfsmanager: ${OBJ_DIR}/test_rawfsmanager.o ${OBJ_DIR}/rawfsmanager.o ${OBJ_DIR}/test_stubfsmanager.o \
 				${OBJ_DIR}/testframeworkexception.o
-	$(CC) -o test_rawfsmanager $^ $(LDFLAGS)
-	mv test_rawfsmanager ${BIN_DIR}/
+	$(CC) -o ${BIN_DIR}/test_rawfsmanager $^ $(LDFLAGS)
 	cp ${TST_DIR}/test_rawfsmanager.txt ${BIN_DIR}/
 
 ${OBJ_DIR}/test_rawfsmanager.o: ${TST_DIR}/test_rawfsmanager.cpp ${OBJ_DIR}/rawfsmanager.o ${OBJ_DIR}/test_stubfsmanager.o \
 				${OBJ_DIR}/testframeworkexception.o
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv test_rawfsmanager.o ${OBJ_DIR}/
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/test_rawfsmanager.o
 
 ${OBJ_DIR}/test_stubfsmanager.o: ${TST_DIR}/test_stubfsmanager.cpp ${OBJ_DIR}/testframeworkexception.o
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv test_stubfsmanager.o ${OBJ_DIR}/
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/test_stubfsmanager.o
 
 ${OBJ_DIR}/testframeworkexception.o: testframeworkexception.cpp
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv testframeworkexception.o ${OBJ_DIR}/
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/testframeworkexception.o
 
 ${OBJ_DIR}/rawfsmanager.o: rawfsmanager.cpp ${OBJ_DIR}/testframeworkexception.o
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv rawfsmanager.o ${OBJ_DIR}/
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/rawfsmanager.o
 
 distributable:
 	ar -cvq ${DIST} ${OBJ_DIR}/${TARGET}.o

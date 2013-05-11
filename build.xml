@@ -35,6 +35,12 @@
     </exec>
   </target>
 
+  <target name="build-logger">
+    <exec dir="${src}/logger" executable="make">
+        <arg line="-j ${tn}"/>
+    </exec>
+  </target>
+
   <target name="build-parser">
     <exec dir="${src}/parser" executable="make">
         <arg line="-j ${tn}"/>
@@ -60,28 +66,32 @@
   </target>
 
   <target name="build-branch-1">
-    <!-- First building branch with formatter->tcworker->rte -->
+    <!-- First building branch with: formatter->tcworker->rte -->
     <antcall target="build-formatter"/>
     <antcall target="build-tcworker"/>
     <antcall target="build-rte"/>
   </target>
 
   <target name="build-branch-2">
-    <!-- Second building branch with ioutil->parser -->
-    <antcall target="build-ioutil"/>
+    <!-- Second building branch with: parser -->
     <antcall target="build-parser"/>
   </target>
 
   <target name="build-all" depends="init"
         description="compile all packages">
-    <!-- First: build data package -->
-    <antcall target="build-data"/>
-    <!-- Second: build other packages in 2 parallel building branches -->
+    <!-- First: build logger package -->
+    <antcall target="build-logger"/>
+    <!-- Second: build data and ioutil in 2 parallel threads -->
+    <parallel threadcount="2">
+        <antcall target="build-data"/>
+        <antcall target="build-ioutil"/>
+    </parallel>
+    <!-- Third: build other packages in 2 parallel building branches -->
     <parallel threadcount="2">
         <antcall target="build-branch-1"/>
         <antcall target="build-branch-2"/>
     </parallel>
-    <!-- Third: build presentation package -->
+    <!-- Last: build presentation package -->
     <antcall target="build-presentation"/>
   </target>
 
@@ -92,6 +102,9 @@
             <arg value="cleantest"/>
         </exec>
         <exec dir="${src}/ioutil" executable="make">
+            <arg value="cleantest"/>
+        </exec>
+        <exec dir="${src}/logger" executable="make">
             <arg value="cleantest"/>
         </exec>
         <exec dir="${src}/parser" executable="make">

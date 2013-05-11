@@ -21,16 +21,13 @@ debug: CCFLAGS += -DDEBUG_PRINT_ENABLED -g3
 debug: all
 
 ${BIN_DIR}/test_rawlogger: ${OBJ_DIR}/test_rawlogger.o ${OBJ_DIR}/rawlogger.o
-	$(CC) -o test_rawlogger $^ $(LDFLAGS)
-	mv test_rawlogger ${BIN_DIR}/
+	$(CC) -o ${BIN_DIR}/test_rawlogger $^ $(LDFLAGS)
 
 ${OBJ_DIR}/test_rawlogger.o: ${TST_DIR}/test_rawlogger.cpp ${OBJ_DIR}/rawlogger.o
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv test_rawlogger.o ${OBJ_DIR}/
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/test_rawlogger.o
 
-${OBJ_DIR}/rawlogger.o: rawlogger.cpp ${INC_DIR}/rawlogger.h
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv rawlogger.o ${OBJ_DIR}/
+${OBJ_DIR}/rawlogger.o: rawlogger.cpp
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/rawlogger.o
 
 distributable:
 	ar -cvq ${DIST} ${OBJ_DIR}/${TARGET}.o

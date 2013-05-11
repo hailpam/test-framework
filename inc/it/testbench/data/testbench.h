@@ -294,14 +294,14 @@ class TestCaseLoader {
           *
           * @return Boolean value, true iff the loading has been performed successfully
          */
-        bool loadTestCase(unsigned int tcIdx);                              //!< load a specific test case
+        ReturnCode loadTestCase(unsigned int tcIdx);                              //!< load a specific test case
         /**
           * To be overriden specifically. Each concrete Test Case builder provides the ability
           * to fully decouple the building process.
           *
           * @return Boolean value, true iff the loading has been performed successfully
          */
-        bool loadAllTestCases();                                            //!< load all test cases
+        ReturnCode loadAllTestCases();                                            //!< load all test cases
 
         /**
           * To be overriden specifically. Each concrete Test Case builder provides the ability
@@ -324,7 +324,7 @@ class TestCaseLoader {
           * @param[in]
           * @return A boolean, true iff the registration was successful
          */
-        bool registerTestCaseBuilder(unsigned const int tcIdx, const TestCaseBuilder* tcBuilder);
+        ReturnCode registerTestCaseBuilder(unsigned const int tcIdx, const TestCaseBuilder* tcBuilder);
 
     private:
         vector<TestCase*> tcList;                           /*!< list of test cases */

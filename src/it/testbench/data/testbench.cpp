@@ -14,36 +14,74 @@ TestBenchConfiguration::TestBenchConfiguration()
     nrOfThreads = NR_OF_THREADS;
 }
 
-TestBenchConfiguration::~TestBenchConfiguration() {/* Do notghing */}
-
-void TestBenchConfiguration::setSessionId(const string* sId)
+TestBenchConfiguration::~TestBenchConfiguration()
 {
-    if(sId == 0) {
-        DEBUG("TestBenchConfiguration::setSessionId Uninitialized Pointer as Session Id in Input :: Operation Failed");
+    // TODO deallocate vector of Ranges
+}
+
+ReturnCode TestBenchConfiguration::setSessionId(const string& sId)
+{
+    ReturnCode retCode;
+    if(sId.length() == 0) {
+        DATA_ERR_VAL("Blank string in Input#", sId);
+        retCode.code = ERROR;
+        retCode.desc = "BLANK string in Input";
+
+        return retCode;
     }
-    this->sessionId = const_cast<string*>(sId);
+    sessionId = sId;
+    retCode.code = SUCCESS;
+    retCode.desc = "String Session Id correctly Set";
+    DATA_INFO_VAL("Session Id has been correclty set to#", sId);
+
+    return retCode;
 }
 
 const string* TestBenchConfiguration::getSessionId() const
 {
-    return this->sessionId;
+    return &sessionId;
 }
 
-void TestBenchConfiguration::addRange(const string* tPlanId, const Range* range)
+ReturnCode TestBenchConfiguration::addRange(const string& tPlanId, const Range& range)
 {
-    if(tPlanId == 0) {
-        DEBUG("TestBenchConfiguration::addRange Uninitialized Pointer as Test Plan Id :: Operation Failed");
+    ReturnCode retCode;
+    if(tPlanId.length() == 0) {
+        DATA_ERR_VAL("Blank string in Input#", tPlanId);
+        retCode.code = ERROR;
+        retCode.desc = "BLANK string in Input";
+
+        return retCode;
     }
-    if(range == 0) {
-        DEBUG("TestBenchConfiguration::addRange Uninitialized Pointer as Range :: Operation Failed");
+    if(range.from == 0 && range.to == 0) {
+        DATA_ERR_VAL("Invalid Range, both indexes are#", 0);
+        retCode.code = ERROR;
+        retCode.desc = "Both indexes in the Range are 0";
+
+        return retCode;
     }
-    tcToBeExecuted[*tPlanId] = const_cast<Range*>(range);
+    Range* ptrToRange = new Range;
+    ptrToRange->from = range.from;
+    ptrToRange->to = range.to;
+    tcToBeExecuted[tPlanId] = ptrToRange;
+    //
+    retCode.code = SUCCESS;
+    retCode.desc = "Range correclty loaded";
+    DATA_INFO("Range Correclty Loaded");
+
+    return retCode;
 }
 
 const Range* TestBenchConfiguration::retrieveRange(const string* tPlanId)
 {
     if(tPlanId == 0) {
-        DEBUG("TestBenchConfiguration::retrieveRange Uninitialized Pointer as Test Plan Id :: Operation Failed");
+        DATA_ERR_VAL("NULL Pointer in Input", tPlanId);
+
+        return 0;
+    }
+    if((*tPlanId).size() == 0) {
+        DATA_ERR_VAL("BLANK String (Test Plan Id) in Input", tPlanId);
+
+        return 0;
     }
     string* tmpPtr = const_cast<string*>(tPlanId);
 
@@ -70,21 +108,45 @@ int TestBenchConfiguration::getNrOfThreads()
     return nrOfThreads;
 }
 
-void TestBenchConfiguration::addTestPlan(const string* tPlanId, const TestPlan* tPlan)
+ReturnCode TestBenchConfiguration::addTestPlan(const string* tPlanId, TestPlan* tPlan)
 {
+    ReturnCode retCode;
     if(tPlanId == 0) {
-        DEBUG("TestBenchConfiguration::addTestPlan Uninitialized Pointer as Test Plan Id :: Operation Failed");
+        DATA_ERR_VAL("NULL Pointer in Input as Test Plan Id", tPlanId);
+        retCode.code = ERROR;
+        retCode.desc = "NULL Pointer in Input as Test Plan Id";
+
+        return retCode;
+    }
+    if((*tPlanId).size() == 0) {
+        DATA_ERR_VAL("BLANK String in Input as Test Plan Id", *tPlanId);
+        retCode.code = ERROR;
+        retCode.desc = "BLANK String in Input as Test Plan Id";
+
+        return retCode;
     }
     if(tPlan == 0) {
-        DEBUG("TestBenchConfiguration::addTestPlan Uninitialized Pointer as Test Plan :: Operation Failed");
+        DATA_ERR_VAL("NULL Pointer in Input as Test Plan", tPlan);
+        retCode.code = ERROR;
+        retCode.desc = "NULL Pointer in Input as Test Plan";
+
+        return retCode;
     }
-    pTestPlan[*tPlanId] = const_cast<TestPlan*>(tPlan);
+    pTestPlan[*tPlanId] = tPlan;
+    //
+    retCode.code = SUCCESS;
+    retCode.desc = "Test Plan added Successfully";
+    DATA_INFO("Test Plan added Successfully");
+    //
+    return retCode;
 }
 
 const TestPlan* TestBenchConfiguration::retrieveTestPlan(const string* tPlanId)
 {
     if(tPlanId == 0) {
-        DEBUG("TestBenchConfiguration::retrieveTestPlan Uninitialized Pointer as Test Plan Id :: Operation Failed");
+        DATA_ERR_VAL("BLANK String in Input as Test Plan Id", *tPlanId);
+
+        return 0;
     }
     string* tmpPtr = const_cast<string*>(tPlanId);
 
@@ -96,54 +158,80 @@ const TestPlan* TestBenchConfiguration::retrieveTestPlan(const string* tPlanId)
 TestPlan::TestPlan() {/* Do nothing */}
 TestPlan::~TestPlan() {/* Do nothing */}
 
-void TestPlan::addTestCase(unsigned int tcIdx, const TestCase* tCase)
+ReturnCode TestPlan::addTestCase(unsigned int tcIdx, const TestCase* tCase)
 {
-    // TODO : this doesn't work well : the size increases not normally
+    ReturnCode retCode;
     if(tCase == 0) {
-        DEBUG("TestPlan::addTestCase Uninitialized Pointer to Test Case in Input :: Operation Failed");
-        return;
+        //DATA_ERR_VAL("NULL Pointer for the Test Case", tCase);
+        retCode.code = ERROR;
+        retCode.desc = "NULL Pointer to the Test Case";
+
+        return retCode;
     }
     if(listOfTests.size() == 0)
         listOfTests.reserve((tcIdx + 10));
     itrList = listOfTests.begin();
     std::advance(itrList,tcIdx);
     listOfTests.insert(itrList, const_cast<TestCase*>(tCase));
-    strStream << listOfTests.size();
-    DATA_INFO_VAL("Numer of Test in the Set", listOfTests.size());
-    strStream.str("");
+    DATA_INFO_VAL("Test Case added successfully, current Count#", listOfTests.size());
+    //
+    retCode.code = SUCCESS;
+    retCode.desc = "Test Case added Successfully";
+    //
+    return retCode;
 }
 
 const TestCase* TestPlan::retrieveTestCase(unsigned int tcIdx) const
 {
     if(tcIdx > listOfTests.size()) {
-        DEBUG("TestPlan::retrieveTestCase Index Out of Bound :: Operation Failed");
+        //DATA_ERR_VAL("Povided Index is out of bound, current Count#", listOfTests.size());
+
         return 0;
     }
-    return listOfTests.at(tcIdx);;
+    TestCase* tmp = listOfTests.at(tcIdx);
+    DATA_INFO_VAL("Test Case retrievable successfully, Number#", tmp->getTestCaseNumber());
+    //
+    return tmp;
 }
 
-bool TestPlan::removeTestCase(unsigned int tcIdx)
+ReturnCode TestPlan::removeTestCase(unsigned int tcIdx)
 {
+    ReturnCode retCode;
     if(tcIdx > listOfTests.size()) {
-        DEBUG("TestPlan::removeTestCase Index Out of Bound :: Operation Failed");
-        return false;
+        //DATA_ERR_VAL("Povided Index is out of bound, current Count#", listOfTests.size());
+        retCode.code = ERROR;
+        retCode.desc = "Provided and Index that is currently Out of Bounds";
+
+        return retCode;
     }
     itrList = listOfTests.begin();
     std::advance(itrList,tcIdx);
     listOfTests.erase(itrList);
-
-    return true;
+    //
+    retCode.code = SUCCESS;
+    retCode.desc = "Test Case removed Successfully";
+    DATA_INFO_VAL("Test Case removed successfully, current Count#", listOfTests.size());
+    //
+    return retCode;
 }
 
-bool TestPlan::updateTestCase(unsigned int tcIdx, const TestCase* tCase)
+ReturnCode TestPlan::updateTestCase(unsigned int tcIdx, const TestCase* tCase)
 {
+    ReturnCode retCode;
     if(tcIdx > listOfTests.size()) {
-        DEBUG("TestPlan::updateTestCase Index Out of Bound :: Operation Failed");
-        return false;
+        //DATA_ERR_VAL("Povided Index is out of bound, current Count#", listOfTests.size());
+        retCode.code = ERROR;
+        retCode.desc = "Provided and Index that is currently Out of Bounds";
+
+        return retCode;
     }
     listOfTests[tcIdx] = const_cast<TestCase*>(tCase);
-
-    return true;
+    //
+    retCode.code = SUCCESS;
+    retCode.desc = "Test Case removed Successfully";
+    DATA_INFO_VAL("Test Case updated successfully, current Test#", tcIdx);
+    //
+    return retCode;
 }
 
 const int TestPlan::getNrOfTestCases()
@@ -176,12 +264,12 @@ Report* TestCase::finalizeReport() { /* TODO */ return 0; }
 void TestCase::setupTestCase() throw(TestFrameworkException)
 {
     if(this->sTestItem == 0) {
-        DATA_ERR_VAL("NULL Pointer for Setup Test item", sTestItem);
+        //DATA_ERR_VAL("NULL Pointer for Setup Test item", sTestItem);
         throw new TestFrameworkException("Uninitialized Setup Test Item: Unable to proceed");
     }
     this->ctxObject = this->sTestItem->setupItem();
     if(this->ctxObject == 0) {
-        DATA_ERR_VAL("NULL Pointer for Context Object", ctxObject);
+        //DATA_ERR_VAL("NULL Pointer for Context Object", ctxObject);
         throw new TestFrameworkException("Uninitialized Context Object: Unable to proceed");
     }
     DATA_INFO("Setup successfully implemented!");
@@ -190,7 +278,7 @@ void TestCase::setupTestCase() throw(TestFrameworkException)
 void TestCase::runTestCase() throw(TestFrameworkException)
 {
     if(this->ctxObject == 0) {
-        DATA_ERR_VAL("NULL Pointer for Context Object", ctxObject);
+        //DATA_ERR_VAL("NULL Pointer for Context Object", ctxObject);
         throw new TestFrameworkException("Uninitialized Context Object: Unable to proceed");
     }
     list<RunnableTestItem*>::iterator itrList;
@@ -198,7 +286,7 @@ void TestCase::runTestCase() throw(TestFrameworkException)
         Report* ptrReport = (*itrList)->runItem(this->ctxObject);
         if(ptrReport  == 0) {
             /* recovery action is needed: don't trust */
-            DATA_ERR_VAL("Report not generated for Item#", distance(rTestItems.begin(),itrList));
+            //DATA_ERR_VAL("Report not generated for Item#", distance(rTestItems.begin(),itrList));
             continue;
         }
         tcReports.push_back(ptrReport);
@@ -210,12 +298,12 @@ void TestCase::runTestCase() throw(TestFrameworkException)
 void TestCase::tearDownTestCase() throw(TestFrameworkException)
 {
     if(this->tdTestItem == 0) {
-        DATA_ERR_VAL("NULL Pointer for Tear Down Test Item", this->tdTestItem);
+        //DATA_ERR_VAL("NULL Pointer for Tear Down Test Item", this->tdTestItem);
         throw new TestFrameworkException("Uninitialized Tear Down Test Item: Unable to proceed");
     }
     /* DANGEREOUS :: Likely memory leak */
     if(this->ctxObject == 0) {
-        DATA_ERR_VAL("NULL Pointer for Context Object", ctxObject);
+        //DATA_ERR_VAL("NULL Pointer for Context Object", ctxObject);
         throw new TestFrameworkException("Uninitialized Context Object: Unable to proceed");
     }
     this->tdTestItem->tearDownItem(this->ctxObject);
@@ -281,19 +369,19 @@ bool TestCaseLoader::loadTestCase(unsigned int tcIdx)
         tcList.push_back(pad);
     }
     if(tcIdx > tcBuilders.size()) {
-        DEBUG("TestCaseLoader::loadTestCase Index Out of Bound :: Operation Failed");
+        DATA_INFO("TestCaseLoader::loadTestCase Index Out of Bound :: Operation Failed");
         return false;
     }
     TestCaseBuilder* tcBuild = tcBuilders[tcIdx];
     TestCase* ptrToTC = tcBuild->buildTestCase();
-    DEBUG("TestCaseLoader::loadTestCase Test Case built successfully");
+    DATA_INFO("TestCaseLoader::loadTestCase Test Case built successfully");
     itrList = tcList.begin();
     cout << 1;
     std::advance(itrList,tcIdx);
     cout << 2;
     tcList.insert(itrList, ptrToTC);
     cout << 3;
-    DEBUG("TestCaseLoader::loadTestCase Test Case inserted successfully");
+    DATA_INFO("TestCaseLoader::loadTestCase Test Case inserted successfully");
 
     return true;
 }
@@ -303,18 +391,18 @@ bool TestCaseLoader::loadAllTestCases()
     if(tcList.size() == 0)
         tcList.reserve(20);
     if(tcBuilders.size() == 0) {
-        DEBUG("TestCaseLoader::loadAllTestCases No Test Case Builder Registered :: Operation Failed");
+        DATA_INFO("TestCaseLoader::loadAllTestCases No Test Case Builder Registered :: Operation Failed");
         return false;
     }
     vector<TestCaseBuilder*>::iterator itrVector;
     for(itrVector = tcBuilders.begin(); itrVector != tcBuilders.end(); ++itrVector) {
         TestCase* ptrToTC = (*itrVector)->buildTestCase();
-        DEBUG("TestCaseLoader::loadAllTestCases Test Case built successfully");
+        DATA_INFO("TestCaseLoader::loadAllTestCases Test Case built successfully");
         int idx = (int)(ptrToTC->getTestCaseNumber());
         itrList = tcList.begin();
         std::advance(itrList,idx);
         tcList.insert(itrList, ptrToTC);
-        DEBUG("TestCaseLoader::loadTestCase Test Case inserted successfully");
+        DATA_INFO("TestCaseLoader::loadTestCase Test Case inserted successfully");
     }
 
     return true;
@@ -323,11 +411,11 @@ bool TestCaseLoader::loadAllTestCases()
 const TestCase* TestCaseLoader::getLoadedTestCase(unsigned int tcIdx) const
 {
     if(tcIdx > tcList.size()) {
-        DEBUG("TestCaseLoader::getLoadedTestCase Index Out of Bound :: Operation Failed");
+        DATA_INFO("TestCaseLoader::getLoadedTestCase Index Out of Bound :: Operation Failed");
         return 0;
     }
     if(tcList.size() == 0) {
-        DEBUG("TestCaseLoader::getLoadedTestCase No Test Cases Loaded:: Operation Failed");
+        DATA_INFO("TestCaseLoader::getLoadedTestCase No Test Cases Loaded:: Operation Failed");
         return 0;
     }
     DATA_INFO_VAL("Test Case Id", 1000000);

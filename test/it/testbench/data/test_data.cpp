@@ -109,7 +109,7 @@ int main(int argc, char* argv[])
         tCase->setupTestCase();
     }catch(TestFrameworkException& exception) {
         bSetup = false;
-        DATA_ERR_VAL("Exception Catched", exception);
+        DATA_ERR_VAL("Exception Catched", exception.what());
      }
     TEST_EQ(1,"Test Case","bSetup = tCase->setupTestCase()","Check Session Id",bSetup,1);
     //
@@ -118,7 +118,7 @@ int main(int argc, char* argv[])
         tCase->runTestCase();
     }catch(TestFrameworkException& exception) {
         rTC = false;
-        DATA_ERR_VAL("Exception Catched", exception);
+        DATA_ERR_VAL("Exception Catched", exception.what());
     }
     TEST_EQ(2,"Test Case","rTC = tCase->runTestCase()","Run Test Case and Check the Result",rTC,1);
     //
@@ -127,7 +127,7 @@ int main(int argc, char* argv[])
         tCase->tearDownTestCase();
     }catch(TestFrameworkException& exception) {
         tdTC = false;
-        DATA_ERR_VAL("Exception Catched", exception);
+        DATA_ERR_VAL("Exception Catched", exception.what());
     }
     TEST_EQ(3,"Test Case","tdTC = tCase->tearDownTestCase()","Tear Down and Check Result",tdTC,1);
 
@@ -142,8 +142,8 @@ int main(int argc, char* argv[])
     TEST_EQ(1,"Test Plan","tmpCase = const_cast<TestCase*>(tPlan->retrieveTestCase(1))","Retrieve Test Case",tmpCase->getTestCaseNumber(),1);
     //
     tmpCase->setTestCaseNumber(10);
-    bool uTP = tPlan->updateTestCase(1, tmpCase);
-    TEST_EQ(2,"Test Plan","uTP = tPlan->updateTestCase(1, tmpCase)","Update Test Case",uTP,1);
+    ReturnCode uTP = tPlan->updateTestCase(1, tmpCase);
+    TEST_EQ(2,"Test Plan","uTP = tPlan->updateTestCase(1, tmpCase)","Update Test Case",uTP.code,SUCCESS);
     //
     tmpCase = const_cast<TestCase*>(tPlan->retrieveTestCase(1));
     TEST_EQ(3,"Test Plan","tmpCase = const_cast<TestCase*>(tPlan->retrieveTestCase(1))","Update Test Case",tmpCase->getTestCaseNumber(),10);
@@ -160,7 +160,7 @@ int main(int argc, char* argv[])
     cout << "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
     TestBenchConfiguration* tbCfg = new TestBenchConfiguration();
     string sId = "TBCFG_SessionId";
-    tbCfg->setSessionId(&sId);
+    tbCfg->setSessionId(sId);
     string* tmpSId = const_cast<string*>(tbCfg->getSessionId());
     TEST_EQ(1,"Test Bench Configuration","tmpSId = const_cast<string*>(tbCfg->getSessionId())","Set and then Get Session Id",sId.compare(*tmpSId),0);
     //
@@ -168,7 +168,7 @@ int main(int argc, char* argv[])
     Range tbR;
     tbR.from = 0;
     tbR.to = 2;
-    tbCfg->addRange(&sId, &tbR);
+    tbCfg->addRange(sId, tbR);
     Range* tbRTemp = const_cast<Range*>(tbCfg->retrieveRange(&sId));
     TEST_EQ(2,"Test Bench Configuration","tbRTemp = const_cast<Range*>(tbCfg->retrieveRange(&sId))","Set Ranges and Retrieve them",(tbRTemp->from == tbR.from && tbRTemp->to == tbR.to),1);
     //

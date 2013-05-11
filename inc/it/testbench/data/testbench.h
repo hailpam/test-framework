@@ -141,7 +141,7 @@ class TestPlan {
           * @param[in] Index where to put the Test Case
           * @param[in] Pointer to a Test Case object
          */
-        void addTestCase(unsigned int tcIdx, const TestCase* tCase);        //!< add a Test Case
+        ReturnCode addTestCase(unsigned int tcIdx, const TestCase* tCase);        //!< add a Test Case
         /**
           * Retrieve a specific Test Case (addressed by an ordinal number)
           *
@@ -155,14 +155,14 @@ class TestPlan {
           * @param[in] Index of the Test Case
           * @return Boolean value, true if the Test Case was present and updated
          */
-        bool removeTestCase(unsigned int tcIdx);                             //!< remove a Test Case
+        ReturnCode removeTestCase(unsigned int tcIdx);                             //!< remove a Test Case
         /**
           * Update a specific Test Case (addressed by an ordinal number)
           *
           * @param[in] Index of the Test Case
           * @return Boolean value, true if the Test Case was present and updated
          */
-        bool updateTestCase(unsigned int tcIdx, const TestCase* tCase);      //!< update a Test Case
+        ReturnCode updateTestCase(unsigned int tcIdx, const TestCase* tCase);      //!< update a Test Case
         /**
           * Update a specific Test Case (addressed by an ordinal number)
           *
@@ -172,7 +172,6 @@ class TestPlan {
 
     private:
         vector<TestCase*> listOfTests;                              /*!< list of Test Cases composing this Test Plan */
-        ostringstream strStream;                                    /*!< string strem useful for conversions */
         vector<TestCase*>::iterator itrList;                        /*!< iterator to the vector structure */
 };
 
@@ -193,7 +192,7 @@ class TestBenchConfiguration {
           *
           * @param[in] Pointer to a string containing the session Id
          */
-        void setSessionId(const string* sId);                                 //!< set the session Id (unique identifier for each test bench instance)
+        ReturnCode setSessionId(const string& sId);                                 //!< set the session Id (unique identifier for each test bench instance)
         /**
           * Retrieve the Sesssion Id
           *
@@ -206,7 +205,7 @@ class TestBenchConfiguration {
           * @param[in] Pointer to a string containing the test plan Id
           * @param[in] Pointer to a Range data structure
          */
-        void addRange(const string* tPlanId, const Range* range);             //!< add a Range
+        ReturnCode addRange(const string& tPlanId, const Range& range);             //!< add a Range
         /**
           * Retrieve the Range associated to a specific Test Plan
           *
@@ -244,7 +243,7 @@ class TestBenchConfiguration {
           * @param[in] Pointer to a string containing the test plan Id
           * @param[in] Pointer to a Test Plan object
          */
-        void addTestPlan(const string* tPlanId, const TestPlan* tPlan);       //!< add a test plan
+        ReturnCode addTestPlan(const string* tPlanId, TestPlan* tPlan);            //!< add a test plan
         /**
           * Retrieve a specific Test Plan object
           *
@@ -254,7 +253,7 @@ class TestBenchConfiguration {
         const TestPlan* retrieveTestPlan(const string* tPlanId);             //!< retrieve a test plan
 
     private:
-        string* sessionId;                                                  /*!< specific and unique session Id */
+        string sessionId;                                                   /*!< specific and unique session Id */
         map<string, Range*> tcToBeExecuted;                                 /*!< for each Test Plan, a range of tests to be executed */
         SupportedFormats format;                                            /*!< supported format */
         unsigned int nrOfThreads;                                                    /*!< number of thread to be used at runtime */

@@ -1,14 +1,15 @@
-#include <rawfsmanager.h>
-#include "test_stubfsmanager.h"
-#include <debug.h>
+#include <cstdio>
 #include <string>
 #include <sstream>
 #include <iostream>
 #include <sys/stat.h>
-#include <cstdio>
+#include <rawfsmanager.h>
+#include "test_stubfsmanager.h"
+#include <debug.h>
 
 using namespace std;
 using namespace it::testbench::ioutil;
+using namespace it::testbench::data;
 
 /**
  * Helper functions

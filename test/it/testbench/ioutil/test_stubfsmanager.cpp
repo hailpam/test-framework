@@ -2,6 +2,7 @@
 
 using namespace std;
 using namespace it::testbench::ioutil;
+using namespace it::testbench::data;
 
 /**
  * Init mutex, and start with no file

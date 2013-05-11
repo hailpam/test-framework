@@ -14,6 +14,7 @@
 // $Log$
 
 using namespace std;
+using namespace it::testbench::data;
 
 namespace it
 {

@@ -2,6 +2,7 @@
 #define FSMANAGER_H
 
 #include <string>
+#include <support.h>
 
 // $Id$
 /*!
@@ -14,6 +15,7 @@
 // $Log$
 
 using namespace std;
+using namespace it::testbench::data;
 
 namespace it
 {
@@ -21,37 +23,6 @@ namespace testbench
 {
 namespace ioutil
 {
-
-/*!
-* Test Framework custom Exception: it may be raised at rutime
-* in case of exceptional situations
-*/
-class TestFrameworkException : public exception {
-    public:
-        TestFrameworkException(string msg) throw();     //!< specific Exception constructor
-        ~TestFrameworkException() throw();       //!< specific Exception distructor
-        /**
-          * Overrides the standard behaviour and returns a char pointer to the error string.
-          *
-          * @return Pointer to the error string.
-         */
-        const char* what() const throw();       //!< it overwrites the standard version
-
-    private:
-        string errMsg;  /*!< runtime error message */
-};
-
-/*!
- * Formatted resource data structure
- *
- * TODO: remove this definition during the integration phase
- */
-struct FormattedResource {
-    string ext; /**< resource extension */
-    string content; /**< resource content */
-    string name; /**< resource name */
-    string hash; /**< resource hash */
-};
 
 /*!
  * Abstract pure FSManager interface.

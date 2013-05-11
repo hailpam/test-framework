@@ -1,9 +1,9 @@
 #ifndef RAWFSMANAGER_H
 #define RAWFSMANAGER_H
 
-#include <fsmanager.h>
 #include <pthread.h>
 #include <fstream>
+#include <fsmanager.h>
 
 // $Id$
 /*!
@@ -16,6 +16,7 @@
 // $Log$
 
 using namespace std;
+using namespace it::testbench::data;
 
 namespace it
 {

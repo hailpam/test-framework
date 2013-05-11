@@ -1,14 +1,13 @@
-#include <fstream>
-#include <sys/stat.h>
 #include <cstdio>
 #include <cstring>
-
+#include <fstream>
+#include <sys/stat.h>
 #include <rawfsmanager.h>
 #include <debug.h>
-#include <sstream>
 
 using namespace std;
 using namespace it::testbench::ioutil;
+using namespace it::testbench::data;
 
 RawFSManager* RawFSManager::instance = 0;   /*!< static pointer to ensure a single instance */
 fstream RawFSManager::fs;                   /*!< File stream used for log file */

@@ -49,8 +49,8 @@
 #define TEST_DEBUG 1
 
 #ifdef TEST_DEBUG
-#  define TEST_EQ(i,t,f,d,a,b) do {cerr << "===" << endl << i << ".["t << "]::[" << f << "]::'" << d << "'" << endl << " R--->[" << (((a) == (b))?"PASS":"FAIL") << "]" << endl << "=== " << endl;} while (0)
-#  define TEST_NEQ(i,t,f,d,a,b) do {cerr << "===" << endl << i << ".["t << "]::[" << f << "]::'" << d << "'" << endl << " R--->[" << (((a) != (b))?"PASS":"FAIL") << "]" << endl << "=== " << endl;} while (0)
+#  define TEST_EQ(i,t,f,d,a,b) do {cout << "===" << endl << i << ".["t << "]::[" << f << "]::'" << d << "'" << endl << " R--->[" << (((a) == (b))?"PASS":"FAIL") << "]" << endl << "=== " << endl;} while (0)
+#  define TEST_NEQ(i,t,f,d,a,b) do {cout << "===" << endl << i << ".["t << "]::[" << f << "]::'" << d << "'" << endl << " R--->[" << (((a) != (b))?"PASS":"FAIL") << "]" << endl << "=== " << endl;} while (0)
 #else
 #  define TEST_EQ(i,t,f,d,a,b) do {} while (0)
 #  define TEST_NEQ(i,t,f,d,a,b) do {} while (0)

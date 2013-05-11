@@ -53,8 +53,8 @@ int main(int argc, char* argv[])
     FakeObserver* fakeObs2 = new FakeObserver();
     fakeObs1->setWhoAmI(obsId1);
     fakeObs2->setWhoAmI(obsId2);
-    cout << "[OBSERVER TEST] Test [" << ((obsId1->compare(*(fakeObs1->getWhoAmI())) == 0)?"PASS":"FAIL") << "]" << endl;
-    cout << "[OBSERVER TEST] Test [" << ((obsId2->compare(*(fakeObs2->getWhoAmI())) == 0)?"PASS":"FAIL") << "]" << endl;
+    TEST_EQ(1,"Observer","fakeObs1->getWhoAmI()","Check WhoAmI",(obsId1->compare(*(fakeObs1->getWhoAmI()))),0);
+    TEST_EQ(2,"Observer","fakeObs2->getWhoAmI()","Check WhoAmI",(obsId2->compare(*(fakeObs2->getWhoAmI()))),0);
     /// SUBJECT TEST
     Subject* aSubject = new Subject();
     aSubject->addObserver(fakeObs1);
@@ -70,15 +70,15 @@ int main(int argc, char* argv[])
     ConcreteContextObject* ctxObj = new ConcreteContextObject();
     string* myDescription = new string("MyFavouriteDescription");
     ctxObj->setDescription(myDescription);
-    cout << "[CONCRETE CONTEXT OBJECT ]Test [" << ((ctxObj->getDescription()->compare(*myDescription) == 0)?"PASS":"FAIL") << "]" << endl;
+    TEST_EQ(1,"Concrete Context Object","ctxObj->setDescription(myDescription)","Check Description",(ctxObj->getDescription()->compare(*myDescription)),0);
     ctxObj->setA(aVar);
     ctxObj->setB(bVar);
     string tmp1 = aVar->getAString();
     string tmp2 = bVar->getBString();
     string tmp3 = ctxObj->getA()->getAString();
     string tmp4 = ctxObj->getB()->getBString();
-    cout << "[CONCRETE CONTEXT OBJECT] Test [" << ((tmp1.compare(tmp3) == 0)?"PASS":"FAIL") << "]" << endl;
-    cout << "[CONCRETE CONTEXT OBJECT] Test [" << ((tmp2.compare(tmp4) == 0)?"PASS":"FAIL") << "]" << endl;
+    TEST_EQ(2,"Concrete Context Object","tmp3 = ctxObj->getA()->getAString","Compare Object A",(tmp1.compare(tmp3)),0);
+    TEST_EQ(3,"Concrete Context Object","string tmp4 = ctxObj->getB()->getBString()","Compare Object B",(tmp2.compare(tmp4)),0);
 
     /// TEST ITEMs
     cout << "\n\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
@@ -87,11 +87,11 @@ int main(int argc, char* argv[])
     SetupTestItem* cSetItem = new CustomSetupItem();
     TestCaseContext* tcCtx = cSetItem->setupItem();
     string tmp5 = *(tcCtx->getDescription());
-    cout << "[TEST ITEMs] Test [" << ((tmp5.compare("MyFavouriteDescription") == 0)?"PASS":"FAIL") << "]" << endl;
+    TEST_EQ(1,"Test Item","string tmp5 = *(tcCtx->getDescription())","Check Description",(tmp5.compare("MyFavouriteDescription")),0);
     RunnableTestItem* cRunItem = new CustomRunnableTestItem();
     Report* tcRep = cRunItem->runItem(tcCtx);
     string tmp6 = *(tcRep->getSessionId());
-    cout << "[TEST ITEMs] Test [" << ((tmp6.compare("MySessionId") == 0)?"PASS":"FAIL") << "]" << endl;
+    TEST_EQ(2,"Test Item","string tmp6 = *(tcRep->getSessionId())","Check Session Id",(tmp6.compare("MySessionId")),0);
     TearDownTestItem* ctdItem = new CustomTearDownTestItem();
     ctdItem->tearDownItem(tcCtx);
 
@@ -105,11 +105,13 @@ int main(int argc, char* argv[])
     tCase->setTearDownTestItem(ctdItem);
     tCase->addRunnableTestItem(cRunItem);
     bool bSetup = tCase->setupTestCase();
-    cout << "[TEST CASE] Test [" << (bSetup?"PASS":"FAIL") << "]" << endl;
+    TEST_EQ(1,"Test Case","bSetup = tCase->setupTestCase()","Check Session Id",bSetup,1);
+    //
     bool rTC = tCase->runTestCase();
-    cout << "[TEST CASE] Test [" << (rTC?"PASS":"FAIL") << "]" << endl;
+    TEST_EQ(2,"Test Case","rTC = tCase->runTestCase()","Run Test Case and Check the Result",rTC,1);
+    //
     bool tdTC = tCase->tearDownTestCase();
-    cout << "[TEST CASE] Test [" << (tdTC?"PASS":"FAIL") << "]" << endl;
+    TEST_EQ(3,"Test Case","tdTC = tCase->tearDownTestCase()","Tear Down and Check Result",tdTC,0);
 
     /// TEST PLAN
     cout << "\n\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
@@ -119,16 +121,20 @@ int main(int argc, char* argv[])
     tPlan->addTestCase(0, tCase);
     tPlan->addTestCase(1, tCase);
     TestCase* tmpCase = const_cast<TestCase*>(tPlan->retrieveTestCase(1));
-    cout << "[TEST CASE] Test [" << ((tmpCase->getTestCaseNumber() == 1)?"PASS":"FAIL") << "]" << endl;
+    TEST_EQ(1,"Test Plan","tmpCase = const_cast<TestCase*>(tPlan->retrieveTestCase(1))","Retrieve Test Case",tmpCase->getTestCaseNumber(),1);
+    //
     tmpCase->setTestCaseNumber(10);
     bool uTP = tPlan->updateTestCase(1, tmpCase);
+    TEST_EQ(2,"Test Plan","uTP = tPlan->updateTestCase(1, tmpCase)","Update Test Case",uTP,1);
+    //
     tmpCase = const_cast<TestCase*>(tPlan->retrieveTestCase(1));
-    cout << "[TEST CASE] Test [" << (uTP && (tmpCase->getTestCaseNumber() == 10)?"PASS":"FAIL") << "]" << endl;
+    TEST_EQ(3,"Test Plan","tmpCase = const_cast<TestCase*>(tPlan->retrieveTestCase(1))","Update Test Case",tmpCase->getTestCaseNumber(),10);
+    //
     tPlan->addTestCase(2, tmpCase);
     int tcNo = tPlan->getNrOfTestCases();
     tPlan->removeTestCase(2);
     int tcNo1 = tPlan->getNrOfTestCases();
-    cout << "[TEST CASE] Test [" << (tcNo1 == (tcNo - 1)?"PASS":"FAIL") << "]" << endl;
+    TEST_EQ(4,"Test Plan","tcNo1 = tPlan->getNrOfTestCases()","Check Number of Test Cases",tcNo1,(tcNo - 1));
 
     /// TESTBENCH CONFIGURATION
     cout << "\n\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
@@ -138,18 +144,20 @@ int main(int argc, char* argv[])
     string sId = "TBCFG_SessionId";
     tbCfg->setSessionId(&sId);
     string* tmpSId = const_cast<string*>(tbCfg->getSessionId());
-    cout << "[TESTBENCH CONFIGURATION] Test [" << (sId.compare(*tmpSId) == 0?"PASS":"FAIL") << "]" << endl;
+    TEST_EQ(1,"Test Bench Configuration","tmpSId = const_cast<string*>(tbCfg->getSessionId())","Set and then Get Session Id",sId.compare(*tmpSId),0);
+    //
     sId = "MyTestPlan";
     Range tbR;
     tbR.from = 0;
     tbR.to = 2;
     tbCfg->addRange(&sId, &tbR);
     Range* tbRTemp = const_cast<Range*>(tbCfg->retrieveRange(&sId));
-    cout << "[TESTBENCH CONFIGURATION] Test [" << ((tbRTemp->from == tbR.from && tbRTemp->to == tbR.to)?"PASS":"FAIL") << "]" << endl;
+    TEST_EQ(2,"Test Bench Configuration","tbRTemp = const_cast<Range*>(tbCfg->retrieveRange(&sId))","Set Ranges and Retrieve them",(tbRTemp->from == tbR.from && tbRTemp->to == tbR.to),1);
+    //
     tbCfg->addTestPlan(&sId, tPlan);
     int orTPNo = tPlan->getNrOfTestCases();
     TestPlan* retTP = const_cast<TestPlan*>(tbCfg->retrieveTestPlan(&sId));
-    cout << "[TESTBENCH CONFIGURATION] Test [" << ((retTP->getNrOfTestCases() == orTPNo)?"PASS":"FAIL") << "]" << endl;
+    TEST_EQ(3,"Test Bench Configuration","retTP = const_cast<TestPlan*>(tbCfg->retrieveTestPlan(&sId))","Set a Test Plan and Retrieve it",retTP->getNrOfTestCases(),orTPNo);
 
     /// TEST CASE LOADER
     cout << "\n\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";

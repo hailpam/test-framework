@@ -12,80 +12,67 @@ CC      = g++
 CCFLAGS  = -I${INC_DIR} -I${INC_TST} -I${TST_DIR} -DTEST_DEBUG
 LDFLAGS = -lrt
 
-TARGET  = data
 TGT_1   = report
 TGT_2   = observer
 TGT_3   = testitem
 TGT_4   = testbench
-TEST    = test_data
+EXCPT   = tfexception
+
 TEST_1  = fake_observer
 TEST_2  = concrete_ctxobject
 TEST_3  = custom_testitems
 TEST_4  = concrete_testbuilder
-EXCPT   = tfexception
-SUPT	= support
+TEST    = test_data
+
 DIST	= libdata.a
 
 .PHONY: clean cleantest distributable runtest
 
-all: ${OBJ_DIR}/${EXCPT}.o ${OBJ_DIR}/${TGT_1}.o ${OBJ_DIR}/${TGT_2}.o ${OBJ_DIR}/${TGT_3}.o ${OBJ_DIR}/${TGT_4}.o \
-	 ${OBJ_DIR}/${TEST}.o ${OBJ_DIR}/${TEST_1}.o ${OBJ_DIR}/${TEST_2}.o ${OBJ_DIR}/${TEST_3}.o ${OBJ_DIR}/${TEST_4}.o \
+all: ${OBJ_DIR}/${TGT_1}.o ${OBJ_DIR}/${TGT_2}.o ${OBJ_DIR}/${TGT_3}.o ${OBJ_DIR}/${TGT_4}.o ${OBJ_DIR}/${EXCPT}.o \
+	 ${OBJ_DIR}/${TEST_1}.o ${OBJ_DIR}/${TEST_2}.o ${OBJ_DIR}/${TEST_3}.o ${OBJ_DIR}/${TEST_4}.o ${OBJ_DIR}/${TEST}.o \
 	 ${TEST}
 
 debug: CCFLAGS += -DDEBUG_PRINT_ENABLED -DDATA_DEBUG_ENABLED -g3
 debug: all
 
-${TEST}: ${OBJ_DIR}/${TARGET}.o ${OBJ_DIR}/${EXCPT}.o ${OBJ_DIR}/${TGT_1}.o ${OBJ_DIR}/${TGT_2}.o ${OBJ_DIR}/${TGT_3}.o  ${OBJ_DIR}/${TGT_4}.o \
-	 ${OBJ_DIR}/${TEST}.o ${OBJ_DIR}/${TEST_1}.o ${OBJ_DIR}/${TEST_2}.o ${OBJ_DIR}/${TEST_3}.o ${OBJ_DIR}/${TEST_4}.o
+${TEST}: ${OBJ_DIR}/${TGT_1}.o ${OBJ_DIR}/${TGT_2}.o ${OBJ_DIR}/${TGT_3}.o ${OBJ_DIR}/${TGT_4}.o ${OBJ_DIR}/${EXCPT}.o \
+	 ${OBJ_DIR}/${TEST_1}.o ${OBJ_DIR}/${TEST_2}.o ${OBJ_DIR}/${TEST_3}.o ${OBJ_DIR}/${TEST_4}.o ${OBJ_DIR}/${TEST}.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 	mv ${TEST} ${BIN_DIR}/
 
-${OBJ_DIR}/${EXCPT}.o: ${EXCPT}.cpp ${INC_DIR}/${SUPT}.h
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv *.o ${OBJ_DIR}/
+${OBJ_DIR}/${EXCPT}.o: ${EXCPT}.cpp 
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/${EXCPT}.o
 
-${OBJ_DIR}/${TARGET}.o: ${TARGET}.cpp ${INC_DIR}/${TARGET}.h
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv *.o ${OBJ_DIR}/
+${OBJ_DIR}/${TGT_1}.o: ${TGT_1}.cpp 
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/${TGT_1}.o
 
-${OBJ_DIR}/${TGT_1}.o: ${TGT_1}.cpp ${INC_DIR}/${SUPT}.h
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv *.o ${OBJ_DIR}/
+${OBJ_DIR}/${TGT_2}.o: ${TGT_2}.cpp 
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/${TGT_2}.o
 
-${OBJ_DIR}/${TGT_2}.o: ${TGT_2}.cpp ${INC_DIR}/${TGT_2}.h
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv *.o ${OBJ_DIR}/
+${OBJ_DIR}/${TGT_3}.o: ${TGT_3}.cpp 
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/${TGT_3}.o
 
-${OBJ_DIR}/${TGT_3}.o: ${TGT_3}.cpp ${INC_DIR}/${TGT_3}.h
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv *.o ${OBJ_DIR}/
+${OBJ_DIR}/${TGT_4}.o: ${TGT_4}.cpp 
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/${TGT_4}.o
 
-${OBJ_DIR}/${TGT_4}.o: ${TGT_4}.cpp ${INC_DIR}/${TGT_4}.h
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv *.o ${OBJ_DIR}/
+${OBJ_DIR}/${TEST}.o: ${TST_DIR}/${TEST}.cpp 
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/${TEST}.o
 
-${OBJ_DIR}/${TEST}.o: ${TST_DIR}/${TEST}.cpp ${OBJ_DIR}/${TARGET}.o
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv *.o ${OBJ_DIR}/
+${OBJ_DIR}/${TEST_1}.o: ${TST_DIR}/${TEST_1}.cpp
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/${TEST_1}.o
 
-${OBJ_DIR}/${TEST_1}.o: ${TST_DIR}/${TEST_1}.cpp ${OBJ_DIR}/${TARGET}.o
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv *.o ${OBJ_DIR}/
+${OBJ_DIR}/${TEST_2}.o: ${TST_DIR}/${TEST_2}.cpp
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/${TEST_2}.o
 
-${OBJ_DIR}/${TEST_2}.o: ${TST_DIR}/${TEST_2}.cpp ${OBJ_DIR}/${TARGET}.o
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv *.o ${OBJ_DIR}/
+${OBJ_DIR}/${TEST_3}.o: ${TST_DIR}/${TEST_3}.cpp
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/${TEST_3}.o
 
-${OBJ_DIR}/${TEST_3}.o: ${TST_DIR}/${TEST_3}.cpp ${OBJ_DIR}/${TARGET}.o
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv *.o ${OBJ_DIR}/
+${OBJ_DIR}/${TEST_4}.o: ${TST_DIR}/${TEST_4}.cpp
+	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/${TEST_4}.o
 
-${OBJ_DIR}/${TEST_4}.o: ${TST_DIR}/${TEST_4}.cpp ${OBJ_DIR}/${TARGET}.o
-	$(CC) -Wall -c $(CCFLAGS) $<
-	mv *.o ${OBJ_DIR}/
 
 distributable:
-	ar -cvq ${DIST} ${OBJ_DIR}/${TARGET}.o
+	ar -cvq ${DIST} 
 	mv *.a ${DST_DIR}/
 
 clean:

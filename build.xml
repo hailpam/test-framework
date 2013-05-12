@@ -73,7 +73,7 @@
     </parallel>
   </target>
 
-  <target name="build-branch-1" depends="build-branch-0">
+  <target name="build-branch-1">
     <!-- Second building branch with IOUTIL and FORMATTER in parallel -->
     <parallel threadcount="2">
         <antcall target="build-ioutil"/>
@@ -81,7 +81,7 @@
     </parallel>
   </target>
 
-  <target name="build-branch-2" depends="build-branch-1">
+  <target name="build-branch-2">
     <!-- Third building branch with PARSER and TCWORKER in parallel -->
     <parallel threadcount="2">
         <antcall target="build-parser"/>
@@ -89,14 +89,14 @@
     </parallel>
   </target>
 
-  <target name="build-branch-3" depends="build-branch-2">
+  <target name="build-branch-3">
     <!-- Fourth building branch with only RTE -->
     <parallel threadcount="1">
         <antcall target="build-rte"/>
     </parallel>
   </target>
 
-  <target name="build-branch-4" depends="build-branch-3">
+  <target name="build-branch-4">
     <!-- Fifth building branch with only PRESENTATION -->
     <parallel threadcount="1">
         <antcall target="build-presentation"/>

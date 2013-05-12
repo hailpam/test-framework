@@ -20,7 +20,6 @@
  */
 // $Log$
 
-///  Single line comment for dOxygen.
 
 using namespace std;
 
@@ -74,6 +73,45 @@ struct FormattedResource {
 struct Range {
     int from;           /**< start index */
     int to;             /**< end index */
+};
+
+/*!
+* Configuration resource data structure: it is multi purpose, in fact
+* it is intended to be used by multiple components
+*/
+struct Configuration {
+    string URI;         /**< unified resource identifier: it point to the configuration file */
+    string filePath;    /**< file path: path to the file that is about to be opened/created */
+    string fileName;    /**< file name */
+    string fileFormat;  /**< file extension, it should identfy the file format */
+    string sessionId;   /**< it defines the unique session Id for the testbench */
+    string testPlanId;  /**< it define the unique test plan Id for the testbench*/
+    bool loaded;        /**< it indicated whether or not the configuration file as already been loaded*/
+};
+
+
+/*!
+ * ParserResource is a placeholder for all vital information related to the
+ * Test Plan to be taked into consideratio at runtime.
+ *
+ * Each Test Plan loaded will be partially represented by this placeholder.
+ */
+struct ParserResource {
+    int testCaserNr;    /**< total number of test cases */
+    string testPlanId;  /**< test plan identifier */
+    Range* rangeArray;  /**< pointer to an array of execution ranges */
+};
+
+/*!
+ * ParserResource is a placeholder for all vital information related to the
+ * Test Plan to be taked into consideratio at runtime.
+ *
+ * Each Test Plan loaded will be partially represented by this placeholder.
+ */
+struct TestBench {
+    int testPlanNr;             /**< number of Test Plan to be run */
+    string testBenchId;         /**< Test Bench identifier */
+    ParserResource* tpArray;    /**< pointer to the parsed resourced from configuration file */
 };
 
 /*!

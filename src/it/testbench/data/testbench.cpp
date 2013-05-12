@@ -162,7 +162,7 @@ ReturnCode TestPlan::addTestCase(unsigned int tcIdx, const TestCase* tCase)
 {
     ReturnCode retCode;
     if(tCase == 0) {
-        //DATA_ERR_VAL("NULL Pointer for the Test Case", tCase);
+        DATA_ERR_VAL("NULL Pointer for the Test Case", tCase);
         retCode.code = ERROR;
         retCode.desc = "NULL Pointer to the Test Case";
 
@@ -184,7 +184,7 @@ ReturnCode TestPlan::addTestCase(unsigned int tcIdx, const TestCase* tCase)
 const TestCase* TestPlan::retrieveTestCase(unsigned int tcIdx) const
 {
     if(tcIdx > listOfTests.size()) {
-        //DATA_ERR_VAL("Povided Index is out of bound, current Count#", listOfTests.size());
+        DATA_ERR_VAL("Povided Index is out of bound, current Count#", listOfTests.size());
 
         return 0;
     }
@@ -198,7 +198,7 @@ ReturnCode TestPlan::removeTestCase(unsigned int tcIdx)
 {
     ReturnCode retCode;
     if(tcIdx > listOfTests.size()) {
-        //DATA_ERR_VAL("Povided Index is out of bound, current Count#", listOfTests.size());
+        DATA_ERR_VAL("Povided Index is out of bound, current Count#", listOfTests.size());
         retCode.code = ERROR;
         retCode.desc = "Provided and Index that is currently Out of Bounds";
 
@@ -219,7 +219,7 @@ ReturnCode TestPlan::updateTestCase(unsigned int tcIdx, const TestCase* tCase)
 {
     ReturnCode retCode;
     if(tcIdx > listOfTests.size()) {
-        //DATA_ERR_VAL("Povided Index is out of bound, current Count#", listOfTests.size());
+        DATA_ERR_VAL("Povided Index is out of bound, current Count#", listOfTests.size());
         retCode.code = ERROR;
         retCode.desc = "Provided and Index that is currently Out of Bounds";
 
@@ -264,12 +264,12 @@ Report* TestCase::finalizeReport() { /* TODO */ return 0; }
 void TestCase::setupTestCase() throw(TestFrameworkException)
 {
     if(this->sTestItem == 0) {
-        //DATA_ERR_VAL("NULL Pointer for Setup Test item", sTestItem);
+        DATA_ERR_VAL("NULL Pointer for Setup Test item", sTestItem);
         throw new TestFrameworkException("Uninitialized Setup Test Item: Unable to proceed");
     }
     this->ctxObject = this->sTestItem->setupItem();
     if(this->ctxObject == 0) {
-        //DATA_ERR_VAL("NULL Pointer for Context Object", ctxObject);
+        DATA_ERR_VAL("NULL Pointer for Context Object", ctxObject);
         throw new TestFrameworkException("Uninitialized Context Object: Unable to proceed");
     }
     DATA_INFO("Setup successfully implemented!");
@@ -278,7 +278,7 @@ void TestCase::setupTestCase() throw(TestFrameworkException)
 void TestCase::runTestCase() throw(TestFrameworkException)
 {
     if(this->ctxObject == 0) {
-        //DATA_ERR_VAL("NULL Pointer for Context Object", ctxObject);
+        DATA_ERR_VAL("NULL Pointer for Context Object", ctxObject);
         throw new TestFrameworkException("Uninitialized Context Object: Unable to proceed");
     }
     list<RunnableTestItem*>::iterator itrList;
@@ -286,7 +286,7 @@ void TestCase::runTestCase() throw(TestFrameworkException)
         Report* ptrReport = (*itrList)->runItem(this->ctxObject);
         if(ptrReport  == 0) {
             /* recovery action is needed: don't trust */
-            //DATA_ERR_VAL("Report not generated for Item#", distance(rTestItems.begin(),itrList));
+            DATA_ERR_VAL("Report not generated for Item#", distance(rTestItems.begin(),itrList));
             continue;
         }
         tcReports.push_back(ptrReport);
@@ -298,12 +298,12 @@ void TestCase::runTestCase() throw(TestFrameworkException)
 void TestCase::tearDownTestCase() throw(TestFrameworkException)
 {
     if(this->tdTestItem == 0) {
-        //DATA_ERR_VAL("NULL Pointer for Tear Down Test Item", this->tdTestItem);
+        DATA_ERR_VAL("NULL Pointer for Tear Down Test Item", this->tdTestItem);
         throw new TestFrameworkException("Uninitialized Tear Down Test Item: Unable to proceed");
     }
     /* DANGEREOUS :: Likely memory leak */
     if(this->ctxObject == 0) {
-        //DATA_ERR_VAL("NULL Pointer for Context Object", ctxObject);
+        DATA_ERR_VAL("NULL Pointer for Context Object", ctxObject);
         throw new TestFrameworkException("Uninitialized Context Object: Unable to proceed");
     }
     this->tdTestItem->tearDownItem(this->ctxObject);

@@ -71,6 +71,37 @@ int main(int argc, char* argv[]) {
         TEST_EQ(11,"State Machine Testing","retState->open(cfg, loadRes, retCode)","open resource - expected exception", 1, 1);
      }
 
+    /**
+     * PARSER MANAGER TESTING
+     */
+    cout << "\n\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+    cout << "\n+++ PARSER MANAGER TESTs                                                         +++";
+    cout << "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+    ParserManager* pManager = new ParserManager();
+    Configuration fConfig;
+    fConfig.URI = "home/hailpam/Developments/c++-workspace/bla.txt";
+    fConfig.fileName = "bla.txt";
+    fConfig.filePath =  "home/hailpam/Developments/c++-workspace";
+    fConfig.fileFormat = "TXT";
+    fConfig.sessionId = "InitialSession";
+    try {
+        pManager->loadConfig(fConfig);
+        TEST_EQ(1,"Parser Manager Tests","pManager->loadConfig(fConfig)","try to load configuration on uninited FSM - expected exception - error", 1,-1);
+    }catch(TestFrameworkException& exception) {
+        TEST_EQ(1,"Parser Manager Tests","pManager->loadConfig(fConfig)","try to load configuration on uninited FSM - expected exception", 1,1);
+     }
+    // initialize the FSM
+    TestCaseLoader* tcLoader = 0;
+    ReturnCode rCode = pManager->init(tcLoader);
+    TEST_EQ(2,"Parser Manager Tests","ReturnCode rCode = pManager->init(tcLoader)","try to init with a NULL pointer - expected eerror", rCode.code, ERROR);
+    tcLoader = new  TestCaseLoader();
+    rCode = pManager->init(tcLoader);
+    TEST_EQ(3,"Parser Manager Tests","rCode = pManager->init(tcLoader)","try to init - init successfull", rCode.code, SUCCESS);
+    DATA_INFO("Description::"+rCode.desc);
+    // try to reinit
+    rCode = pManager->init(tcLoader);
+    TEST_EQ(4,"Parser Manager Tests","rCode = pManager->init(tcLoader)","try to init - init successfull", rCode.code, SUCCESS);
+    DATA_INFO("Description::"+rCode.desc);
 
     delete retCode;
     delete pState;
@@ -78,6 +109,8 @@ int main(int argc, char* argv[]) {
     delete pIState;
     delete retState;
     delete tBench;
+    delete pManager;
+    delete tcLoader;
 
 	return 0;
 }

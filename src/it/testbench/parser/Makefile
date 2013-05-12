@@ -19,23 +19,25 @@ LOGR_OBJ= ${OBJ_DIR}/../logger
 
 CC      = g++
 CCFLAGS  = -I${INC_DIR} -I${DATA_INC} -I${IOUT_INC} -I${LOGR_INC} -I${ROOT_INC} -DTEST_DEBUG
-LDFLAGS = -lrt
+LDFLAGS = -lrt -L${DST_DIR}
 
 TARGET  = parser
 FSM	= fsmparser
 TEST    = test_parser
 DIST	= libparser.a
 
+DEP	= data
+
 .PHONY: clean cleantest distributable runtest
 
 all: ${OBJ_DIR}/${TARGET}.o ${OBJ_DIR}/${FSM}.o ${OBJ_DIR}/${TEST}.o ${TEST}
 	$(MAKE) distributable
 
-debug: CCFLAGS += -DDEBUG_PRINT_ENABLED -DDATA_DEBUG_ENABLED -g3
+debug: CCFLAGS += -DDEBUG_PRINT_ENABLED -DDATA_DEBUG_ENABLED -g3 
 debug: all
 
-${TEST}: ${OBJ_DIR}/${TARGET}.o ${OBJ_DIR}/${FSM}.o ${DATA_OBJ}/tfexception.o ${OBJ_DIR}/${TEST}.o 
-	$(CC) -o $@ $^ $(LDFLAGS)
+${TEST}: ${OBJ_DIR}/${TARGET}.o ${OBJ_DIR}/${FSM}.o ${OBJ_DIR}/${TEST}.o 
+	$(CC) -o $@ $^ $(LDFLAGS) -l${DEP}
 	mv ${TEST} ${BIN_DIR}/
 
 ${OBJ_DIR}/${TARGET}.o: ${TARGET}.cpp ${INC_DIR}/${TARGET}.h
@@ -46,9 +48,6 @@ ${OBJ_DIR}/${FSM}.o: ${FSM}.cpp ${INC_DIR}/${FSM}.h
 
 ${OBJ_DIR}/${TEST}.o: ${TST_DIR}/${TEST}.cpp ${OBJ_DIR}/${TARGET}.o
 	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/${TEST}.o
-
-${DATA_OBJ}/tfexception.o:
-	
 
 distributable:
 	ar -cvq ${DIST} ${OBJ_DIR}/${TARGET}.o

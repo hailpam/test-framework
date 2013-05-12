@@ -25,15 +25,15 @@ ParserManager::~ParserManager()
     delete tbParsed;
 }
 
-void ParserManager::loadConfig(const Configuration& fileCfg) throw (TestFrameworkException)
+void ParserManager::loadConfig(const Configuration& fileCfg) throw  (TestFrameworkException)
 {
-    if(fileCfg.URI.empty() || (fileCfg.filePath.empty() && fileCfg.filePath.empty() && fileCfg.fileFormat.empty())) {
+    if(fileCfg.URI.empty() && (fileCfg.filePath.empty() || fileCfg.fileName.empty() || fileCfg.fileFormat.empty())) {
         DATA_ERR_VAL("Provided in Input a Configuration Object badly filled: resource to be loaded not specified", -1);
-        throw new TestFrameworkException("Undefined Resource to be loaded");
+        throw TestFrameworkException("Undefined Resource to be loaded");
     }
     if(fileCfg.sessionId.empty()) {
         DATA_ERR_VAL("Provided in Input a Configuration Object badly filled: session Id has not been specified", -1);
-        throw new TestFrameworkException("Undefined Session to work in");
+        throw TestFrameworkException("Undefined Session to work in");
     }
     //
     loadedCfg->URI = fileCfg.URI;
@@ -49,7 +49,7 @@ void ParserManager::loadConfig(const Configuration& fileCfg) throw (TestFramewor
         if(retCode.code == SUCCESS)
             DATA_INFO_VAL("Stream correctly loaded: dimension #byte", this->loadedStream->size());
         else
-            throw new TestFrameworkException(retCode.desc);
+            throw TestFrameworkException(retCode.desc);
         delete this->currentState;
         this->currentState = newState;
     }catch(TestFrameworkException& exception)
@@ -62,10 +62,10 @@ void ParserManager::loadConfig(const Configuration& fileCfg) throw (TestFramewor
              this->currentState = newState;
          }catch(TestFrameworkException& exception) {
              DATA_ERR_VAL("Severe Error occurred in resetting the FSM::"+string(exception.what()), -1);
-             throw new TestFrameworkException("ParserManager::loadConfig["+string(exception.what())+"] - 'FAILED FSM RESET'");
+             throw TestFrameworkException("ParserManager::loadConfig["+string(exception.what())+"] - 'FAILED FSM RESET'");
           }
          DATA_ERR_VAL("Severe Error occurred in opening the FS stream::"+string(exception.what()), -1);
-         throw new TestFrameworkException("ParserManager::loadConfig["+string(exception.what())+"]");
+         throw TestFrameworkException("ParserManager::loadConfig["+string(exception.what())+"]");
      }
      DATA_INFO("Stream correctly loaded: next step may be implemented");
 }
@@ -79,7 +79,7 @@ void ParserManager::parseConfig() throw (TestFrameworkException)
         if(retCode.code == SUCCESS)
             DATA_INFO_VAL("Configuration correctly loaded: to be run test plan #", tbParsed->testPlanNr);
         else
-            throw new TestFrameworkException(retCode.desc);
+            throw TestFrameworkException(retCode.desc);
         delete this->currentState;
         this->currentState = newState;
     }catch(TestFrameworkException& exception)
@@ -92,10 +92,10 @@ void ParserManager::parseConfig() throw (TestFrameworkException)
              this->currentState = newState;
          }catch(TestFrameworkException& exception) {
              DATA_ERR_VAL("Severe Error occurred in resetting the FSM::"+string(exception.what()), -1);
-             throw new TestFrameworkException("ParserManager::loadConfig["+string(exception.what())+"] - 'FAILED FSM RESET'");
+             throw TestFrameworkException("ParserManager::loadConfig["+string(exception.what())+"] - 'FAILED FSM RESET'");
           }
          DATA_ERR_VAL("Severe Error occurred in parsing the FS stream::"+string(exception.what()), -1);
-         throw new TestFrameworkException("ParserManager::parseConfig["+string(exception.what())+"]");
+         throw TestFrameworkException("ParserManager::parseConfig["+string(exception.what())+"]");
      }
      DATA_INFO("Configuration file correctly parsed: next step may be implemented");
 }
@@ -109,7 +109,7 @@ ReturnCode ParserManager::validateConfig()
         if(retCode.code == SUCCESS)
             DATA_INFO_VAL("Configuration correctly validated: to be run test plan #", tbParsed->testPlanNr);
         else
-            throw new TestFrameworkException(retCode.desc);
+            throw TestFrameworkException(retCode.desc);
         delete this->currentState;
         this->currentState = newState;
     }catch(TestFrameworkException& exception)
@@ -122,10 +122,10 @@ ReturnCode ParserManager::validateConfig()
              this->currentState = newState;
          }catch(TestFrameworkException& exception) {
              DATA_ERR_VAL("Severe Error occurred in resetting the FSM::"+string(exception.what()), -1);
-             throw new TestFrameworkException("ParserManager::loadConfig["+string(exception.what())+"] - 'FAILED FSM RESET'");
+             throw TestFrameworkException("ParserManager::loadConfig["+string(exception.what())+"] - 'FAILED FSM RESET'");
           }
          DATA_ERR_VAL("Severe Error occurred in validating the FS stream::"+string(exception.what()), -1);
-         throw new TestFrameworkException("ParserManager::validateConfig["+string(exception.what())+"]");
+         throw TestFrameworkException("ParserManager::validateConfig["+string(exception.what())+"]");
      }
     // TODO : create the testbench configuration object using the Loader
     //
@@ -147,7 +147,7 @@ ReturnCode ParserManager::init(const TestCaseLoader* loader)
         return retCode;
     }
     //
-    if(this->currentState->isFSMInitialized()) {
+    if(!this->currentState->isFSMInitialized()) {
         try {
             ParserState* newState = this->currentState->init(&retCode);     // FSM lazy initialization
             if(retCode.code == SUCCESS) {

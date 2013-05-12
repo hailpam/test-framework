@@ -16,12 +16,14 @@ ParserState::~ParserState() {/* Do nothing */}
 ParserState* ParserState::init(ReturnCode* report) throw (TestFrameworkException)
 {
     if(unInitialized) {
+        DATA_INFO("Parser not yet Initialized, ready to be initialized");
         ParserInitialized* initStatus = new ParserInitialized();
         unInitialized = false;
         //
         report->code = SUCCESS;
         report->desc = "Parser Successfully Initialized";
         //
+        DATA_INFO("Parser successfully Initialized");
         return initStatus;
     }else
         throw new TestFrameworkException("FSM already Initialized: trigger not allowed");

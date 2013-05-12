@@ -31,14 +31,14 @@ DIST	= libdata.a
 all: ${OBJ_DIR}/${TGT_1}.o ${OBJ_DIR}/${TGT_2}.o ${OBJ_DIR}/${TGT_3}.o ${OBJ_DIR}/${TGT_4}.o ${OBJ_DIR}/${EXCPT}.o \
 	 ${OBJ_DIR}/${TEST_1}.o ${OBJ_DIR}/${TEST_2}.o ${OBJ_DIR}/${TEST_3}.o ${OBJ_DIR}/${TEST_4}.o ${OBJ_DIR}/${TEST}.o \
 	 ${TEST}
+	$(MAKE) distributable
 
 debug: CCFLAGS += -DDEBUG_PRINT_ENABLED -DDATA_DEBUG_ENABLED -g3
 debug: all
 
 ${TEST}: ${OBJ_DIR}/${TGT_1}.o ${OBJ_DIR}/${TGT_2}.o ${OBJ_DIR}/${TGT_3}.o ${OBJ_DIR}/${TGT_4}.o ${OBJ_DIR}/${EXCPT}.o \
 	 ${OBJ_DIR}/${TEST_1}.o ${OBJ_DIR}/${TEST_2}.o ${OBJ_DIR}/${TEST_3}.o ${OBJ_DIR}/${TEST_4}.o ${OBJ_DIR}/${TEST}.o
-	$(CC) -o $@ $^ $(LDFLAGS)
-	mv ${TEST} ${BIN_DIR}/
+	$(CC) -o ${BIN_DIR}/$@ $^ $(LDFLAGS)
 
 ${OBJ_DIR}/${EXCPT}.o: ${EXCPT}.cpp 
 	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/${EXCPT}.o
@@ -70,16 +70,16 @@ ${OBJ_DIR}/${TEST_3}.o: ${TST_DIR}/${TEST_3}.cpp
 ${OBJ_DIR}/${TEST_4}.o: ${TST_DIR}/${TEST_4}.cpp
 	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/${TEST_4}.o
 
-
 distributable:
-	ar -cvq ${DIST} 
+	ar -cvq ${DIST} ${OBJ_DIR}/${TGT_1}.o ${OBJ_DIR}/${TGT_2}.o ${OBJ_DIR}/${TGT_3}.o ${OBJ_DIR}/${TGT_4}.o ${OBJ_DIR}/${EXCPT}.o
 	mv *.a ${DST_DIR}/
 
 clean:
-	rm -f ${OBJ_DIR}/*.o
+	rm -f ${OBJ_DIR}/${TGT_1}.o ${OBJ_DIR}/${TGT_2}.o ${OBJ_DIR}/${TGT_3}.o ${OBJ_DIR}/${TGT_4}.o ${OBJ_DIR}/${EXCPT}.o \
+		${OBJ_DIR}/${TEST_1}.o ${OBJ_DIR}/${TEST_2}.o ${OBJ_DIR}/${TEST_3}.o ${OBJ_DIR}/${TEST_4}.o ${OBJ_DIR}/${TEST}.o
 
 cleantest: clean
-	rm -f ${BIN_DIR}/${TEST}
+	rm -f ${BIN_DIR}/${TEST} ${DST_DIR}/${DIST}
 
 runtest:
 	valgrind --tool=memcheck --leak-check=yes --log-file=${TEST}-valgrind.log  -v ${BIN_DIR}/${TEST}

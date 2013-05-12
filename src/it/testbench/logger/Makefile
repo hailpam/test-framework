@@ -9,13 +9,15 @@ TST_DIR = ../../../../test/${PACKAGE}
 BIN_DIR = ../../../../bin
 LOG_DIR = ../../../../log
 
-CC      = g++
-CCFLAGS  = -I${INC_DIR} -I${INC_TST}
-LDFLAGS = -lrt
+CC	= g++
+CCFLAGS	= -I${INC_DIR} -I${INC_TST}
+LDFLAGS	= -lrt
+DIST	= liblogger.a
 
 .PHONY: clean cleantest distributable runtest
 
 all: ${OBJ_DIR}/rawlogger.o ${OBJ_DIR}/test_rawlogger.o ${BIN_DIR}/test_rawlogger
+	$(MAKE) distributable
 
 debug: CCFLAGS += -DDEBUG_PRINT_ENABLED -g3
 debug: all
@@ -30,14 +32,14 @@ ${OBJ_DIR}/rawlogger.o: rawlogger.cpp
 	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/rawlogger.o
 
 distributable:
-	ar -cvq ${DIST} ${OBJ_DIR}/${TARGET}.o
+	ar -cvq ${DIST} ${OBJ_DIR}/rawlogger.o
 	mv *.a ${DST_DIR}/
 
 clean:
-	rm -f ${OBJ_DIR}/*.o
+	rm -f ${OBJ_DIR}/rawlogger.o ${OBJ_DIR}/test_rawlogger.o
 
 cleantest: clean
-	rm -f ${BIN_DIR}/test_rawlogger ${BIN_DIR}/*.log ${LOG_DIR}/*.log
+	rm -f ${BIN_DIR}/test_rawlogger ${BIN_DIR}/*.log ${LOG_DIR}/*.log ${DST_DIR}/${DIST}
 
 runtest:
 	valgrind --tool=memcheck --leak-check=yes --log-file=test_rawlogger-valgrind.log  -v ${BIN_DIR}/test_rawlogger

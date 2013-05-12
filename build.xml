@@ -67,7 +67,7 @@
   
   <target name="build-branch-0">
     <!-- First building branch with DATA and LOGGER built in parallel -->
-    <parallel threadcount="2">
+    <parallel threadcount="${tn}">
         <antcall target="build-data"/>
         <antcall target="build-logger"/>
     </parallel>
@@ -106,13 +106,11 @@
   <target name="build-all" depends="init"
         description="compile all packages">
     <!-- Second: build other packages in 2 parallel building branches -->
-    <parallel threadcount="${tn}">
         <antcall target="build-branch-0"/>
         <antcall target="build-branch-1"/>
 	<antcall target="build-branch-2"/>
 	<antcall target="build-branch-3"/>
 	<antcall target="build-branch-4"/>
-    </parallel>
   </target>
 
   <target name="clean"

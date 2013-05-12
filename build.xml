@@ -35,6 +35,12 @@
     </exec>
   </target>
 
+  <target name="build-logger">
+    <exec dir="${src}/logger" executable="make">
+        <arg line="-j ${tn}"/>
+    </exec>
+  </target>
+
   <target name="build-parser">
     <exec dir="${src}/parser" executable="make">
         <arg line="-j ${tn}"/>
@@ -58,31 +64,55 @@
         <arg line="-j ${tn}"/>
     </exec>
   </target>
-
-  <target name="build-branch-1">
-    <!-- First building branch with formatter->tcworker->rte -->
-    <antcall target="build-formatter"/>
-    <antcall target="build-tcworker"/>
-    <antcall target="build-rte"/>
+  
+  <target name="build-branch-0">
+    <!-- First building branch with DATA and LOGGER built in parallel -->
+    <parallel threadcount="2">
+        <antcall target="build-data"/>
+        <antcall target="build-logger"/>
+    </parallel>
   </target>
 
-  <target name="build-branch-2">
-    <!-- Second building branch with ioutil->parser -->
-    <antcall target="build-ioutil"/>
-    <antcall target="build-parser"/>
+  <target name="build-branch-1" depends="build-branch-0">
+    <!-- Second building branch with IOUTIL and FORMATTER in parallel -->
+    <parallel threadcount="2">
+        <antcall target="build-ioutil"/>
+        <antcall target="build-formatter"/>
+    </parallel>
   </target>
 
+  <target name="build-branch-2" depends="build-branch-1">
+    <!-- Third building branch with PARSER and TCWORKER in parallel -->
+    <parallel threadcount="2">
+        <antcall target="build-parser"/>
+        <antcall target="build-tcworker"/>
+    </parallel>
+  </target>
+
+  <target name="build-branch-3" depends="build-branch-2">
+    <!-- Fourth building branch with only RTE -->
+    <parallel threadcount="1">
+        <antcall target="build-rte"/>
+    </parallel>
+  </target>
+
+  <target name="build-branch-4" depends="build-branch-3">
+    <!-- Fifth building branch with only PRESENTATION -->
+    <parallel threadcount="1">
+        <antcall target="build-presentation"/>
+    </parallel>
+  </target>
+  
   <target name="build-all" depends="init"
         description="compile all packages">
-    <!-- First: build data package -->
-    <antcall target="build-data"/>
     <!-- Second: build other packages in 2 parallel building branches -->
-    <parallel threadcount="2">
+    <parallel threadcount="${tn}">
+        <antcall target="build-branch-0"/>
         <antcall target="build-branch-1"/>
-        <antcall target="build-branch-2"/>
+	<antcall target="build-branch-2"/>
+	<antcall target="build-branch-3"/>
+	<antcall target="build-branch-4"/>
     </parallel>
-    <!-- Third: build presentation package -->
-    <antcall target="build-presentation"/>
   </target>
 
   <target name="clean"

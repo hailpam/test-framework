@@ -45,8 +45,11 @@ distributable:
 clean:
 	rm -f ${OBJ_DIR}/rawfsmanager.o ${OBJ_DIR}/test_rawfsmanager.o ${OBJ_DIR}/test_stubfsmanager.o
 
-cleantest: clean
-	rm -f ${BIN_DIR}/test_rawfsmanager ${BIN_DIR}/*.txt ${LOG_DIR}/*.log ${DST_DIR}/${DIST}
+cleantest: clean cleandist
+	rm -f ${BIN_DIR}/test_rawfsmanager ${BIN_DIR}/*.txt ${LOG_DIR}/*.log
+
+cleandist:
+	rm -f ${DST_DIR}/${DIST}
 
 runtest:
 	valgrind --tool=memcheck --leak-check=yes --log-file=test_rawfsmanager-valgrind.log  -v ${BIN_DIR}/test_rawfsmanager

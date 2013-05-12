@@ -78,8 +78,11 @@ clean:
 	rm -f ${OBJ_DIR}/${TGT_1}.o ${OBJ_DIR}/${TGT_2}.o ${OBJ_DIR}/${TGT_3}.o ${OBJ_DIR}/${TGT_4}.o ${OBJ_DIR}/${EXCPT}.o \
 		${OBJ_DIR}/${TEST_1}.o ${OBJ_DIR}/${TEST_2}.o ${OBJ_DIR}/${TEST_3}.o ${OBJ_DIR}/${TEST_4}.o ${OBJ_DIR}/${TEST}.o
 
-cleantest: clean
-	rm -f ${BIN_DIR}/${TEST} ${DST_DIR}/${DIST}
+cleantest: clean cleandist
+	rm -f ${BIN_DIR}/${TEST} 
+
+cleandist:
+	${DST_DIR}/${DIST}
 
 runtest:
 	valgrind --tool=memcheck --leak-check=yes --log-file=${TEST}-valgrind.log  -v ${BIN_DIR}/${TEST}

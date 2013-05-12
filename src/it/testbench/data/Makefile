@@ -82,7 +82,7 @@ cleantest: clean cleandist
 	rm -f ${BIN_DIR}/${TEST} 
 
 cleandist:
-	${DST_DIR}/${DIST}
+	rm -f ${DST_DIR}/${DIST}
 
 runtest:
 	valgrind --tool=memcheck --leak-check=yes --log-file=${TEST}-valgrind.log  -v ${BIN_DIR}/${TEST}

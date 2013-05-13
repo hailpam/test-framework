@@ -103,7 +103,7 @@ void TestBenchConfiguration::setNrOfThreads(unsigned int threadNo)
     nrOfThreads = threadNo;
 }
 
-int TestBenchConfiguration::getNrOfThreads()
+unsigned int TestBenchConfiguration::getNrOfThreads()
 {
     return nrOfThreads;
 }
@@ -133,6 +133,8 @@ ReturnCode TestBenchConfiguration::addTestPlan(const string* tPlanId, TestPlan* 
         return retCode;
     }
     pTestPlan[*tPlanId] = tPlan;
+    tPlan->setParent(this);
+    tPlan->setTestPlanId(*tPlanId);
     //
     retCode.code = SUCCESS;
     retCode.desc = "Test Plan added Successfully";
@@ -155,10 +157,43 @@ const TestPlan* TestBenchConfiguration::retrieveTestPlan(const string* tPlanId)
 
 /// TEST PLAN
 
-TestPlan::TestPlan() {/* Do nothing */}
+TestPlan::TestPlan()
+{
+    parent = 0;
+}
+
 TestPlan::~TestPlan() {/* Do nothing */}
 
-ReturnCode TestPlan::addTestCase(unsigned int tcIdx, const TestCase* tCase)
+void TestPlan::setParent(const TestBenchConfiguration* parent)
+{
+    this->parent = parent;
+}
+
+ReturnCode TestPlan::setTestPlanId(const string& tId)
+{
+    ReturnCode retCode;
+    if (tId.size() == 0) {
+        retCode.code = ERROR;
+        retCode.desc = "Invalid Test Plan Id";
+    } else {
+        testPlanId = tId;
+        retCode.code = SUCCESS;
+        retCode.desc = "Test Plan Id set successfully";
+    }
+    return retCode;
+}
+
+const string* TestPlan::getTestPlanId() const
+{
+    return &testPlanId;
+}
+
+const string* TestPlan::getSessionId() const
+{
+    return parent->getSessionId();
+}
+
+ReturnCode TestPlan::addTestCase(unsigned int tcIdx, TestCase* tCase)
 {
     ReturnCode retCode;
     if(tCase == 0) {
@@ -173,6 +208,8 @@ ReturnCode TestPlan::addTestCase(unsigned int tcIdx, const TestCase* tCase)
     itrList = listOfTests.begin();
     std::advance(itrList,tcIdx);
     listOfTests.insert(itrList, const_cast<TestCase*>(tCase));
+    tCase->setParent(this);
+    tCase->setTestCaseNumber(tcIdx);
     DATA_INFO_VAL("Test Case added successfully, current Count#", listOfTests.size());
     //
     retCode.code = SUCCESS;
@@ -234,13 +271,19 @@ ReturnCode TestPlan::updateTestCase(unsigned int tcIdx, const TestCase* tCase)
     return retCode;
 }
 
-const int TestPlan::getNrOfTestCases()
+const unsigned int TestPlan::getNrOfTestCases()
 {
     return listOfTests.size();
 }
 
 /// TEST CASE
-TestCase::TestCase() {/* Do nothing */}
+TestCase::TestCase()
+{
+    parent = 0;
+    sTestItem = 0;
+    tdTestItem = 0;
+    ctxObject = 0;
+}
 
 TestCase::~TestCase()
 {
@@ -253,13 +296,27 @@ TestCase::~TestCase()
         delete *itrList;
     }
     // deallocate the reports
-    list<Report*>::iterator itrReport;
-    for(itrReport = tcReports.begin(); itrReport != tcReports.end(); ++itrReport) {
-        delete *itrReport;
+    list<ReturnCode*>::iterator itrRetCode;
+    for(itrRetCode = tcRetcodes.begin(); itrRetCode != tcRetcodes.end(); ++itrRetCode) {
+        delete *itrRetCode;
     }
 }
 
-Report* TestCase::finalizeReport() { /* TODO */ return 0; }
+Report* TestCase::finalizeReport() {
+    Report *report = new Report();
+    const string *sessionId = parent->getSessionId();
+    report->setSessionId(sessionId);
+    const string *testPlanId = parent->getTestPlanId();
+    report->setTestPlanId(testPlanId);
+    report->setTestId(tcNumber);
+    report->setOutcome(&tcRetcodes);
+    return report;
+}
+
+void TestCase::setParent(const TestPlan* parent)
+{
+    this->parent = parent;
+}
 
 void TestCase::setupTestCase() throw(TestFrameworkException)
 {
@@ -283,16 +340,16 @@ void TestCase::runTestCase() throw(TestFrameworkException)
     }
     list<RunnableTestItem*>::iterator itrList;
     for(itrList = rTestItems.begin(); itrList != rTestItems.end(); ++itrList) {
-        Report* ptrReport = (*itrList)->runItem(this->ctxObject);
-        if(ptrReport  == 0) {
+        ReturnCode* ptrRetCode = (*itrList)->runItem(this->ctxObject);
+        if(ptrRetCode  == 0) {
             /* recovery action is needed: don't trust */
             //DATA_ERR_VAL("Report not generated for Item#", distance(rTestItems.begin(),itrList));
             continue;
         }
-        tcReports.push_back(ptrReport);
+        tcRetcodes.push_back(ptrRetCode);
     }
     DATA_INFO("Run successfully implemented!");
-    DATA_INFO_VAL("Test Report Count", tcReports.size());
+    DATA_INFO_VAL("Test ReturnCode Count", tcRetcodes.size());
 }
 
 void TestCase::tearDownTestCase() throw(TestFrameworkException)
@@ -334,18 +391,18 @@ void TestCase::addRunnableTestItem(const RunnableTestItem* rTestItem)
     DATA_INFO_VAL("Added Runnable Test Item ", rTestItem);
 }
 
-void TestCase::addReport(const Report* report)
+void TestCase::addReturnCode(const ReturnCode* retCode)
 {
-    tcReports.push_back(const_cast<Report*>(report));
-    DATA_INFO_VAL("Added Report successfully", report);
+    tcRetcodes.push_back(const_cast<ReturnCode*>(retCode));
+    DATA_INFO_VAL("Added ReturnCode successfully", retCode);
 }
 
-void TestCase::setTestCaseNumber(const unsigned int& tcNo)
+void TestCase::setTestCaseNumber(const unsigned int tcNo)
 {
     tcNumber = tcNo;
 }
 
-const int TestCase::getTestCaseNumber() const
+const unsigned int TestCase::getTestCaseNumber() const
 {
     return tcNumber;
 }

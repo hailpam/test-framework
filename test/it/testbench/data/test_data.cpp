@@ -28,9 +28,9 @@ int main(int argc, char* argv[])
     report->setTestPlanId(testPlanId);
     TEST_EQ(2,"Report","tcLoader->setTestPlanId()","Load all Test Cases",(testPlanId->compare(*(report->getTestPlanId()))),0);
     //
-    string* testId = new string("MyTestId");
+    unsigned int testId = 123;
     report->setTestId(testId);
-    TEST_EQ(3,"Report","tcLoader->setTestId()","Load all Test Cases",(testId->compare(*(report->getTestId()))),0);
+    TEST_EQ(3,"Report","tcLoader->setTestId()","Load all Test Cases",(report->getTestId()),testId);
     //
     FormattedResource res;
     res.ext = "TEXT";
@@ -89,9 +89,10 @@ int main(int argc, char* argv[])
     string tmp5 = tcCtx->getDescription();
     TEST_EQ(1,"Test Item","string tmp5 = *(tcCtx->getDescription())","Check Description",(tmp5.compare("MyFavouriteDescription")),0);
     RunnableTestItem* cRunItem = new CustomRunnableTestItem();
-    Report* tcRep = cRunItem->runItem(tcCtx);
-    string tmp6 = *(tcRep->getSessionId());
-    TEST_EQ(2,"Test Item","string tmp6 = *(tcRep->getSessionId())","Check Session Id",(tmp6.compare("MySessionId")),0);
+    ReturnCode* tcRet = cRunItem->runItem(tcCtx);
+    TEST_EQ(2,"Test Item","tcRet->code = SUCCESS","Check Return Code",tcRet->code,SUCCESS);
+    string tmp6 = tcRet->desc;
+    TEST_EQ(3,"Test Item","string tmp6 = tcRet->desc","Check Return Code desc",(tmp6.compare("MyTestItemDescription")),0);
     TearDownTestItem* ctdItem = new CustomTearDownTestItem();
     ctdItem->tearDownItem(tcCtx);
 
@@ -173,7 +174,7 @@ int main(int argc, char* argv[])
     TEST_EQ(2,"Test Bench Configuration","tbRTemp = const_cast<Range*>(tbCfg->retrieveRange(&sId))","Set Ranges and Retrieve them",(tbRTemp->from == tbR.from && tbRTemp->to == tbR.to),1);
     //
     tbCfg->addTestPlan(&sId, tPlan);
-    int orTPNo = tPlan->getNrOfTestCases();
+    unsigned int orTPNo = tPlan->getNrOfTestCases();
     TestPlan* retTP = const_cast<TestPlan*>(tbCfg->retrieveTestPlan(&sId));
     TEST_EQ(3,"Test Bench Configuration","retTP = const_cast<TestPlan*>(tbCfg->retrieveTestPlan(&sId))","Set a Test Plan and Retrieve it",retTP->getNrOfTestCases(),orTPNo);
 
@@ -249,7 +250,6 @@ int main(int argc, char* argv[])
     //delete tPlan;
     delete sessionId;
     delete testPlanId;
-    delete testId;
     delete report;
     delete aVar;
     delete bVar;

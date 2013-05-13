@@ -1,10 +1,11 @@
 #ifndef SUPPORT_H
 #define SUPPORT_H
 
-#include <debug.h>
-#include <exception>
-
 #include <string>
+#include <exception>
+#include <list>
+#include <debug.h>
+
 
 #define NR_OF_THREADS 50
 
@@ -102,8 +103,8 @@ class Report {
     private:
         string* sessionId;              /*!< testbench unique session identifier */
         string* testPlanId;             /*!< test plan unique identifier */
-        string* testId;                 /*!< test case unique identifier */
-        bool outcome;                   /*!< elaboration outocome */
+        unsigned int testId;            /*!< test case unique identifier */
+        list<ReturnCode*>* retCodes;    /*!< elaboration outcome */
         FormattedResource* resource;    /*!< resource formatted according to initial settings */
 
     public:
@@ -114,12 +115,12 @@ class Report {
           *
           * @return A boolean value, true if the processing was successful.
          */
-        bool getOutcome();                                      //!< return the outcome
+        list<ReturnCode*>* getOutcome();                         //!< return the outcome
         /**
           * Set the processing outcome.
           *
          */
-        void setOutcome(const bool outcome);                    //!< set the outcome
+        void setOutcome(list<ReturnCode*>* retCodes);      //!< set the outcome
 
         /**
           * Return the session Id detached by the testbench manager for the specific Test Plan.
@@ -152,13 +153,13 @@ class Report {
           *
           * @return Pointer to the string containing the identifier.
          */
-        const string* getTestId();                              //!< return the test Id
+        const unsigned int getTestId();                    //!< return the test Id
         /**
           * Set the test case Id according to the testbench configuration
           *
-          * @param[in] A pointer to a string containing the test plan identifier..
+          * @param[in] A pointer to a string containing the test case number
          */
-        void setTestId(const string* tId);                   //!< set the test Id
+        void setTestId(const unsigned int tId);                 //!< set the test Id
 
         /**
           * Set the formatted resource provided by the Formatter (it takes care to mediate

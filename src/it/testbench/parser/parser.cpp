@@ -100,10 +100,17 @@ void ParserManager::parseConfig() throw (TestFrameworkException)
      DATA_INFO("Configuration file correctly parsed: next step may be implemented");
 }
 
-ReturnCode ParserManager::validateConfig()
+ReturnCode ParserManager::validateConfig(TestBenchConfiguration* tbConf)
 {
     ReturnCode retCode;
     ParserState* newState;
+    if(tbConf == 0) {
+        DATA_ERR_VAL("Provided in Input a NULL Point to Testbench configuration object", -1);
+        retCode.code = ERROR;
+        retCode.desc = "Provided in Input a NULL Point to Testbench configuration object: unable to proceed";
+
+        return retCode;
+    }
     try {
         newState = this->currentState->validate(tbParsed, &retCode);
         if(retCode.code == SUCCESS)
@@ -132,6 +139,22 @@ ReturnCode ParserManager::validateConfig()
     retCode.code = SUCCESS;
     retCode.desc = "Successfull Validation of the loaded Configuration File";
     DATA_INFO("Configuration File successfully validated");
+    //
+    try {
+        newState = this->currentState->reset(&retCode);
+        if(retCode.code == SUCCESS)
+            DATA_INFO("Parse ready to accept new requests");
+        else
+            throw TestFrameworkException(retCode.desc);
+        delete this->currentState;
+        this->currentState = newState;
+    }catch(TestFrameworkException& exception) {
+        // TODO : better manage a such failure scenario : likely inconsistent state
+        retCode.code = SUCCESS;
+        retCode.desc = "Failed to reset internal FSM: Parse is not able anymore to accept requests";
+
+        return retCode;
+     }
     //
     return retCode;
 }

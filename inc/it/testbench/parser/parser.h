@@ -61,9 +61,11 @@ class ParserManager {
          * Validate the previously loaded configuration file. The results are logged and returned in the ReportCode
          * data structured.
          *
+         * @param[in] Pointer to a locally created Testbench configuration file
+         *
          * @return Report code data, it wraps the outcome of the initialization
          */
-        ReturnCode validateConfig();                                                    /*!< validate configuration */
+        ReturnCode validateConfig(TestBenchConfiguration* tbConf);                      /*!< validate configuration */
         /**
          * To be overriden specifically. Each concrete Test Case builder provides the ability
          * to fully decouple the building process.

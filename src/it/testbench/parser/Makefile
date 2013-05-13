@@ -26,7 +26,9 @@ FSM	= fsmparser
 TEST    = test_parser
 DIST	= libparser.a
 
-DEP	= data
+DEP		= data
+DEP_1	= ioutil
+DEP_2	= logger
 
 .PHONY: clean cleantest distributable runtest
 
@@ -37,7 +39,7 @@ debug: CCFLAGS += -DDEBUG_PRINT_ENABLED -DDATA_DEBUG_ENABLED -g3
 debug: all
 
 ${TEST}: ${OBJ_DIR}/${TARGET}.o ${OBJ_DIR}/${FSM}.o ${OBJ_DIR}/${TEST}.o 
-	$(CC) -o $@ $^ $(LDFLAGS) -l${DEP}
+	$(CC) -o $@ $^ $(LDFLAGS) -l${DEP} -l${DEP_1} -l${DEP_2}
 	mv ${TEST} ${BIN_DIR}/
 
 ${OBJ_DIR}/${TARGET}.o: ${TARGET}.cpp ${INC_DIR}/${TARGET}.h

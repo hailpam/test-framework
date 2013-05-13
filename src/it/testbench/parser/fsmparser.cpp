@@ -75,12 +75,24 @@ ParserState* ParserInitialized::open(const Configuration* cfg, string* cfgStream
     DATA_INFO_VAL("Configuration ", cfg->filePath);
     DATA_INFO_VAL("Configuration ", cfg->fileName);
     DATA_INFO_VAL("Configuration ", cfg->fileFormat);
-    *cfgStream = "OK";
+
     report->code = SUCCESS;
     report->desc = "FAKE Implementation";
 
+    RawFSManager* fsMng = RawFSManager::getInstance();
+    FormattedResource res;
+    res.ext = cfg->fileFormat;
+    res.name = cfg->fileName;
+    try {
+        fsMng->read(&res);
+        *cfgStream = res.content;
+    }catch(TestFrameworkException& exception)
+     {
+        DATA_ERR_VAL("Exception occurred in opening", (cfg->fileName + cfg->fileFormat));
+        throw TestFrameworkException("Exception occurred in opening ["+cfg->URI+"]"+" - reason ["+string(exception.what())+"]");
+     }
     ParserState* newState = new ParserOpened();
-
+    //
     return newState;
 }
 

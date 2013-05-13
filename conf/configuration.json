@@ -1,0 +1,39 @@
+{
+	"test_bench": 
+	{
+		"idenfier": "Test Bench",
+		"test_plan_nr": "1",
+		"base_dir": "/home/hailpam/",
+		"test_plans":
+		[
+			{
+				"test_plan":
+				{
+					"test_plan_id": "Test Plan",
+					"test_case_nr": "1",
+					"test_cases": 
+					[
+						{
+							"test_case": 
+							{
+								"number": "1",
+								"init_item": "CustomTestItem",
+								"teard_down_item": "CustomTearDownItem",
+								"runnable_items": 
+								[
+									"CustomRunnableItem1", 
+									"CustomRunnableItem2"
+								],
+								"ranges":
+								[
+									{"from": "0", "to": 1},
+									{"from": "0", "to": 1}
+								]
+							}
+						}
+					]				
+				}
+			}
+		]
+	}
+}

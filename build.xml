@@ -134,6 +134,11 @@
        <arg line="--noclose -e 'bin/test_rawlogger'"/>
     </exec>
   </target>
+  <target name="run-test-parser">
+     <exec executable="konsole" >
+       <arg line="--noclose -e 'bin/test_parser'"/>
+    </exec>
+  </target>
   
   <target name="build-all" depends="init"
         description="compile all packages">
@@ -178,6 +183,7 @@
     <antcall target="run-test-data" />
     <antcall target="run-test-ioutil" />
     <antcall target="run-test-logger" />
+	<antcall target="run-test-parser" />
   </target>
 
 </project>

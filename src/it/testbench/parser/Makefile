@@ -1,5 +1,6 @@
-PACKAGE = it/testbench/parser
+PACKAGE  = it/testbench/parser
 ROOT_PKG = it/testbench
+LIB_PKG  = dependencies/json
 
 SRC_DIR = src
 OBJ_DIR = ../../../../obj/${PACKAGE}
@@ -7,6 +8,8 @@ INC_DIR = ../../../../inc/${PACKAGE}
 DST_DIR = ../../../../dist
 TST_DIR = ../../../../test/${PACKAGE}
 BIN_DIR = ../../../../bin
+LIB_DIR = ../../../../lib
+DEP_DIR = ../../../../inc
 
 DATA_INC= ${INC_DIR}/../data
 IOUT_INC= ${INC_DIR}/../ioutil
@@ -18,17 +21,19 @@ IOUT_OBJ= ${OBJ_DIR}/../ioutil
 LOGR_OBJ= ${OBJ_DIR}/../logger
 
 CC      = g++
-CCFLAGS  = -I${INC_DIR} -I${DATA_INC} -I${IOUT_INC} -I${LOGR_INC} -I${ROOT_INC} -DTEST_DEBUG
-LDFLAGS = -lrt -L${DST_DIR}
+CCFLAGS  = -I${INC_DIR} -I${DATA_INC} -I${IOUT_INC} -I${LOGR_INC} -I${ROOT_INC} -I${DEP_DIR}/${LIB_PKG} -DTEST_DEBUG
+LDFLAGS = -lrt -L${DST_DIR} -L${LIB_DIR}
 
 TARGET  = parser
-FSM	= fsmparser
+FSM		= fsmparser
 TEST    = test_parser
 DIST	= libparser.a
 
 DEP		= data
 DEP_1	= ioutil
 DEP_2	= logger
+
+LIB		= json_linux-gcc-4.7.2_libmt
 
 .PHONY: clean cleantest distributable runtest
 
@@ -39,7 +44,7 @@ debug: CCFLAGS += -DDEBUG_PRINT_ENABLED -DDATA_DEBUG_ENABLED -g3
 debug: all
 
 ${TEST}: ${OBJ_DIR}/${TARGET}.o ${OBJ_DIR}/${FSM}.o ${OBJ_DIR}/${TEST}.o 
-	$(CC) -o $@ $^ $(LDFLAGS) -l${DEP} -l${DEP_1} -l${DEP_2}
+	$(CC) -o $@ $^ $(LDFLAGS) -l${DEP} -l${DEP_1} -l${DEP_2} -l${LIB}
 	mv ${TEST} ${BIN_DIR}/
 
 ${OBJ_DIR}/${TARGET}.o: ${TARGET}.cpp ${INC_DIR}/${TARGET}.h

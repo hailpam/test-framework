@@ -5,6 +5,8 @@
 #include <rawfsmanager.h>
 #include <rawlogger.h>
 
+#include <json.h>
+
 /**
  * @file fsmparser.h
  * FSM (Finite State Machine) supporting the ParserManager component.

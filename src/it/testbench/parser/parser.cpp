@@ -54,16 +54,7 @@ void ParserManager::loadConfig(const Configuration& fileCfg) throw  (TestFramewo
         this->currentState = newState;
     }catch(TestFrameworkException& exception)
      {
-         /* failure management/recovery */
-         try {
-             this->currentState->error(&retCode);
-             newState = this->currentState->reset(&retCode);
-             delete this->currentState;
-             this->currentState = newState;
-         }catch(TestFrameworkException& exception) {
-             DATA_ERR_VAL("Severe Error occurred in resetting the FSM::"+string(exception.what()), -1);
-             throw TestFrameworkException("ParserManager::loadConfig["+string(exception.what())+"] - 'FAILED FSM RESET'");
-          }
+         /* failure management/recovery: it is not foreseen, the FSM is on 'Initialized' */
          DATA_ERR_VAL("Severe Error occurred in opening the FS stream::"+string(exception.what()), -1);
          throw TestFrameworkException("ParserManager::loadConfig["+string(exception.what())+"]");
      }

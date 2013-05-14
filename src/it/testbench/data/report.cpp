@@ -13,7 +13,8 @@ Report::Report()
     testPlanId = 0;
     testId = 0;
     retCodes = 0;
-    resource = 0;
+    fmtResource = 0;
+    cslResource = 0;
 }
 
 Report::~Report() {/* pointers to external resources (owned by others) are not deallocated */}
@@ -65,17 +66,30 @@ void Report::setTestId(const unsigned int tId)
     DATA_INFO_VAL("Set Test Id", testId);
 }
 
-void Report::setFormattedResorce(FormattedResource* res)
+void Report::setConsoleResource(ConsoleResource* res)
+{
+    if (!res || res->content.length() == 0)
+        return;
+    cslResource = const_cast<ConsoleResource*>(res);
+    DATA_INFO_VAL("Pointer Associated",clsResource);
+}
+
+const ConsoleResource* Report::getConsoleResource()
+{
+    return cslResource;
+}
+
+void Report::setFormattedResource(FormattedResource* res)
 {
     if (!res || res->content.length() == 0 || res->ext.length() == 0 || res->name.length() == 0)
         return;
-    resource = const_cast<FormattedResource*>(res);
-    DATA_INFO_VAL("Pointer Associated",resource);
+    fmtResource = const_cast<FormattedResource*>(res);
+    DATA_INFO_VAL("Pointer Associated",fmtResource);
 }
 
 const FormattedResource* Report::getFormattedResource()
 {
-    return resource;
+    return fmtResource;
 }
 
 } /* DATA */

@@ -37,11 +37,25 @@ int main(int argc, char* argv[])
     res.content = "aahahahahhahahahahaah";
     res.name = "blah";
     res.hash = "";
-    report->setFormattedResorce(&res);
-    TEST_EQ(4,"Report","tcLoader->setFormattedResorce()","Check Content",(res.content.compare(report->getFormattedResource()->content)),0);
-    TEST_EQ(5,"Report","tcLoader->setFormattedResorce()","Check Ext",(res.ext.compare(report->getFormattedResource()->ext)),0);
-    TEST_EQ(6,"Report","tcLoader->setFormattedResorce()","Check Hash",(res.hash.compare(report->getFormattedResource()->hash)),0);
-    TEST_EQ(7,"Report","tcLoader->setFormattedResorce()","Check Name",(res.name.compare(report->getFormattedResource()->name)),0);
+    report->setFormattedResource(&res);
+    TEST_EQ(4,"Report","tcLoader->setFormattedResource()","Check Content",(res.content.compare(report->getFormattedResource()->content)),0);
+    TEST_EQ(5,"Report","tcLoader->setFormattedResource()","Check Ext",(res.ext.compare(report->getFormattedResource()->ext)),0);
+    TEST_EQ(6,"Report","tcLoader->setFormattedResource()","Check Hash",(res.hash.compare(report->getFormattedResource()->hash)),0);
+    TEST_EQ(7,"Report","tcLoader->setFormattedResource()","Check Name",(res.name.compare(report->getFormattedResource()->name)),0);
+    //
+    ConsoleResource cres;
+    cres.lineSeparator = ':';
+    cres.columnSeparator = '\n';
+    cres.tabSpaces = 4;
+    cres.beautify = true;
+    cres.content = "ihihihihiihihihihihi";
+    report->setConsoleResource(&cres);
+    TEST_EQ(8,"Report","tcLoader->setConsoleResource()","Check line separator",cres.lineSeparator,report->getConsoleResource()->lineSeparator);
+    TEST_EQ(9,"Report","tcLoader->setConsoleResource()","Check column separator",cres.columnSeparator,report->getConsoleResource()->columnSeparator);
+    TEST_EQ(10,"Report","tcLoader->setConsoleResource()","Check tab spaces",cres.tabSpaces,report->getConsoleResource()->tabSpaces);
+    TEST_EQ(11,"Report","tcLoader->setConsoleResource()","Check beautify",cres.beautify,report->getConsoleResource()->beautify);
+    TEST_EQ(12,"Report","tcLoader->setConsoleResource()","Check content",(cres.content.compare(report->getConsoleResource()->content)),0);
+    delete report;
 
     /// OBSERVER TEST
     cout << "\n\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
@@ -178,6 +192,31 @@ int main(int argc, char* argv[])
     TestPlan* retTP = const_cast<TestPlan*>(tbCfg->retrieveTestPlan(&sId));
     TEST_EQ(3,"Test Bench Configuration","retTP = const_cast<TestPlan*>(tbCfg->retrieveTestPlan(&sId))","Set a Test Plan and Retrieve it",retTP->getNrOfTestCases(),orTPNo);
 
+    /// TESTBENCH CONFIGURATION
+    cout << "\n\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+    cout << "\n+++ FINALIZE REPORT                                                              +++";
+    cout << "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+    try {
+        tCase->setupTestCase();
+        tCase->runTestCase();
+        tCase->tearDownTestCase();
+    }catch(TestFrameworkException& exception) {
+        DATA_ERR_VAL("Exception Catched", exception.what());
+    }
+    report = tCase->finalizeReport();
+    PRINT("Finalize Report: sessionId = " <<*(report->getSessionId()));
+    PRINT("Finalize Report: testPlanId = " <<*(report->getTestPlanId()));
+    PRINT("Finalize Report: testId = " <<report->getTestId());
+    list<ReturnCode*> retCodes = *(report->getOutcome());
+    list<ReturnCode*>::iterator itrRetCode;
+    for(itrRetCode = retCodes.begin(); itrRetCode != retCodes.end(); ++itrRetCode) {
+        PRINT("Finalize Report: return code = " <<(*itrRetCode)->code);
+        PRINT("Finalize Report: return code desc = " <<(*itrRetCode)->desc);
+    }
+    delete aVar;
+    delete bVar;
+    delete ctxObj;
+
     /// TEST CASE LOADER
     cout << "\n\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
     cout << "\n+++ TEST CASE LOADER                                                             +++";
@@ -251,9 +290,6 @@ int main(int argc, char* argv[])
     delete sessionId;
     delete testPlanId;
     delete report;
-    delete aVar;
-    delete bVar;
-    delete ctxObj;
 
 	return 0;
 }

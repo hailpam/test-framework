@@ -69,6 +69,17 @@ struct FormattedResource {
 };
 
 /*!
+* Console resource data structure
+*/
+struct ConsoleResource {
+    char lineSeparator;	        /**< line separator character */
+    char columnSeparator;       /**< column separator character */
+    unsigned int tabSpaces;     /**< number of tab spaced for indentation */
+    bool beautify;              /**< enable/disable text beautifying */
+    string content;             /**< resource content */
+};
+
+/*!
 * Range data structure: useful to defines ranges to be taken into
 * consideration at runtime
 */
@@ -105,7 +116,8 @@ class Report {
         string* testPlanId;             /*!< test plan unique identifier */
         unsigned int testId;            /*!< test case unique identifier */
         list<ReturnCode*>* retCodes;    /*!< elaboration outcome */
-        FormattedResource* resource;    /*!< resource formatted according to initial settings */
+        FormattedResource* fmtResource; /*!< resource formatted for output on file */
+        ConsoleResource* cslResource;   /*!< resource formatted for output on console */
 
     public:
         Report();
@@ -160,14 +172,25 @@ class Report {
           * @param[in] A pointer to a string containing the test case number
          */
         void setTestId(const unsigned int tId);                 //!< set the test Id
-
+         /**
+          * Set the console resource provided by the Formatter.
+          *
+          * @param[in] A pointer to the received formatted resource.
+         */
+        void setConsoleResource(ConsoleResource* res);   //!< set the console resource
+        /**
+          * Return the console resource.
+          *
+          * @return Pointer to the console resource.
+         */
+        const ConsoleResource* getConsoleResource();        //!< return the console resource
         /**
           * Set the formatted resource provided by the Formatter (it takes care to mediate
           * among the formats, according to the configuration).
           *
           * @param[in] A pointer to the received formatted resource.
          */
-        void setFormattedResorce(FormattedResource* res);   //!< set the formatted resource
+        void setFormattedResource(FormattedResource* res);   //!< set the formatted resource
         /**
           * Return the formatted resource.
           *

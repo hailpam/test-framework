@@ -7,18 +7,26 @@ namespace testbench
 namespace data
 {
 
-Report::Report() : outcome(false) {}
+Report::Report()
+{
+    sessionId = 0;
+    testPlanId = 0;
+    testId = 0;
+    retCodes = 0;
+    fmtResource = 0;
+    cslResource = 0;
+}
 
 Report::~Report() {/* pointers to external resources (owned by others) are not deallocated */}
 
-bool Report::getOutcome()
+list<ReturnCode*>* Report::getOutcome()
 {
-    return outcome;
+    return retCodes;
 }
 
-void Report::setOutcome(const bool outcome)
+void Report::setOutcome(list<ReturnCode*>* outcome)
 {
-    this->outcome = outcome;
+    this->retCodes = outcome;
 }
 
 const string* Report::getSessionId()
@@ -28,7 +36,7 @@ const string* Report::getSessionId()
 
 void Report::setSessionId(const string* sId)
 {
-    if(sId->size() == 0)
+    if (!sId || sId->size() == 0)
         return;
     sessionId = const_cast<string*>(sId);
     DATA_INFO_VAL("Set Session Id",*sessionId);
@@ -41,36 +49,47 @@ const string* Report::getTestPlanId()
 
 void Report::setTestPlanId(const string* tpId)
 {
-    if(tpId->size() == 0)
+    if (!tpId || tpId->size() == 0)
         return;
     testPlanId = const_cast<string*>(tpId);
     DATA_INFO_VAL("Set Test Plan Id",*testPlanId);
 }
 
-const string* Report::getTestId()
+const unsigned int Report::getTestId()
 {
     return testId;
 }
 
-void Report::setTestId(const string* tId)
+void Report::setTestId(const unsigned int tId)
 {
-    if(tId->size() == 0)
-        return;
-    testId = const_cast<string*>(tId);
-    DATA_INFO_VAL("Set Test Id",*testId);
+    testId = tId;
+    DATA_INFO_VAL("Set Test Id", testId);
 }
 
-void Report::setFormattedResorce(FormattedResource* res)
+void Report::setConsoleResource(ConsoleResource* res)
 {
-    if(res->content.length() == 0 || res->ext.length() == 0 || res->name.length() == 0)
+    if (!res || res->content.length() == 0)
         return;
-    resource = const_cast<FormattedResource*>(res);
-    DATA_INFO_VAL("Pointer Associated",resource);
+    cslResource = const_cast<ConsoleResource*>(res);
+    DATA_INFO_VAL("Pointer Associated",clsResource);
+}
+
+const ConsoleResource* Report::getConsoleResource()
+{
+    return cslResource;
+}
+
+void Report::setFormattedResource(FormattedResource* res)
+{
+    if (!res || res->content.length() == 0 || res->ext.length() == 0 || res->name.length() == 0)
+        return;
+    fmtResource = const_cast<FormattedResource*>(res);
+    DATA_INFO_VAL("Pointer Associated",fmtResource);
 }
 
 const FormattedResource* Report::getFormattedResource()
 {
-    return resource;
+    return fmtResource;
 }
 
 } /* DATA */

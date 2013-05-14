@@ -74,7 +74,7 @@ class TestItem {
           *
           * @return Pointer to the Report containing the run outcome
          */
-        virtual Report* runItem(TestCaseContext* ctxObject) = 0;      //!< it runs the item
+        virtual ReturnCode* runItem(TestCaseContext* ctxObject) = 0;      //!< it runs the item
         /**
           * Tear Down the Test Item
           *
@@ -90,7 +90,7 @@ class TestItem {
 class SetupTestItem : public TestItem {
     public:
         virtual TestCaseContext* setupItem() = 0;
-        Report* runItem(TestCaseContext* ctxObject);
+        ReturnCode* runItem(TestCaseContext* ctxObject);
         void tearDownItem(TestCaseContext* ctxObject);
 };
 
@@ -104,7 +104,7 @@ class SetupTestItem : public TestItem {
 class RunnableTestItem : public TestItem {
     public:
         TestCaseContext* setupItem();
-        virtual Report* runItem(TestCaseContext* ctxObject) = 0;
+        virtual ReturnCode* runItem(TestCaseContext* ctxObject) = 0;
         void tearDownItem(TestCaseContext* ctxObject);
 };
 
@@ -115,7 +115,7 @@ class RunnableTestItem : public TestItem {
 class TearDownTestItem : public TestItem {
     public:
         TestCaseContext* setupItem();
-        Report* runItem(TestCaseContext* ctxObject);
+        ReturnCode* runItem(TestCaseContext* ctxObject);
         virtual void tearDownItem(TestCaseContext* ctxObject) = 0;
 };
 

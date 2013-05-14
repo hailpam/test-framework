@@ -23,23 +23,15 @@ TestCaseContext* CustomSetupItem::setupItem()
 }
 
 CustomRunnableTestItem::CustomRunnableTestItem() {}
-Report* CustomRunnableTestItem::runItem(TestCaseContext* ctxObject)
+ReturnCode* CustomRunnableTestItem::runItem(TestCaseContext* ctxObject)
 {
-    DATA_INFO_VAL("Running the Test Ite", ctxObject->getDescription());
+    DATA_INFO_VAL("Running the Test Item", ctxObject->getDescription());
 
-    Report* report = new Report();
-    string* sessionId = new string("MySessionId");
-    report->setSessionId(sessionId);
-    //
-    string* testPlanId = new string("MyTestPlanId");
-    report->setTestPlanId(testPlanId);
-    //
-    string* testId = new string("MyTestId");
-    report->setTestId(testId);
-    //
-    report->setOutcome(true);
+    ReturnCode* retCode = new ReturnCode();
+    retCode->code = SUCCESS;
+    retCode->desc = "MyTestItemDescription";
 
-    return report;
+    return retCode;
 }
 
 CustomTearDownTestItem::CustomTearDownTestItem() {}

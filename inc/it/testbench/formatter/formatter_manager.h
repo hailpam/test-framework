@@ -48,17 +48,20 @@ class FormatterManager {
          * for console output
          *
          * @param[inout] Report to format
+         * @return       Return code describing the outcome of the operation
          */
-        ReturnCode formatConsole(Report* report) throw (TestFrameworkException);
+        ReturnCode formatForConsole(Report* report) throw (TestFrameworkException);
         /**
          * Reads configuration from the report and formats it
          * for file output
          *
          * @param[inout] Report to format
+         * @return       Return code describing the outcome of the operation
          */
-        ReturnCode formatFile(Report* report) throw (TestFrameworkException);
+        ReturnCode formatForFile(Report* report) throw (TestFrameworkException);
     private:
-        map<string, FormatterFunctor*> fmtFunctor;	/*!< hashmap of available FormatterFunctors */
+        map<string, FormatterFunctor*> fmtFunctor;	/*!< hashmap of available format functors for file output */
+        ConsoleFunctor* cslFunctor;                 /*!< formatter for console output */
 };
 
 } /* IT */

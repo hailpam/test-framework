@@ -40,7 +40,8 @@ class FormatterFunctor {
         /**
          * Format a report
          *
-         * @param[in] A report to format
+         * @param[inout] A report to format
+         * @return       Return code describing the outcome of the operation
          */
         virtual ReturnCode format(Report *report) throw (TestFrameworkException) = 0;    /*!< format report */
 };
@@ -51,13 +52,21 @@ class FormatterFunctor {
 class ConsoleFunctor : public FormatterFunctor {
     public:
         ConsoleFunctor();
-        ~ConsoleFunctor();
+        virtual ~ConsoleFunctor();
         /**
          * Format a report
          *
-         * @param[in] A report to format
+         * @param[inout] A report to format
+         * @return       Return code describing the outcome of the operation
          */
         ReturnCode format(Report *report) throw (TestFrameworkException);        /*!< format report */
+    private:
+        char lineSep;               /*!< line separator character */
+        char columnSep;             /*!< column separator character */
+        string tabSep;              /*!< number of tab spaces for indentation */
+        string openPar;               /*!< open parentheses character */
+        string closePar;              /*!< close parentheses character */
+        string newLine;               /*!< new line character */
 };
 
 /*!
@@ -66,11 +75,12 @@ class ConsoleFunctor : public FormatterFunctor {
 class TxtFunctor : public FormatterFunctor {
     public:
         TxtFunctor();
-        ~TxtFunctor();
+        virtual ~TxtFunctor();
         /**
          * Format a report
          *
-         * @param[in] A report to format
+         * @param[inout] A report to format
+         * @return       Return code describing the outcome of the operation
          */
         ReturnCode format(Report *report) throw (TestFrameworkException);        /*!< format report */
 };
@@ -81,11 +91,12 @@ class TxtFunctor : public FormatterFunctor {
 class CsvFunctor : public FormatterFunctor {
     public:
         CsvFunctor();
-        ~CsvFunctor();
+        virtual ~CsvFunctor();
         /**
          * Format a report
          *
-         * @param[in] A report to format
+         * @param[inout] A report to format
+         * @return       Return code describing the outcome of the operation
          */
         ReturnCode format(Report *report) throw (TestFrameworkException);        /*!< format report */
 };
@@ -96,11 +107,12 @@ class CsvFunctor : public FormatterFunctor {
 class XmlFunctor : public FormatterFunctor {
     public:
         XmlFunctor();
-        ~XmlFunctor();
+        virtual ~XmlFunctor();
         /**
          * Format a report
          *
-         * @param[in] A report to format
+         * @param[inout] A report to format
+         * @return       Return code describing the outcome of the operation
          */
         ReturnCode format(Report *report) throw (TestFrameworkException);        /*!< format report */
 };
@@ -111,11 +123,12 @@ class XmlFunctor : public FormatterFunctor {
 class JsonFunctor : public FormatterFunctor {
     public:
         JsonFunctor();
-        ~JsonFunctor();
+        virtual ~JsonFunctor();
         /**
          * Format a report
          *
-         * @param[in] A report to format
+         * @param[inout] A report to format
+         * @return       Return code describing the outcome of the operation
          */
         ReturnCode format(Report *report) throw (TestFrameworkException);        /*!< format report */
 };

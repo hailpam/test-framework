@@ -68,26 +68,26 @@ void Report::setTestId(const unsigned int tId)
 
 void Report::setConsoleResource(ConsoleResource* res)
 {
-    if (!res || res->content.length() == 0)
+    if (!res)
         return;
     cslResource = const_cast<ConsoleResource*>(res);
     DATA_INFO_VAL("Pointer Associated",clsResource);
 }
 
-const ConsoleResource* Report::getConsoleResource()
+ConsoleResource* Report::getConsoleResource()
 {
     return cslResource;
 }
 
 void Report::setFormattedResource(FormattedResource* res)
 {
-    if (!res || res->content.length() == 0 || res->ext.length() == 0 || res->name.length() == 0)
+    if (!res)
         return;
     fmtResource = const_cast<FormattedResource*>(res);
     DATA_INFO_VAL("Pointer Associated",fmtResource);
 }
 
-const FormattedResource* Report::getFormattedResource()
+FormattedResource* Report::getFormattedResource()
 {
     return fmtResource;
 }

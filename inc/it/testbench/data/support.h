@@ -75,6 +75,7 @@ struct ConsoleResource {
     char lineSeparator;	        /**< line separator character */
     char columnSeparator;       /**< column separator character */
     unsigned int tabSpaces;     /**< number of tab spaced for indentation */
+    char valBracket;            /**< value bracket character */
     bool beautify;              /**< enable/disable text beautifying */
     string content;             /**< resource content */
 };
@@ -183,7 +184,7 @@ class Report {
           *
           * @return Pointer to the console resource.
          */
-        const ConsoleResource* getConsoleResource();        //!< return the console resource
+        ConsoleResource* getConsoleResource();        //!< return the console resource
         /**
           * Set the formatted resource provided by the Formatter (it takes care to mediate
           * among the formats, according to the configuration).
@@ -196,7 +197,7 @@ class Report {
           *
           * @return Pointer to the formatted resource.
          */
-        const FormattedResource* getFormattedResource();        //!< return the formatted resource
+        FormattedResource* getFormattedResource();        //!< return the formatted resource
 };
 
 } /* DATA */

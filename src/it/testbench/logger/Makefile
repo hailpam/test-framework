@@ -38,8 +38,11 @@ distributable:
 clean:
 	rm -f ${OBJ_DIR}/rawlogger.o ${OBJ_DIR}/test_rawlogger.o
 
-cleantest: clean
-	rm -f ${BIN_DIR}/test_rawlogger ${BIN_DIR}/*.log ${LOG_DIR}/*.log ${DST_DIR}/${DIST}
+cleantest: clean cleandist
+	rm -f ${BIN_DIR}/test_rawlogger ${BIN_DIR}/*.log ${LOG_DIR}/*.log
+
+cleandist:
+	rm -f ${DST_DIR}/${DIST}
 
 runtest:
 	valgrind --tool=memcheck --leak-check=yes --log-file=test_rawlogger-valgrind.log  -v ${BIN_DIR}/test_rawlogger

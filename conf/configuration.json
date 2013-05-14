@@ -1,0 +1,67 @@
+{
+	"test_bench": 
+	{
+		"identifier": "Test Bench",
+		"nr_of_threads": 10,
+		"test_plan_nr": 1,
+		"base_dir": "/home/hailpam/",
+		"console_options":
+		{
+			"line_separator": " | ",
+			"column_separator": "\\n",
+			"tab_nr_spaces": 8,
+			"beautified": true,
+			"value_bracked": ""
+		},
+		"test_plans":
+		[
+			{
+				"test_plan":
+				{
+					"test_plan_id": "Test Plan",
+					"context_object": "CustomContextObject",
+					"test_case_nr": 1,
+					"test_cases": 
+					[
+						{
+							"test_case": 
+							{
+								"number": 1,
+								"init_item": "CustomTestItem1",
+								"teard_down_item": "CustomTearDownItem1",
+								"runnable_items": 
+								[
+									"CustomRunnableItem1", 
+									"CustomRunnableItem2"
+								],
+								"ranges":
+								[
+									{"from": 0, "to": 8},
+									{"from": 10, "to": 20}
+								]
+							}
+						},
+						{
+							"test_case": 
+							{
+								"number": 2,
+								"init_item": "CustomTestItem2",
+								"teard_down_item": "CustomTearDownItem2",
+								"runnable_items": 
+								[
+									"CustomRunnableItem12", 
+									"CustomRunnableItem22"
+								],
+								"ranges":
+								[
+									{"from": 0, "to": 1},
+									{"from": 10, "to": 20}
+								]
+							}
+						}
+					]				
+				}
+			}
+		]
+	}
+}

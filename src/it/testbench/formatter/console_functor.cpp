@@ -2,6 +2,7 @@
 #include <list>
 #include <formatter_functor.h>
 #include <debug.h>
+#include <formatter_util.h>
 
 namespace it
 {
@@ -9,32 +10,6 @@ namespace testbench
 {
 namespace formatter
 {
-
-/**
- * Helper functions
- */
-inline string resultCode(const ReturnCode *ret){
-    if (ret->code == SUCCESS)
-        return "SUCCESS";
-    else if (ret->code == ERROR)
-        return "ERROR";
-    else
-        return "INVALID RETURN CODE";
-}
-
-inline string indent(const string tabs, unsigned int level){
-    string retTabs = "";
-    while (level--)
-        retTabs += tabs;
-    return retTabs;
-}
-
-inline string intToStr(const unsigned int num){
-    stringstream i2s;
-    i2s.str(string());
-    i2s <<num;
-    return i2s.str();
-}
 
 ConsoleFunctor::ConsoleFunctor() {
     DEBUG("");
@@ -52,22 +27,26 @@ ReturnCode ConsoleFunctor::format(Report *report) throw (TestFrameworkException)
     // Define special chars to be used for formatting
     DEBUG("Get Console Resource");
     ConsoleResource *cres = report->getConsoleResource();
-    PRINT("Got Console Resource" <<cres);
     if (!cres) {
         throw TestFrameworkException("Null Pointer passed as Console Resource");
     }
     lineSep = cres->lineSeparator;
     columnSep = cres->columnSeparator;
     unsigned int tabSpaces = cres->tabSpaces;
-    tabSep = " ";
+    tabSep = BLANK_SPACE;
     newLine.clear();
     openPar.clear();
     closePar.clear();
     if (cres->beautify){
         tabSep = indent(tabSep, tabSpaces);
-        newLine = '\n';
+        newLine = NEW_LINE;
         openPar = cres->valBracket;
-        closePar = cres->valBracket + 1;
+        if ( (cres->valBracket == '<') || (cres->valBracket == '[') || (cres->valBracket == '{') )
+            closePar = cres->valBracket + 2;
+        else if (cres->valBracket == '(')
+            closePar = cres->valBracket + 1;
+        else
+            closePar = cres->valBracket;
     }
     cres->content = "";
     // TestBenchConfiguration line
@@ -76,7 +55,9 @@ ReturnCode ConsoleFunctor::format(Report *report) throw (TestFrameworkException)
     cres->content += lineSep;
     cres->content += "Session Id ";
     cres->content += lineSep;
+    cres->content += openPar;
     cres->content += *(report->getSessionId());
+    cres->content += closePar;
     cres->content += columnSep;
     cres->content += newLine;
     // TestPlan line
@@ -84,7 +65,9 @@ ReturnCode ConsoleFunctor::format(Report *report) throw (TestFrameworkException)
     cres->content += indent(tabSep, 1);
     cres->content += "Test Plan ";
     cres->content += lineSep;
+    cres->content += openPar;
     cres->content += *(report->getTestPlanId());
+    cres->content += closePar;
     cres->content += columnSep;
     cres->content += newLine;
     // TestCase line
@@ -92,7 +75,9 @@ ReturnCode ConsoleFunctor::format(Report *report) throw (TestFrameworkException)
     cres->content += indent(tabSep, 2);
     cres->content += "Test Case n: ";
     cres->content += lineSep;
+    cres->content += openPar;
     cres->content += intToStr(report->getTestId());
+    cres->content += closePar;
     cres->content += columnSep;
     cres->content += newLine;
     // prepare cycle for processing Test Items
@@ -109,20 +94,26 @@ ReturnCode ConsoleFunctor::format(Report *report) throw (TestFrameworkException)
         DEBUG("TestItem line");
         cres->content += indent(tabSep, 3);
         cres->content += "Test Item ";
-        cres->content += intToStr(++tiCounter);
+        cres->content += openPar;
+        cres->content += intToStr(tiCounter + 1);
+        cres->content += closePar;
         cres->content += columnSep;
         cres->content += newLine;
         // TestItem result line
         DEBUG("TestItem result line");
         cres->content += indent(tabSep, 4);
         cres->content += "Result: ";
+        cres->content += openPar;
         cres->content += resultCode(retCode);
+        cres->content += closePar;
         cres->content += columnSep;
         cres->content += newLine;
         // TestItem description line
         DEBUG("TestItem description line");
         cres->content += indent(tabSep, 4);
+        cres->content += openPar;
         cres->content += retCode->desc;
+        cres->content += closePar;
         cres->content += columnSep;
         cres->content += newLine;
     }

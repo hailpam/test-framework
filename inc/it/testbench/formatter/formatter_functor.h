@@ -61,9 +61,9 @@ class ConsoleFunctor : public FormatterFunctor {
          */
         ReturnCode format(Report *report) throw (TestFrameworkException);        /*!< format report */
     private:
-        char lineSep;               /*!< line separator character */
-        char columnSep;             /*!< column separator character */
-        string tabSep;              /*!< number of tab spaces for indentation */
+        string lineSep;               /*!< line separator character */
+        string columnSep;             /*!< column separator character */
+        string tabSep;                /*!< string of tab spaces for indentation */
         string openPar;               /*!< open parentheses character */
         string closePar;              /*!< close parentheses character */
         string newLine;               /*!< new line character */
@@ -83,6 +83,9 @@ class TxtFunctor : public FormatterFunctor {
          * @return       Return code describing the outcome of the operation
          */
         ReturnCode format(Report *report) throw (TestFrameworkException);        /*!< format report */
+    private:
+        string tabSep;              /*!< string of tab spaces for indentation */
+        string newLine;             /*!< new line character */
 };
 
 /*!
@@ -99,6 +102,10 @@ class CsvFunctor : public FormatterFunctor {
          * @return       Return code describing the outcome of the operation
          */
         ReturnCode format(Report *report) throw (TestFrameworkException);        /*!< format report */
+    private:
+        string commaStr;            /*!< comma character */
+        string quoteStr;            /*!< quote character */
+        string newLine;             /*!< new line character */
 };
 
 /*!

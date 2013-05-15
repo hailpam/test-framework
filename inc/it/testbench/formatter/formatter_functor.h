@@ -122,6 +122,15 @@ class XmlFunctor : public FormatterFunctor {
          * @return       Return code describing the outcome of the operation
          */
         ReturnCode format(Report *report) throw (TestFrameworkException);        /*!< format report */
+    private:
+        string tabSep;              /*!< string of tab spaces for indentation */
+        string newLine;             /*!< new line character */
+        string beginMarkup;         /*!< begin markup character */
+        string endMarkup;           /*!< end markup character */
+        string closeMarkup;         /*!< close markup character */
+        string spaceStr;            /*!< space character */
+        string quoteStr;            /*!< quote character */
+        string equalStr;            /*!< equal character */
 };
 
 /*!
@@ -146,6 +155,8 @@ class JsonFunctor : public FormatterFunctor {
         string colonStr;          /*!< colon character */
         string commaStr;          /*!< comma character */
         string quoteStr;          /*!< quote character */
+        string tabSep;            /*!< string of tab spaces for indentation */
+        string newLine;           /*!< new line character */
 };
 
 } /* IT */

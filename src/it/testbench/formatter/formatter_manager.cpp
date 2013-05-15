@@ -16,10 +16,8 @@ FormatterManager::FormatterManager(){
     fmtFunctor["json"] = static_cast<FormatterFunctor*>(jsonFunctor);
     TxtFunctor *txtFunctor = new TxtFunctor();
     fmtFunctor["txt"] = static_cast<FormatterFunctor*>(txtFunctor);
-    /*
-     * XmlFunctor *xmlFunctor = new XmlFunctor();
-     * fmtFunctor["xml"] = static_cast<FormatterFunctor*>(xmlFunctor);
-     */
+    XmlFunctor *xmlFunctor = new XmlFunctor();
+    fmtFunctor["xml"] = static_cast<FormatterFunctor*>(xmlFunctor);
     cslFunctor = new ConsoleFunctor();
 }
 
@@ -28,7 +26,7 @@ FormatterManager::~FormatterManager(){
     delete fmtFunctor["csv"];
     delete fmtFunctor["json"];
     delete fmtFunctor["txt"];
-    /* delete fmtFunctor["xml"]; */
+    delete fmtFunctor["xml"];
     delete cslFunctor;
 }
 

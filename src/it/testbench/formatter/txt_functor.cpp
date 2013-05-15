@@ -21,7 +21,7 @@ ReturnCode TxtFunctor::format(Report *report) throw (TestFrameworkException){
     ReturnCode ret;
     ret.code = SUCCESS;
     ret.desc = "Content formatted for TXT file successfully";
-    // Define special chars to be used for formatting
+    // Get Formatted Resource
     DEBUG("Get Formatted Resource");
     FormattedResource *fres = report->getFormattedResource();
     if (!fres) {

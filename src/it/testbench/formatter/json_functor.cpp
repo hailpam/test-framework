@@ -14,7 +14,7 @@ const char OPEN_SEQUENCE = '[';     /* default char for opening sequence */
 const char CLOSE_SEQUENCE = ']';    /* default char for closing sequence */
 const char JSON_COMMA = ',';        /* default char for comma */
 const char JSON_COLON = ':';        /* default char for colon */
-const string JSON_QUOTE = "\"";     /* default char for quote */
+const char JSON_QUOTE = '\"';       /* default char for quote */
 
 JsonFunctor::JsonFunctor(){
     openField = OPEN_BRACKETS;
@@ -24,6 +24,9 @@ JsonFunctor::JsonFunctor(){
     commaStr = JSON_COMMA;
     colonStr = JSON_COLON;
     quoteStr = JSON_QUOTE;
+    tabSep = BLANK_SPACE;
+    tabSep = indent(tabSep, TAB_SPACES);
+    newLine = NEW_LINE;
 }
 
 JsonFunctor::~JsonFunctor() {/* do nothing here*/}
@@ -33,11 +36,7 @@ ReturnCode JsonFunctor::format(Report *report) throw (TestFrameworkException){
     ReturnCode ret;
     ret.code = SUCCESS;
     ret.desc = "Content formatted for JSON file successfully";
-    // Define special chars to be used for formatting
-    string tabSep, newLine;
-    tabSep = BLANK_SPACE;
-    tabSep = indent(tabSep, TAB_SPACES);
-    newLine = NEW_LINE;
+    // Get Formatted Resource
     DEBUG("Get Formatted Resource");
     FormattedResource *fres = report->getFormattedResource();
     if (!fres) {

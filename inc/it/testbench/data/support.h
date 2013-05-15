@@ -1,10 +1,11 @@
 #ifndef SUPPORT_H
 #define SUPPORT_H
 
-#include <debug.h>
-#include <exception>
-
 #include <string>
+#include <exception>
+#include <list>
+#include <debug.h>
+
 
 #define NR_OF_THREADS 50
 
@@ -68,6 +69,18 @@ struct FormattedResource {
 };
 
 /*!
+* Console resource data structure
+*/
+struct ConsoleResource {
+    char lineSeparator;	        /**< line separator character */
+    char columnSeparator;       /**< column separator character */
+    unsigned int tabSpaces;     /**< number of tab spaced for indentation */
+    char valBracket;            /**< value bracket character */
+    bool beautify;              /**< enable/disable text beautifying */
+    string content;             /**< resource content */
+};
+
+/*!
 * Range data structure: useful to defines ranges to be taken into
 * consideration at runtime
 */
@@ -102,9 +115,10 @@ class Report {
     private:
         string* sessionId;              /*!< testbench unique session identifier */
         string* testPlanId;             /*!< test plan unique identifier */
-        string* testId;                 /*!< test case unique identifier */
-        bool outcome;                   /*!< elaboration outocome */
-        FormattedResource* resource;    /*!< resource formatted according to initial settings */
+        unsigned int testId;            /*!< test case unique identifier */
+        list<ReturnCode*>* retCodes;    /*!< elaboration outcome */
+        FormattedResource* fmtResource; /*!< resource formatted for output on file */
+        ConsoleResource* cslResource;   /*!< resource formatted for output on console */
 
     public:
         Report();
@@ -114,12 +128,12 @@ class Report {
           *
           * @return A boolean value, true if the processing was successful.
          */
-        bool getOutcome();                                      //!< return the outcome
+        list<ReturnCode*>* getOutcome();                         //!< return the outcome
         /**
           * Set the processing outcome.
           *
          */
-        void setOutcome(const bool outcome);                    //!< set the outcome
+        void setOutcome(list<ReturnCode*>* retCodes);      //!< set the outcome
 
         /**
           * Return the session Id detached by the testbench manager for the specific Test Plan.
@@ -152,27 +166,38 @@ class Report {
           *
           * @return Pointer to the string containing the identifier.
          */
-        const string* getTestId();                              //!< return the test Id
+        const unsigned int getTestId();                    //!< return the test Id
         /**
           * Set the test case Id according to the testbench configuration
           *
-          * @param[in] A pointer to a string containing the test plan identifier..
+          * @param[in] A pointer to a string containing the test case number
          */
-        void setTestId(const string* tId);                   //!< set the test Id
-
+        void setTestId(const unsigned int tId);                 //!< set the test Id
+         /**
+          * Set the console resource provided by the Formatter.
+          *
+          * @param[in] A pointer to the received formatted resource.
+         */
+        void setConsoleResource(ConsoleResource* res);   //!< set the console resource
+        /**
+          * Return the console resource.
+          *
+          * @return Pointer to the console resource.
+         */
+        ConsoleResource* getConsoleResource();        //!< return the console resource
         /**
           * Set the formatted resource provided by the Formatter (it takes care to mediate
           * among the formats, according to the configuration).
           *
           * @param[in] A pointer to the received formatted resource.
          */
-        void setFormattedResorce(FormattedResource* res);   //!< set the formatted resource
+        void setFormattedResource(FormattedResource* res);   //!< set the formatted resource
         /**
           * Return the formatted resource.
           *
           * @return Pointer to the formatted resource.
          */
-        const FormattedResource* getFormattedResource();        //!< return the formatted resource
+        FormattedResource* getFormattedResource();        //!< return the formatted resource
 };
 
 } /* DATA */

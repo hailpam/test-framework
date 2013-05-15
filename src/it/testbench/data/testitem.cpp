@@ -9,7 +9,7 @@ namespace data
 
 /// SETUP TEST ITEM
 
-Report* SetupTestItem::runItem(TestCaseContext* ctxObject) { return 0; }
+ReturnCode* SetupTestItem::runItem(TestCaseContext* ctxObject) { return 0; }
 
 void SetupTestItem::tearDownItem(TestCaseContext* ctxObject) {}
 
@@ -23,7 +23,7 @@ void RunnableTestItem::tearDownItem(TestCaseContext* ctxObject) {}
 
 TestCaseContext* TearDownTestItem::setupItem() { return 0; }
 
-Report* TearDownTestItem::runItem(TestCaseContext* ctxObject) { return 0; }
+ReturnCode* TearDownTestItem::runItem(TestCaseContext* ctxObject) { return 0; }
 
 } /* DATA */
 } /* TESTBENCH */

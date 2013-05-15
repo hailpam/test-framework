@@ -21,7 +21,7 @@ class CustomSetupItem : public SetupTestItem {
 class CustomRunnableTestItem : public RunnableTestItem {
     public:
         CustomRunnableTestItem();
-        Report* runItem(TestCaseContext* ctxObject);
+        ReturnCode* runItem(TestCaseContext* ctxObject);
 };
 
 class CustomTearDownTestItem : public TearDownTestItem {

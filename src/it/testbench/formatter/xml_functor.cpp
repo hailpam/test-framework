@@ -19,9 +19,9 @@ namespace formatter
     { fres->content += endMarkup; \
     fres->content += newLine; }
 
-#define XML_END_CLOSE_TAG() \
+#define XML_END_CLOSE_TAG(a) \
     { fres->content += spaceStr; \
-    fres->content += closeMarkup; \
+    fres->content += (a); \
     fres->content += endMarkup; \
     fres->content += newLine; }
 
@@ -72,6 +72,10 @@ ReturnCode XmlFunctor::format(Report *report) throw (TestFrameworkException){
         throw TestFrameworkException("Null Pointer passed as Formatted Resource");
     }
     fres->content = "";
+    // XML Header tag
+    XML_BEGIN_TAG("?xml");
+    XML_TAG_PAIR("version", "1.0");
+    XML_END_CLOSE_TAG("?");
     // TestBenchConfiguration tag open
     DEBUG("TestBenchConfiguration tag open");
     XML_BEGIN_TAG("TestBenchConfiguration");
@@ -115,7 +119,7 @@ ReturnCode XmlFunctor::format(Report *report) throw (TestFrameworkException){
         XML_BEGIN_TAG("Result");
         XML_TAG_PAIR("code", resultCode(retCode));
         XML_TAG_PAIR("description", retCode->desc);
-        XML_END_CLOSE_TAG();
+        XML_END_CLOSE_TAG(closeMarkup);
         // TestItem tag close
         fres->content += indent(tabSep, 3);
         XML_CLOSE_TAG("TestItem");

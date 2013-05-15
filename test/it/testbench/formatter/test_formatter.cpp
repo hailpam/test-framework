@@ -42,7 +42,7 @@ int main(int argc, char *argv[]){
 	cres->lineSeparator = '-';
 	cres->columnSeparator = '|';
 	cres->tabSpaces = 2;
-	cres->valBracket = '(';
+	cres->valBracket = '[';
 	cres->beautify = true;
 	PRINT(">> Format for console");
 	try {
@@ -68,6 +68,15 @@ int main(int argc, char *argv[]){
             PRINT(fres->content);
 	} catch (exception &ex) {
             PRINT("formatForFile in CSV failed!!!");
+	}
+        // 4: format for JSON file
+	PRINT(">> Format for JSON file");
+        fres->ext = "json";
+	try {
+            ReturnCode retCode = fmtManager.formatForFile(report);
+            PRINT(fres->content);
+	} catch (exception &ex) {
+            PRINT("formatForFile in JSON failed!!!");
 	}
 	return 0;
 }

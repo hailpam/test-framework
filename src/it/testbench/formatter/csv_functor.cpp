@@ -12,7 +12,7 @@ namespace formatter
  * CSV-specific constants
  */
 const char CSV_COMMA = ',';        /* default char for comma in CSV format */
-const string CSV_QUOTE = "\"";        /* default char for quote in CSV format */
+const string CSV_QUOTE = "\"";     /* default char for quote in CSV format */
 
 CsvFunctor::CsvFunctor(){
         commaStr = CSV_COMMA;
@@ -58,12 +58,12 @@ ReturnCode CsvFunctor::format(Report *report) throw (TestFrameworkException){
     fres->content += commaStr;
     //// TestItem result
     fres->content += quoteStr;
-    fres->content += "Test Item result code";
+    fres->content += "Result";
     fres->content += quoteStr;
     fres->content += commaStr;
     //// TestItem description
     fres->content += quoteStr;
-    fres->content += "Test Item result description";
+    fres->content += "Description";
     fres->content += quoteStr;
     fres->content += newLine;
     // prepare cycle for processing Test Items

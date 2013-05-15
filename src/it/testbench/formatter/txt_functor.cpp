@@ -30,14 +30,14 @@ ReturnCode TxtFunctor::format(Report *report) throw (TestFrameworkException){
     fres->content = "";
     // TestBenchConfiguration line
     DEBUG("TestBenchConfiguration line");
-    fres->content += "Testbench Configuration ";
-    fres->content += "Session Id ";
+    //fres->content += "Testbench Configuration ";
+    fres->content += "Session Id: ";
     fres->content += *(report->getSessionId());
     fres->content += newLine;
     // TestPlan line
     DEBUG("TestPlan line");
     fres->content += indent(tabSep, 1);
-    fres->content += "Test Plan ";
+    fres->content += "Test Plan: ";
     fres->content += *(report->getTestPlanId());
     fres->content += newLine;
     // TestCase line

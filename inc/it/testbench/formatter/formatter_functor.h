@@ -138,6 +138,14 @@ class JsonFunctor : public FormatterFunctor {
          * @return       Return code describing the outcome of the operation
          */
         ReturnCode format(Report *report) throw (TestFrameworkException);        /*!< format report */
+    private:
+        string openField;         /*!< open brackets character */
+        string closeField;        /*!< close brackets character */
+        string openSequence;      /*!< open sequence character */
+        string closeSequence;     /*!< close sequence character */
+        string colonStr;          /*!< colon character */
+        string commaStr;          /*!< comma character */
+        string quoteStr;          /*!< quote character */
 };
 
 } /* IT */

@@ -51,9 +51,9 @@ ReturnCode ConsoleFunctor::format(Report *report) throw (TestFrameworkException)
     cres->content = "";
     // TestBenchConfiguration line
     DEBUG("TestBenchConfiguration line");
-    cres->content += "Testbench Configuration ";
-    cres->content += lineSep;
-    cres->content += "Session Id ";
+    //cres->content += "Testbench Configuration ";
+    //cres->content += lineSep;
+    cres->content += "Session Id: ";
     cres->content += lineSep;
     cres->content += openPar;
     cres->content += *(report->getSessionId());
@@ -63,7 +63,7 @@ ReturnCode ConsoleFunctor::format(Report *report) throw (TestFrameworkException)
     // TestPlan line
     DEBUG("TestPlan line");
     cres->content += indent(tabSep, 1);
-    cres->content += "Test Plan ";
+    cres->content += "Test Plan: ";
     cres->content += lineSep;
     cres->content += openPar;
     cres->content += *(report->getTestPlanId());

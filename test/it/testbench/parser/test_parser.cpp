@@ -18,9 +18,9 @@ int main(int argc, char* argv[]) {
     TEST_EQ(2,"State Machine Testing","pState->init(retCode)","FSM init() - from mother class", retState->isFSMInitialized(),1);
     //
     Configuration* cfg = new Configuration;
-    cfg->URI = "/home/hailpam/Developments/c++-workspace/test-framework/conf/configuration.json";
-    cfg->fileName = "/home/hailpam/Developments/c++-workspace/test-framework/conf/configuration";
-    cfg->filePath =  "home/hailpam/Developments/c++-workspace";
+    cfg->URI = "conf/configuration.json";
+    cfg->fileName = "conf/configuration";
+    cfg->filePath =  "../";
     cfg->fileFormat = "json";
     string* loadRes = new string("BLAH");
     try {
@@ -79,9 +79,9 @@ int main(int argc, char* argv[]) {
     cout << "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
     ParserManager* pManager = new ParserManager();
     Configuration fConfig;
-    fConfig.URI = "/home/hailpam/Developments/c++-workspace/test-framework/conf/configuration.json";
-    fConfig.fileName = "/home/hailpam/Developments/c++-workspace/test-framework/conf/configuration";
-    fConfig.filePath =  "home/hailpam/Developments/c++-workspace";
+    fConfig.URI = "conf/configuration.json";
+    fConfig.fileName = "conf/configuration";
+    fConfig.filePath =  "../";
     fConfig.fileFormat = "json";
     fConfig.sessionId = "InitialSession";
     try {

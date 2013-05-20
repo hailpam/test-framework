@@ -15,6 +15,8 @@ JobProducer::JobProducer() : Thread()
     testCases = NULL;
     isPaused = false;
     pthread_mutex_init(&stateMutex, NULL);
+//    pthread_mutex_init(&dataMutex, NULL);
+    pthread_cond_init(&stateCond, NULL);
 }
 
 JobProducer::~JobProducer()
@@ -22,6 +24,8 @@ JobProducer::~JobProducer()
     //pass in input the return value accessible by the father
     pthread_exit((void*) 1);
     pthread_mutex_destroy(&stateMutex);
+//    pthread_mutex_destroy(&dataMutex);
+    pthread_cond_destroy(&stateCond);
 }
 
 void* JobProducer::JobProducer::run()
@@ -36,8 +40,14 @@ void* JobProducer::JobProducer::run()
      */
     DATA_INFO("Job Producer is running... ");
     while(isRunning) {
+        pthread_mutex_lock(&stateMutex);
         if(testCases != NULL) {
-            pthread_mutex_lock(&stateMutex);
+            if(testCases->size() == 0) {
+                DATA_INFO_VAL("Currently, Test Cases array size is", testCases->size());
+                //wait until new test cases are provided
+                pthread_cond_wait(&stateCond, &stateMutex);
+                pthread_mutex_unlock(&stateMutex);          //???
+            }
             // pause when the set of test cases has alrady been transformed in Jobs
             list<TestCase*>::iterator itrList;
             DATA_INFO_VAL("New Cycle of Test Cases ready to be pushed - Test Cases#", testCases->size());
@@ -49,13 +59,15 @@ void* JobProducer::JobProducer::run()
                 // push the job on the job queue
                 sharedQueue->enqueue(tcJob);
                 DATA_INFO_VAL("Job pushed on the Queue", (idx + 1));
-    //            itrList = testCases->erase(itrList);
-    //            DATA_INFO_VAL("Test Case removed from the List", (idx + 1));
                 ++idx;
             }
             testCases->clear();
+            pthread_mutex_unlock(&stateMutex);
         }else {
             DATA_INFO("No Test Case has already been provided");
+            //wait until new test cases are provided
+            pthread_cond_wait(&stateCond, &stateMutex);
+            pthread_mutex_unlock(&stateMutex);              //???
          }
     }
     DATA_INFO("... Job Producer is quitting.");
@@ -69,6 +81,7 @@ void* JobProducer::JobProducer::run()
 
 const ReturnCode* JobProducer::setJobSharedQueue(SynchronizedQueue<Job*>* sharedQueue)
 {
+    pthread_mutex_lock(&stateMutex);
     ReturnCode* retCode = new ReturnCode;
     if(sharedQueue == NULL) {
         retCode->code = ERROR;
@@ -81,6 +94,7 @@ const ReturnCode* JobProducer::setJobSharedQueue(SynchronizedQueue<Job*>* shared
     DATA_INFO("Shared Job Queue initialized");
     retCode->code = SUCCESS;
     retCode->desc = "Shared Job Queue correctly initialized";
+    pthread_mutex_unlock(&stateMutex);
 
     return retCode;
 }
@@ -99,7 +113,7 @@ const ReturnCode* JobProducer::pause()
 const ReturnCode* JobProducer::resume()
 {
     DATA_INFO("Job Consumer is going to be resumed...");
-    pthread_mutex_unlock(&stateMutex);
+    pthread_cond_signal(&stateCond);
     ReturnCode* retCode = new ReturnCode;
     retCode->code = SUCCESS;
     retCode->desc = "Job Consumer is correctly resumed";
@@ -108,12 +122,15 @@ const ReturnCode* JobProducer::resume()
 }
 
 void JobProducer::killIt() {
+    pthread_mutex_lock(&stateMutex);
     isRunning = false;
+    pthread_cond_signal(&stateCond);
     pthread_mutex_unlock(&stateMutex);
 }
 
 const ReturnCode* JobProducer::loadTestCases(list<TestCase*>* tCases)
 {
+    pthread_mutex_lock(&stateMutex);
     ReturnCode* retCode = new ReturnCode;
     if(tCases == NULL) {
         retCode->code = ERROR;
@@ -129,6 +146,8 @@ const ReturnCode* JobProducer::loadTestCases(list<TestCase*>* tCases)
     DATA_INFO_VAL("A bunch of new Test Cases is ready to be pushed on Job Queue", tCases->size());
     retCode->code = SUCCESS;
     retCode->desc = "List of Test Cases has been correctly initialized";
+    //signal to unlock the Thread
+    pthread_cond_signal(&stateCond);
     pthread_mutex_unlock(&stateMutex);
 
     return retCode;

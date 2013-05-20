@@ -25,6 +25,7 @@ ReportConsumer::~ReportConsumer()
 
 void* ReportConsumer::run()
 {
+    #warning TODO : algo to be implemented
     DATA_INFO_VAL("Report Consumer is running... ", threadId);
     ReturnCode* retFromOp;
     int itrConsumer = 0;

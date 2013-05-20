@@ -60,6 +60,7 @@ class SynchronizedQueue {
          *
          */
         void enqueue(T item){
+            DATA_INFO_VAL("@Synchronized Queue #", label);
             pthread_mutex_lock(&dataMutex);
             DATA_INFO_VAL("Enqueuing an element, current size #", syncQueue.size());
             syncQueue.push(item);
@@ -76,6 +77,7 @@ class SynchronizedQueue {
          */
         T dequeue() {
             pthread_mutex_lock(&dataMutex);
+            DATA_INFO_VAL("@Synchronized Queue #", label);
             DATA_INFO_VAL("Dequeuing an element, current size #", syncQueue.size());
             DATA_INFO_VAL("Is empty? #", syncQueue.empty());
             if(counter == 0)

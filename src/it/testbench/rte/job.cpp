@@ -17,7 +17,7 @@ Job::~Job() {/* do nothing */}
 
 ReturnCode* Job::executeTestCase() {
     ReturnCode* retCode = new ReturnCode;
-    if(tCase == 0) {
+    if(tCase == NULL) {
         DATA_ERR_VAL("TestCase not yet set: no execution can be performed", -1);
         retCode->code = ERROR;
         retCode->desc = "It is not allowed to request an execution prior to set the TestCase";
@@ -26,9 +26,9 @@ ReturnCode* Job::executeTestCase() {
     }
     //
     try {
-        tCase->setupTestCase();
-        tCase->runTestCase();
-        tCase->tearDownTestCase();
+            tCase->setupTestCase();
+            tCase->runTestCase();
+            tCase->tearDownTestCase();
     }catch(TestFrameworkException& exception) {
         DATA_ERR_VAL("Exception Catched", exception.what());
         retCode->code = ERROR;
@@ -36,9 +36,10 @@ ReturnCode* Job::executeTestCase() {
 
         return retCode;
      }
+     DATA_INFO("Test Case successfully executed");
     //
     retCode->code = SUCCESS;
-    retCode->desc = "OK";
+    retCode->desc = "Test Case successfully executed";
     tCaseExecuted = true;
 
     return retCode;
@@ -53,6 +54,8 @@ ReturnCode* Job::generateReport(Report* genReport) {
 
         return retCode;
     }
+    DATA_INFO("Report successfully generated from executed Test Case");
+    //
     genReport = tCase->finalizeReport();
     retCode->code = SUCCESS;
     retCode->desc = "Report has been correctly generated";
@@ -63,7 +66,7 @@ ReturnCode* Job::generateReport(Report* genReport) {
 
 ReturnCode* Job::setTestCase(const TestCase* tCase) {
     ReturnCode* retCode = new ReturnCode;
-    if(tCase == 0) {
+    if(tCase == NULL) {
         DATA_ERR_VAL("NULL Pointer in Input: TestCase cannot be set", -1);
         retCode->code = ERROR;
         retCode->desc = "NULL Pointer in Input: set operation cannot ben performed";

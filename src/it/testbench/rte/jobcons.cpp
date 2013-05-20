@@ -28,6 +28,7 @@ JobConsumer::~JobConsumer()
 
 void* JobConsumer::run()
 {
+    #warning TODO : random NULL pointer to be investigated
     DATA_INFO_VAL("Job Consumer is running... ", threadId);
     ReturnCode* retFromOp;
     int itrConsumer = 0;
@@ -36,23 +37,29 @@ void* JobConsumer::run()
         DATA_INFO_VAL("Loop", itrConsumer);
         Job* retJob = jobQueue->dequeue();
         DATA_INFO_VAL("Got a JOB::Consumer", threadId);
-        DATA_INFO_VAL("Job retrieved form Queue", retJob);
-//        retFromOp = retJob->executeTestCase();
-//        if(retFromOp->code == SUCCESS) {
-//            Report* retRep;
-//            delete retFromOp;
-//            retFromOp = retJob->generateReport(retRep);
-//            if(retFromOp->code == SUCCESS)
-//                reportQueue->enqueue(retRep);
-//            else
-//                DATA_ERR_VAL("An Error occurred during the Report generation", retFromOp->desc);
-//            delete retFromOp;
-//            // TODO : an error report to be generated
-//        }else {
-//            DATA_ERR_VAL("An Error occurred during the execution of Test Case", retFromOp->desc);
-//            // TODO : an error report to be generated
-//        }
+        if(retJob == NULL) {
+            DATA_ERR_VAL("Got a NULL Pointer", -1);
+            // TODO : an error report to be generated
+            continue;
+        }
+        DATA_INFO_VAL("Job retrieved from Queue", retJob);
+        retFromOp = retJob->executeTestCase();
+        if(retFromOp->code == SUCCESS) {
+            Report* retRep;
+            delete retFromOp;
+            retFromOp = retJob->generateReport(retRep);
+            if(retFromOp->code == SUCCESS)
+                reportQueue->enqueue(retRep);
+            else
+                DATA_ERR_VAL("An Error occurred during the Report generation", retFromOp->desc);
+            delete retFromOp;
+            // TODO : an error report to be generated
+        }else {
+            DATA_ERR_VAL("An Error occurred during the execution of Test Case", retFromOp->desc);
+            // TODO : an error report to be generated
+        }
         itrConsumer++;
+//        delete retJob;
     }
     DATA_INFO("... Job Consumer is quitting.");
     //

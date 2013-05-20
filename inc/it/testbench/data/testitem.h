@@ -89,6 +89,9 @@ class TestItem {
 */
 class SetupTestItem : public TestItem {
     public:
+//        SetupTestItem();
+//        ~SetupTestItem();
+
         virtual TestCaseContext* setupItem() = 0;
         ReturnCode* runItem(TestCaseContext* ctxObject);
         void tearDownItem(TestCaseContext* ctxObject);
@@ -103,6 +106,9 @@ class SetupTestItem : public TestItem {
 */
 class RunnableTestItem : public TestItem {
     public:
+//        RunnableTestItem();
+//        ~RunnableTestItem();
+
         TestCaseContext* setupItem();
         virtual ReturnCode* runItem(TestCaseContext* ctxObject) = 0;
         void tearDownItem(TestCaseContext* ctxObject);
@@ -114,6 +120,9 @@ class RunnableTestItem : public TestItem {
 */
 class TearDownTestItem : public TestItem {
     public:
+//        TearDownTestItem();
+//        ~TearDownTestItem();
+
         TestCaseContext* setupItem();
         ReturnCode* runItem(TestCaseContext* ctxObject);
         virtual void tearDownItem(TestCaseContext* ctxObject) = 0;

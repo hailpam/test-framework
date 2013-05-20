@@ -14,7 +14,7 @@
 /**
  * @file testbench.h
  * This module defines the Test Bench, Test Plan and Test Case entities.
- * They are strictly related eaexch others and define a contextual runnable
+ * They are strictly related each others and define a contextual runnable
  * object: the Test Cases contained in the Test Plan are treated as many
  * parallel executable jobs by the internal test bench engine.
  *

@@ -11,7 +11,9 @@ namespace data
 
 /// SUBJECT
 
-Subject::Subject() {/* Do nothing */}
+Subject::Subject() : nrOfObservers(0)
+{
+}
 
 Subject::~Subject() {/* Do nothing */}
 
@@ -28,6 +30,7 @@ ReturnCode Subject::addObserver(Observer* obs)
     //
     DATA_INFO_VAL("Setting the Observer", obs->getWhoAmI());
     obsEntities[obs->getWhoAmI()] = obs;
+    nrOfObservers++;
     DATA_INFO_VAL("Observer Count", obsEntities.size());
     //
     retCond.code = SUCCESS;
@@ -64,6 +67,10 @@ void Subject::notifyObservers(Report* report)
         tmpObserver->notify(report);
         DATA_INFO_VAL("Observer Notified with Report", report->getTestPlanId());
     }
+}
+
+const unsigned int& Subject::actualNrOfObservers() {
+    return nrOfObservers;
 }
 
 /// OBSERVER

@@ -71,7 +71,7 @@ void Report::setConsoleResource(ConsoleResource* res)
     if (!res)
         return;
     cslResource = const_cast<ConsoleResource*>(res);
-    DATA_INFO_VAL("Pointer Associated",clsResource);
+    DATA_INFO_VAL("Pointer Associated", cslResource);
 }
 
 ConsoleResource* Report::getConsoleResource()

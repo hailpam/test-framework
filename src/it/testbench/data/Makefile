@@ -7,10 +7,11 @@ INC_TST = ../../../../inc/it/testbench
 DST_DIR = ../../../../dist
 TST_DIR = ../../../../test/${PACKAGE}
 BIN_DIR = ../../../../bin
+DST_DIR = ../../../../dist
 
 CC      = g++
 CCFLAGS  = -I${INC_DIR} -I${INC_TST} -I${TST_DIR} -DTEST_DEBUG
-LDFLAGS = -lrt
+LDFLAGS = -lrt -L${DST_DIR}
 
 TGT_1   = report
 TGT_2   = observer
@@ -22,6 +23,7 @@ TEST_1  = fake_observer
 TEST_2  = concrete_ctxobject
 TEST_3  = custom_testitems
 TEST_4  = concrete_testbuilder
+
 TEST    = test_data
 
 DIST	= libdata.a
@@ -37,8 +39,8 @@ debug: CCFLAGS += -DDEBUG_PRINT_ENABLED -DDATA_DEBUG_ENABLED -g3
 debug: all
 
 ${TEST}: ${OBJ_DIR}/${TGT_1}.o ${OBJ_DIR}/${TGT_2}.o ${OBJ_DIR}/${TGT_3}.o ${OBJ_DIR}/${TGT_4}.o ${OBJ_DIR}/${EXCPT}.o \
-	 ${OBJ_DIR}/${TEST_1}.o ${OBJ_DIR}/${TEST_2}.o ${OBJ_DIR}/${TEST_3}.o ${OBJ_DIR}/${TEST_4}.o ${OBJ_DIR}/${TEST}.o
-	$(CC) -o ${BIN_DIR}/$@ $^ $(LDFLAGS)
+	  ${OBJ_DIR}/${TEST}.o
+	$(CC) -o ${BIN_DIR}/$@ $^ $(LDFLAGS) -ltest_ext
 
 ${OBJ_DIR}/${EXCPT}.o: ${EXCPT}.cpp 
 	$(CC) -Wall -c $(CCFLAGS) $< -o ${OBJ_DIR}/${EXCPT}.o

@@ -1,0 +1,5 @@
+<map id="it::testbench::data::Observer::getWhoAmI" name="it::testbench::data::Observer::getWhoAmI">
+<area shape="rect" id="node3" href="$d7/db8/classit_1_1testbench_1_1data_1_1Subject.html#aed20252fb082edec1b278dbc4f5b9bc0" title="basic behaviour: add an observer" alt="" coords="223,5,379,46"/>
+<area shape="rect" id="node5" href="$d7/db8/classit_1_1testbench_1_1data_1_1Subject.html#a207cb996752bcf4af2d9ed721d85f07c" title="notify all observers" alt="" coords="214,70,389,111"/>
+<area shape="rect" id="node7" href="$d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine.html#a9e1aaf1a127ea1f9242a4c67acbe70df" title="it::testbench::rte\l::RuntimeEngine::notify" alt="" coords="438,70,597,111"/>
+</map>

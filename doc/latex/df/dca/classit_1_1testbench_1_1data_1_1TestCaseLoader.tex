@@ -1,0 +1,201 @@
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseLoader}{\section{it\-:\-:testbench\-:\-:data\-:\-:Test\-Case\-Loader Class Reference}
+\label{df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader}\index{it\-::testbench\-::data\-::\-Test\-Case\-Loader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}}
+}
+
+
+{\ttfamily \#include $<$testbench.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1TestCaseLoader_afb65e8aa61521db9d2a407ecbe16f2b9}{Test\-Case\-Loader} ()
+\begin{DoxyCompactList}\small\item\em T\-E\-S\-T C\-A\-S\-E L\-O\-A\-D\-E\-R. \end{DoxyCompactList}\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1TestCaseLoader_a99c6d95131bb546da169da24888970e1}{$\sim$\-Test\-Case\-Loader} ()
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseLoader_ae9f65c0d517961afc1165b77dc5fed94}{load\-Test\-Case} (unsigned int tc\-Idx)
+\begin{DoxyCompactList}\small\item\em load a specific test case \end{DoxyCompactList}\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseLoader_aae15e2881f2ae15dcb5ecc95d55849b4}{load\-All\-Test\-Cases} ()
+\begin{DoxyCompactList}\small\item\em load all test cases \end{DoxyCompactList}\item 
+const \hyperlink{classit_1_1testbench_1_1data_1_1TestCase}{Test\-Case} $\ast$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseLoader_a7ac7a2883fc87c48fb5038b19e4850ec}{get\-Loaded\-Test\-Case} (unsigned int tc\-Idx) const 
+\begin{DoxyCompactList}\small\item\em retrieve the specified test case \end{DoxyCompactList}\item 
+const vector$<$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCase}{Test\-Case} $\ast$ $>$ $\ast$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseLoader_a01d66e9610f946699823178de96090e3}{get\-All\-Loaded\-Test\-Cases} () const 
+\begin{DoxyCompactList}\small\item\em retrieve all test cases \end{DoxyCompactList}\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseLoader_ae7f1a9986e60a80b54e0c079404e596b}{register\-Test\-Case\-Builder} (unsigned const int tc\-Idx, const \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseBuilder}{Test\-Case\-Builder} $\ast$tc\-Builder)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCase}{Test\-Case} $\ast$ $>$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseLoader_a69e04f628e711e7a06592664f510b061}{tc\-List}
+\item 
+vector$<$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseBuilder}{Test\-Case\-Builder} $\ast$ $>$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseLoader_a43d17d71e6a0b38d053fb48f3cd4219e}{tc\-Builders}
+\item 
+vector$<$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCase}{Test\-Case} $\ast$ $>$\-::iterator \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseLoader_afcf0ab648278bdb692a1dbc603d630a0}{itr\-List}
+\item 
+vector$<$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseBuilder}{Test\-Case\-Builder} $\ast$ $>$\\*
+\-::iterator \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseLoader_a8cb21b96baa5bc91fd0c9a8051aacddf}{itr\-Build\-List}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Its main responsibility consists in using the specific test case builders that will create as many specific Test Cases.
+
+This entity is very useful to decouple the caller (that wants only many Test Cases instances already created) from the entity delegated to concretely build the Test Cases instances. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseLoader_afb65e8aa61521db9d2a407ecbe16f2b9}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Loader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}!Test\-Case\-Loader@{Test\-Case\-Loader}}
+\index{Test\-Case\-Loader@{Test\-Case\-Loader}!it::testbench::data::TestCaseLoader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}}
+\subsubsection[{Test\-Case\-Loader}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::data\-::\-Test\-Case\-Loader\-::\-Test\-Case\-Loader (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader_afb65e8aa61521db9d2a407ecbe16f2b9}
+
+
+T\-E\-S\-T C\-A\-S\-E L\-O\-A\-D\-E\-R. 
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseLoader_a99c6d95131bb546da169da24888970e1}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Loader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}!$\sim$\-Test\-Case\-Loader@{$\sim$\-Test\-Case\-Loader}}
+\index{$\sim$\-Test\-Case\-Loader@{$\sim$\-Test\-Case\-Loader}!it::testbench::data::TestCaseLoader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}}
+\subsubsection[{$\sim$\-Test\-Case\-Loader}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::data\-::\-Test\-Case\-Loader\-::$\sim$\-Test\-Case\-Loader (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader_a99c6d95131bb546da169da24888970e1}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseLoader_a01d66e9610f946699823178de96090e3}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Loader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}!get\-All\-Loaded\-Test\-Cases@{get\-All\-Loaded\-Test\-Cases}}
+\index{get\-All\-Loaded\-Test\-Cases@{get\-All\-Loaded\-Test\-Cases}!it::testbench::data::TestCaseLoader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}}
+\subsubsection[{get\-All\-Loaded\-Test\-Cases}]{\setlength{\rightskip}{0pt plus 5cm}const vector$<$ {\bf Test\-Case} $\ast$ $>$ $\ast$ it\-::testbench\-::data\-::\-Test\-Case\-Loader\-::get\-All\-Loaded\-Test\-Cases (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader_a01d66e9610f946699823178de96090e3}
+
+
+retrieve all test cases 
+
+To be overriden specifically. Each concrete Test Case builder provides the ability to fully decouple the building process.
+
+\begin{DoxyReturn}{Returns}
+List of Test Cases pointers, it is empty iff the test cases have not been yet built 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseLoader_a7ac7a2883fc87c48fb5038b19e4850ec}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Loader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}!get\-Loaded\-Test\-Case@{get\-Loaded\-Test\-Case}}
+\index{get\-Loaded\-Test\-Case@{get\-Loaded\-Test\-Case}!it::testbench::data::TestCaseLoader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}}
+\subsubsection[{get\-Loaded\-Test\-Case}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Test\-Case} $\ast$ it\-::testbench\-::data\-::\-Test\-Case\-Loader\-::get\-Loaded\-Test\-Case (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{tc\-Idx}
+\end{DoxyParamCaption}
+) const}}\label{df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader_a7ac7a2883fc87c48fb5038b19e4850ec}
+
+
+retrieve the specified test case 
+
+To be overriden specifically. Each concrete Test Case builder provides the ability to fully decouple the building process.
+
+\begin{DoxyReturn}{Returns}
+Point to the Test Case, 0 iff the Test Case has not been built yet 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader_a7ac7a2883fc87c48fb5038b19e4850ec_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseLoader_aae15e2881f2ae15dcb5ecc95d55849b4}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Loader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}!load\-All\-Test\-Cases@{load\-All\-Test\-Cases}}
+\index{load\-All\-Test\-Cases@{load\-All\-Test\-Cases}!it::testbench::data::TestCaseLoader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}}
+\subsubsection[{load\-All\-Test\-Cases}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::data\-::\-Test\-Case\-Loader\-::load\-All\-Test\-Cases (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader_aae15e2881f2ae15dcb5ecc95d55849b4}
+
+
+load all test cases 
+
+To be overriden specifically. Each concrete Test Case builder provides the ability to fully decouple the building process.
+
+\begin{DoxyReturn}{Returns}
+Boolean value, true iff the loading has been performed successfully 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader_aae15e2881f2ae15dcb5ecc95d55849b4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseLoader_ae9f65c0d517961afc1165b77dc5fed94}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Loader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}!load\-Test\-Case@{load\-Test\-Case}}
+\index{load\-Test\-Case@{load\-Test\-Case}!it::testbench::data::TestCaseLoader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}}
+\subsubsection[{load\-Test\-Case}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::data\-::\-Test\-Case\-Loader\-::load\-Test\-Case (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{tc\-Idx}
+\end{DoxyParamCaption}
+)}}\label{df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader_ae9f65c0d517961afc1165b77dc5fed94}
+
+
+load a specific test case 
+
+To be overriden specifically. Each concrete Test Case builder provides the ability to fully decouple the building process.
+
+\begin{DoxyReturn}{Returns}
+Boolean value, true iff the loading has been performed successfully 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader_ae9f65c0d517961afc1165b77dc5fed94_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseLoader_ae7f1a9986e60a80b54e0c079404e596b}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Loader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}!register\-Test\-Case\-Builder@{register\-Test\-Case\-Builder}}
+\index{register\-Test\-Case\-Builder@{register\-Test\-Case\-Builder}!it::testbench::data::TestCaseLoader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}}
+\subsubsection[{register\-Test\-Case\-Builder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::data\-::\-Test\-Case\-Loader\-::register\-Test\-Case\-Builder (
+\begin{DoxyParamCaption}
+\item[{unsigned const int}]{tc\-Idx, }
+\item[{const {\bf Test\-Case\-Builder} $\ast$}]{tc\-Builder}
+\end{DoxyParamCaption}
+)}}\label{df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader_ae7f1a9986e60a80b54e0c079404e596b}
+To register the list of specific builder that should be used to create the Test Cases
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em @return} & A boolean, true iff the registration was successful \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseLoader_a8cb21b96baa5bc91fd0c9a8051aacddf}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Loader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}!itr\-Build\-List@{itr\-Build\-List}}
+\index{itr\-Build\-List@{itr\-Build\-List}!it::testbench::data::TestCaseLoader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}}
+\subsubsection[{itr\-Build\-List}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Test\-Case\-Builder}$\ast$$>$\-::iterator it\-::testbench\-::data\-::\-Test\-Case\-Loader\-::itr\-Build\-List\hspace{0.3cm}{\ttfamily [private]}}}\label{df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader_a8cb21b96baa5bc91fd0c9a8051aacddf}
+iterator to list of builders \hypertarget{classit_1_1testbench_1_1data_1_1TestCaseLoader_afcf0ab648278bdb692a1dbc603d630a0}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Loader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}!itr\-List@{itr\-List}}
+\index{itr\-List@{itr\-List}!it::testbench::data::TestCaseLoader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}}
+\subsubsection[{itr\-List}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Test\-Case}$\ast$$>$\-::iterator it\-::testbench\-::data\-::\-Test\-Case\-Loader\-::itr\-List\hspace{0.3cm}{\ttfamily [private]}}}\label{df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader_afcf0ab648278bdb692a1dbc603d630a0}
+iterator to list of test cases \hypertarget{classit_1_1testbench_1_1data_1_1TestCaseLoader_a43d17d71e6a0b38d053fb48f3cd4219e}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Loader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}!tc\-Builders@{tc\-Builders}}
+\index{tc\-Builders@{tc\-Builders}!it::testbench::data::TestCaseLoader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}}
+\subsubsection[{tc\-Builders}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Test\-Case\-Builder}$\ast$$>$ it\-::testbench\-::data\-::\-Test\-Case\-Loader\-::tc\-Builders\hspace{0.3cm}{\ttfamily [private]}}}\label{df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader_a43d17d71e6a0b38d053fb48f3cd4219e}
+point to a list of test case builder \hypertarget{classit_1_1testbench_1_1data_1_1TestCaseLoader_a69e04f628e711e7a06592664f510b061}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Loader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}!tc\-List@{tc\-List}}
+\index{tc\-List@{tc\-List}!it::testbench::data::TestCaseLoader@{it\-::testbench\-::data\-::\-Test\-Case\-Loader}}
+\subsubsection[{tc\-List}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Test\-Case}$\ast$$>$ it\-::testbench\-::data\-::\-Test\-Case\-Loader\-::tc\-List\hspace{0.3cm}{\ttfamily [private]}}}\label{df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader_a69e04f628e711e7a06592664f510b061}
+list of test cases 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{testbench_8h}{testbench.\-h}\item 
+\hyperlink{testbench_8cpp}{testbench.\-cpp}\end{DoxyCompactItemize}

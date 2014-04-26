@@ -1,0 +1,145 @@
+\hypertarget{classit_1_1testbench_1_1rte_1_1ReportConsumer}{\section{it\-:\-:testbench\-:\-:rte\-:\-:Report\-Consumer Class Reference}
+\label{de/d2c/classit_1_1testbench_1_1rte_1_1ReportConsumer}\index{it\-::testbench\-::rte\-::\-Report\-Consumer@{it\-::testbench\-::rte\-::\-Report\-Consumer}}
+}
+
+
+{\ttfamily \#include $<$reportcons.\-h$>$}
+
+
+
+Inheritance diagram for it\-:\-:testbench\-:\-:rte\-:\-:Report\-Consumer\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{d1/dba/classit_1_1testbench_1_1rte_1_1ReportConsumer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for it\-:\-:testbench\-:\-:rte\-:\-:Report\-Consumer\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/d53/classit_1_1testbench_1_1rte_1_1ReportConsumer__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1ReportConsumer_a098de1322328e807d04ed2c0feae5d4c}{Report\-Consumer} ()
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1ReportConsumer_a80f47783855d2521751ff8f7520ab234}{$\sim$\-Report\-Consumer} ()
+\item 
+void $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1ReportConsumer_a59043ea752911968640216a898b981a0}{run} ()
+\item 
+void \hyperlink{classit_1_1testbench_1_1rte_1_1ReportConsumer_a9cb8e2e348ef8f24e381c7b511cdbbd2}{kill\-It} ()
+\item 
+const \hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1ReportConsumer_a8d786ee688355cf6dc45e7e0d417b6ca}{set\-Report\-Shared\-Queue} (\hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue}{Synchronized\-Queue}$<$ \hyperlink{classit_1_1testbench_1_1data_1_1Report}{Report} $\ast$ $>$ $\ast$shared\-Queue)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue}{Synchronized\-Queue}$<$ \hyperlink{classit_1_1testbench_1_1data_1_1Report}{Report} $\ast$ $>$ $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1ReportConsumer_a3567bb28dc6b59ee978216fb89037a13}{report\-Queue}
+\item 
+bool \hyperlink{classit_1_1testbench_1_1rte_1_1ReportConsumer_a700e6c26754c6fc270aa8aef81bef405}{is\-Paused}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Specialized \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} class. It consumes Reports provided by \hyperlink{classit_1_1testbench_1_1rte_1_1Job}{Job} Consumers. It formats the reports and then notifies all its observers about the new available formatted reports. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1ReportConsumer_a098de1322328e807d04ed2c0feae5d4c}{\index{it\-::testbench\-::rte\-::\-Report\-Consumer@{it\-::testbench\-::rte\-::\-Report\-Consumer}!Report\-Consumer@{Report\-Consumer}}
+\index{Report\-Consumer@{Report\-Consumer}!it::testbench::rte::ReportConsumer@{it\-::testbench\-::rte\-::\-Report\-Consumer}}
+\subsubsection[{Report\-Consumer}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::rte\-::\-Report\-Consumer\-::\-Report\-Consumer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{de/d2c/classit_1_1testbench_1_1rte_1_1ReportConsumer_a098de1322328e807d04ed2c0feae5d4c}
+\hypertarget{classit_1_1testbench_1_1rte_1_1ReportConsumer_a80f47783855d2521751ff8f7520ab234}{\index{it\-::testbench\-::rte\-::\-Report\-Consumer@{it\-::testbench\-::rte\-::\-Report\-Consumer}!$\sim$\-Report\-Consumer@{$\sim$\-Report\-Consumer}}
+\index{$\sim$\-Report\-Consumer@{$\sim$\-Report\-Consumer}!it::testbench::rte::ReportConsumer@{it\-::testbench\-::rte\-::\-Report\-Consumer}}
+\subsubsection[{$\sim$\-Report\-Consumer}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::rte\-::\-Report\-Consumer\-::$\sim$\-Report\-Consumer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{de/d2c/classit_1_1testbench_1_1rte_1_1ReportConsumer_a80f47783855d2521751ff8f7520ab234}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1ReportConsumer_a9cb8e2e348ef8f24e381c7b511cdbbd2}{\index{it\-::testbench\-::rte\-::\-Report\-Consumer@{it\-::testbench\-::rte\-::\-Report\-Consumer}!kill\-It@{kill\-It}}
+\index{kill\-It@{kill\-It}!it::testbench::rte::ReportConsumer@{it\-::testbench\-::rte\-::\-Report\-Consumer}}
+\subsubsection[{kill\-It}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::rte\-::\-Report\-Consumer\-::kill\-It (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{de/d2c/classit_1_1testbench_1_1rte_1_1ReportConsumer_a9cb8e2e348ef8f24e381c7b511cdbbd2}
+Kill the \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} setting up the internal state to not running.\-it sets to not running the internal state \hypertarget{classit_1_1testbench_1_1rte_1_1ReportConsumer_a59043ea752911968640216a898b981a0}{\index{it\-::testbench\-::rte\-::\-Report\-Consumer@{it\-::testbench\-::rte\-::\-Report\-Consumer}!run@{run}}
+\index{run@{run}!it::testbench::rte::ReportConsumer@{it\-::testbench\-::rte\-::\-Report\-Consumer}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ it\-::testbench\-::rte\-::\-Report\-Consumer\-::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{de/d2c/classit_1_1testbench_1_1rte_1_1ReportConsumer_a59043ea752911968640216a898b981a0}
+Custom processing functionality. \hyperlink{classit_1_1testbench_1_1rte_1_1ReportConsumer}{Report\-Consumer} consumes Report objects put on the Queue by Job\-Consumer.\-it defines a custom behaviour to be executed 
+
+Implements \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a52ddbcd22cd6493de8453458d2a0652d}{it\-::testbench\-::rte\-::\-Thread}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{de/d2c/classit_1_1testbench_1_1rte_1_1ReportConsumer_a59043ea752911968640216a898b981a0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1rte_1_1ReportConsumer_a8d786ee688355cf6dc45e7e0d417b6ca}{\index{it\-::testbench\-::rte\-::\-Report\-Consumer@{it\-::testbench\-::rte\-::\-Report\-Consumer}!set\-Report\-Shared\-Queue@{set\-Report\-Shared\-Queue}}
+\index{set\-Report\-Shared\-Queue@{set\-Report\-Shared\-Queue}!it::testbench::rte::ReportConsumer@{it\-::testbench\-::rte\-::\-Report\-Consumer}}
+\subsubsection[{set\-Report\-Shared\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Return\-Code} $\ast$ it\-::testbench\-::rte\-::\-Report\-Consumer\-::set\-Report\-Shared\-Queue (
+\begin{DoxyParamCaption}
+\item[{{\bf Synchronized\-Queue}$<$ {\bf Report} $\ast$ $>$ $\ast$}]{shared\-Queue}
+\end{DoxyParamCaption}
+)}}\label{de/d2c/classit_1_1testbench_1_1rte_1_1ReportConsumer_a8d786ee688355cf6dc45e7e0d417b6ca}
+Set the synchronized shared queue on which the reports must be pushed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to the shared report queue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a Report\-Code containing the initialization resultset the synchronized shared queue 
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d2c/classit_1_1testbench_1_1rte_1_1ReportConsumer_a8d786ee688355cf6dc45e7e0d417b6ca_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1ReportConsumer_a700e6c26754c6fc270aa8aef81bef405}{\index{it\-::testbench\-::rte\-::\-Report\-Consumer@{it\-::testbench\-::rte\-::\-Report\-Consumer}!is\-Paused@{is\-Paused}}
+\index{is\-Paused@{is\-Paused}!it::testbench::rte::ReportConsumer@{it\-::testbench\-::rte\-::\-Report\-Consumer}}
+\subsubsection[{is\-Paused}]{\setlength{\rightskip}{0pt plus 5cm}bool it\-::testbench\-::rte\-::\-Report\-Consumer\-::is\-Paused\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d2c/classit_1_1testbench_1_1rte_1_1ReportConsumer_a700e6c26754c6fc270aa8aef81bef405}
+it defines whether or not this \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} is paused \hypertarget{classit_1_1testbench_1_1rte_1_1ReportConsumer_a3567bb28dc6b59ee978216fb89037a13}{\index{it\-::testbench\-::rte\-::\-Report\-Consumer@{it\-::testbench\-::rte\-::\-Report\-Consumer}!report\-Queue@{report\-Queue}}
+\index{report\-Queue@{report\-Queue}!it::testbench::rte::ReportConsumer@{it\-::testbench\-::rte\-::\-Report\-Consumer}}
+\subsubsection[{report\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Synchronized\-Queue}$<${\bf Report}$\ast$$>$$\ast$ it\-::testbench\-::rte\-::\-Report\-Consumer\-::report\-Queue\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d2c/classit_1_1testbench_1_1rte_1_1ReportConsumer_a3567bb28dc6b59ee978216fb89037a13}
+shared queue with job consumers 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{reportcons_8h}{reportcons.\-h}\item 
+\hyperlink{reportcons_8cpp}{reportcons.\-cpp}\end{DoxyCompactItemize}

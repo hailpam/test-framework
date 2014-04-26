@@ -1,0 +1,10 @@
+<map id="it::testbench::rte::Job::generateReport" name="it::testbench::rte::Job::generateReport">
+<area shape="rect" id="node3" href="$de/d0a/classit_1_1testbench_1_1data_1_1TestCase.html#a04f88bf593d93a1514b886a1e3967ff7" title="finalize the report by the reports of the single test items" alt="" coords="203,177,378,218"/>
+<area shape="rect" id="node5" href="$db/d7b/classit_1_1testbench_1_1data_1_1TestPlan.html#a2fd269c840f4ea2ebf12d801f257a67c" title="get the session Id" alt="" coords="429,13,595,54"/>
+<area shape="rect" id="node9" href="$d5/de8/classit_1_1testbench_1_1data_1_1Report.html#a9206b42a1a76b23203bff18d8ca47ac7" title="set the session Id" alt="" coords="435,78,589,119"/>
+<area shape="rect" id="node11" href="$db/d7b/classit_1_1testbench_1_1data_1_1TestPlan.html#a23d8699783d6d8cd52426e1c5f0fafb9" title="get the test plan Id" alt="" coords="427,143,597,185"/>
+<area shape="rect" id="node13" href="$d5/de8/classit_1_1testbench_1_1data_1_1Report.html#aead163e559989efb81d17c227d07f2a5" title="set the test plan Id" alt="" coords="433,209,591,250"/>
+<area shape="rect" id="node15" href="$d5/de8/classit_1_1testbench_1_1data_1_1Report.html#a0ed5ac70a368a7b9036dab9adafdc5ec" title="set the test Id" alt="" coords="446,274,578,315"/>
+<area shape="rect" id="node17" href="$d5/de8/classit_1_1testbench_1_1data_1_1Report.html#a9163735df90435333cf61acce143663f" title="set the outcome" alt="" coords="438,339,586,381"/>
+<area shape="rect" id="node7" href="$d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration.html#a1bc7e49a069546d3ed715fef92dfefa8" title="get the session Id" alt="" coords="645,5,816,61"/>
+</map>

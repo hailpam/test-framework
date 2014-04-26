@@ -1,0 +1,94 @@
+\hypertarget{classit_1_1testbench_1_1parser_1_1InheritedState}{\section{it\-:\-:testbench\-:\-:parser\-:\-:Inherited\-State Class Reference}
+\label{d9/d7d/classit_1_1testbench_1_1parser_1_1InheritedState}\index{it\-::testbench\-::parser\-::\-Inherited\-State@{it\-::testbench\-::parser\-::\-Inherited\-State}}
+}
+
+
+{\ttfamily \#include $<$fsmparser.\-h$>$}
+
+
+
+Inheritance diagram for it\-:\-:testbench\-:\-:parser\-:\-:Inherited\-State\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{d7/dfb/classit_1_1testbench_1_1parser_1_1InheritedState__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for it\-:\-:testbench\-:\-:parser\-:\-:Inherited\-State\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{d5/da0/classit_1_1testbench_1_1parser_1_1InheritedState__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1parser_1_1InheritedState_a5e9c11fc7bb01659bdeb72cd6f0f8d5b}{Inherited\-State} ()
+\item 
+\hyperlink{classit_1_1testbench_1_1parser_1_1InheritedState_aad92b0488889d46deb6dde70156ce552}{$\sim$\-Inherited\-State} ()
+\item 
+\hyperlink{classit_1_1testbench_1_1parser_1_1ParserState}{Parser\-State} $\ast$ \hyperlink{classit_1_1testbench_1_1parser_1_1InheritedState_a661d01741575c4f2eeee66ffe3211ab5}{open} (const \hyperlink{structit_1_1testbench_1_1data_1_1Configuration}{Configuration} $\ast$cfg, string $\ast$cfg\-Stream, \hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$report)  throw (\-Test\-Framework\-Exception)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1parser_1_1InheritedState_a5e9c11fc7bb01659bdeb72cd6f0f8d5b}{\index{it\-::testbench\-::parser\-::\-Inherited\-State@{it\-::testbench\-::parser\-::\-Inherited\-State}!Inherited\-State@{Inherited\-State}}
+\index{Inherited\-State@{Inherited\-State}!it::testbench::parser::InheritedState@{it\-::testbench\-::parser\-::\-Inherited\-State}}
+\subsubsection[{Inherited\-State}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::parser\-::\-Inherited\-State\-::\-Inherited\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d9/d7d/classit_1_1testbench_1_1parser_1_1InheritedState_a5e9c11fc7bb01659bdeb72cd6f0f8d5b}
+\hypertarget{classit_1_1testbench_1_1parser_1_1InheritedState_aad92b0488889d46deb6dde70156ce552}{\index{it\-::testbench\-::parser\-::\-Inherited\-State@{it\-::testbench\-::parser\-::\-Inherited\-State}!$\sim$\-Inherited\-State@{$\sim$\-Inherited\-State}}
+\index{$\sim$\-Inherited\-State@{$\sim$\-Inherited\-State}!it::testbench::parser::InheritedState@{it\-::testbench\-::parser\-::\-Inherited\-State}}
+\subsubsection[{$\sim$\-Inherited\-State}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::parser\-::\-Inherited\-State\-::$\sim$\-Inherited\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d9/d7d/classit_1_1testbench_1_1parser_1_1InheritedState_aad92b0488889d46deb6dde70156ce552}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1parser_1_1InheritedState_a661d01741575c4f2eeee66ffe3211ab5}{\index{it\-::testbench\-::parser\-::\-Inherited\-State@{it\-::testbench\-::parser\-::\-Inherited\-State}!open@{open}}
+\index{open@{open}!it::testbench::parser::InheritedState@{it\-::testbench\-::parser\-::\-Inherited\-State}}
+\subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Parser\-State}$\ast$ it\-::testbench\-::parser\-::\-Inherited\-State\-::open (
+\begin{DoxyParamCaption}
+\item[{const {\bf Configuration} $\ast$}]{cfg, }
+\item[{string $\ast$}]{cfg\-Stream, }
+\item[{{\bf Return\-Code} $\ast$}]{report}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})\hspace{0.3cm}{\ttfamily [virtual]}}}\label{d9/d7d/classit_1_1testbench_1_1parser_1_1InheritedState_a661d01741575c4f2eeee66ffe3211ab5}
+Open a predefined stream from the File System. It wraps the bytestream in a string object which is passed back to the caller.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Test\-Framework\-Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Configuration} & data structure, it wraps the needed information to open a F\-S stream \\
+\hline
+\mbox{\tt in,out}  & {\em Loaded} & stream, it is a string represenation of the byte read from F\-S \\
+\hline
+\mbox{\tt in,out}  & {\em Return} & code, it allows to report the outcome of the processing to the caller\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the next stateopen a string from File System 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState_a3ec7b3cd79f7725c702fd2b081e756de}{it\-::testbench\-::parser\-::\-Parser\-State}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{fsmparser_8h}{fsmparser.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,6 @@
+<map id="it::testbench::data::TestCase::getTestCaseNumber" name="it::testbench::data::TestCase::getTestCaseNumber">
+<area shape="rect" id="node3" href="$db/d7b/classit_1_1testbench_1_1data_1_1TestPlan.html#abf04bf012b35a099b0815a7fa28b4477" title="retrieve a Test Case" alt="" coords="274,5,465,46"/>
+<area shape="rect" id="node7" href="$df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader.html#aae15e2881f2ae15dcb5ecc95d55849b4" title="load all test cases" alt="" coords="270,71,469,127"/>
+<area shape="rect" id="node9" href="$df/dca/classit_1_1testbench_1_1data_1_1TestCaseLoader.html#a7ac7a2883fc87c48fb5038b19e4850ec" title="retrieve the specified test case" alt="" coords="272,151,467,207"/>
+<area shape="rect" id="node5" href="$d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine.html#a608adae95c08fd4f2768aaab5a1e7379" title="it::testbench::rte\l::RuntimeEngine::launchTestPlan" alt="" coords="518,5,735,46"/>
+</map>

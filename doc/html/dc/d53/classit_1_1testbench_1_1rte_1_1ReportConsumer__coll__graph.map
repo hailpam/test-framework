@@ -1,0 +1,5 @@
+<map id="it::testbench::rte::ReportConsumer" name="it::testbench::rte::ReportConsumer">
+<area shape="rect" id="node2" href="$df/df6/classit_1_1testbench_1_1rte_1_1Thread.html" title="it::testbench::rte\l::Thread" alt="" coords="20,5,137,46"/>
+<area shape="rect" id="node4" href="$d7/db8/classit_1_1testbench_1_1data_1_1Subject.html" title="it::testbench::data\l::Subject" alt="" coords="15,70,142,111"/>
+<area shape="rect" id="node6" href="$d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue.html" title="it::testbench::rte\l::SynchronizedQueue\l\&lt; Report * \&gt;" alt="" coords="5,136,152,192"/>
+</map>

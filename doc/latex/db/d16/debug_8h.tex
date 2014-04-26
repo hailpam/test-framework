@@ -1,0 +1,182 @@
+\hypertarget{debug_8h}{\section{debug.\-h File Reference}
+\label{db/d16/debug_8h}\index{debug.\-h@{debug.\-h}}
+}
+{\ttfamily \#include $<$iostream$>$}\\*
+Include dependency graph for debug.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=134pt]{d8/d2e/debug_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/dc8/debug_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{debug_8h_a1da7387f6ab597b877b6c5ade0854245}{D\-E\-B\-U\-G}(fmt)
+\begin{DoxyCompactList}\small\item\em Single line comment for d\-Oxygen. \end{DoxyCompactList}\item 
+\#define \hyperlink{debug_8h_aed751bcada3e0de060ea56d157f24dab}{P\-R\-I\-N\-T}(fmt)~(\-::std\-::cout $<$$<$fmt $<$$<$\-::std\-::endl)
+\item 
+\#define \hyperlink{debug_8h_a4eb2dea94d13f305ce42ea82cec4114b}{A\-S\-S\-E\-R\-T\-\_\-\-E\-Q\-U\-A\-L}(a, b)~\hyperlink{debug_8h_aed751bcada3e0de060ea56d157f24dab}{P\-R\-I\-N\-T}(( ((a) == (b)) ? \char`\"{}    P\-A\-S\-S\char`\"{} \-: \char`\"{}    $\ast$ F\-A\-I\-L $\ast$\char`\"{} ))
+\item 
+\#define \hyperlink{debug_8h_a1ce234c7ef1af921faa3b2ea272e93bc}{A\-S\-S\-E\-R\-T\-\_\-\-N\-O\-T\-\_\-\-E\-Q\-U\-A\-L}(a, b)~\hyperlink{debug_8h_aed751bcada3e0de060ea56d157f24dab}{P\-R\-I\-N\-T}(( ((a) != (b)) ? \char`\"{}    P\-A\-S\-S\char`\"{} \-: \char`\"{}    $\ast$ F\-A\-I\-L $\ast$\char`\"{} ))
+\item 
+\#define \hyperlink{debug_8h_ae4fba18010e196b658a28084b42313a9}{A\-S\-S\-E\-R\-T\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-E\-Q\-U\-A\-L}(a, b)~\hyperlink{debug_8h_aed751bcada3e0de060ea56d157f24dab}{P\-R\-I\-N\-T}(( ((a).compare(b) == 0) ? \char`\"{}    P\-A\-S\-S\char`\"{} \-: \char`\"{}    $\ast$ F\-A\-I\-L $\ast$\char`\"{} ))
+\item 
+\#define \hyperlink{debug_8h_a6c435ba89ff0b3f3d3b0e7c484835361}{A\-S\-S\-E\-R\-T\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-N\-O\-T\-\_\-\-E\-Q\-U\-A\-L}(a, b)~\hyperlink{debug_8h_aed751bcada3e0de060ea56d157f24dab}{P\-R\-I\-N\-T}(( ((a).compare(b) != 0) ? \char`\"{}    P\-A\-S\-S\char`\"{} \-: \char`\"{}    $\ast$ F\-A\-I\-L $\ast$\char`\"{} ))
+\item 
+\#define \hyperlink{debug_8h_a8c0a0334f4d9051865dbd913b634bc50}{D\-A\-T\-A\-\_\-\-I\-N\-F\-O}(fmt)~do \{\} while(0)
+\item 
+\#define \hyperlink{debug_8h_abec0e973e6c2689b8b3983ec08c74478}{D\-A\-T\-A\-\_\-\-I\-N\-F\-O\-\_\-\-V\-A\-L}(msg, i)~do \{\} while(0)
+\item 
+\#define \hyperlink{debug_8h_a76ed64b74d7e89f90d91414a92fe1c5a}{D\-A\-T\-A\-\_\-\-E\-R\-R\-\_\-\-V\-A\-L}(msg, i)~do \{\} while(0)
+\item 
+\#define \hyperlink{debug_8h_a206505b9afce7870d42b951bb749403d}{D\-A\-T\-A\-\_\-\-E\-Q}(msg, a, b)~do \{\} while(0)
+\item 
+\#define \hyperlink{debug_8h_a06055d5f91a493de678cc5d2fe144a93}{D\-A\-T\-A\-\_\-\-N\-E\-Q}(msg, a, b)~do \{\} while(0)
+\item 
+\#define \hyperlink{debug_8h_af476ac3ea1416375d80f527af1f2f60a}{T\-E\-S\-T\-\_\-\-E\-Q}(i, t, f, d, a, b)~do \{\} while (0)
+\begin{DoxyCompactList}\small\item\em Macro for Tests. \end{DoxyCompactList}\item 
+\#define \hyperlink{debug_8h_a3bbe5d052613f006db31845c17605644}{T\-E\-S\-T\-\_\-\-N\-E\-Q}(i, t, f, d, a, b)~do \{\} while (0)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This module defines all the debugging macro used in the code
+
+\begin{DoxyAuthor}{Author}
+Paolo Maresca \href{mailto:plo.maresca@gmail.com}{\tt plo.\-maresca@gmail.\-com} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\-1 
+\end{DoxyVersion}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{debug_8h_a4eb2dea94d13f305ce42ea82cec4114b}{\index{debug.\-h@{debug.\-h}!A\-S\-S\-E\-R\-T\-\_\-\-E\-Q\-U\-A\-L@{A\-S\-S\-E\-R\-T\-\_\-\-E\-Q\-U\-A\-L}}
+\index{A\-S\-S\-E\-R\-T\-\_\-\-E\-Q\-U\-A\-L@{A\-S\-S\-E\-R\-T\-\_\-\-E\-Q\-U\-A\-L}!debug.h@{debug.\-h}}
+\subsubsection[{A\-S\-S\-E\-R\-T\-\_\-\-E\-Q\-U\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-S\-S\-E\-R\-T\-\_\-\-E\-Q\-U\-A\-L(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~{\bf P\-R\-I\-N\-T}(( ((a) == (b)) ? \char`\"{}    P\-A\-S\-S\char`\"{} \-: \char`\"{}    $\ast$ F\-A\-I\-L $\ast$\char`\"{} ))}}\label{db/d16/debug_8h_a4eb2dea94d13f305ce42ea82cec4114b}
+\hypertarget{debug_8h_a1ce234c7ef1af921faa3b2ea272e93bc}{\index{debug.\-h@{debug.\-h}!A\-S\-S\-E\-R\-T\-\_\-\-N\-O\-T\-\_\-\-E\-Q\-U\-A\-L@{A\-S\-S\-E\-R\-T\-\_\-\-N\-O\-T\-\_\-\-E\-Q\-U\-A\-L}}
+\index{A\-S\-S\-E\-R\-T\-\_\-\-N\-O\-T\-\_\-\-E\-Q\-U\-A\-L@{A\-S\-S\-E\-R\-T\-\_\-\-N\-O\-T\-\_\-\-E\-Q\-U\-A\-L}!debug.h@{debug.\-h}}
+\subsubsection[{A\-S\-S\-E\-R\-T\-\_\-\-N\-O\-T\-\_\-\-E\-Q\-U\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-S\-S\-E\-R\-T\-\_\-\-N\-O\-T\-\_\-\-E\-Q\-U\-A\-L(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~{\bf P\-R\-I\-N\-T}(( ((a) != (b)) ? \char`\"{}    P\-A\-S\-S\char`\"{} \-: \char`\"{}    $\ast$ F\-A\-I\-L $\ast$\char`\"{} ))}}\label{db/d16/debug_8h_a1ce234c7ef1af921faa3b2ea272e93bc}
+\hypertarget{debug_8h_ae4fba18010e196b658a28084b42313a9}{\index{debug.\-h@{debug.\-h}!A\-S\-S\-E\-R\-T\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-E\-Q\-U\-A\-L@{A\-S\-S\-E\-R\-T\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-E\-Q\-U\-A\-L}}
+\index{A\-S\-S\-E\-R\-T\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-E\-Q\-U\-A\-L@{A\-S\-S\-E\-R\-T\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-E\-Q\-U\-A\-L}!debug.h@{debug.\-h}}
+\subsubsection[{A\-S\-S\-E\-R\-T\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-E\-Q\-U\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-S\-S\-E\-R\-T\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-E\-Q\-U\-A\-L(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~{\bf P\-R\-I\-N\-T}(( ((a).compare(b) == 0) ? \char`\"{}    P\-A\-S\-S\char`\"{} \-: \char`\"{}    $\ast$ F\-A\-I\-L $\ast$\char`\"{} ))}}\label{db/d16/debug_8h_ae4fba18010e196b658a28084b42313a9}
+\hypertarget{debug_8h_a6c435ba89ff0b3f3d3b0e7c484835361}{\index{debug.\-h@{debug.\-h}!A\-S\-S\-E\-R\-T\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-N\-O\-T\-\_\-\-E\-Q\-U\-A\-L@{A\-S\-S\-E\-R\-T\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-N\-O\-T\-\_\-\-E\-Q\-U\-A\-L}}
+\index{A\-S\-S\-E\-R\-T\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-N\-O\-T\-\_\-\-E\-Q\-U\-A\-L@{A\-S\-S\-E\-R\-T\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-N\-O\-T\-\_\-\-E\-Q\-U\-A\-L}!debug.h@{debug.\-h}}
+\subsubsection[{A\-S\-S\-E\-R\-T\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-N\-O\-T\-\_\-\-E\-Q\-U\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-S\-S\-E\-R\-T\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-N\-O\-T\-\_\-\-E\-Q\-U\-A\-L(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~{\bf P\-R\-I\-N\-T}(( ((a).compare(b) != 0) ? \char`\"{}    P\-A\-S\-S\char`\"{} \-: \char`\"{}    $\ast$ F\-A\-I\-L $\ast$\char`\"{} ))}}\label{db/d16/debug_8h_a6c435ba89ff0b3f3d3b0e7c484835361}
+\hypertarget{debug_8h_a206505b9afce7870d42b951bb749403d}{\index{debug.\-h@{debug.\-h}!D\-A\-T\-A\-\_\-\-E\-Q@{D\-A\-T\-A\-\_\-\-E\-Q}}
+\index{D\-A\-T\-A\-\_\-\-E\-Q@{D\-A\-T\-A\-\_\-\-E\-Q}!debug.h@{debug.\-h}}
+\subsubsection[{D\-A\-T\-A\-\_\-\-E\-Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-A\-T\-A\-\_\-\-E\-Q(
+\begin{DoxyParamCaption}
+\item[{}]{msg, }
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~do \{\} while(0)}}\label{db/d16/debug_8h_a206505b9afce7870d42b951bb749403d}
+\hypertarget{debug_8h_a76ed64b74d7e89f90d91414a92fe1c5a}{\index{debug.\-h@{debug.\-h}!D\-A\-T\-A\-\_\-\-E\-R\-R\-\_\-\-V\-A\-L@{D\-A\-T\-A\-\_\-\-E\-R\-R\-\_\-\-V\-A\-L}}
+\index{D\-A\-T\-A\-\_\-\-E\-R\-R\-\_\-\-V\-A\-L@{D\-A\-T\-A\-\_\-\-E\-R\-R\-\_\-\-V\-A\-L}!debug.h@{debug.\-h}}
+\subsubsection[{D\-A\-T\-A\-\_\-\-E\-R\-R\-\_\-\-V\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-A\-T\-A\-\_\-\-E\-R\-R\-\_\-\-V\-A\-L(
+\begin{DoxyParamCaption}
+\item[{}]{msg, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~do \{\} while(0)}}\label{db/d16/debug_8h_a76ed64b74d7e89f90d91414a92fe1c5a}
+\hypertarget{debug_8h_a8c0a0334f4d9051865dbd913b634bc50}{\index{debug.\-h@{debug.\-h}!D\-A\-T\-A\-\_\-\-I\-N\-F\-O@{D\-A\-T\-A\-\_\-\-I\-N\-F\-O}}
+\index{D\-A\-T\-A\-\_\-\-I\-N\-F\-O@{D\-A\-T\-A\-\_\-\-I\-N\-F\-O}!debug.h@{debug.\-h}}
+\subsubsection[{D\-A\-T\-A\-\_\-\-I\-N\-F\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-A\-T\-A\-\_\-\-I\-N\-F\-O(
+\begin{DoxyParamCaption}
+\item[{}]{fmt}
+\end{DoxyParamCaption}
+)~do \{\} while(0)}}\label{db/d16/debug_8h_a8c0a0334f4d9051865dbd913b634bc50}
+\hypertarget{debug_8h_abec0e973e6c2689b8b3983ec08c74478}{\index{debug.\-h@{debug.\-h}!D\-A\-T\-A\-\_\-\-I\-N\-F\-O\-\_\-\-V\-A\-L@{D\-A\-T\-A\-\_\-\-I\-N\-F\-O\-\_\-\-V\-A\-L}}
+\index{D\-A\-T\-A\-\_\-\-I\-N\-F\-O\-\_\-\-V\-A\-L@{D\-A\-T\-A\-\_\-\-I\-N\-F\-O\-\_\-\-V\-A\-L}!debug.h@{debug.\-h}}
+\subsubsection[{D\-A\-T\-A\-\_\-\-I\-N\-F\-O\-\_\-\-V\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-A\-T\-A\-\_\-\-I\-N\-F\-O\-\_\-\-V\-A\-L(
+\begin{DoxyParamCaption}
+\item[{}]{msg, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~do \{\} while(0)}}\label{db/d16/debug_8h_abec0e973e6c2689b8b3983ec08c74478}
+\hypertarget{debug_8h_a06055d5f91a493de678cc5d2fe144a93}{\index{debug.\-h@{debug.\-h}!D\-A\-T\-A\-\_\-\-N\-E\-Q@{D\-A\-T\-A\-\_\-\-N\-E\-Q}}
+\index{D\-A\-T\-A\-\_\-\-N\-E\-Q@{D\-A\-T\-A\-\_\-\-N\-E\-Q}!debug.h@{debug.\-h}}
+\subsubsection[{D\-A\-T\-A\-\_\-\-N\-E\-Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-A\-T\-A\-\_\-\-N\-E\-Q(
+\begin{DoxyParamCaption}
+\item[{}]{msg, }
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~do \{\} while(0)}}\label{db/d16/debug_8h_a06055d5f91a493de678cc5d2fe144a93}
+\hypertarget{debug_8h_a1da7387f6ab597b877b6c5ade0854245}{\index{debug.\-h@{debug.\-h}!D\-E\-B\-U\-G@{D\-E\-B\-U\-G}}
+\index{D\-E\-B\-U\-G@{D\-E\-B\-U\-G}!debug.h@{debug.\-h}}
+\subsubsection[{D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G(
+\begin{DoxyParamCaption}
+\item[{}]{fmt}
+\end{DoxyParamCaption}
+)}}\label{db/d16/debug_8h_a1da7387f6ab597b877b6c5ade0854245}
+
+
+Single line comment for d\-Oxygen. 
+
+Macro for Data package/component \hypertarget{debug_8h_aed751bcada3e0de060ea56d157f24dab}{\index{debug.\-h@{debug.\-h}!P\-R\-I\-N\-T@{P\-R\-I\-N\-T}}
+\index{P\-R\-I\-N\-T@{P\-R\-I\-N\-T}!debug.h@{debug.\-h}}
+\subsubsection[{P\-R\-I\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-I\-N\-T(
+\begin{DoxyParamCaption}
+\item[{}]{fmt}
+\end{DoxyParamCaption}
+)~(\-::std\-::cout $<$$<$fmt $<$$<$\-::std\-::endl)}}\label{db/d16/debug_8h_aed751bcada3e0de060ea56d157f24dab}
+Define the whole set of print and assert macros \hypertarget{debug_8h_af476ac3ea1416375d80f527af1f2f60a}{\index{debug.\-h@{debug.\-h}!T\-E\-S\-T\-\_\-\-E\-Q@{T\-E\-S\-T\-\_\-\-E\-Q}}
+\index{T\-E\-S\-T\-\_\-\-E\-Q@{T\-E\-S\-T\-\_\-\-E\-Q}!debug.h@{debug.\-h}}
+\subsubsection[{T\-E\-S\-T\-\_\-\-E\-Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-S\-T\-\_\-\-E\-Q(
+\begin{DoxyParamCaption}
+\item[{}]{i, }
+\item[{}]{t, }
+\item[{}]{f, }
+\item[{}]{d, }
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~do \{\} while (0)}}\label{db/d16/debug_8h_af476ac3ea1416375d80f527af1f2f60a}
+
+
+Macro for Tests. 
+
+\hypertarget{debug_8h_a3bbe5d052613f006db31845c17605644}{\index{debug.\-h@{debug.\-h}!T\-E\-S\-T\-\_\-\-N\-E\-Q@{T\-E\-S\-T\-\_\-\-N\-E\-Q}}
+\index{T\-E\-S\-T\-\_\-\-N\-E\-Q@{T\-E\-S\-T\-\_\-\-N\-E\-Q}!debug.h@{debug.\-h}}
+\subsubsection[{T\-E\-S\-T\-\_\-\-N\-E\-Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-S\-T\-\_\-\-N\-E\-Q(
+\begin{DoxyParamCaption}
+\item[{}]{i, }
+\item[{}]{t, }
+\item[{}]{f, }
+\item[{}]{d, }
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~do \{\} while (0)}}\label{db/d16/debug_8h_a3bbe5d052613f006db31845c17605644}

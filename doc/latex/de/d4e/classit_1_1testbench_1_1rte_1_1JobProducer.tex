@@ -1,0 +1,180 @@
+\hypertarget{classit_1_1testbench_1_1rte_1_1JobProducer}{\section{it\-:\-:testbench\-:\-:rte\-:\-:Job\-Producer Class Reference}
+\label{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer}\index{it\-::testbench\-::rte\-::\-Job\-Producer@{it\-::testbench\-::rte\-::\-Job\-Producer}}
+}
+
+
+{\ttfamily \#include $<$jobprod.\-h$>$}
+
+
+
+Inheritance diagram for it\-:\-:testbench\-:\-:rte\-:\-:Job\-Producer\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{d8/d56/classit_1_1testbench_1_1rte_1_1JobProducer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for it\-:\-:testbench\-:\-:rte\-:\-:Job\-Producer\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dfc/classit_1_1testbench_1_1rte_1_1JobProducer__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_a5632a8fd49a9c6f6d6ffcc5aa0037791}{Job\-Producer} ()
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_a46af385e038be508f33fa244d8d4349a}{$\sim$\-Job\-Producer} ()
+\item 
+void $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_a48012263e93f1bcc93f8b0712e6b038a}{run} ()
+\item 
+void \hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_ad2c504317992d48438484898ee33b8d8}{kill\-It} ()
+\item 
+const \hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_aefb80f7b51d3ea1ec2771d389e727fa1}{set\-Job\-Shared\-Queue} (\hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue}{Synchronized\-Queue}$<$ \hyperlink{classit_1_1testbench_1_1rte_1_1Job}{Job} $\ast$ $>$ $\ast$\hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_a10a14d85ca5c22ff91f92ebf32d4801a}{shared\-Queue})
+\item 
+const \hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_a731e79f717742662a2fc6663c464632f}{pause} ()
+\item 
+const \hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_a9bb9347aef66c443e43fcf2d79cd00b2}{resume} ()
+\item 
+const \hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_aa927fbe4070e096436d9c8706cebcabc}{load\-Test\-Cases} (list$<$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCase}{Test\-Case} $\ast$ $>$ $\ast$t\-Cases)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue}{Synchronized\-Queue}$<$ \hyperlink{classit_1_1testbench_1_1rte_1_1Job}{Job} $\ast$ $>$ $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_a10a14d85ca5c22ff91f92ebf32d4801a}{shared\-Queue}
+\item 
+pthread\-\_\-mutex\-\_\-t \hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_a057bd5b0f3f2debd4d4decedd97a3dde}{state\-Mutex}
+\item 
+pthread\-\_\-mutex\-\_\-t \hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_aa518f9cd4f229ed05e4e264152ac6fd4}{data\-Mutex}
+\item 
+pthread\-\_\-cond\-\_\-t \hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_a338c98f3baf25a38aac0b61052654d01}{state\-Cond}
+\item 
+list$<$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCase}{Test\-Case} $\ast$ $>$ $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_a04ec295961ab5dcc1c8caadf6cb30e46}{test\-Cases}
+\item 
+bool \hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_af3876f44c46fc6b41a50a2171e3c3ba8}{is\-Paused}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Specialized \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} class. It produces \hyperlink{classit_1_1testbench_1_1rte_1_1Job}{Job} objects by Test\-Case ones and enqueues such objects on Job\-Queue. A \hyperlink{classit_1_1testbench_1_1rte_1_1JobConsumer}{Job\-Consumer} will be able to retrieve such \hyperlink{classit_1_1testbench_1_1rte_1_1Job}{Job} objects and to execute them. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1JobProducer_a5632a8fd49a9c6f6d6ffcc5aa0037791}{\index{it\-::testbench\-::rte\-::\-Job\-Producer@{it\-::testbench\-::rte\-::\-Job\-Producer}!Job\-Producer@{Job\-Producer}}
+\index{Job\-Producer@{Job\-Producer}!it::testbench::rte::JobProducer@{it\-::testbench\-::rte\-::\-Job\-Producer}}
+\subsubsection[{Job\-Producer}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::rte\-::\-Job\-Producer\-::\-Job\-Producer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer_a5632a8fd49a9c6f6d6ffcc5aa0037791}
+\hypertarget{classit_1_1testbench_1_1rte_1_1JobProducer_a46af385e038be508f33fa244d8d4349a}{\index{it\-::testbench\-::rte\-::\-Job\-Producer@{it\-::testbench\-::rte\-::\-Job\-Producer}!$\sim$\-Job\-Producer@{$\sim$\-Job\-Producer}}
+\index{$\sim$\-Job\-Producer@{$\sim$\-Job\-Producer}!it::testbench::rte::JobProducer@{it\-::testbench\-::rte\-::\-Job\-Producer}}
+\subsubsection[{$\sim$\-Job\-Producer}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::rte\-::\-Job\-Producer\-::$\sim$\-Job\-Producer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer_a46af385e038be508f33fa244d8d4349a}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1JobProducer_ad2c504317992d48438484898ee33b8d8}{\index{it\-::testbench\-::rte\-::\-Job\-Producer@{it\-::testbench\-::rte\-::\-Job\-Producer}!kill\-It@{kill\-It}}
+\index{kill\-It@{kill\-It}!it::testbench::rte::JobProducer@{it\-::testbench\-::rte\-::\-Job\-Producer}}
+\subsubsection[{kill\-It}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::rte\-::\-Job\-Producer\-::kill\-It (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer_ad2c504317992d48438484898ee33b8d8}
+Kill the \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} setting up the internal state to not running.\-it sets to not running the internal state \hypertarget{classit_1_1testbench_1_1rte_1_1JobProducer_aa927fbe4070e096436d9c8706cebcabc}{\index{it\-::testbench\-::rte\-::\-Job\-Producer@{it\-::testbench\-::rte\-::\-Job\-Producer}!load\-Test\-Cases@{load\-Test\-Cases}}
+\index{load\-Test\-Cases@{load\-Test\-Cases}!it::testbench::rte::JobProducer@{it\-::testbench\-::rte\-::\-Job\-Producer}}
+\subsubsection[{load\-Test\-Cases}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Return\-Code} $\ast$ it\-::testbench\-::rte\-::\-Job\-Producer\-::load\-Test\-Cases (
+\begin{DoxyParamCaption}
+\item[{list$<$ {\bf Test\-Case} $\ast$ $>$ $\ast$}]{t\-Cases}
+\end{DoxyParamCaption}
+)}}\label{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer_aa927fbe4070e096436d9c8706cebcabc}
+Allow the caller to Load from outside the test cases to be transformed in jobsload test cases \hypertarget{classit_1_1testbench_1_1rte_1_1JobProducer_a731e79f717742662a2fc6663c464632f}{\index{it\-::testbench\-::rte\-::\-Job\-Producer@{it\-::testbench\-::rte\-::\-Job\-Producer}!pause@{pause}}
+\index{pause@{pause}!it::testbench::rte::JobProducer@{it\-::testbench\-::rte\-::\-Job\-Producer}}
+\subsubsection[{pause}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Return\-Code} $\ast$ it\-::testbench\-::rte\-::\-Job\-Producer\-::pause (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer_a731e79f717742662a2fc6663c464632f}
+Pause the execution of the previously started Thread.\-pause this \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} \hypertarget{classit_1_1testbench_1_1rte_1_1JobProducer_a9bb9347aef66c443e43fcf2d79cd00b2}{\index{it\-::testbench\-::rte\-::\-Job\-Producer@{it\-::testbench\-::rte\-::\-Job\-Producer}!resume@{resume}}
+\index{resume@{resume}!it::testbench::rte::JobProducer@{it\-::testbench\-::rte\-::\-Job\-Producer}}
+\subsubsection[{resume}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Return\-Code} $\ast$ it\-::testbench\-::rte\-::\-Job\-Producer\-::resume (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer_a9bb9347aef66c443e43fcf2d79cd00b2}
+Resume the execution of the previously paused Thread.\-resume this \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} \hypertarget{classit_1_1testbench_1_1rte_1_1JobProducer_a48012263e93f1bcc93f8b0712e6b038a}{\index{it\-::testbench\-::rte\-::\-Job\-Producer@{it\-::testbench\-::rte\-::\-Job\-Producer}!run@{run}}
+\index{run@{run}!it::testbench::rte::JobProducer@{it\-::testbench\-::rte\-::\-Job\-Producer}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ it\-::testbench\-::rte\-::\-Job\-Producer\-::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer_a48012263e93f1bcc93f8b0712e6b038a}
+Custom processing functionality. \hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer}{Job\-Producer} produces \hyperlink{classit_1_1testbench_1_1rte_1_1Job}{Job} objects by Test\-Case ones and put on the Job\-Queue such entities.\-it defines a custom behaviour to be executed 
+
+Implements \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a52ddbcd22cd6493de8453458d2a0652d}{it\-::testbench\-::rte\-::\-Thread}.
+
+\hypertarget{classit_1_1testbench_1_1rte_1_1JobProducer_aefb80f7b51d3ea1ec2771d389e727fa1}{\index{it\-::testbench\-::rte\-::\-Job\-Producer@{it\-::testbench\-::rte\-::\-Job\-Producer}!set\-Job\-Shared\-Queue@{set\-Job\-Shared\-Queue}}
+\index{set\-Job\-Shared\-Queue@{set\-Job\-Shared\-Queue}!it::testbench::rte::JobProducer@{it\-::testbench\-::rte\-::\-Job\-Producer}}
+\subsubsection[{set\-Job\-Shared\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Return\-Code} $\ast$ it\-::testbench\-::rte\-::\-Job\-Producer\-::set\-Job\-Shared\-Queue (
+\begin{DoxyParamCaption}
+\item[{{\bf Synchronized\-Queue}$<$ {\bf Job} $\ast$ $>$ $\ast$}]{shared\-Queue}
+\end{DoxyParamCaption}
+)}}\label{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer_aefb80f7b51d3ea1ec2771d389e727fa1}
+Set the synchronized shared queue on which the jobs must be pushed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to the shared job queue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a Report\-Code containing the initialization resultset the synchronized shared queue 
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer_aefb80f7b51d3ea1ec2771d389e727fa1_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1JobProducer_aa518f9cd4f229ed05e4e264152ac6fd4}{\index{it\-::testbench\-::rte\-::\-Job\-Producer@{it\-::testbench\-::rte\-::\-Job\-Producer}!data\-Mutex@{data\-Mutex}}
+\index{data\-Mutex@{data\-Mutex}!it::testbench::rte::JobProducer@{it\-::testbench\-::rte\-::\-Job\-Producer}}
+\subsubsection[{data\-Mutex}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-mutex\-\_\-t it\-::testbench\-::rte\-::\-Job\-Producer\-::data\-Mutex\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer_aa518f9cd4f229ed05e4e264152ac6fd4}
+it allows the caller to pause/resume this \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} until new test cases are available \hypertarget{classit_1_1testbench_1_1rte_1_1JobProducer_af3876f44c46fc6b41a50a2171e3c3ba8}{\index{it\-::testbench\-::rte\-::\-Job\-Producer@{it\-::testbench\-::rte\-::\-Job\-Producer}!is\-Paused@{is\-Paused}}
+\index{is\-Paused@{is\-Paused}!it::testbench::rte::JobProducer@{it\-::testbench\-::rte\-::\-Job\-Producer}}
+\subsubsection[{is\-Paused}]{\setlength{\rightskip}{0pt plus 5cm}bool it\-::testbench\-::rte\-::\-Job\-Producer\-::is\-Paused\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer_af3876f44c46fc6b41a50a2171e3c3ba8}
+it defines whether or not this \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} is paused \hypertarget{classit_1_1testbench_1_1rte_1_1JobProducer_a10a14d85ca5c22ff91f92ebf32d4801a}{\index{it\-::testbench\-::rte\-::\-Job\-Producer@{it\-::testbench\-::rte\-::\-Job\-Producer}!shared\-Queue@{shared\-Queue}}
+\index{shared\-Queue@{shared\-Queue}!it::testbench::rte::JobProducer@{it\-::testbench\-::rte\-::\-Job\-Producer}}
+\subsubsection[{shared\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Synchronized\-Queue}$<${\bf Job}$\ast$$>$$\ast$ it\-::testbench\-::rte\-::\-Job\-Producer\-::shared\-Queue\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer_a10a14d85ca5c22ff91f92ebf32d4801a}
+shared queue with job consumers \hypertarget{classit_1_1testbench_1_1rte_1_1JobProducer_a338c98f3baf25a38aac0b61052654d01}{\index{it\-::testbench\-::rte\-::\-Job\-Producer@{it\-::testbench\-::rte\-::\-Job\-Producer}!state\-Cond@{state\-Cond}}
+\index{state\-Cond@{state\-Cond}!it::testbench::rte::JobProducer@{it\-::testbench\-::rte\-::\-Job\-Producer}}
+\subsubsection[{state\-Cond}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-cond\-\_\-t it\-::testbench\-::rte\-::\-Job\-Producer\-::state\-Cond\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer_a338c98f3baf25a38aac0b61052654d01}
+condition variable on data\-: it allows signaling among consumer and producers Threads \hypertarget{classit_1_1testbench_1_1rte_1_1JobProducer_a057bd5b0f3f2debd4d4decedd97a3dde}{\index{it\-::testbench\-::rte\-::\-Job\-Producer@{it\-::testbench\-::rte\-::\-Job\-Producer}!state\-Mutex@{state\-Mutex}}
+\index{state\-Mutex@{state\-Mutex}!it::testbench::rte::JobProducer@{it\-::testbench\-::rte\-::\-Job\-Producer}}
+\subsubsection[{state\-Mutex}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-mutex\-\_\-t it\-::testbench\-::rte\-::\-Job\-Producer\-::state\-Mutex\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer_a057bd5b0f3f2debd4d4decedd97a3dde}
+it allows the caller to pause/resume this \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} until new test cases are available \hypertarget{classit_1_1testbench_1_1rte_1_1JobProducer_a04ec295961ab5dcc1c8caadf6cb30e46}{\index{it\-::testbench\-::rte\-::\-Job\-Producer@{it\-::testbench\-::rte\-::\-Job\-Producer}!test\-Cases@{test\-Cases}}
+\index{test\-Cases@{test\-Cases}!it::testbench::rte::JobProducer@{it\-::testbench\-::rte\-::\-Job\-Producer}}
+\subsubsection[{test\-Cases}]{\setlength{\rightskip}{0pt plus 5cm}list$<${\bf Test\-Case}$\ast$$>$$\ast$ it\-::testbench\-::rte\-::\-Job\-Producer\-::test\-Cases\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d4e/classit_1_1testbench_1_1rte_1_1JobProducer_a04ec295961ab5dcc1c8caadf6cb30e46}
+externally loaded list of test cases to be executed 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{jobprod_8h}{jobprod.\-h}\item 
+\hyperlink{jobprod_8cpp}{jobprod.\-cpp}\end{DoxyCompactItemize}

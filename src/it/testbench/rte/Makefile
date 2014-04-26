@@ -11,6 +11,7 @@ BIN_DIR = ../../../../bin
 DATA_INC= ${INC_DIR}/../data
 IOUT_INC= ${INC_DIR}/../ioutil
 LOGR_INC= ${INC_DIR}/../logger
+FRMT_INC= ${INC_DIR}/../formatter
 ROOT_INC= ../../../../inc/${ROOT_PKG}
 
 TST_EXT_INT = ../../../../test/${ROOT_PKG}/ext/inc
@@ -21,7 +22,7 @@ LOGR_OBJ= ${OBJ_DIR}/../logger
 
 
 CC      = g++
-CCFLAGS  = -I${INC_DIR} -I${DATA_INC} -I${IOUT_INC} -I${LOGR_INC} -I${ROOT_INC} -I${TST_EXT_INT} -DTEST_DEBUG
+CCFLAGS  = -I${INC_DIR} -I${DATA_INC} -I${IOUT_INC} -I${LOGR_INC} -I${ROOT_INC} -I${FRMT_INC} -I${TST_EXT_INT} -DTEST_DEBUG
 LDFLAGS = -lrt -L${DST_DIR}
 
 TGT_0   = syncqueue

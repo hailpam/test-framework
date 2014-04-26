@@ -1,0 +1,310 @@
+\hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration}{\section{it\-:\-:testbench\-:\-:data\-:\-:Test\-Bench\-Configuration Class Reference}
+\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration}\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+}
+
+
+{\ttfamily \#include $<$testbench.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a1ade0e983ed866a1de6e2d3310243f98}{Test\-Bench\-Configuration} ()
+\begin{DoxyCompactList}\small\item\em T\-E\-S\-T B\-E\-N\-C\-H C\-O\-N\-F\-I\-G\-U\-R\-A\-T\-I\-O\-N. \end{DoxyCompactList}\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a4e9f41097f2e6a334286ae28b5b063f3}{$\sim$\-Test\-Bench\-Configuration} ()
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a488898686d82f03522370ae00e1be29c}{set\-Session\-Id} (const string \&s\-Id)
+\begin{DoxyCompactList}\small\item\em set the session Id (unique identifier for each test bench instance) \end{DoxyCompactList}\item 
+const string $\ast$ \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a1bc7e49a069546d3ed715fef92dfefa8}{get\-Session\-Id} () const 
+\begin{DoxyCompactList}\small\item\em get the session Id \end{DoxyCompactList}\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_ae6ff47a0bf383c07c7ea255932805bae}{add\-Range} (const string \&t\-Plan\-Id, const \hyperlink{structit_1_1testbench_1_1data_1_1Range}{Range} \&range)
+\begin{DoxyCompactList}\small\item\em add a \hyperlink{structit_1_1testbench_1_1data_1_1Range}{Range} \end{DoxyCompactList}\item 
+const \hyperlink{structit_1_1testbench_1_1data_1_1Range}{Range} $\ast$ \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a4ac49a696cbd1f42c5ad51883e0cb70f}{retrieve\-Range} (const string $\ast$t\-Plan\-Id)
+\begin{DoxyCompactList}\small\item\em retrieve a \hyperlink{structit_1_1testbench_1_1data_1_1Range}{Range} \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a8cf2f6fd0ecaac6e70e0b97d468e6aae}{set\-Supporter\-Format} (\hyperlink{namespaceit_1_1testbench_1_1data_afb7601d9882295fae3688eaee6a418f2}{Supported\-Formats} \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_abaced1b870ac640b02227c6ffcc6ddcd}{format})
+\begin{DoxyCompactList}\small\item\em set the supported Format \end{DoxyCompactList}\item 
+\hyperlink{namespaceit_1_1testbench_1_1data_afb7601d9882295fae3688eaee6a418f2}{Supported\-Formats} \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_acad3203c220e63a2fbf394781c3abbf3}{get\-Supported\-Format} ()
+\begin{DoxyCompactList}\small\item\em get the supported Format \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_ae9f200a4cbabc30391d436daaa25d7f3}{set\-Nr\-Of\-Threads} (unsigned int thread\-No)
+\begin{DoxyCompactList}\small\item\em set the number of threads to be used \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a2da1a1a2b83b62d4813920a2df46f270}{get\-Nr\-Of\-Threads} ()
+\begin{DoxyCompactList}\small\item\em get the defined number of threads \end{DoxyCompactList}\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_ab025ba7723876619e0bfed3668312688}{add\-Test\-Plan} (const string $\ast$t\-Plan\-Id, \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan}{Test\-Plan} $\ast$t\-Plan)
+\begin{DoxyCompactList}\small\item\em add a test plan \end{DoxyCompactList}\item 
+const \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan}{Test\-Plan} $\ast$ \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a953e57b04261f7e8a96bc522990d452f}{retrieve\-Test\-Plan} (const string $\ast$t\-Plan\-Id)
+\begin{DoxyCompactList}\small\item\em retrieve a test plan \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a3fb6f36b584fee53c0d5e38d8095201d}{session\-Id}
+\item 
+map$<$ string, \hyperlink{structit_1_1testbench_1_1data_1_1Range}{Range} $\ast$ $>$ \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_aba40dc49cadad99daa3cce208c5507b1}{tc\-To\-Be\-Executed}
+\item 
+\hyperlink{namespaceit_1_1testbench_1_1data_afb7601d9882295fae3688eaee6a418f2}{Supported\-Formats} \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_abaced1b870ac640b02227c6ffcc6ddcd}{format}
+\item 
+unsigned int \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_afe806efbb1076104b8f5f6e5fdf69d2d}{nr\-Of\-Threads}
+\item 
+map$<$ string, \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan}{Test\-Plan} $\ast$ $>$ \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_af7bbd2effac8a1e67cbdffea28e21201}{p\-Test\-Plan}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Test Bench configuration abstract Data Type.
+
+It maintains alle the needed information to automatically run the Test Plan (on Test Case basis) in a specialized instance of Testbench. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a1ade0e983ed866a1de6e2d3310243f98}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!Test\-Bench\-Configuration@{Test\-Bench\-Configuration}}
+\index{Test\-Bench\-Configuration@{Test\-Bench\-Configuration}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{Test\-Bench\-Configuration}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::\-Test\-Bench\-Configuration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a1ade0e983ed866a1de6e2d3310243f98}
+
+
+T\-E\-S\-T B\-E\-N\-C\-H C\-O\-N\-F\-I\-G\-U\-R\-A\-T\-I\-O\-N. 
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a4e9f41097f2e6a334286ae28b5b063f3}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!$\sim$\-Test\-Bench\-Configuration@{$\sim$\-Test\-Bench\-Configuration}}
+\index{$\sim$\-Test\-Bench\-Configuration@{$\sim$\-Test\-Bench\-Configuration}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{$\sim$\-Test\-Bench\-Configuration}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::$\sim$\-Test\-Bench\-Configuration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a4e9f41097f2e6a334286ae28b5b063f3}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_ae6ff47a0bf383c07c7ea255932805bae}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!add\-Range@{add\-Range}}
+\index{add\-Range@{add\-Range}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{add\-Range}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::add\-Range (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{t\-Plan\-Id, }
+\item[{const {\bf Range} \&}]{range}
+\end{DoxyParamCaption}
+)}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_ae6ff47a0bf383c07c7ea255932805bae}
+
+
+add a \hyperlink{structit_1_1testbench_1_1data_1_1Range}{Range} 
+
+Add a \hyperlink{structit_1_1testbench_1_1data_1_1Range}{Range} data structure (identifying the range of Test Cases to be run)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a string containing the test plan Id \\
+\hline
+\mbox{\tt in}  & {\em Pointer} & to a \hyperlink{structit_1_1testbench_1_1data_1_1Range}{Range} data structure \\
+\hline
+\end{DoxyParams}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_ab025ba7723876619e0bfed3668312688}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!add\-Test\-Plan@{add\-Test\-Plan}}
+\index{add\-Test\-Plan@{add\-Test\-Plan}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{add\-Test\-Plan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::add\-Test\-Plan (
+\begin{DoxyParamCaption}
+\item[{const string $\ast$}]{t\-Plan\-Id, }
+\item[{{\bf Test\-Plan} $\ast$}]{t\-Plan}
+\end{DoxyParamCaption}
+)}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_ab025ba7723876619e0bfed3668312688}
+
+
+add a test plan 
+
+Add a Test Plan object
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a string containing the test plan Id \\
+\hline
+\mbox{\tt in}  & {\em Pointer} & to a Test Plan object \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_ab025ba7723876619e0bfed3668312688_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a2da1a1a2b83b62d4813920a2df46f270}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!get\-Nr\-Of\-Threads@{get\-Nr\-Of\-Threads}}
+\index{get\-Nr\-Of\-Threads@{get\-Nr\-Of\-Threads}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{get\-Nr\-Of\-Threads}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::get\-Nr\-Of\-Threads (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a2da1a1a2b83b62d4813920a2df46f270}
+
+
+get the defined number of threads 
+
+Get the number of threads (used at runtime by the testbench)
+
+\begin{DoxyReturn}{Returns}
+The number of threads 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a1bc7e49a069546d3ed715fef92dfefa8}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!get\-Session\-Id@{get\-Session\-Id}}
+\index{get\-Session\-Id@{get\-Session\-Id}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{get\-Session\-Id}]{\setlength{\rightskip}{0pt plus 5cm}const string $\ast$ it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::get\-Session\-Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a1bc7e49a069546d3ed715fef92dfefa8}
+
+
+get the session Id 
+
+Retrieve the Session Id
+
+\begin{DoxyReturn}{Returns}
+Pointer to a string containing the session Id 
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a1bc7e49a069546d3ed715fef92dfefa8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_acad3203c220e63a2fbf394781c3abbf3}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!get\-Supported\-Format@{get\-Supported\-Format}}
+\index{get\-Supported\-Format@{get\-Supported\-Format}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{get\-Supported\-Format}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Supported\-Formats} it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::get\-Supported\-Format (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_acad3203c220e63a2fbf394781c3abbf3}
+
+
+get the supported Format 
+
+Retrieve the supported format
+
+\begin{DoxyReturn}{Returns}
+The supported format 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a4ac49a696cbd1f42c5ad51883e0cb70f}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!retrieve\-Range@{retrieve\-Range}}
+\index{retrieve\-Range@{retrieve\-Range}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{retrieve\-Range}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Range} $\ast$ it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::retrieve\-Range (
+\begin{DoxyParamCaption}
+\item[{const string $\ast$}]{t\-Plan\-Id}
+\end{DoxyParamCaption}
+)}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a4ac49a696cbd1f42c5ad51883e0cb70f}
+
+
+retrieve a \hyperlink{structit_1_1testbench_1_1data_1_1Range}{Range} 
+
+Retrieve the \hyperlink{structit_1_1testbench_1_1data_1_1Range}{Range} associated to a specific Test Plan
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a string containing the test plan Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a \hyperlink{structit_1_1testbench_1_1data_1_1Range}{Range} data structure 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a953e57b04261f7e8a96bc522990d452f}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!retrieve\-Test\-Plan@{retrieve\-Test\-Plan}}
+\index{retrieve\-Test\-Plan@{retrieve\-Test\-Plan}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{retrieve\-Test\-Plan}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Test\-Plan} $\ast$ it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::retrieve\-Test\-Plan (
+\begin{DoxyParamCaption}
+\item[{const string $\ast$}]{t\-Plan\-Id}
+\end{DoxyParamCaption}
+)}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a953e57b04261f7e8a96bc522990d452f}
+
+
+retrieve a test plan 
+
+Retrieve a specific Test Plan object
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a string containing the test plan Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a Test Plan object 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_ae9f200a4cbabc30391d436daaa25d7f3}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!set\-Nr\-Of\-Threads@{set\-Nr\-Of\-Threads}}
+\index{set\-Nr\-Of\-Threads@{set\-Nr\-Of\-Threads}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{set\-Nr\-Of\-Threads}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::set\-Nr\-Of\-Threads (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{thread\-No}
+\end{DoxyParamCaption}
+)}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_ae9f200a4cbabc30391d436daaa25d7f3}
+
+
+set the number of threads to be used 
+
+Set the number of threads (to be used at runtime by the testbench)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em The} & number of threads desired to run the test plan \\
+\hline
+\end{DoxyParams}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a488898686d82f03522370ae00e1be29c}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!set\-Session\-Id@{set\-Session\-Id}}
+\index{set\-Session\-Id@{set\-Session\-Id}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{set\-Session\-Id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::set\-Session\-Id (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{s\-Id}
+\end{DoxyParamCaption}
+)}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a488898686d82f03522370ae00e1be29c}
+
+
+set the session Id (unique identifier for each test bench instance) 
+
+Set the Session Id (unique identifier for a Testbench context)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a string containing the session Id \\
+\hline
+\end{DoxyParams}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a8cf2f6fd0ecaac6e70e0b97d468e6aae}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!set\-Supporter\-Format@{set\-Supporter\-Format}}
+\index{set\-Supporter\-Format@{set\-Supporter\-Format}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{set\-Supporter\-Format}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::set\-Supporter\-Format (
+\begin{DoxyParamCaption}
+\item[{{\bf Supported\-Formats}}]{format}
+\end{DoxyParamCaption}
+)}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a8cf2f6fd0ecaac6e70e0b97d468e6aae}
+
+
+set the supported Format 
+
+Set the supported format (specific for data serialization matters)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Supported} & format \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_abaced1b870ac640b02227c6ffcc6ddcd}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!format@{format}}
+\index{format@{format}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{format}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Supported\-Formats} it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::format\hspace{0.3cm}{\ttfamily [private]}}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_abaced1b870ac640b02227c6ffcc6ddcd}
+supported format \hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_afe806efbb1076104b8f5f6e5fdf69d2d}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!nr\-Of\-Threads@{nr\-Of\-Threads}}
+\index{nr\-Of\-Threads@{nr\-Of\-Threads}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{nr\-Of\-Threads}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::nr\-Of\-Threads\hspace{0.3cm}{\ttfamily [private]}}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_afe806efbb1076104b8f5f6e5fdf69d2d}
+number of thread to be used at runtime \hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_af7bbd2effac8a1e67cbdffea28e21201}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!p\-Test\-Plan@{p\-Test\-Plan}}
+\index{p\-Test\-Plan@{p\-Test\-Plan}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{p\-Test\-Plan}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, {\bf Test\-Plan}$\ast$$>$ it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::p\-Test\-Plan\hspace{0.3cm}{\ttfamily [private]}}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_af7bbd2effac8a1e67cbdffea28e21201}
+the set of Test Plan to be executed in this testbench \hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a3fb6f36b584fee53c0d5e38d8095201d}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!session\-Id@{session\-Id}}
+\index{session\-Id@{session\-Id}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{session\-Id}]{\setlength{\rightskip}{0pt plus 5cm}string it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::session\-Id\hspace{0.3cm}{\ttfamily [private]}}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_a3fb6f36b584fee53c0d5e38d8095201d}
+specific and unique session Id \hypertarget{classit_1_1testbench_1_1data_1_1TestBenchConfiguration_aba40dc49cadad99daa3cce208c5507b1}{\index{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}!tc\-To\-Be\-Executed@{tc\-To\-Be\-Executed}}
+\index{tc\-To\-Be\-Executed@{tc\-To\-Be\-Executed}!it::testbench::data::TestBenchConfiguration@{it\-::testbench\-::data\-::\-Test\-Bench\-Configuration}}
+\subsubsection[{tc\-To\-Be\-Executed}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, {\bf Range}$\ast$$>$ it\-::testbench\-::data\-::\-Test\-Bench\-Configuration\-::tc\-To\-Be\-Executed\hspace{0.3cm}{\ttfamily [private]}}}\label{d5/daa/classit_1_1testbench_1_1data_1_1TestBenchConfiguration_aba40dc49cadad99daa3cce208c5507b1}
+for each Test Plan, a range of tests to be executed 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{testbench_8h}{testbench.\-h}\item 
+\hyperlink{testbench_8cpp}{testbench.\-cpp}\end{DoxyCompactItemize}

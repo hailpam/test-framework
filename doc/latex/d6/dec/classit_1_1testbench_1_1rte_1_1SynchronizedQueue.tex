@@ -1,0 +1,256 @@
+\hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue}{\section{it\-:\-:testbench\-:\-:rte\-:\-:Synchronized\-Queue$<$ T $>$ Class Template Reference}
+\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue}\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue$<$ T $>$@{it\-::testbench\-::rte\-::\-Synchronized\-Queue$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$syncqueue.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a01db3f3d535459846e0fd8030229490a}{Synchronized\-Queue} ()
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_ab368a462c83410b606f9b391f5eac539}{$\sim$\-Synchronized\-Queue} ()
+\item 
+void \hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_af90cc63f643134be8955803534868ea4}{enqueue} (T item)
+\item 
+T \hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a3cdc1ea4ec0dc12d946c1b711212ef6d}{dequeue} ()
+\item 
+T \hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a10442061ffe74b4d191c24a98f95eed6}{head} ()
+\item 
+bool \hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_ad0bcfc252a1c515cc9fb5befbd95e40a}{is\-Empty} ()
+\item 
+bool \hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_ad57d334f2d5032447fdc015e2c1e2488}{is\-Full} ()
+\item 
+void \hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a9634efeb8162b84cbbbb3aae4e2217f8}{set\-Size\-Limit} (const int \&limit)
+\item 
+void \hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a12ec0e399d02a1deea708a2354852aad}{set\-Label} (const string \&str\-Label)
+\item 
+const string \hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_ad2abef5d5fbf8b13584bc8f4ce71416b}{get\-Label} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+pthread\-\_\-mutex\-\_\-t \hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_aba0a875f1b456aec7f7262576fb02773}{data\-Mutex}
+\item 
+pthread\-\_\-cond\-\_\-t \hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a52beabff3eff970d293a784b8f710c93}{state\-Cond}
+\item 
+queue$<$ T $>$ \hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a3f760daa0238c1c3a9983bfc75c141ad}{sync\-Queue}
+\item 
+unsigned int \hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a100815b13dc7f2ca1e75d40f0b036258}{size\-Limit}
+\item 
+string \hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_adef1028de164827d377ae7d9a3783bff}{label}
+\item 
+unsigned int \hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a430d81d803d75be8adef0fc2440678be}{counter}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$class it\-::testbench\-::rte\-::\-Synchronized\-Queue$<$ T $>$}
+
+Synchronized Queue is a template class allowing a synchronized access to its internal state.
+
+F\-I\-F\-O (First-\/\-In, First-\/\-Out) policy provided by the interface.
+
+It wraps P\-O\-S\-I\-X pthread synchronization mechanisms. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a01db3f3d535459846e0fd8030229490a}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!Synchronized\-Queue@{Synchronized\-Queue}}
+\index{Synchronized\-Queue@{Synchronized\-Queue}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{Synchronized\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::{\bf Synchronized\-Queue} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a01db3f3d535459846e0fd8030229490a}
+\hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_ab368a462c83410b606f9b391f5eac539}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!$\sim$\-Synchronized\-Queue@{$\sim$\-Synchronized\-Queue}}
+\index{$\sim$\-Synchronized\-Queue@{$\sim$\-Synchronized\-Queue}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{$\sim$\-Synchronized\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::$\sim${\bf Synchronized\-Queue} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_ab368a462c83410b606f9b391f5eac539}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a3cdc1ea4ec0dc12d946c1b711212ef6d}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{dequeue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::dequeue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a3cdc1ea4ec0dc12d946c1b711212ef6d}
+Remove from the container the topmost element (decrease the size)
+
+\begin{DoxyReturn}{Returns}
+Reference to the topmost element in the containerretrieve the front element in the container 
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a3cdc1ea4ec0dc12d946c1b711212ef6d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_af90cc63f643134be8955803534868ea4}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{enqueue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::enqueue (
+\begin{DoxyParamCaption}
+\item[{T}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_af90cc63f643134be8955803534868ea4}
+Push back in the container the item passed as Input
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Reference} & to the element to be pushed back in the containerpush back the data element in the container \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_af90cc63f643134be8955803534868ea4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_ad2abef5d5fbf8b13584bc8f4ce71416b}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!get\-Label@{get\-Label}}
+\index{get\-Label@{get\-Label}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{get\-Label}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ const string {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::get\-Label (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_ad2abef5d5fbf8b13584bc8f4ce71416b}
+Set the lable for this data structure
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Label} & to be assignedget the label for this data structure \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_ad2abef5d5fbf8b13584bc8f4ce71416b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a10442061ffe74b4d191c24a98f95eed6}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!head@{head}}
+\index{head@{head}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{head}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::head (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a10442061ffe74b4d191c24a98f95eed6}
+Provide a reference of the topmost element stored in the container (no size decreasing)
+
+\begin{DoxyReturn}{Returns}
+Reference to the topmost element in the containeranalyse the front element in the container 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_ad0bcfc252a1c515cc9fb5befbd95e40a}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!is\-Empty@{is\-Empty}}
+\index{is\-Empty@{is\-Empty}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ bool {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::is\-Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_ad0bcfc252a1c515cc9fb5befbd95e40a}
+Check whether the container is empty (no item is stored)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Boolean} & value, true iff the container is emptycheck whether the container is empty \\
+\hline
+\end{DoxyParams}
+\hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_ad57d334f2d5032447fdc015e2c1e2488}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!is\-Full@{is\-Full}}
+\index{is\-Full@{is\-Full}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{is\-Full}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ bool {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::is\-Full (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_ad57d334f2d5032447fdc015e2c1e2488}
+Check whether the container is full (not able to accept items anymore)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Boolean} & value, true iff the container is fullcheck whether the container is full \\
+\hline
+\end{DoxyParams}
+\hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a12ec0e399d02a1deea708a2354852aad}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!set\-Label@{set\-Label}}
+\index{set\-Label@{set\-Label}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{set\-Label}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::set\-Label (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{str\-Label}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a12ec0e399d02a1deea708a2354852aad}
+Set the lable for this data structure
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Label} & to be assignedset a label for this data structure \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a12ec0e399d02a1deea708a2354852aad_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a9634efeb8162b84cbbbb3aae4e2217f8}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!set\-Size\-Limit@{set\-Size\-Limit}}
+\index{set\-Size\-Limit@{set\-Size\-Limit}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{set\-Size\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::set\-Size\-Limit (
+\begin{DoxyParamCaption}
+\item[{const int \&}]{limit}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a9634efeb8162b84cbbbb3aae4e2217f8}
+Set the maximum number of pushable elements
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Maximum} & number of pushable elementspush back the data element in the container \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a430d81d803d75be8adef0fc2440678be}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!counter@{counter}}
+\index{counter@{counter}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{counter}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ unsigned int {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::counter\hspace{0.3cm}{\ttfamily [protected]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a430d81d803d75be8adef0fc2440678be}
+\hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_aba0a875f1b456aec7f7262576fb02773}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!data\-Mutex@{data\-Mutex}}
+\index{data\-Mutex@{data\-Mutex}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{data\-Mutex}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ pthread\-\_\-mutex\-\_\-t {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::data\-Mutex\hspace{0.3cm}{\ttfamily [protected]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_aba0a875f1b456aec7f7262576fb02773}
+mutex on data\-: it guarantee mutual exclusive access on data \hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_adef1028de164827d377ae7d9a3783bff}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!label@{label}}
+\index{label@{label}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{label}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ string {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::label\hspace{0.3cm}{\ttfamily [protected]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_adef1028de164827d377ae7d9a3783bff}
+it defines a label for this data structure \hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a100815b13dc7f2ca1e75d40f0b036258}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!size\-Limit@{size\-Limit}}
+\index{size\-Limit@{size\-Limit}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{size\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ unsigned int {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::size\-Limit\hspace{0.3cm}{\ttfamily [protected]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a100815b13dc7f2ca1e75d40f0b036258}
+it defines a size limit if needed \hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a52beabff3eff970d293a784b8f710c93}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!state\-Cond@{state\-Cond}}
+\index{state\-Cond@{state\-Cond}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{state\-Cond}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ pthread\-\_\-cond\-\_\-t {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::state\-Cond\hspace{0.3cm}{\ttfamily [protected]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a52beabff3eff970d293a784b8f710c93}
+condition variable on data\-: it allows signaling among consumer and producers Threads \hypertarget{classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a3f760daa0238c1c3a9983bfc75c141ad}{\index{it\-::testbench\-::rte\-::\-Synchronized\-Queue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}!sync\-Queue@{sync\-Queue}}
+\index{sync\-Queue@{sync\-Queue}!it::testbench::rte::SynchronizedQueue@{it\-::testbench\-::rte\-::\-Synchronized\-Queue}}
+\subsubsection[{sync\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ queue$<$T$>$ {\bf it\-::testbench\-::rte\-::\-Synchronized\-Queue}$<$ T $>$\-::sync\-Queue\hspace{0.3cm}{\ttfamily [protected]}}}\label{d6/dec/classit_1_1testbench_1_1rte_1_1SynchronizedQueue_a3f760daa0238c1c3a9983bfc75c141ad}
+queue container of generica data T 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{syncqueue_8h}{syncqueue.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,432 @@
+\hypertarget{classJson_1_1StyledWriter}{\section{Json\-:\-:Styled\-Writer Class Reference}
+\label{d8/d76/classJson_1_1StyledWriter}\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}}
+}
+
+
+Writes a \hyperlink{classJson_1_1Value}{Value} in \href{http://www.json.org}{\tt J\-S\-O\-N} format in a human friendly way.  
+
+
+
+
+{\ttfamily \#include $<$writer.\-h$>$}
+
+
+
+Inheritance diagram for Json\-:\-:Styled\-Writer\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{df/d9d/classJson_1_1StyledWriter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Json\-:\-:Styled\-Writer\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{d7/df3/classJson_1_1StyledWriter__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classJson_1_1StyledWriter_a1f1b5f922a6a0ef0e56c6dd2f6170192}{Styled\-Writer} ()
+\item 
+virtual \hyperlink{classJson_1_1StyledWriter_a7eb58eabb70c6b80ac1ccec93c0c8602}{$\sim$\-Styled\-Writer} ()
+\item 
+virtual std\-::string \hyperlink{classJson_1_1StyledWriter_a35036ba0842bc65500274c9ec30708d1}{write} (const \hyperlink{classJson_1_1Value}{Value} \&root)
+\begin{DoxyCompactList}\small\item\em Serialize a \hyperlink{classJson_1_1Value}{Value} in \href{http://www.json.org}{\tt J\-S\-O\-N} format. \end{DoxyCompactList}\item 
+\hyperlink{classJson_1_1StyledWriter_a1f1b5f922a6a0ef0e56c6dd2f6170192}{Styled\-Writer} ()
+\item 
+virtual \hyperlink{classJson_1_1StyledWriter_a7eb58eabb70c6b80ac1ccec93c0c8602}{$\sim$\-Styled\-Writer} ()
+\item 
+virtual std\-::string \hyperlink{classJson_1_1StyledWriter_a35036ba0842bc65500274c9ec30708d1}{write} (const \hyperlink{classJson_1_1Value}{Value} \&root)
+\begin{DoxyCompactList}\small\item\em Serialize a \hyperlink{classJson_1_1Value}{Value} in \href{http://www.json.org}{\tt J\-S\-O\-N} format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\-::vector$<$ std\-::string $>$ \hyperlink{classJson_1_1StyledWriter_a0b102abcd4b7e11eb22df63921e097df}{Child\-Values}
+\item 
+typedef std\-::vector$<$ std\-::string $>$ \hyperlink{classJson_1_1StyledWriter_a0b102abcd4b7e11eb22df63921e097df}{Child\-Values}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classJson_1_1StyledWriter_ac40143cf43f7c4a94d3d0b41e5245069}{write\-Value} (const \hyperlink{classJson_1_1Value}{Value} \&value)
+\item 
+void \hyperlink{classJson_1_1StyledWriter_a0618c23d62965515def15ece1e677f5d}{write\-Array\-Value} (const \hyperlink{classJson_1_1Value}{Value} \&value)
+\item 
+bool \hyperlink{classJson_1_1StyledWriter_aa5dc671edf10b9976f1511da2271ab9d}{is\-Multine\-Array} (const \hyperlink{classJson_1_1Value}{Value} \&value)
+\item 
+void \hyperlink{classJson_1_1StyledWriter_aba120a1ff1b84411b32039188e8fb49f}{push\-Value} (const std\-::string \&value)
+\item 
+void \hyperlink{classJson_1_1StyledWriter_a885f4bfb5701896d60eee6716d2db7e4}{write\-Indent} ()
+\item 
+void \hyperlink{classJson_1_1StyledWriter_a7b3cc9da3cb455ee9b2752307ac21b58}{write\-With\-Indent} (const std\-::string \&value)
+\item 
+void \hyperlink{classJson_1_1StyledWriter_a0b65be6186a7c6638270990265e42b97}{indent} ()
+\item 
+void \hyperlink{classJson_1_1StyledWriter_acee1c9285519b573cfcb00b7e7f5a809}{unindent} ()
+\item 
+void \hyperlink{classJson_1_1StyledWriter_ad3452c48fabf968bf3693549331ec06e}{write\-Comment\-Before\-Value} (const \hyperlink{classJson_1_1Value}{Value} \&root)
+\item 
+void \hyperlink{classJson_1_1StyledWriter_ab12b274c62822fc51ec4617c6be95139}{write\-Comment\-After\-Value\-On\-Same\-Line} (const \hyperlink{classJson_1_1Value}{Value} \&root)
+\item 
+bool \hyperlink{classJson_1_1StyledWriter_a37a806d010f708cb68556f2666f79bdf}{has\-Comment\-For\-Value} (const \hyperlink{classJson_1_1Value}{Value} \&value)
+\item 
+void \hyperlink{classJson_1_1StyledWriter_ac40143cf43f7c4a94d3d0b41e5245069}{write\-Value} (const \hyperlink{classJson_1_1Value}{Value} \&value)
+\item 
+void \hyperlink{classJson_1_1StyledWriter_a0618c23d62965515def15ece1e677f5d}{write\-Array\-Value} (const \hyperlink{classJson_1_1Value}{Value} \&value)
+\item 
+bool \hyperlink{classJson_1_1StyledWriter_aa5dc671edf10b9976f1511da2271ab9d}{is\-Multine\-Array} (const \hyperlink{classJson_1_1Value}{Value} \&value)
+\item 
+void \hyperlink{classJson_1_1StyledWriter_aba120a1ff1b84411b32039188e8fb49f}{push\-Value} (const std\-::string \&value)
+\item 
+void \hyperlink{classJson_1_1StyledWriter_a885f4bfb5701896d60eee6716d2db7e4}{write\-Indent} ()
+\item 
+void \hyperlink{classJson_1_1StyledWriter_a7b3cc9da3cb455ee9b2752307ac21b58}{write\-With\-Indent} (const std\-::string \&value)
+\item 
+void \hyperlink{classJson_1_1StyledWriter_a0b65be6186a7c6638270990265e42b97}{indent} ()
+\item 
+void \hyperlink{classJson_1_1StyledWriter_acee1c9285519b573cfcb00b7e7f5a809}{unindent} ()
+\item 
+void \hyperlink{classJson_1_1StyledWriter_ad3452c48fabf968bf3693549331ec06e}{write\-Comment\-Before\-Value} (const \hyperlink{classJson_1_1Value}{Value} \&root)
+\item 
+void \hyperlink{classJson_1_1StyledWriter_ab12b274c62822fc51ec4617c6be95139}{write\-Comment\-After\-Value\-On\-Same\-Line} (const \hyperlink{classJson_1_1Value}{Value} \&root)
+\item 
+bool \hyperlink{classJson_1_1StyledWriter_a37a806d010f708cb68556f2666f79bdf}{has\-Comment\-For\-Value} (const \hyperlink{classJson_1_1Value}{Value} \&value)
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\-::string \hyperlink{classJson_1_1StyledWriter_ad9444449eecf1581f7d227a0b50ecc4d}{normalize\-E\-O\-L} (const std\-::string \&text)
+\item 
+static std\-::string \hyperlink{classJson_1_1StyledWriter_ad9444449eecf1581f7d227a0b50ecc4d}{normalize\-E\-O\-L} (const std\-::string \&text)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classJson_1_1StyledWriter_a0b102abcd4b7e11eb22df63921e097df}{Child\-Values} \hyperlink{classJson_1_1StyledWriter_a1f905495f0705365af117ec541e29fdf}{child\-Values\-\_\-}
+\item 
+std\-::string \hyperlink{classJson_1_1StyledWriter_ac092c93313e7ab202b13e075d682faea}{document\-\_\-}
+\item 
+std\-::string \hyperlink{classJson_1_1StyledWriter_a98a33f1d4c853a4dbf87ca17499c5830}{indent\-String\-\_\-}
+\item 
+int \hyperlink{classJson_1_1StyledWriter_a9c8fc62cb4f3b4a6dbed470fea2aa567}{right\-Margin\-\_\-}
+\item 
+int \hyperlink{classJson_1_1StyledWriter_ae911f06042935286c24a9fb23dba78bd}{indent\-Size\-\_\-}
+\item 
+bool \hyperlink{classJson_1_1StyledWriter_acaabfa48b50a8bb7fa9ce98e2ae971d9}{add\-Child\-Values\-\_\-}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Writes a \hyperlink{classJson_1_1Value}{Value} in \href{http://www.json.org}{\tt J\-S\-O\-N} format in a human friendly way. 
+
+The rules for line break and indent are as follow\-:
+\begin{DoxyItemize}
+\item Object value\-:
+\begin{DoxyItemize}
+\item if empty then print \{\} without indent and line break
+\item if not empty the print '\{', line break \& indent, print one value per line and then unindent and line break and print '\}'.
+\end{DoxyItemize}
+\item Array value\-:
+\begin{DoxyItemize}
+\item if empty then print \mbox{[}\mbox{]} without indent and line break
+\item if the array contains no object value, empty array or some other value types, and all the values fit on one lines, then print the array on a single line.
+\item otherwise, it the values do not fit on one line, or the array contains object or non empty array, then print one value per line.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+If the \hyperlink{classJson_1_1Value}{Value} have comments then they are outputed according to their \hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351}{Comment\-Placement}.
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classJson_1_1Reader}{Reader}, \hyperlink{classJson_1_1Value}{Value}, \hyperlink{classJson_1_1Value_a29f3a30f7e5d3af6f38d57999bf5b480}{Value\-::set\-Comment()} 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classJson_1_1StyledWriter_a0b102abcd4b7e11eb22df63921e097df}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!Child\-Values@{Child\-Values}}
+\index{Child\-Values@{Child\-Values}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{Child\-Values}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::vector$<$std\-::string$>$ {\bf Json\-::\-Styled\-Writer\-::\-Child\-Values}\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_a0b102abcd4b7e11eb22df63921e097df}
+\hypertarget{classJson_1_1StyledWriter_a0b102abcd4b7e11eb22df63921e097df}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!Child\-Values@{Child\-Values}}
+\index{Child\-Values@{Child\-Values}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{Child\-Values}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::vector$<$std\-::string$>$ {\bf Json\-::\-Styled\-Writer\-::\-Child\-Values}\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_a0b102abcd4b7e11eb22df63921e097df}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classJson_1_1StyledWriter_a1f1b5f922a6a0ef0e56c6dd2f6170192}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!Styled\-Writer@{Styled\-Writer}}
+\index{Styled\-Writer@{Styled\-Writer}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{Styled\-Writer}]{\setlength{\rightskip}{0pt plus 5cm}Json\-::\-Styled\-Writer\-::\-Styled\-Writer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d8/d76/classJson_1_1StyledWriter_a1f1b5f922a6a0ef0e56c6dd2f6170192}
+\hypertarget{classJson_1_1StyledWriter_a7eb58eabb70c6b80ac1ccec93c0c8602}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!$\sim$\-Styled\-Writer@{$\sim$\-Styled\-Writer}}
+\index{$\sim$\-Styled\-Writer@{$\sim$\-Styled\-Writer}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{$\sim$\-Styled\-Writer}]{\setlength{\rightskip}{0pt plus 5cm}virtual Json\-::\-Styled\-Writer\-::$\sim$\-Styled\-Writer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{d8/d76/classJson_1_1StyledWriter_a7eb58eabb70c6b80ac1ccec93c0c8602}
+\hypertarget{classJson_1_1StyledWriter_a1f1b5f922a6a0ef0e56c6dd2f6170192}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!Styled\-Writer@{Styled\-Writer}}
+\index{Styled\-Writer@{Styled\-Writer}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{Styled\-Writer}]{\setlength{\rightskip}{0pt plus 5cm}Json\-::\-Styled\-Writer\-::\-Styled\-Writer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d8/d76/classJson_1_1StyledWriter_a1f1b5f922a6a0ef0e56c6dd2f6170192}
+\hypertarget{classJson_1_1StyledWriter_a7eb58eabb70c6b80ac1ccec93c0c8602}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!$\sim$\-Styled\-Writer@{$\sim$\-Styled\-Writer}}
+\index{$\sim$\-Styled\-Writer@{$\sim$\-Styled\-Writer}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{$\sim$\-Styled\-Writer}]{\setlength{\rightskip}{0pt plus 5cm}virtual Json\-::\-Styled\-Writer\-::$\sim$\-Styled\-Writer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{d8/d76/classJson_1_1StyledWriter_a7eb58eabb70c6b80ac1ccec93c0c8602}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classJson_1_1StyledWriter_a37a806d010f708cb68556f2666f79bdf}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!has\-Comment\-For\-Value@{has\-Comment\-For\-Value}}
+\index{has\-Comment\-For\-Value@{has\-Comment\-For\-Value}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{has\-Comment\-For\-Value}]{\setlength{\rightskip}{0pt plus 5cm}bool Json\-::\-Styled\-Writer\-::has\-Comment\-For\-Value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_a37a806d010f708cb68556f2666f79bdf}
+\hypertarget{classJson_1_1StyledWriter_a37a806d010f708cb68556f2666f79bdf}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!has\-Comment\-For\-Value@{has\-Comment\-For\-Value}}
+\index{has\-Comment\-For\-Value@{has\-Comment\-For\-Value}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{has\-Comment\-For\-Value}]{\setlength{\rightskip}{0pt plus 5cm}bool Json\-::\-Styled\-Writer\-::has\-Comment\-For\-Value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_a37a806d010f708cb68556f2666f79bdf}
+\hypertarget{classJson_1_1StyledWriter_a0b65be6186a7c6638270990265e42b97}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!indent@{indent}}
+\index{indent@{indent}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{indent}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::indent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_a0b65be6186a7c6638270990265e42b97}
+\hypertarget{classJson_1_1StyledWriter_a0b65be6186a7c6638270990265e42b97}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!indent@{indent}}
+\index{indent@{indent}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{indent}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::indent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_a0b65be6186a7c6638270990265e42b97}
+\hypertarget{classJson_1_1StyledWriter_aa5dc671edf10b9976f1511da2271ab9d}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!is\-Multine\-Array@{is\-Multine\-Array}}
+\index{is\-Multine\-Array@{is\-Multine\-Array}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{is\-Multine\-Array}]{\setlength{\rightskip}{0pt plus 5cm}bool Json\-::\-Styled\-Writer\-::is\-Multine\-Array (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_aa5dc671edf10b9976f1511da2271ab9d}
+\hypertarget{classJson_1_1StyledWriter_aa5dc671edf10b9976f1511da2271ab9d}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!is\-Multine\-Array@{is\-Multine\-Array}}
+\index{is\-Multine\-Array@{is\-Multine\-Array}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{is\-Multine\-Array}]{\setlength{\rightskip}{0pt plus 5cm}bool Json\-::\-Styled\-Writer\-::is\-Multine\-Array (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_aa5dc671edf10b9976f1511da2271ab9d}
+\hypertarget{classJson_1_1StyledWriter_ad9444449eecf1581f7d227a0b50ecc4d}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!normalize\-E\-O\-L@{normalize\-E\-O\-L}}
+\index{normalize\-E\-O\-L@{normalize\-E\-O\-L}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{normalize\-E\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}static std\-::string Json\-::\-Styled\-Writer\-::normalize\-E\-O\-L (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{text}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_ad9444449eecf1581f7d227a0b50ecc4d}
+\hypertarget{classJson_1_1StyledWriter_ad9444449eecf1581f7d227a0b50ecc4d}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!normalize\-E\-O\-L@{normalize\-E\-O\-L}}
+\index{normalize\-E\-O\-L@{normalize\-E\-O\-L}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{normalize\-E\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}static std\-::string Json\-::\-Styled\-Writer\-::normalize\-E\-O\-L (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{text}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_ad9444449eecf1581f7d227a0b50ecc4d}
+\hypertarget{classJson_1_1StyledWriter_aba120a1ff1b84411b32039188e8fb49f}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!push\-Value@{push\-Value}}
+\index{push\-Value@{push\-Value}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{push\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::push\-Value (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_aba120a1ff1b84411b32039188e8fb49f}
+\hypertarget{classJson_1_1StyledWriter_aba120a1ff1b84411b32039188e8fb49f}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!push\-Value@{push\-Value}}
+\index{push\-Value@{push\-Value}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{push\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::push\-Value (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_aba120a1ff1b84411b32039188e8fb49f}
+\hypertarget{classJson_1_1StyledWriter_acee1c9285519b573cfcb00b7e7f5a809}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!unindent@{unindent}}
+\index{unindent@{unindent}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{unindent}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::unindent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_acee1c9285519b573cfcb00b7e7f5a809}
+\hypertarget{classJson_1_1StyledWriter_acee1c9285519b573cfcb00b7e7f5a809}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!unindent@{unindent}}
+\index{unindent@{unindent}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{unindent}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::unindent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_acee1c9285519b573cfcb00b7e7f5a809}
+\hypertarget{classJson_1_1StyledWriter_a35036ba0842bc65500274c9ec30708d1}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!write@{write}}
+\index{write@{write}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\-::string Json\-::\-Styled\-Writer\-::write (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{root}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{d8/d76/classJson_1_1StyledWriter_a35036ba0842bc65500274c9ec30708d1}
+
+
+Serialize a \hyperlink{classJson_1_1Value}{Value} in \href{http://www.json.org}{\tt J\-S\-O\-N} format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & \hyperlink{classJson_1_1Value}{Value} to serialize. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String containing the J\-S\-O\-N document that represents the root value. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classJson_1_1Writer_a7b2273a4ffd6f32b369ac8a53b7b5a0d}{Json\-::\-Writer}.
+
+\hypertarget{classJson_1_1StyledWriter_a35036ba0842bc65500274c9ec30708d1}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!write@{write}}
+\index{write@{write}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\-::string Json\-::\-Styled\-Writer\-::write (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{root}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{d8/d76/classJson_1_1StyledWriter_a35036ba0842bc65500274c9ec30708d1}
+
+
+Serialize a \hyperlink{classJson_1_1Value}{Value} in \href{http://www.json.org}{\tt J\-S\-O\-N} format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & \hyperlink{classJson_1_1Value}{Value} to serialize. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String containing the J\-S\-O\-N document that represents the root value. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classJson_1_1Writer_a7b2273a4ffd6f32b369ac8a53b7b5a0d}{Json\-::\-Writer}.
+
+\hypertarget{classJson_1_1StyledWriter_a0618c23d62965515def15ece1e677f5d}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!write\-Array\-Value@{write\-Array\-Value}}
+\index{write\-Array\-Value@{write\-Array\-Value}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{write\-Array\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::write\-Array\-Value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_a0618c23d62965515def15ece1e677f5d}
+\hypertarget{classJson_1_1StyledWriter_a0618c23d62965515def15ece1e677f5d}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!write\-Array\-Value@{write\-Array\-Value}}
+\index{write\-Array\-Value@{write\-Array\-Value}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{write\-Array\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::write\-Array\-Value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_a0618c23d62965515def15ece1e677f5d}
+\hypertarget{classJson_1_1StyledWriter_ab12b274c62822fc51ec4617c6be95139}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!write\-Comment\-After\-Value\-On\-Same\-Line@{write\-Comment\-After\-Value\-On\-Same\-Line}}
+\index{write\-Comment\-After\-Value\-On\-Same\-Line@{write\-Comment\-After\-Value\-On\-Same\-Line}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{write\-Comment\-After\-Value\-On\-Same\-Line}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::write\-Comment\-After\-Value\-On\-Same\-Line (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{root}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_ab12b274c62822fc51ec4617c6be95139}
+\hypertarget{classJson_1_1StyledWriter_ab12b274c62822fc51ec4617c6be95139}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!write\-Comment\-After\-Value\-On\-Same\-Line@{write\-Comment\-After\-Value\-On\-Same\-Line}}
+\index{write\-Comment\-After\-Value\-On\-Same\-Line@{write\-Comment\-After\-Value\-On\-Same\-Line}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{write\-Comment\-After\-Value\-On\-Same\-Line}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::write\-Comment\-After\-Value\-On\-Same\-Line (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{root}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_ab12b274c62822fc51ec4617c6be95139}
+\hypertarget{classJson_1_1StyledWriter_ad3452c48fabf968bf3693549331ec06e}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!write\-Comment\-Before\-Value@{write\-Comment\-Before\-Value}}
+\index{write\-Comment\-Before\-Value@{write\-Comment\-Before\-Value}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{write\-Comment\-Before\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::write\-Comment\-Before\-Value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{root}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_ad3452c48fabf968bf3693549331ec06e}
+\hypertarget{classJson_1_1StyledWriter_ad3452c48fabf968bf3693549331ec06e}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!write\-Comment\-Before\-Value@{write\-Comment\-Before\-Value}}
+\index{write\-Comment\-Before\-Value@{write\-Comment\-Before\-Value}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{write\-Comment\-Before\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::write\-Comment\-Before\-Value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{root}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_ad3452c48fabf968bf3693549331ec06e}
+\hypertarget{classJson_1_1StyledWriter_a885f4bfb5701896d60eee6716d2db7e4}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!write\-Indent@{write\-Indent}}
+\index{write\-Indent@{write\-Indent}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{write\-Indent}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::write\-Indent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_a885f4bfb5701896d60eee6716d2db7e4}
+\hypertarget{classJson_1_1StyledWriter_a885f4bfb5701896d60eee6716d2db7e4}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!write\-Indent@{write\-Indent}}
+\index{write\-Indent@{write\-Indent}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{write\-Indent}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::write\-Indent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_a885f4bfb5701896d60eee6716d2db7e4}
+\hypertarget{classJson_1_1StyledWriter_ac40143cf43f7c4a94d3d0b41e5245069}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!write\-Value@{write\-Value}}
+\index{write\-Value@{write\-Value}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{write\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::write\-Value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_ac40143cf43f7c4a94d3d0b41e5245069}
+\hypertarget{classJson_1_1StyledWriter_ac40143cf43f7c4a94d3d0b41e5245069}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!write\-Value@{write\-Value}}
+\index{write\-Value@{write\-Value}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{write\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::write\-Value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_ac40143cf43f7c4a94d3d0b41e5245069}
+\hypertarget{classJson_1_1StyledWriter_a7b3cc9da3cb455ee9b2752307ac21b58}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!write\-With\-Indent@{write\-With\-Indent}}
+\index{write\-With\-Indent@{write\-With\-Indent}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{write\-With\-Indent}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::write\-With\-Indent (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_a7b3cc9da3cb455ee9b2752307ac21b58}
+\hypertarget{classJson_1_1StyledWriter_a7b3cc9da3cb455ee9b2752307ac21b58}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!write\-With\-Indent@{write\-With\-Indent}}
+\index{write\-With\-Indent@{write\-With\-Indent}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{write\-With\-Indent}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Styled\-Writer\-::write\-With\-Indent (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_a7b3cc9da3cb455ee9b2752307ac21b58}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classJson_1_1StyledWriter_acaabfa48b50a8bb7fa9ce98e2ae971d9}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!add\-Child\-Values\-\_\-@{add\-Child\-Values\-\_\-}}
+\index{add\-Child\-Values\-\_\-@{add\-Child\-Values\-\_\-}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{add\-Child\-Values\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}bool Json\-::\-Styled\-Writer\-::add\-Child\-Values\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_acaabfa48b50a8bb7fa9ce98e2ae971d9}
+\hypertarget{classJson_1_1StyledWriter_a1f905495f0705365af117ec541e29fdf}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!child\-Values\-\_\-@{child\-Values\-\_\-}}
+\index{child\-Values\-\_\-@{child\-Values\-\_\-}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{child\-Values\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Child\-Values} Json\-::\-Styled\-Writer\-::child\-Values\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_a1f905495f0705365af117ec541e29fdf}
+\hypertarget{classJson_1_1StyledWriter_ac092c93313e7ab202b13e075d682faea}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!document\-\_\-@{document\-\_\-}}
+\index{document\-\_\-@{document\-\_\-}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{document\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Json\-::\-Styled\-Writer\-::document\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_ac092c93313e7ab202b13e075d682faea}
+\hypertarget{classJson_1_1StyledWriter_ae911f06042935286c24a9fb23dba78bd}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!indent\-Size\-\_\-@{indent\-Size\-\_\-}}
+\index{indent\-Size\-\_\-@{indent\-Size\-\_\-}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{indent\-Size\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}int Json\-::\-Styled\-Writer\-::indent\-Size\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_ae911f06042935286c24a9fb23dba78bd}
+\hypertarget{classJson_1_1StyledWriter_a98a33f1d4c853a4dbf87ca17499c5830}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!indent\-String\-\_\-@{indent\-String\-\_\-}}
+\index{indent\-String\-\_\-@{indent\-String\-\_\-}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{indent\-String\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Json\-::\-Styled\-Writer\-::indent\-String\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_a98a33f1d4c853a4dbf87ca17499c5830}
+\hypertarget{classJson_1_1StyledWriter_a9c8fc62cb4f3b4a6dbed470fea2aa567}{\index{Json\-::\-Styled\-Writer@{Json\-::\-Styled\-Writer}!right\-Margin\-\_\-@{right\-Margin\-\_\-}}
+\index{right\-Margin\-\_\-@{right\-Margin\-\_\-}!Json::StyledWriter@{Json\-::\-Styled\-Writer}}
+\subsubsection[{right\-Margin\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}int Json\-::\-Styled\-Writer\-::right\-Margin\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{d8/d76/classJson_1_1StyledWriter_a9c8fc62cb4f3b4a6dbed470fea2aa567}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{dependencies_2json_2writer_8h}{dependencies/json/writer.\-h}\item 
+\hyperlink{inc_2json_2writer_8h}{inc/json/writer.\-h}\end{DoxyCompactItemize}

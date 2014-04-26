@@ -1,0 +1,172 @@
+\hypertarget{classJson_1_1FastWriter}{\section{Json\-:\-:Fast\-Writer Class Reference}
+\label{de/d96/classJson_1_1FastWriter}\index{Json\-::\-Fast\-Writer@{Json\-::\-Fast\-Writer}}
+}
+
+
+Outputs a \hyperlink{classJson_1_1Value}{Value} in \href{http://www.json.org}{\tt J\-S\-O\-N} format without formatting (not human friendly).  
+
+
+
+
+{\ttfamily \#include $<$writer.\-h$>$}
+
+
+
+Inheritance diagram for Json\-:\-:Fast\-Writer\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{d3/d3e/classJson_1_1FastWriter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Json\-:\-:Fast\-Writer\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{db/d39/classJson_1_1FastWriter__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classJson_1_1FastWriter_a1bbc73ce1a1cc7b09cd1e02db3905170}{Fast\-Writer} ()
+\item 
+virtual \hyperlink{classJson_1_1FastWriter_a7eb61405d041a915e5e980be97a707aa}{$\sim$\-Fast\-Writer} ()
+\item 
+void \hyperlink{classJson_1_1FastWriter_a78d98e9f76d33660ad6e6a1abe287d45}{enable\-Y\-A\-M\-L\-Compatibility} ()
+\item 
+virtual std\-::string \hyperlink{classJson_1_1FastWriter_a0f64b9e1fce6b743aad3f100cfc33427}{write} (const \hyperlink{classJson_1_1Value}{Value} \&root)
+\item 
+\hyperlink{classJson_1_1FastWriter_a1bbc73ce1a1cc7b09cd1e02db3905170}{Fast\-Writer} ()
+\item 
+virtual \hyperlink{classJson_1_1FastWriter_a7eb61405d041a915e5e980be97a707aa}{$\sim$\-Fast\-Writer} ()
+\item 
+void \hyperlink{classJson_1_1FastWriter_a78d98e9f76d33660ad6e6a1abe287d45}{enable\-Y\-A\-M\-L\-Compatibility} ()
+\item 
+virtual std\-::string \hyperlink{classJson_1_1FastWriter_a0f64b9e1fce6b743aad3f100cfc33427}{write} (const \hyperlink{classJson_1_1Value}{Value} \&root)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classJson_1_1FastWriter_a2ef4a2ce13a341171f01f414f4fdd765}{write\-Value} (const \hyperlink{classJson_1_1Value}{Value} \&value)
+\item 
+void \hyperlink{classJson_1_1FastWriter_a2ef4a2ce13a341171f01f414f4fdd765}{write\-Value} (const \hyperlink{classJson_1_1Value}{Value} \&value)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{classJson_1_1FastWriter_afc70d465b79bfc7741ff75294dcefeab}{document\-\_\-}
+\item 
+bool \hyperlink{classJson_1_1FastWriter_a4c4c1911179bf472d24492915b0e489a}{yaml\-Compatiblity\-Enabled\-\_\-}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Outputs a \hyperlink{classJson_1_1Value}{Value} in \href{http://www.json.org}{\tt J\-S\-O\-N} format without formatting (not human friendly). 
+
+The J\-S\-O\-N document is written in a single line. It is not intended for 'human' consumption, but may be usefull to support feature such as R\-P\-C where bandwith is limited. \begin{DoxySeeAlso}{See Also}
+\hyperlink{classJson_1_1Reader}{Reader}, \hyperlink{classJson_1_1Value}{Value} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classJson_1_1FastWriter_a1bbc73ce1a1cc7b09cd1e02db3905170}{\index{Json\-::\-Fast\-Writer@{Json\-::\-Fast\-Writer}!Fast\-Writer@{Fast\-Writer}}
+\index{Fast\-Writer@{Fast\-Writer}!Json::FastWriter@{Json\-::\-Fast\-Writer}}
+\subsubsection[{Fast\-Writer}]{\setlength{\rightskip}{0pt plus 5cm}Json\-::\-Fast\-Writer\-::\-Fast\-Writer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{de/d96/classJson_1_1FastWriter_a1bbc73ce1a1cc7b09cd1e02db3905170}
+\hypertarget{classJson_1_1FastWriter_a7eb61405d041a915e5e980be97a707aa}{\index{Json\-::\-Fast\-Writer@{Json\-::\-Fast\-Writer}!$\sim$\-Fast\-Writer@{$\sim$\-Fast\-Writer}}
+\index{$\sim$\-Fast\-Writer@{$\sim$\-Fast\-Writer}!Json::FastWriter@{Json\-::\-Fast\-Writer}}
+\subsubsection[{$\sim$\-Fast\-Writer}]{\setlength{\rightskip}{0pt plus 5cm}virtual Json\-::\-Fast\-Writer\-::$\sim$\-Fast\-Writer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{de/d96/classJson_1_1FastWriter_a7eb61405d041a915e5e980be97a707aa}
+\hypertarget{classJson_1_1FastWriter_a1bbc73ce1a1cc7b09cd1e02db3905170}{\index{Json\-::\-Fast\-Writer@{Json\-::\-Fast\-Writer}!Fast\-Writer@{Fast\-Writer}}
+\index{Fast\-Writer@{Fast\-Writer}!Json::FastWriter@{Json\-::\-Fast\-Writer}}
+\subsubsection[{Fast\-Writer}]{\setlength{\rightskip}{0pt plus 5cm}Json\-::\-Fast\-Writer\-::\-Fast\-Writer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{de/d96/classJson_1_1FastWriter_a1bbc73ce1a1cc7b09cd1e02db3905170}
+\hypertarget{classJson_1_1FastWriter_a7eb61405d041a915e5e980be97a707aa}{\index{Json\-::\-Fast\-Writer@{Json\-::\-Fast\-Writer}!$\sim$\-Fast\-Writer@{$\sim$\-Fast\-Writer}}
+\index{$\sim$\-Fast\-Writer@{$\sim$\-Fast\-Writer}!Json::FastWriter@{Json\-::\-Fast\-Writer}}
+\subsubsection[{$\sim$\-Fast\-Writer}]{\setlength{\rightskip}{0pt plus 5cm}virtual Json\-::\-Fast\-Writer\-::$\sim$\-Fast\-Writer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{de/d96/classJson_1_1FastWriter_a7eb61405d041a915e5e980be97a707aa}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classJson_1_1FastWriter_a78d98e9f76d33660ad6e6a1abe287d45}{\index{Json\-::\-Fast\-Writer@{Json\-::\-Fast\-Writer}!enable\-Y\-A\-M\-L\-Compatibility@{enable\-Y\-A\-M\-L\-Compatibility}}
+\index{enable\-Y\-A\-M\-L\-Compatibility@{enable\-Y\-A\-M\-L\-Compatibility}!Json::FastWriter@{Json\-::\-Fast\-Writer}}
+\subsubsection[{enable\-Y\-A\-M\-L\-Compatibility}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Fast\-Writer\-::enable\-Y\-A\-M\-L\-Compatibility (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{de/d96/classJson_1_1FastWriter_a78d98e9f76d33660ad6e6a1abe287d45}
+\hypertarget{classJson_1_1FastWriter_a78d98e9f76d33660ad6e6a1abe287d45}{\index{Json\-::\-Fast\-Writer@{Json\-::\-Fast\-Writer}!enable\-Y\-A\-M\-L\-Compatibility@{enable\-Y\-A\-M\-L\-Compatibility}}
+\index{enable\-Y\-A\-M\-L\-Compatibility@{enable\-Y\-A\-M\-L\-Compatibility}!Json::FastWriter@{Json\-::\-Fast\-Writer}}
+\subsubsection[{enable\-Y\-A\-M\-L\-Compatibility}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Fast\-Writer\-::enable\-Y\-A\-M\-L\-Compatibility (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{de/d96/classJson_1_1FastWriter_a78d98e9f76d33660ad6e6a1abe287d45}
+\hypertarget{classJson_1_1FastWriter_a0f64b9e1fce6b743aad3f100cfc33427}{\index{Json\-::\-Fast\-Writer@{Json\-::\-Fast\-Writer}!write@{write}}
+\index{write@{write}!Json::FastWriter@{Json\-::\-Fast\-Writer}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\-::string Json\-::\-Fast\-Writer\-::write (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{root}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{de/d96/classJson_1_1FastWriter_a0f64b9e1fce6b743aad3f100cfc33427}
+
+
+Implements \hyperlink{classJson_1_1Writer_a7b2273a4ffd6f32b369ac8a53b7b5a0d}{Json\-::\-Writer}.
+
+\hypertarget{classJson_1_1FastWriter_a0f64b9e1fce6b743aad3f100cfc33427}{\index{Json\-::\-Fast\-Writer@{Json\-::\-Fast\-Writer}!write@{write}}
+\index{write@{write}!Json::FastWriter@{Json\-::\-Fast\-Writer}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\-::string Json\-::\-Fast\-Writer\-::write (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{root}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{de/d96/classJson_1_1FastWriter_a0f64b9e1fce6b743aad3f100cfc33427}
+
+
+Implements \hyperlink{classJson_1_1Writer_a7b2273a4ffd6f32b369ac8a53b7b5a0d}{Json\-::\-Writer}.
+
+\hypertarget{classJson_1_1FastWriter_a2ef4a2ce13a341171f01f414f4fdd765}{\index{Json\-::\-Fast\-Writer@{Json\-::\-Fast\-Writer}!write\-Value@{write\-Value}}
+\index{write\-Value@{write\-Value}!Json::FastWriter@{Json\-::\-Fast\-Writer}}
+\subsubsection[{write\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Fast\-Writer\-::write\-Value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d96/classJson_1_1FastWriter_a2ef4a2ce13a341171f01f414f4fdd765}
+\hypertarget{classJson_1_1FastWriter_a2ef4a2ce13a341171f01f414f4fdd765}{\index{Json\-::\-Fast\-Writer@{Json\-::\-Fast\-Writer}!write\-Value@{write\-Value}}
+\index{write\-Value@{write\-Value}!Json::FastWriter@{Json\-::\-Fast\-Writer}}
+\subsubsection[{write\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Json\-::\-Fast\-Writer\-::write\-Value (
+\begin{DoxyParamCaption}
+\item[{const {\bf Value} \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d96/classJson_1_1FastWriter_a2ef4a2ce13a341171f01f414f4fdd765}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classJson_1_1FastWriter_afc70d465b79bfc7741ff75294dcefeab}{\index{Json\-::\-Fast\-Writer@{Json\-::\-Fast\-Writer}!document\-\_\-@{document\-\_\-}}
+\index{document\-\_\-@{document\-\_\-}!Json::FastWriter@{Json\-::\-Fast\-Writer}}
+\subsubsection[{document\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Json\-::\-Fast\-Writer\-::document\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d96/classJson_1_1FastWriter_afc70d465b79bfc7741ff75294dcefeab}
+\hypertarget{classJson_1_1FastWriter_a4c4c1911179bf472d24492915b0e489a}{\index{Json\-::\-Fast\-Writer@{Json\-::\-Fast\-Writer}!yaml\-Compatiblity\-Enabled\-\_\-@{yaml\-Compatiblity\-Enabled\-\_\-}}
+\index{yaml\-Compatiblity\-Enabled\-\_\-@{yaml\-Compatiblity\-Enabled\-\_\-}!Json::FastWriter@{Json\-::\-Fast\-Writer}}
+\subsubsection[{yaml\-Compatiblity\-Enabled\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}bool Json\-::\-Fast\-Writer\-::yaml\-Compatiblity\-Enabled\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d96/classJson_1_1FastWriter_a4c4c1911179bf472d24492915b0e489a}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{dependencies_2json_2writer_8h}{dependencies/json/writer.\-h}\item 
+\hyperlink{inc_2json_2writer_8h}{inc/json/writer.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,267 @@
+\hypertarget{classit_1_1testbench_1_1logger_1_1RawLogger}{\section{it\-:\-:testbench\-:\-:logger\-:\-:Raw\-Logger Class Reference}
+\label{d0/d37/classit_1_1testbench_1_1logger_1_1RawLogger}\index{it\-::testbench\-::logger\-::\-Raw\-Logger@{it\-::testbench\-::logger\-::\-Raw\-Logger}}
+}
+
+
+{\ttfamily \#include $<$rawlogger.\-h$>$}
+
+
+
+Inheritance diagram for it\-:\-:testbench\-:\-:logger\-:\-:Raw\-Logger\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{de/de6/classit_1_1testbench_1_1logger_1_1RawLogger__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for it\-:\-:testbench\-:\-:logger\-:\-:Raw\-Logger\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{d6/d04/classit_1_1testbench_1_1logger_1_1RawLogger__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger_a85e039010f6fadb64ad0eeab0d2a9116}{log\-T} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Trace level logging. \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger_adbbe4c396320a0526045c783e0e934bb}{log\-D} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Debug level logging. \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger_ab5d9d624a642d5ec8bf353aeffa0d86f}{log\-I} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Information level logging. \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger_a6257a59594ebdd57988d98c27663d8a1}{log\-W} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Warning level logging. \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger_a41a44127510c38b295ae6e1798a793a0}{log\-E} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Error level logging. \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger_aac44d30e776d18fcc637814cfa35b336}{log\-F} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Fatal level logging. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger}{Raw\-Logger} $\ast$ \hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger_a3eec9bfdaff55f4e9896aa2723806163}{get\-Instance} ()
+\begin{DoxyCompactList}\small\item\em gets existing instance \end{DoxyCompactList}\item 
+static \hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger}{Raw\-Logger} $\ast$ \hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger_a2018dd12f5dce3b6e4e00c0b4ac872cc}{get\-Instance} (const string \&log\-File)
+\begin{DoxyCompactList}\small\item\em gets instance, lazy initialization \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger_add8718040808a0847ca0207835cb58ea}{Raw\-Logger} ()
+\item 
+\hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger_aa1bff2006675822badcc6b0a4f997d0b}{$\sim$\-Raw\-Logger} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger}{Raw\-Logger} $\ast$ \hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger_a5462a0dfa474c6b8ecf535188f92506c}{instance} = 0
+\item 
+static fstream \hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger_a8018918b9883568201a3107306a290dd}{fs}
+\item 
+static pthread\-\_\-mutex\-\_\-t \hyperlink{classit_1_1testbench_1_1logger_1_1RawLogger_acd2938fa7aeb52919e2620caa83a8880}{log\-Mux} = P\-T\-H\-R\-E\-A\-D\-\_\-\-M\-U\-T\-E\-X\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-R
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation of \hyperlink{classit_1_1testbench_1_1logger_1_1Logger}{Logger} based on simple File stream using the Singleton pattern. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1logger_1_1RawLogger_add8718040808a0847ca0207835cb58ea}{\index{it\-::testbench\-::logger\-::\-Raw\-Logger@{it\-::testbench\-::logger\-::\-Raw\-Logger}!Raw\-Logger@{Raw\-Logger}}
+\index{Raw\-Logger@{Raw\-Logger}!it::testbench::logger::RawLogger@{it\-::testbench\-::logger\-::\-Raw\-Logger}}
+\subsubsection[{Raw\-Logger}]{\setlength{\rightskip}{0pt plus 5cm}Raw\-Logger\-::\-Raw\-Logger (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d0/d37/classit_1_1testbench_1_1logger_1_1RawLogger_add8718040808a0847ca0207835cb58ea}
+Logging service initialization is done at configuration time when a log file path and name is passed. \hypertarget{classit_1_1testbench_1_1logger_1_1RawLogger_aa1bff2006675822badcc6b0a4f997d0b}{\index{it\-::testbench\-::logger\-::\-Raw\-Logger@{it\-::testbench\-::logger\-::\-Raw\-Logger}!$\sim$\-Raw\-Logger@{$\sim$\-Raw\-Logger}}
+\index{$\sim$\-Raw\-Logger@{$\sim$\-Raw\-Logger}!it::testbench::logger::RawLogger@{it\-::testbench\-::logger\-::\-Raw\-Logger}}
+\subsubsection[{$\sim$\-Raw\-Logger}]{\setlength{\rightskip}{0pt plus 5cm}Raw\-Logger\-::$\sim$\-Raw\-Logger (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d0/d37/classit_1_1testbench_1_1logger_1_1RawLogger_aa1bff2006675822badcc6b0a4f997d0b}
+Tear down the Logging service at system shutdown. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1logger_1_1RawLogger_a3eec9bfdaff55f4e9896aa2723806163}{\index{it\-::testbench\-::logger\-::\-Raw\-Logger@{it\-::testbench\-::logger\-::\-Raw\-Logger}!get\-Instance@{get\-Instance}}
+\index{get\-Instance@{get\-Instance}!it::testbench::logger::RawLogger@{it\-::testbench\-::logger\-::\-Raw\-Logger}}
+\subsubsection[{get\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Raw\-Logger} $\ast$ Raw\-Logger\-::get\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{d0/d37/classit_1_1testbench_1_1logger_1_1RawLogger_a3eec9bfdaff55f4e9896aa2723806163}
+
+
+gets existing instance 
+
+Return unique instance \hypertarget{classit_1_1testbench_1_1logger_1_1RawLogger_a2018dd12f5dce3b6e4e00c0b4ac872cc}{\index{it\-::testbench\-::logger\-::\-Raw\-Logger@{it\-::testbench\-::logger\-::\-Raw\-Logger}!get\-Instance@{get\-Instance}}
+\index{get\-Instance@{get\-Instance}!it::testbench::logger::RawLogger@{it\-::testbench\-::logger\-::\-Raw\-Logger}}
+\subsubsection[{get\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Raw\-Logger} $\ast$ Raw\-Logger\-::get\-Instance (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{log\-File}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{d0/d37/classit_1_1testbench_1_1logger_1_1RawLogger_a2018dd12f5dce3b6e4e00c0b4ac872cc}
+
+
+gets instance, lazy initialization 
+
+Return unique instance and open Log file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em log\-File} & Log file pathname \\
+\hline
+\end{DoxyParams}
+\hypertarget{classit_1_1testbench_1_1logger_1_1RawLogger_adbbe4c396320a0526045c783e0e934bb}{\index{it\-::testbench\-::logger\-::\-Raw\-Logger@{it\-::testbench\-::logger\-::\-Raw\-Logger}!log\-D@{log\-D}}
+\index{log\-D@{log\-D}!it::testbench::logger::RawLogger@{it\-::testbench\-::logger\-::\-Raw\-Logger}}
+\subsubsection[{log\-D}]{\setlength{\rightskip}{0pt plus 5cm}void Raw\-Logger\-::log\-D (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{d0/d37/classit_1_1testbench_1_1logger_1_1RawLogger_adbbe4c396320a0526045c783e0e934bb}
+
+
+Debug level logging. 
+
+Debug level logging
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em str} & Log message \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classit_1_1testbench_1_1logger_1_1Logger_ac0c11e80868df767e26304187fe290c5}{it\-::testbench\-::logger\-::\-Logger}.
+
+\hypertarget{classit_1_1testbench_1_1logger_1_1RawLogger_a41a44127510c38b295ae6e1798a793a0}{\index{it\-::testbench\-::logger\-::\-Raw\-Logger@{it\-::testbench\-::logger\-::\-Raw\-Logger}!log\-E@{log\-E}}
+\index{log\-E@{log\-E}!it::testbench::logger::RawLogger@{it\-::testbench\-::logger\-::\-Raw\-Logger}}
+\subsubsection[{log\-E}]{\setlength{\rightskip}{0pt plus 5cm}void Raw\-Logger\-::log\-E (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{d0/d37/classit_1_1testbench_1_1logger_1_1RawLogger_a41a44127510c38b295ae6e1798a793a0}
+
+
+Error level logging. 
+
+Error level logging
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em str} & Log message \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classit_1_1testbench_1_1logger_1_1Logger_a73e44a27d36a54ec79afc615a39b86ca}{it\-::testbench\-::logger\-::\-Logger}.
+
+\hypertarget{classit_1_1testbench_1_1logger_1_1RawLogger_aac44d30e776d18fcc637814cfa35b336}{\index{it\-::testbench\-::logger\-::\-Raw\-Logger@{it\-::testbench\-::logger\-::\-Raw\-Logger}!log\-F@{log\-F}}
+\index{log\-F@{log\-F}!it::testbench::logger::RawLogger@{it\-::testbench\-::logger\-::\-Raw\-Logger}}
+\subsubsection[{log\-F}]{\setlength{\rightskip}{0pt plus 5cm}void Raw\-Logger\-::log\-F (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{d0/d37/classit_1_1testbench_1_1logger_1_1RawLogger_aac44d30e776d18fcc637814cfa35b336}
+
+
+Fatal level logging. 
+
+Fatal level logging
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em str} & Log message \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classit_1_1testbench_1_1logger_1_1Logger_a5d3d2c2980de82ecec6941398ee620f1}{it\-::testbench\-::logger\-::\-Logger}.
+
+\hypertarget{classit_1_1testbench_1_1logger_1_1RawLogger_ab5d9d624a642d5ec8bf353aeffa0d86f}{\index{it\-::testbench\-::logger\-::\-Raw\-Logger@{it\-::testbench\-::logger\-::\-Raw\-Logger}!log\-I@{log\-I}}
+\index{log\-I@{log\-I}!it::testbench::logger::RawLogger@{it\-::testbench\-::logger\-::\-Raw\-Logger}}
+\subsubsection[{log\-I}]{\setlength{\rightskip}{0pt plus 5cm}void Raw\-Logger\-::log\-I (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{d0/d37/classit_1_1testbench_1_1logger_1_1RawLogger_ab5d9d624a642d5ec8bf353aeffa0d86f}
+
+
+Information level logging. 
+
+Information level logging
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em str} & Log message \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classit_1_1testbench_1_1logger_1_1Logger_a49505d8fd1fde54d6addc03164dbd256}{it\-::testbench\-::logger\-::\-Logger}.
+
+\hypertarget{classit_1_1testbench_1_1logger_1_1RawLogger_a85e039010f6fadb64ad0eeab0d2a9116}{\index{it\-::testbench\-::logger\-::\-Raw\-Logger@{it\-::testbench\-::logger\-::\-Raw\-Logger}!log\-T@{log\-T}}
+\index{log\-T@{log\-T}!it::testbench::logger::RawLogger@{it\-::testbench\-::logger\-::\-Raw\-Logger}}
+\subsubsection[{log\-T}]{\setlength{\rightskip}{0pt plus 5cm}void Raw\-Logger\-::log\-T (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{d0/d37/classit_1_1testbench_1_1logger_1_1RawLogger_a85e039010f6fadb64ad0eeab0d2a9116}
+
+
+Trace level logging. 
+
+Trace level logging
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em str} & Log message \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classit_1_1testbench_1_1logger_1_1Logger_ac3806fa9e733644bd47fb4c5b70a81a2}{it\-::testbench\-::logger\-::\-Logger}.
+
+\hypertarget{classit_1_1testbench_1_1logger_1_1RawLogger_a6257a59594ebdd57988d98c27663d8a1}{\index{it\-::testbench\-::logger\-::\-Raw\-Logger@{it\-::testbench\-::logger\-::\-Raw\-Logger}!log\-W@{log\-W}}
+\index{log\-W@{log\-W}!it::testbench::logger::RawLogger@{it\-::testbench\-::logger\-::\-Raw\-Logger}}
+\subsubsection[{log\-W}]{\setlength{\rightskip}{0pt plus 5cm}void Raw\-Logger\-::log\-W (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{d0/d37/classit_1_1testbench_1_1logger_1_1RawLogger_a6257a59594ebdd57988d98c27663d8a1}
+
+
+Warning level logging. 
+
+Warning level logging
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em str} & Log message \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classit_1_1testbench_1_1logger_1_1Logger_aa90a63a9ecbb042a37c1fdb86cd38f17}{it\-::testbench\-::logger\-::\-Logger}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1logger_1_1RawLogger_a8018918b9883568201a3107306a290dd}{\index{it\-::testbench\-::logger\-::\-Raw\-Logger@{it\-::testbench\-::logger\-::\-Raw\-Logger}!fs@{fs}}
+\index{fs@{fs}!it::testbench::logger::RawLogger@{it\-::testbench\-::logger\-::\-Raw\-Logger}}
+\subsubsection[{fs}]{\setlength{\rightskip}{0pt plus 5cm}fstream Raw\-Logger\-::fs\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{d0/d37/classit_1_1testbench_1_1logger_1_1RawLogger_a8018918b9883568201a3107306a290dd}
+File stream used for log file \hypertarget{classit_1_1testbench_1_1logger_1_1RawLogger_a5462a0dfa474c6b8ecf535188f92506c}{\index{it\-::testbench\-::logger\-::\-Raw\-Logger@{it\-::testbench\-::logger\-::\-Raw\-Logger}!instance@{instance}}
+\index{instance@{instance}!it::testbench::logger::RawLogger@{it\-::testbench\-::logger\-::\-Raw\-Logger}}
+\subsubsection[{instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Raw\-Logger} $\ast$ Raw\-Logger\-::instance = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{d0/d37/classit_1_1testbench_1_1logger_1_1RawLogger_a5462a0dfa474c6b8ecf535188f92506c}
+static pointer to ensure a single instance \hypertarget{classit_1_1testbench_1_1logger_1_1RawLogger_acd2938fa7aeb52919e2620caa83a8880}{\index{it\-::testbench\-::logger\-::\-Raw\-Logger@{it\-::testbench\-::logger\-::\-Raw\-Logger}!log\-Mux@{log\-Mux}}
+\index{log\-Mux@{log\-Mux}!it::testbench::logger::RawLogger@{it\-::testbench\-::logger\-::\-Raw\-Logger}}
+\subsubsection[{log\-Mux}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-mutex\-\_\-t Raw\-Logger\-::log\-Mux = P\-T\-H\-R\-E\-A\-D\-\_\-\-M\-U\-T\-E\-X\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-R\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{d0/d37/classit_1_1testbench_1_1logger_1_1RawLogger_acd2938fa7aeb52919e2620caa83a8880}
+mutex for protecting static variables 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{rawlogger_8h}{rawlogger.\-h}\item 
+\hyperlink{rawlogger_8cpp}{rawlogger.\-cpp}\end{DoxyCompactItemize}

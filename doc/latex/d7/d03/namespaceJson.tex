@@ -1,0 +1,374 @@
+\hypertarget{namespaceJson}{\section{Json Namespace Reference}
+\label{d7/d03/namespaceJson}\index{Json@{Json}}
+}
+
+
+J\-S\-O\-N (Java\-Script Object Notation).  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classJson_1_1Features}{Features}
+\begin{DoxyCompactList}\small\item\em Configuration passed to reader and writer. This configuration object can be used to force the \hyperlink{classJson_1_1Reader}{Reader} or \hyperlink{classJson_1_1Writer}{Writer} to behave in a standard conforming way. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1Reader}{Reader}
+\begin{DoxyCompactList}\small\item\em Unserialize a \href{http://www.json.org}{\tt J\-S\-O\-N} document into a \hyperlink{classJson_1_1Value}{Value}. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1StaticString}{Static\-String}
+\begin{DoxyCompactList}\small\item\em Lightweight wrapper to tag static string. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1Value}{Value}
+\begin{DoxyCompactList}\small\item\em Represents a \href{http://www.json.org}{\tt J\-S\-O\-N} value. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1PathArgument}{Path\-Argument}
+\begin{DoxyCompactList}\small\item\em Experimental and untested\-: represents an element of the \char`\"{}path\char`\"{} to access a node. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1Path}{Path}
+\begin{DoxyCompactList}\small\item\em Experimental and untested\-: represents a \char`\"{}path\char`\"{} to access a node. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1ValueAllocator}{Value\-Allocator}
+\begin{DoxyCompactList}\small\item\em Experimental do not use\-: Allocator to customize member name and string value memory management done by \hyperlink{classJson_1_1Value}{Value}. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1ValueIteratorBase}{Value\-Iterator\-Base}
+\begin{DoxyCompactList}\small\item\em base class for \hyperlink{classJson_1_1Value}{Value} iterators. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1ValueConstIterator}{Value\-Const\-Iterator}
+\begin{DoxyCompactList}\small\item\em const iterator for object and array value. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1ValueIterator}{Value\-Iterator}
+\begin{DoxyCompactList}\small\item\em Iterator for object and array value. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1Writer}{Writer}
+\begin{DoxyCompactList}\small\item\em Abstract class for writers. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1FastWriter}{Fast\-Writer}
+\begin{DoxyCompactList}\small\item\em Outputs a \hyperlink{classJson_1_1Value}{Value} in \href{http://www.json.org}{\tt J\-S\-O\-N} format without formatting (not human friendly). \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1StyledWriter}{Styled\-Writer}
+\begin{DoxyCompactList}\small\item\em Writes a \hyperlink{classJson_1_1Value}{Value} in \href{http://www.json.org}{\tt J\-S\-O\-N} format in a human friendly way. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1StyledStreamWriter}{Styled\-Stream\-Writer}
+\begin{DoxyCompactList}\small\item\em Writes a \hyperlink{classJson_1_1Value}{Value} in \href{http://www.json.org}{\tt J\-S\-O\-N} format in a human friendly way, to a stream rather than to a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int \hyperlink{namespaceJson_a08122e8005b706d982e48cca1e2119c7}{Int}
+\item 
+typedef unsigned int \hyperlink{namespaceJson_a800fb90eb6ee8d5d62b600c06f87f7d4}{U\-Int}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4e}{Value\-Type} \{ \\*
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea99922f3ccd58446e80e6055a7119b640}{null\-Value} = 0, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea4855d2a19dcefbd60f49f529dfad8941}{int\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4eada2011b7373e8847770afe4d20d9390a}{uint\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea490e707ae253ccde7c901590416d08be}{real\-Value}, 
+\\*
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea8376d6395b33f22c7ec18b3fa016bb1c}{string\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea36cbd8ff0078df0156c8efc0b2aee919}{boolean\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4eaa3025bfd271ef0b0c7c030c9118f8be7}{array\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea6ca35c0a30ea3d1b8ec95c2d1e41a1a8}{object\-Value}, 
+\\*
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea99922f3ccd58446e80e6055a7119b640}{null\-Value} = 0, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea4855d2a19dcefbd60f49f529dfad8941}{int\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4eada2011b7373e8847770afe4d20d9390a}{uint\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea490e707ae253ccde7c901590416d08be}{real\-Value}, 
+\\*
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea8376d6395b33f22c7ec18b3fa016bb1c}{string\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea36cbd8ff0078df0156c8efc0b2aee919}{boolean\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4eaa3025bfd271ef0b0c7c030c9118f8be7}{array\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea6ca35c0a30ea3d1b8ec95c2d1e41a1a8}{object\-Value}
+ \}
+\begin{DoxyCompactList}\small\item\em Type of the value held by a Value object. \end{DoxyCompactList}\item 
+enum \hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351}{Comment\-Placement} \{ \\*
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a905a40030122d5eae76adad4d754856c}{comment\-Before} = 0, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a9683052ec0f29ecb3c0eb65c90d54849}{comment\-After\-On\-Same\-Line}, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a845090604f098147b393b79ba0ec8cae}{comment\-After}, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a965a468bcc29e6c2194fe8f06aa81ddf}{number\-Of\-Comment\-Placement}, 
+\\*
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a905a40030122d5eae76adad4d754856c}{comment\-Before} = 0, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a9683052ec0f29ecb3c0eb65c90d54849}{comment\-After\-On\-Same\-Line}, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a845090604f098147b393b79ba0ec8cae}{comment\-After}, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a965a468bcc29e6c2194fe8f06aa81ddf}{number\-Of\-Comment\-Placement}
+ \}
+\item 
+enum \hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4e}{Value\-Type} \{ \\*
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea99922f3ccd58446e80e6055a7119b640}{null\-Value} = 0, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea4855d2a19dcefbd60f49f529dfad8941}{int\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4eada2011b7373e8847770afe4d20d9390a}{uint\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea490e707ae253ccde7c901590416d08be}{real\-Value}, 
+\\*
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea8376d6395b33f22c7ec18b3fa016bb1c}{string\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea36cbd8ff0078df0156c8efc0b2aee919}{boolean\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4eaa3025bfd271ef0b0c7c030c9118f8be7}{array\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea6ca35c0a30ea3d1b8ec95c2d1e41a1a8}{object\-Value}, 
+\\*
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea99922f3ccd58446e80e6055a7119b640}{null\-Value} = 0, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea4855d2a19dcefbd60f49f529dfad8941}{int\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4eada2011b7373e8847770afe4d20d9390a}{uint\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea490e707ae253ccde7c901590416d08be}{real\-Value}, 
+\\*
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea8376d6395b33f22c7ec18b3fa016bb1c}{string\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea36cbd8ff0078df0156c8efc0b2aee919}{boolean\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4eaa3025bfd271ef0b0c7c030c9118f8be7}{array\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea6ca35c0a30ea3d1b8ec95c2d1e41a1a8}{object\-Value}
+ \}
+\begin{DoxyCompactList}\small\item\em Type of the value held by a Value object. \end{DoxyCompactList}\item 
+enum \hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351}{Comment\-Placement} \{ \\*
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a905a40030122d5eae76adad4d754856c}{comment\-Before} = 0, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a9683052ec0f29ecb3c0eb65c90d54849}{comment\-After\-On\-Same\-Line}, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a845090604f098147b393b79ba0ec8cae}{comment\-After}, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a965a468bcc29e6c2194fe8f06aa81ddf}{number\-Of\-Comment\-Placement}, 
+\\*
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a905a40030122d5eae76adad4d754856c}{comment\-Before} = 0, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a9683052ec0f29ecb3c0eb65c90d54849}{comment\-After\-On\-Same\-Line}, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a845090604f098147b393b79ba0ec8cae}{comment\-After}, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a965a468bcc29e6c2194fe8f06aa81ddf}{number\-Of\-Comment\-Placement}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::istream \& \hyperlink{namespaceJson_a4d245ef719cc0853e8e78eb5f99c16e5}{operator$>$$>$} (std\-::istream \&, \hyperlink{classJson_1_1Value}{Value} \&)
+\begin{DoxyCompactList}\small\item\em Read from 'sin' into 'root'. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{inc_2json_2config_8h_a1d61ffde86ce1a18fd83194ff0d9a206}{J\-S\-O\-N\-\_\-\-A\-P\-I} \hyperlink{namespaceJson_a05cd078d8e086a4bcc08d40948f711e7}{value\-To\-String} (\hyperlink{namespaceJson_a08122e8005b706d982e48cca1e2119c7}{Int} value)
+\item 
+std\-::string \hyperlink{inc_2json_2config_8h_a1d61ffde86ce1a18fd83194ff0d9a206}{J\-S\-O\-N\-\_\-\-A\-P\-I} \hyperlink{namespaceJson_abcb58ea0f384c30608729a94d539e2ce}{value\-To\-String} (\hyperlink{namespaceJson_a800fb90eb6ee8d5d62b600c06f87f7d4}{U\-Int} value)
+\item 
+std\-::string \hyperlink{inc_2json_2config_8h_a1d61ffde86ce1a18fd83194ff0d9a206}{J\-S\-O\-N\-\_\-\-A\-P\-I} \hyperlink{namespaceJson_ac49317cb2f19e656c9cb548dd31e50d5}{value\-To\-String} (double value)
+\item 
+std\-::string \hyperlink{inc_2json_2config_8h_a1d61ffde86ce1a18fd83194ff0d9a206}{J\-S\-O\-N\-\_\-\-A\-P\-I} \hyperlink{namespaceJson_a959f412bb2e8a5cf50f2cc36cd7b3376}{value\-To\-String} (bool value)
+\item 
+std\-::string \hyperlink{inc_2json_2config_8h_a1d61ffde86ce1a18fd83194ff0d9a206}{J\-S\-O\-N\-\_\-\-A\-P\-I} \hyperlink{namespaceJson_aa89082c7ae7deaa6df955987015a0cbd}{value\-To\-Quoted\-String} (const char $\ast$value)
+\item 
+std\-::ostream \& \hyperlink{namespaceJson_a87bc83d7e90fc666d28aa16727deda2f}{operator$<$$<$} (std\-::ostream \&, const \hyperlink{classJson_1_1Value}{Value} \&root)
+\begin{DoxyCompactList}\small\item\em Output using the \hyperlink{classJson_1_1StyledStreamWriter}{Styled\-Stream\-Writer}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+J\-S\-O\-N (Java\-Script Object Notation). 
+
+\subsection{Typedef Documentation}
+\hypertarget{namespaceJson_a08122e8005b706d982e48cca1e2119c7}{\index{Json@{Json}!Int@{Int}}
+\index{Int@{Int}!Json@{Json}}
+\subsubsection[{Int}]{\setlength{\rightskip}{0pt plus 5cm}typedef int {\bf Json\-::\-Int}}}\label{d7/d03/namespaceJson_a08122e8005b706d982e48cca1e2119c7}
+\hypertarget{namespaceJson_a800fb90eb6ee8d5d62b600c06f87f7d4}{\index{Json@{Json}!U\-Int@{U\-Int}}
+\index{U\-Int@{U\-Int}!Json@{Json}}
+\subsubsection[{U\-Int}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf Json\-::\-U\-Int}}}\label{d7/d03/namespaceJson_a800fb90eb6ee8d5d62b600c06f87f7d4}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351}{\index{Json@{Json}!Comment\-Placement@{Comment\-Placement}}
+\index{Comment\-Placement@{Comment\-Placement}!Json@{Json}}
+\subsubsection[{Comment\-Placement}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Json\-::\-Comment\-Placement}}}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{comment\-Before@{comment\-Before}!Json@{Json}}\index{Json@{Json}!comment\-Before@{comment\-Before}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a905a40030122d5eae76adad4d754856c}{comment\-Before}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a905a40030122d5eae76adad4d754856c}
+}]a comment placed on the line before a value \index{comment\-After\-On\-Same\-Line@{comment\-After\-On\-Same\-Line}!Json@{Json}}\index{Json@{Json}!comment\-After\-On\-Same\-Line@{comment\-After\-On\-Same\-Line}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a9683052ec0f29ecb3c0eb65c90d54849}{comment\-After\-On\-Same\-Line}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a9683052ec0f29ecb3c0eb65c90d54849}
+}]a comment just after a value on the same line \index{comment\-After@{comment\-After}!Json@{Json}}\index{Json@{Json}!comment\-After@{comment\-After}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a845090604f098147b393b79ba0ec8cae}{comment\-After}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a845090604f098147b393b79ba0ec8cae}
+}]a comment on the line after a value (only make sense for root value) \index{number\-Of\-Comment\-Placement@{number\-Of\-Comment\-Placement}!Json@{Json}}\index{Json@{Json}!number\-Of\-Comment\-Placement@{number\-Of\-Comment\-Placement}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a965a468bcc29e6c2194fe8f06aa81ddf}{number\-Of\-Comment\-Placement}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a965a468bcc29e6c2194fe8f06aa81ddf}
+}]\index{comment\-Before@{comment\-Before}!Json@{Json}}\index{Json@{Json}!comment\-Before@{comment\-Before}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a905a40030122d5eae76adad4d754856c}{comment\-Before}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a905a40030122d5eae76adad4d754856c}
+}]a comment placed on the line before a value \index{comment\-After\-On\-Same\-Line@{comment\-After\-On\-Same\-Line}!Json@{Json}}\index{Json@{Json}!comment\-After\-On\-Same\-Line@{comment\-After\-On\-Same\-Line}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a9683052ec0f29ecb3c0eb65c90d54849}{comment\-After\-On\-Same\-Line}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a9683052ec0f29ecb3c0eb65c90d54849}
+}]a comment just after a value on the same line \index{comment\-After@{comment\-After}!Json@{Json}}\index{Json@{Json}!comment\-After@{comment\-After}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a845090604f098147b393b79ba0ec8cae}{comment\-After}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a845090604f098147b393b79ba0ec8cae}
+}]a comment on the line after a value (only make sense for root value) \index{number\-Of\-Comment\-Placement@{number\-Of\-Comment\-Placement}!Json@{Json}}\index{Json@{Json}!number\-Of\-Comment\-Placement@{number\-Of\-Comment\-Placement}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a965a468bcc29e6c2194fe8f06aa81ddf}{number\-Of\-Comment\-Placement}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a965a468bcc29e6c2194fe8f06aa81ddf}
+}]\end{description}
+\end{Desc}
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351}{\index{Json@{Json}!Comment\-Placement@{Comment\-Placement}}
+\index{Comment\-Placement@{Comment\-Placement}!Json@{Json}}
+\subsubsection[{Comment\-Placement}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Json\-::\-Comment\-Placement}}}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{comment\-Before@{comment\-Before}!Json@{Json}}\index{Json@{Json}!comment\-Before@{comment\-Before}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a905a40030122d5eae76adad4d754856c}{comment\-Before}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a905a40030122d5eae76adad4d754856c}
+}]a comment placed on the line before a value \index{comment\-After\-On\-Same\-Line@{comment\-After\-On\-Same\-Line}!Json@{Json}}\index{Json@{Json}!comment\-After\-On\-Same\-Line@{comment\-After\-On\-Same\-Line}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a9683052ec0f29ecb3c0eb65c90d54849}{comment\-After\-On\-Same\-Line}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a9683052ec0f29ecb3c0eb65c90d54849}
+}]a comment just after a value on the same line \index{comment\-After@{comment\-After}!Json@{Json}}\index{Json@{Json}!comment\-After@{comment\-After}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a845090604f098147b393b79ba0ec8cae}{comment\-After}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a845090604f098147b393b79ba0ec8cae}
+}]a comment on the line after a value (only make sense for root value) \index{number\-Of\-Comment\-Placement@{number\-Of\-Comment\-Placement}!Json@{Json}}\index{Json@{Json}!number\-Of\-Comment\-Placement@{number\-Of\-Comment\-Placement}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a965a468bcc29e6c2194fe8f06aa81ddf}{number\-Of\-Comment\-Placement}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a965a468bcc29e6c2194fe8f06aa81ddf}
+}]\index{comment\-Before@{comment\-Before}!Json@{Json}}\index{Json@{Json}!comment\-Before@{comment\-Before}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a905a40030122d5eae76adad4d754856c}{comment\-Before}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a905a40030122d5eae76adad4d754856c}
+}]a comment placed on the line before a value \index{comment\-After\-On\-Same\-Line@{comment\-After\-On\-Same\-Line}!Json@{Json}}\index{Json@{Json}!comment\-After\-On\-Same\-Line@{comment\-After\-On\-Same\-Line}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a9683052ec0f29ecb3c0eb65c90d54849}{comment\-After\-On\-Same\-Line}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a9683052ec0f29ecb3c0eb65c90d54849}
+}]a comment just after a value on the same line \index{comment\-After@{comment\-After}!Json@{Json}}\index{Json@{Json}!comment\-After@{comment\-After}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a845090604f098147b393b79ba0ec8cae}{comment\-After}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a845090604f098147b393b79ba0ec8cae}
+}]a comment on the line after a value (only make sense for root value) \index{number\-Of\-Comment\-Placement@{number\-Of\-Comment\-Placement}!Json@{Json}}\index{Json@{Json}!number\-Of\-Comment\-Placement@{number\-Of\-Comment\-Placement}}\item[{\em 
+\hypertarget{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a965a468bcc29e6c2194fe8f06aa81ddf}{number\-Of\-Comment\-Placement}\label{d7/d03/namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a965a468bcc29e6c2194fe8f06aa81ddf}
+}]\end{description}
+\end{Desc}
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4e}{\index{Json@{Json}!Value\-Type@{Value\-Type}}
+\index{Value\-Type@{Value\-Type}!Json@{Json}}
+\subsubsection[{Value\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Json\-::\-Value\-Type}}}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4e}
+
+
+Type of the value held by a \hyperlink{classJson_1_1Value}{Value} object. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{null\-Value@{null\-Value}!Json@{Json}}\index{Json@{Json}!null\-Value@{null\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea99922f3ccd58446e80e6055a7119b640}{null\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea99922f3ccd58446e80e6055a7119b640}
+}]'null' value \index{int\-Value@{int\-Value}!Json@{Json}}\index{Json@{Json}!int\-Value@{int\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea4855d2a19dcefbd60f49f529dfad8941}{int\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea4855d2a19dcefbd60f49f529dfad8941}
+}]signed integer value \index{uint\-Value@{uint\-Value}!Json@{Json}}\index{Json@{Json}!uint\-Value@{uint\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4eada2011b7373e8847770afe4d20d9390a}{uint\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4eada2011b7373e8847770afe4d20d9390a}
+}]unsigned integer value \index{real\-Value@{real\-Value}!Json@{Json}}\index{Json@{Json}!real\-Value@{real\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea490e707ae253ccde7c901590416d08be}{real\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea490e707ae253ccde7c901590416d08be}
+}]double value \index{string\-Value@{string\-Value}!Json@{Json}}\index{Json@{Json}!string\-Value@{string\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea8376d6395b33f22c7ec18b3fa016bb1c}{string\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea8376d6395b33f22c7ec18b3fa016bb1c}
+}]U\-T\-F-\/8 string value. \index{boolean\-Value@{boolean\-Value}!Json@{Json}}\index{Json@{Json}!boolean\-Value@{boolean\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea36cbd8ff0078df0156c8efc0b2aee919}{boolean\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea36cbd8ff0078df0156c8efc0b2aee919}
+}]bool value \index{array\-Value@{array\-Value}!Json@{Json}}\index{Json@{Json}!array\-Value@{array\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4eaa3025bfd271ef0b0c7c030c9118f8be7}{array\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4eaa3025bfd271ef0b0c7c030c9118f8be7}
+}]array value (ordered list) \index{object\-Value@{object\-Value}!Json@{Json}}\index{Json@{Json}!object\-Value@{object\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea6ca35c0a30ea3d1b8ec95c2d1e41a1a8}{object\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea6ca35c0a30ea3d1b8ec95c2d1e41a1a8}
+}]object value (collection of name/value pairs). \index{null\-Value@{null\-Value}!Json@{Json}}\index{Json@{Json}!null\-Value@{null\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea99922f3ccd58446e80e6055a7119b640}{null\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea99922f3ccd58446e80e6055a7119b640}
+}]'null' value \index{int\-Value@{int\-Value}!Json@{Json}}\index{Json@{Json}!int\-Value@{int\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea4855d2a19dcefbd60f49f529dfad8941}{int\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea4855d2a19dcefbd60f49f529dfad8941}
+}]signed integer value \index{uint\-Value@{uint\-Value}!Json@{Json}}\index{Json@{Json}!uint\-Value@{uint\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4eada2011b7373e8847770afe4d20d9390a}{uint\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4eada2011b7373e8847770afe4d20d9390a}
+}]unsigned integer value \index{real\-Value@{real\-Value}!Json@{Json}}\index{Json@{Json}!real\-Value@{real\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea490e707ae253ccde7c901590416d08be}{real\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea490e707ae253ccde7c901590416d08be}
+}]double value \index{string\-Value@{string\-Value}!Json@{Json}}\index{Json@{Json}!string\-Value@{string\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea8376d6395b33f22c7ec18b3fa016bb1c}{string\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea8376d6395b33f22c7ec18b3fa016bb1c}
+}]U\-T\-F-\/8 string value. \index{boolean\-Value@{boolean\-Value}!Json@{Json}}\index{Json@{Json}!boolean\-Value@{boolean\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea36cbd8ff0078df0156c8efc0b2aee919}{boolean\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea36cbd8ff0078df0156c8efc0b2aee919}
+}]bool value \index{array\-Value@{array\-Value}!Json@{Json}}\index{Json@{Json}!array\-Value@{array\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4eaa3025bfd271ef0b0c7c030c9118f8be7}{array\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4eaa3025bfd271ef0b0c7c030c9118f8be7}
+}]array value (ordered list) \index{object\-Value@{object\-Value}!Json@{Json}}\index{Json@{Json}!object\-Value@{object\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea6ca35c0a30ea3d1b8ec95c2d1e41a1a8}{object\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea6ca35c0a30ea3d1b8ec95c2d1e41a1a8}
+}]object value (collection of name/value pairs). \end{description}
+\end{Desc}
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4e}{\index{Json@{Json}!Value\-Type@{Value\-Type}}
+\index{Value\-Type@{Value\-Type}!Json@{Json}}
+\subsubsection[{Value\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Json\-::\-Value\-Type}}}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4e}
+
+
+Type of the value held by a \hyperlink{classJson_1_1Value}{Value} object. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{null\-Value@{null\-Value}!Json@{Json}}\index{Json@{Json}!null\-Value@{null\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea99922f3ccd58446e80e6055a7119b640}{null\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea99922f3ccd58446e80e6055a7119b640}
+}]'null' value \index{int\-Value@{int\-Value}!Json@{Json}}\index{Json@{Json}!int\-Value@{int\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea4855d2a19dcefbd60f49f529dfad8941}{int\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea4855d2a19dcefbd60f49f529dfad8941}
+}]signed integer value \index{uint\-Value@{uint\-Value}!Json@{Json}}\index{Json@{Json}!uint\-Value@{uint\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4eada2011b7373e8847770afe4d20d9390a}{uint\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4eada2011b7373e8847770afe4d20d9390a}
+}]unsigned integer value \index{real\-Value@{real\-Value}!Json@{Json}}\index{Json@{Json}!real\-Value@{real\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea490e707ae253ccde7c901590416d08be}{real\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea490e707ae253ccde7c901590416d08be}
+}]double value \index{string\-Value@{string\-Value}!Json@{Json}}\index{Json@{Json}!string\-Value@{string\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea8376d6395b33f22c7ec18b3fa016bb1c}{string\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea8376d6395b33f22c7ec18b3fa016bb1c}
+}]U\-T\-F-\/8 string value. \index{boolean\-Value@{boolean\-Value}!Json@{Json}}\index{Json@{Json}!boolean\-Value@{boolean\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea36cbd8ff0078df0156c8efc0b2aee919}{boolean\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea36cbd8ff0078df0156c8efc0b2aee919}
+}]bool value \index{array\-Value@{array\-Value}!Json@{Json}}\index{Json@{Json}!array\-Value@{array\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4eaa3025bfd271ef0b0c7c030c9118f8be7}{array\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4eaa3025bfd271ef0b0c7c030c9118f8be7}
+}]array value (ordered list) \index{object\-Value@{object\-Value}!Json@{Json}}\index{Json@{Json}!object\-Value@{object\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea6ca35c0a30ea3d1b8ec95c2d1e41a1a8}{object\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea6ca35c0a30ea3d1b8ec95c2d1e41a1a8}
+}]object value (collection of name/value pairs). \index{null\-Value@{null\-Value}!Json@{Json}}\index{Json@{Json}!null\-Value@{null\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea99922f3ccd58446e80e6055a7119b640}{null\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea99922f3ccd58446e80e6055a7119b640}
+}]'null' value \index{int\-Value@{int\-Value}!Json@{Json}}\index{Json@{Json}!int\-Value@{int\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea4855d2a19dcefbd60f49f529dfad8941}{int\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea4855d2a19dcefbd60f49f529dfad8941}
+}]signed integer value \index{uint\-Value@{uint\-Value}!Json@{Json}}\index{Json@{Json}!uint\-Value@{uint\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4eada2011b7373e8847770afe4d20d9390a}{uint\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4eada2011b7373e8847770afe4d20d9390a}
+}]unsigned integer value \index{real\-Value@{real\-Value}!Json@{Json}}\index{Json@{Json}!real\-Value@{real\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea490e707ae253ccde7c901590416d08be}{real\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea490e707ae253ccde7c901590416d08be}
+}]double value \index{string\-Value@{string\-Value}!Json@{Json}}\index{Json@{Json}!string\-Value@{string\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea8376d6395b33f22c7ec18b3fa016bb1c}{string\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea8376d6395b33f22c7ec18b3fa016bb1c}
+}]U\-T\-F-\/8 string value. \index{boolean\-Value@{boolean\-Value}!Json@{Json}}\index{Json@{Json}!boolean\-Value@{boolean\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea36cbd8ff0078df0156c8efc0b2aee919}{boolean\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea36cbd8ff0078df0156c8efc0b2aee919}
+}]bool value \index{array\-Value@{array\-Value}!Json@{Json}}\index{Json@{Json}!array\-Value@{array\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4eaa3025bfd271ef0b0c7c030c9118f8be7}{array\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4eaa3025bfd271ef0b0c7c030c9118f8be7}
+}]array value (ordered list) \index{object\-Value@{object\-Value}!Json@{Json}}\index{Json@{Json}!object\-Value@{object\-Value}}\item[{\em 
+\hypertarget{namespaceJson_a7d654b75c16a57007925868e38212b4ea6ca35c0a30ea3d1b8ec95c2d1e41a1a8}{object\-Value}\label{d7/d03/namespaceJson_a7d654b75c16a57007925868e38212b4ea6ca35c0a30ea3d1b8ec95c2d1e41a1a8}
+}]object value (collection of name/value pairs). \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceJson_a87bc83d7e90fc666d28aa16727deda2f}{\index{Json@{Json}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Json@{Json}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& Json\-::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{, }
+\item[{const Value \&}]{root}
+\end{DoxyParamCaption}
+)}}\label{d7/d03/namespaceJson_a87bc83d7e90fc666d28aa16727deda2f}
+
+
+Output using the \hyperlink{classJson_1_1StyledStreamWriter}{Styled\-Stream\-Writer}. 
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{namespaceJson_a4d245ef719cc0853e8e78eb5f99c16e5}{Json\-::operator$>$$>$()} 
+\end{DoxySeeAlso}
+\hypertarget{namespaceJson_a4d245ef719cc0853e8e78eb5f99c16e5}{\index{Json@{Json}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Json@{Json}}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::istream \& Json\-::operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{std\-::istream \&}]{, }
+\item[{Value \&}]{}
+\end{DoxyParamCaption}
+)}}\label{d7/d03/namespaceJson_a4d245ef719cc0853e8e78eb5f99c16e5}
+
+
+Read from 'sin' into 'root'. 
+
+Always keep comments from the input J\-S\-O\-N.
+
+This can be used to read a file into a particular sub-\/object. For example\-: 
+\begin{DoxyCode}
+\hyperlink{classJson_1_1Value}{Json::Value} root;
+cin >> root[\textcolor{stringliteral}{"dir"}][\textcolor{stringliteral}{"file"}];
+cout << root;
+\end{DoxyCode}
+ Result\-: \begin{DoxyVerb}{
+"dir": {
+    "file": {
+    // The input stream JSON would be nested here.
+    }
+}
+}
+\end{DoxyVerb}
+ 
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::exception} & on parse error. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{namespaceJson_a87bc83d7e90fc666d28aa16727deda2f}{Json\-::operator$<$$<$()} 
+\end{DoxySeeAlso}
+\hypertarget{namespaceJson_aa89082c7ae7deaa6df955987015a0cbd}{\index{Json@{Json}!value\-To\-Quoted\-String@{value\-To\-Quoted\-String}}
+\index{value\-To\-Quoted\-String@{value\-To\-Quoted\-String}!Json@{Json}}
+\subsubsection[{value\-To\-Quoted\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf J\-S\-O\-N\-\_\-\-A\-P\-I} Json\-::value\-To\-Quoted\-String (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{value}
+\end{DoxyParamCaption}
+)}}\label{d7/d03/namespaceJson_aa89082c7ae7deaa6df955987015a0cbd}
+\hypertarget{namespaceJson_a05cd078d8e086a4bcc08d40948f711e7}{\index{Json@{Json}!value\-To\-String@{value\-To\-String}}
+\index{value\-To\-String@{value\-To\-String}!Json@{Json}}
+\subsubsection[{value\-To\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf J\-S\-O\-N\-\_\-\-A\-P\-I} Json\-::value\-To\-String (
+\begin{DoxyParamCaption}
+\item[{Int}]{value}
+\end{DoxyParamCaption}
+)}}\label{d7/d03/namespaceJson_a05cd078d8e086a4bcc08d40948f711e7}
+\hypertarget{namespaceJson_abcb58ea0f384c30608729a94d539e2ce}{\index{Json@{Json}!value\-To\-String@{value\-To\-String}}
+\index{value\-To\-String@{value\-To\-String}!Json@{Json}}
+\subsubsection[{value\-To\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf J\-S\-O\-N\-\_\-\-A\-P\-I} Json\-::value\-To\-String (
+\begin{DoxyParamCaption}
+\item[{U\-Int}]{value}
+\end{DoxyParamCaption}
+)}}\label{d7/d03/namespaceJson_abcb58ea0f384c30608729a94d539e2ce}
+\hypertarget{namespaceJson_ac49317cb2f19e656c9cb548dd31e50d5}{\index{Json@{Json}!value\-To\-String@{value\-To\-String}}
+\index{value\-To\-String@{value\-To\-String}!Json@{Json}}
+\subsubsection[{value\-To\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf J\-S\-O\-N\-\_\-\-A\-P\-I} Json\-::value\-To\-String (
+\begin{DoxyParamCaption}
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}}\label{d7/d03/namespaceJson_ac49317cb2f19e656c9cb548dd31e50d5}
+\hypertarget{namespaceJson_a959f412bb2e8a5cf50f2cc36cd7b3376}{\index{Json@{Json}!value\-To\-String@{value\-To\-String}}
+\index{value\-To\-String@{value\-To\-String}!Json@{Json}}
+\subsubsection[{value\-To\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf J\-S\-O\-N\-\_\-\-A\-P\-I} Json\-::value\-To\-String (
+\begin{DoxyParamCaption}
+\item[{bool}]{value}
+\end{DoxyParamCaption}
+)}}\label{d7/d03/namespaceJson_a959f412bb2e8a5cf50f2cc36cd7b3376}

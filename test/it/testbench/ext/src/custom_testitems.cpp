@@ -13,7 +13,7 @@ TestCaseContext* CustomSetupItem::setupItem()
     A* aVar = new A();
     B* bVar = new B();
     ConcreteContextObject* ctxObj = new ConcreteContextObject();
-    string myDescription = "MyFavouriteDescription";
+    string myDescription = "MyFavouriteDescription-lllllll";
     ctxObj->setDescription(myDescription);
     ctxObj->setA(aVar);
     ctxObj->setB(bVar);
@@ -38,7 +38,7 @@ ReturnCode* CustomRunnableTestItem::runItem(TestCaseContext* ctxObject)
 void CustomTearDownTestItem::tearDownItem(TestCaseContext* ctxObject)
 {
     DATA_INFO_VAL("Tear Down Accomplished", ctxObject->getDescription());
-    if(ctxObject != 0)
+    if(ctxObject != NULL)
         delete (ConcreteContextObject*) ctxObject;
 }
 

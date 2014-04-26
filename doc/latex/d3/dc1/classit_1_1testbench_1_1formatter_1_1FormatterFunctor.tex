@@ -1,0 +1,54 @@
+\hypertarget{classit_1_1testbench_1_1formatter_1_1FormatterFunctor}{\section{it\-:\-:testbench\-:\-:formatter\-:\-:Formatter\-Functor Class Reference}
+\label{d3/dc1/classit_1_1testbench_1_1formatter_1_1FormatterFunctor}\index{it\-::testbench\-::formatter\-::\-Formatter\-Functor@{it\-::testbench\-::formatter\-::\-Formatter\-Functor}}
+}
+
+
+{\ttfamily \#include $<$formatter\-\_\-functor.\-h$>$}
+
+
+
+Inheritance diagram for it\-:\-:testbench\-:\-:formatter\-:\-:Formatter\-Functor\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{de/d2d/classit_1_1testbench_1_1formatter_1_1FormatterFunctor__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1formatter_1_1FormatterFunctor_a37bda4de0839c23a0b406d898cf435c3}{format} (\hyperlink{classit_1_1testbench_1_1data_1_1Report}{Report} $\ast$report)=0  throw (\-Test\-Framework\-Exception)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base abstract class \hyperlink{classit_1_1testbench_1_1formatter_1_1FormatterFunctor}{Formatter\-Functor} that provides just one method to format Reports. Its specializations shall implement a particular format and be aimed at a particular output device (console or file). 
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1formatter_1_1FormatterFunctor_a37bda4de0839c23a0b406d898cf435c3}{\index{it\-::testbench\-::formatter\-::\-Formatter\-Functor@{it\-::testbench\-::formatter\-::\-Formatter\-Functor}!format@{format}}
+\index{format@{format}!it::testbench::formatter::FormatterFunctor@{it\-::testbench\-::formatter\-::\-Formatter\-Functor}}
+\subsubsection[{format}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Return\-Code} it\-::testbench\-::formatter\-::\-Formatter\-Functor\-::format (
+\begin{DoxyParamCaption}
+\item[{{\bf Report} $\ast$}]{report}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{d3/dc1/classit_1_1testbench_1_1formatter_1_1FormatterFunctor_a37bda4de0839c23a0b406d898cf435c3}
+Format a report
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em A} & report to format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return code describing the outcome of the operationformat report 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classit_1_1testbench_1_1formatter_1_1JsonFunctor_a1f05866bc07e491d920c7c38e3ff6682}{it\-::testbench\-::formatter\-::\-Json\-Functor}, \hyperlink{classit_1_1testbench_1_1formatter_1_1XmlFunctor_acbb02d9ff51defbc6993c0388c54cd6e}{it\-::testbench\-::formatter\-::\-Xml\-Functor}, \hyperlink{classit_1_1testbench_1_1formatter_1_1CsvFunctor_a9036afde43ce2038a0a19bfcb96e89f5}{it\-::testbench\-::formatter\-::\-Csv\-Functor}, \hyperlink{classit_1_1testbench_1_1formatter_1_1TxtFunctor_ad172e2a419acff495920555b83a274a9}{it\-::testbench\-::formatter\-::\-Txt\-Functor}, and \hyperlink{classit_1_1testbench_1_1formatter_1_1ConsoleFunctor_ab61212bcbf0fd24147484fbdb89bcd24}{it\-::testbench\-::formatter\-::\-Console\-Functor}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{formatter__functor_8h}{formatter\-\_\-functor.\-h}\end{DoxyCompactItemize}

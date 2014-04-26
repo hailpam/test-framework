@@ -1,0 +1,90 @@
+\hypertarget{inc_2json_2value_8h}{\section{value.\-h File Reference}
+\label{db/d09/inc_2json_2value_8h}\index{value.\-h@{value.\-h}}
+}
+{\ttfamily \#include \char`\"{}forwards.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$map$>$}\\*
+Include dependency graph for inc/json/value.h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{d1/d17/inc_2json_2value_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{d4/dec/inc_2json_2value_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classJson_1_1StaticString}{Json\-::\-Static\-String}
+\begin{DoxyCompactList}\small\item\em Lightweight wrapper to tag static string. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1Value}{Json\-::\-Value}
+\begin{DoxyCompactList}\small\item\em Represents a \href{http://www.json.org}{\tt J\-S\-O\-N} value. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1Value_1_1CZString}{Json\-::\-Value\-::\-C\-Z\-String}
+\item 
+struct \hyperlink{structJson_1_1Value_1_1CommentInfo}{Json\-::\-Value\-::\-Comment\-Info}
+\item 
+union \hyperlink{unionJson_1_1Value_1_1ValueHolder}{Json\-::\-Value\-::\-Value\-Holder}
+\item 
+class \hyperlink{classJson_1_1PathArgument}{Json\-::\-Path\-Argument}
+\begin{DoxyCompactList}\small\item\em Experimental and untested\-: represents an element of the \char`\"{}path\char`\"{} to access a node. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1Path}{Json\-::\-Path}
+\begin{DoxyCompactList}\small\item\em Experimental and untested\-: represents a \char`\"{}path\char`\"{} to access a node. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1ValueAllocator}{Json\-::\-Value\-Allocator}
+\begin{DoxyCompactList}\small\item\em Experimental do not use\-: Allocator to customize member name and string value memory management done by \hyperlink{classJson_1_1Value}{Value}. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1ValueIteratorBase}{Json\-::\-Value\-Iterator\-Base}
+\begin{DoxyCompactList}\small\item\em base class for \hyperlink{classJson_1_1Value}{Value} iterators. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1ValueConstIterator}{Json\-::\-Value\-Const\-Iterator}
+\begin{DoxyCompactList}\small\item\em const iterator for object and array value. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1ValueIterator}{Json\-::\-Value\-Iterator}
+\begin{DoxyCompactList}\small\item\em Iterator for object and array value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespaceJson}{Json}
+\begin{DoxyCompactList}\small\item\em J\-S\-O\-N (Java\-Script Object Notation). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4e}{Json\-::\-Value\-Type} \{ \\*
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea99922f3ccd58446e80e6055a7119b640}{Json\-::null\-Value} = 0, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea4855d2a19dcefbd60f49f529dfad8941}{Json\-::int\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4eada2011b7373e8847770afe4d20d9390a}{Json\-::uint\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea490e707ae253ccde7c901590416d08be}{Json\-::real\-Value}, 
+\\*
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea8376d6395b33f22c7ec18b3fa016bb1c}{Json\-::string\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea36cbd8ff0078df0156c8efc0b2aee919}{Json\-::boolean\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4eaa3025bfd271ef0b0c7c030c9118f8be7}{Json\-::array\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea6ca35c0a30ea3d1b8ec95c2d1e41a1a8}{Json\-::object\-Value}, 
+\\*
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea99922f3ccd58446e80e6055a7119b640}{Json\-::null\-Value} = 0, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea4855d2a19dcefbd60f49f529dfad8941}{Json\-::int\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4eada2011b7373e8847770afe4d20d9390a}{Json\-::uint\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea490e707ae253ccde7c901590416d08be}{Json\-::real\-Value}, 
+\\*
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea8376d6395b33f22c7ec18b3fa016bb1c}{Json\-::string\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea36cbd8ff0078df0156c8efc0b2aee919}{Json\-::boolean\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4eaa3025bfd271ef0b0c7c030c9118f8be7}{Json\-::array\-Value}, 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea6ca35c0a30ea3d1b8ec95c2d1e41a1a8}{Json\-::object\-Value}
+ \}
+\begin{DoxyCompactList}\small\item\em Type of the value held by a Value object. \end{DoxyCompactList}\item 
+enum \hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351}{Json\-::\-Comment\-Placement} \{ \\*
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a905a40030122d5eae76adad4d754856c}{Json\-::comment\-Before} = 0, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a9683052ec0f29ecb3c0eb65c90d54849}{Json\-::comment\-After\-On\-Same\-Line}, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a845090604f098147b393b79ba0ec8cae}{Json\-::comment\-After}, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a965a468bcc29e6c2194fe8f06aa81ddf}{Json\-::number\-Of\-Comment\-Placement}, 
+\\*
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a905a40030122d5eae76adad4d754856c}{Json\-::comment\-Before} = 0, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a9683052ec0f29ecb3c0eb65c90d54849}{Json\-::comment\-After\-On\-Same\-Line}, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a845090604f098147b393b79ba0ec8cae}{Json\-::comment\-After}, 
+\hyperlink{namespaceJson_a4fc417c23905b2ae9e2c47d197a45351a965a468bcc29e6c2194fe8f06aa81ddf}{Json\-::number\-Of\-Comment\-Placement}
+ \}
+\end{DoxyCompactItemize}

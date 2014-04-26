@@ -1,0 +1,246 @@
+\hypertarget{classit_1_1testbench_1_1rte_1_1RuntimeEngine}{\section{it\-:\-:testbench\-:\-:rte\-:\-:Runtime\-Engine Class Reference}
+\label{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine}\index{it\-::testbench\-::rte\-::\-Runtime\-Engine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}}
+}
+
+
+{\ttfamily \#include $<$rte.\-h$>$}
+
+
+
+Inheritance diagram for it\-:\-:testbench\-:\-:rte\-:\-:Runtime\-Engine\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{db/d26/classit_1_1testbench_1_1rte_1_1RuntimeEngine__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for it\-:\-:testbench\-:\-:rte\-:\-:Runtime\-Engine\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/dab/classit_1_1testbench_1_1rte_1_1RuntimeEngine__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a271ee0cebed5c58a6d6c4dcbdbdd0a3f}{Runtime\-Engine} ()
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1RuntimeEngine_ae21943cce382b49d76f010b23b87593f}{$\sim$\-Runtime\-Engine} ()
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a9ef8538eeb35100b8233ce63b5c66e52}{init\-Engine} (const unsigned int nr\-Of\-Workers)
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a4e0ac12a42708075cf2c6ff7252e3cf2}{destroy\-Engine} ()
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a608adae95c08fd4f2768aaab5a1e7379}{launch\-Test\-Plan} (const \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration}{Test\-Bench\-Configuration} $\ast$tb\-Cfg, const string \&t\-Plan\-Id)  throw (\-Test\-Framework\-Exception)
+\item 
+const int \& \hyperlink{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a9afa1689d2cdae48dfcf8120afdc5092}{actual\-Pool\-Size} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a9e1aaf1a127ea1f9242a4c67acbe70df}{notify} (\hyperlink{classit_1_1testbench_1_1data_1_1Report}{Report} $\ast$report)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue}{Synchronized\-Queue}$<$ \hyperlink{classit_1_1testbench_1_1rte_1_1Job}{Job} $\ast$ $>$ $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1RuntimeEngine_ad56ac5fbd42f255b23c1cac3104c454a}{job\-Queue}
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1SynchronizedQueue}{Synchronized\-Queue}$<$ \hyperlink{classit_1_1testbench_1_1data_1_1Report}{Report} $\ast$ $>$ $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1RuntimeEngine_aade3dfdae545b1bffdac3b2f2b82d1a9}{report\-Queue}
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer}{Job\-Producer} $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a4b4fdfac0c22969d1041c0a7b6cb11dc}{job\-Prod}
+\item 
+list$<$ \hyperlink{classit_1_1testbench_1_1rte_1_1JobConsumer}{Job\-Consumer} $\ast$ $>$ $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a646520c7c1673cd9ddc86a27c19f161f}{job\-Cons}
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1ReportConsumer}{Report\-Consumer} $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1RuntimeEngine_ab909a196ca42077e83c532959ec15850}{rep\-Cons}
+\item 
+int \hyperlink{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a5e3a4289803ed9c4336285b170259c10}{pool\-Size}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classit_1_1testbench_1_1rte_1_1RuntimeEngine}{Runtime\-Engine} class aims at defining the A\-P\-Is to provide access to the core engine capabilities.
+
+It acts as a façade wrapping in simple but effective A\-P\-Is the asynchronous processing capabilities offered by the core engine behind it.
+
+It implements the half sync-\/async pattern to provide synchronous A\-P\-Is to the clients, and hiding the asynchronous processing logic offered by the engine.
+
+It acts as Subject for entities interested in notifications meanwhile a test plan is under execution. Moreover, itself acts as Observer of report consumer thread to collect the notifications of the running test plan.
+
+It implements the \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} Pool pattern, detaching and managing a pool of worker threads. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a271ee0cebed5c58a6d6c4dcbdbdd0a3f}{\index{it\-::testbench\-::rte\-::\-Runtime\-Engine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}!Runtime\-Engine@{Runtime\-Engine}}
+\index{Runtime\-Engine@{Runtime\-Engine}!it::testbench::rte::RuntimeEngine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}}
+\subsubsection[{Runtime\-Engine}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::rte\-::\-Runtime\-Engine\-::\-Runtime\-Engine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_a271ee0cebed5c58a6d6c4dcbdbdd0a3f}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_a271ee0cebed5c58a6d6c4dcbdbdd0a3f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1rte_1_1RuntimeEngine_ae21943cce382b49d76f010b23b87593f}{\index{it\-::testbench\-::rte\-::\-Runtime\-Engine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}!$\sim$\-Runtime\-Engine@{$\sim$\-Runtime\-Engine}}
+\index{$\sim$\-Runtime\-Engine@{$\sim$\-Runtime\-Engine}!it::testbench::rte::RuntimeEngine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}}
+\subsubsection[{$\sim$\-Runtime\-Engine}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::rte\-::\-Runtime\-Engine\-::$\sim$\-Runtime\-Engine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_ae21943cce382b49d76f010b23b87593f}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a9afa1689d2cdae48dfcf8120afdc5092}{\index{it\-::testbench\-::rte\-::\-Runtime\-Engine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}!actual\-Pool\-Size@{actual\-Pool\-Size}}
+\index{actual\-Pool\-Size@{actual\-Pool\-Size}!it::testbench::rte::RuntimeEngine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}}
+\subsubsection[{actual\-Pool\-Size}]{\setlength{\rightskip}{0pt plus 5cm}const int \& it\-::testbench\-::rte\-::\-Runtime\-Engine\-::actual\-Pool\-Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_a9afa1689d2cdae48dfcf8120afdc5092}
+Provide the caller with the actual worker pool size.
+
+\begin{DoxyReturn}{Returns}
+Actual pool size, as set up on initializationreturn the actual worker pool size 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a4e0ac12a42708075cf2c6ff7252e3cf2}{\index{it\-::testbench\-::rte\-::\-Runtime\-Engine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}!destroy\-Engine@{destroy\-Engine}}
+\index{destroy\-Engine@{destroy\-Engine}!it::testbench::rte::RuntimeEngine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}}
+\subsubsection[{destroy\-Engine}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} $\ast$ it\-::testbench\-::rte\-::\-Runtime\-Engine\-::destroy\-Engine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_a4e0ac12a42708075cf2c6ff7252e3cf2}
+Destroy the core engine. All threads shall be destroyed, so afterwards no more Test Plan may be run.
+
+\begin{DoxyReturn}{Returns}
+Pointer to a return code object containing the call outcomedestroy the engine 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a9ef8538eeb35100b8233ce63b5c66e52}{\index{it\-::testbench\-::rte\-::\-Runtime\-Engine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}!init\-Engine@{init\-Engine}}
+\index{init\-Engine@{init\-Engine}!it::testbench::rte::RuntimeEngine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}}
+\subsubsection[{init\-Engine}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} $\ast$ it\-::testbench\-::rte\-::\-Runtime\-Engine\-::init\-Engine (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{nr\-Of\-Workers}
+\end{DoxyParamCaption}
+)}}\label{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_a9ef8538eeb35100b8233ce63b5c66e52}
+Init the core engine. Prior this call, it is not possible to run any Test Plan.
+
+\begin{DoxyReturn}{Returns}
+Pointer to a return code object containing the call outcomeinitialize the engine 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_a9ef8538eeb35100b8233ce63b5c66e52_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a608adae95c08fd4f2768aaab5a1e7379}{\index{it\-::testbench\-::rte\-::\-Runtime\-Engine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}!launch\-Test\-Plan@{launch\-Test\-Plan}}
+\index{launch\-Test\-Plan@{launch\-Test\-Plan}!it::testbench::rte::RuntimeEngine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}}
+\subsubsection[{launch\-Test\-Plan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} $\ast$ it\-::testbench\-::rte\-::\-Runtime\-Engine\-::launch\-Test\-Plan (
+\begin{DoxyParamCaption}
+\item[{const {\bf Test\-Bench\-Configuration} $\ast$}]{tb\-Cfg, }
+\item[{const string \&}]{t\-Plan\-Id}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})}}\label{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_a608adae95c08fd4f2768aaab5a1e7379}
+Let interested entities to subscribe for report notification.
+
+\begin{DoxyReturn}{Returns}
+Pointer to a return code object containing the call outcome Given the input Test Plan, a call to this method allow to launch such Test Plan in the core engine and to collect the outcomes as many report notifications.
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a Testbench configuration file storing the needed information \\
+\hline
+\mbox{\tt in}  & {\em Reference} & to Test Plan Id (unique identifier for a Test Plan) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a return code object containing the call outcomea sort of command, allow to executed a new test plan 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_a608adae95c08fd4f2768aaab5a1e7379_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a9e1aaf1a127ea1f9242a4c67acbe70df}{\index{it\-::testbench\-::rte\-::\-Runtime\-Engine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}!notify@{notify}}
+\index{notify@{notify}!it::testbench::rte::RuntimeEngine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}}
+\subsubsection[{notify}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::rte\-::\-Runtime\-Engine\-::notify (
+\begin{DoxyParamCaption}
+\item[{{\bf Report} $\ast$}]{report}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_a9e1aaf1a127ea1f9242a4c67acbe70df}
+Notification call. Every time a new Report is ready to be delivered, the notification consumer call this method to notify the engine.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a Report objectreport consumer notifies using this callback \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classit_1_1testbench_1_1data_1_1Observer_a6658bb092e485bfe9edb7a9f27685a27}{it\-::testbench\-::data\-::\-Observer}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_a9e1aaf1a127ea1f9242a4c67acbe70df_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a646520c7c1673cd9ddc86a27c19f161f}{\index{it\-::testbench\-::rte\-::\-Runtime\-Engine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}!job\-Cons@{job\-Cons}}
+\index{job\-Cons@{job\-Cons}!it::testbench::rte::RuntimeEngine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}}
+\subsubsection[{job\-Cons}]{\setlength{\rightskip}{0pt plus 5cm}list$<${\bf Job\-Consumer}$\ast$$>$$\ast$ it\-::testbench\-::rte\-::\-Runtime\-Engine\-::job\-Cons\hspace{0.3cm}{\ttfamily [private]}}}\label{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_a646520c7c1673cd9ddc86a27c19f161f}
+job consumer thread \hypertarget{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a4b4fdfac0c22969d1041c0a7b6cb11dc}{\index{it\-::testbench\-::rte\-::\-Runtime\-Engine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}!job\-Prod@{job\-Prod}}
+\index{job\-Prod@{job\-Prod}!it::testbench::rte::RuntimeEngine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}}
+\subsubsection[{job\-Prod}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Job\-Producer}$\ast$ it\-::testbench\-::rte\-::\-Runtime\-Engine\-::job\-Prod\hspace{0.3cm}{\ttfamily [private]}}}\label{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_a4b4fdfac0c22969d1041c0a7b6cb11dc}
+job producer thread \hypertarget{classit_1_1testbench_1_1rte_1_1RuntimeEngine_ad56ac5fbd42f255b23c1cac3104c454a}{\index{it\-::testbench\-::rte\-::\-Runtime\-Engine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}!job\-Queue@{job\-Queue}}
+\index{job\-Queue@{job\-Queue}!it::testbench::rte::RuntimeEngine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}}
+\subsubsection[{job\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Synchronized\-Queue}$<${\bf Job}$\ast$$>$$\ast$ it\-::testbench\-::rte\-::\-Runtime\-Engine\-::job\-Queue\hspace{0.3cm}{\ttfamily [private]}}}\label{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_ad56ac5fbd42f255b23c1cac3104c454a}
+job queue, job producer and consumers use this queue \hypertarget{classit_1_1testbench_1_1rte_1_1RuntimeEngine_a5e3a4289803ed9c4336285b170259c10}{\index{it\-::testbench\-::rte\-::\-Runtime\-Engine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}!pool\-Size@{pool\-Size}}
+\index{pool\-Size@{pool\-Size}!it::testbench::rte::RuntimeEngine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}}
+\subsubsection[{pool\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int it\-::testbench\-::rte\-::\-Runtime\-Engine\-::pool\-Size\hspace{0.3cm}{\ttfamily [private]}}}\label{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_a5e3a4289803ed9c4336285b170259c10}
+worker thread pool size \hypertarget{classit_1_1testbench_1_1rte_1_1RuntimeEngine_ab909a196ca42077e83c532959ec15850}{\index{it\-::testbench\-::rte\-::\-Runtime\-Engine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}!rep\-Cons@{rep\-Cons}}
+\index{rep\-Cons@{rep\-Cons}!it::testbench::rte::RuntimeEngine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}}
+\subsubsection[{rep\-Cons}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Report\-Consumer}$\ast$ it\-::testbench\-::rte\-::\-Runtime\-Engine\-::rep\-Cons\hspace{0.3cm}{\ttfamily [private]}}}\label{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_ab909a196ca42077e83c532959ec15850}
+report consumer thread \hypertarget{classit_1_1testbench_1_1rte_1_1RuntimeEngine_aade3dfdae545b1bffdac3b2f2b82d1a9}{\index{it\-::testbench\-::rte\-::\-Runtime\-Engine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}!report\-Queue@{report\-Queue}}
+\index{report\-Queue@{report\-Queue}!it::testbench::rte::RuntimeEngine@{it\-::testbench\-::rte\-::\-Runtime\-Engine}}
+\subsubsection[{report\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Synchronized\-Queue}$<${\bf Report}$\ast$$>$$\ast$ it\-::testbench\-::rte\-::\-Runtime\-Engine\-::report\-Queue\hspace{0.3cm}{\ttfamily [private]}}}\label{d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine_aade3dfdae545b1bffdac3b2f2b82d1a9}
+report queue, report producer (job consumer) and consumer use this queue 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{rte_8h}{rte.\-h}\item 
+\hyperlink{rte_8cpp}{rte.\-cpp}\end{DoxyCompactItemize}

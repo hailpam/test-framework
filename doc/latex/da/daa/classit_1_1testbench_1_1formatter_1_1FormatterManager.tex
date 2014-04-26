@@ -1,0 +1,107 @@
+\hypertarget{classit_1_1testbench_1_1formatter_1_1FormatterManager}{\section{it\-:\-:testbench\-:\-:formatter\-:\-:Formatter\-Manager Class Reference}
+\label{da/daa/classit_1_1testbench_1_1formatter_1_1FormatterManager}\index{it\-::testbench\-::formatter\-::\-Formatter\-Manager@{it\-::testbench\-::formatter\-::\-Formatter\-Manager}}
+}
+
+
+{\ttfamily \#include $<$formatter\-\_\-manager.\-h$>$}
+
+
+
+Collaboration diagram for it\-:\-:testbench\-:\-:formatter\-:\-:Formatter\-Manager\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{db/d32/classit_1_1testbench_1_1formatter_1_1FormatterManager__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1formatter_1_1FormatterManager_ae1eff4c36299f8f735786b0d8e9bf555}{Formatter\-Manager} ()
+\item 
+\hyperlink{classit_1_1testbench_1_1formatter_1_1FormatterManager_a9ca0354d66131a7c13766b1920411413}{$\sim$\-Formatter\-Manager} ()
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1formatter_1_1FormatterManager_a33569faa88b77304724dee5e7527e4cb}{format\-For\-Console} (\hyperlink{classit_1_1testbench_1_1data_1_1Report}{Report} $\ast$report)  throw (\-Test\-Framework\-Exception)
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1formatter_1_1FormatterManager_a5457654ded3f27226b4d23735b612901}{format\-For\-File} (\hyperlink{classit_1_1testbench_1_1data_1_1Report}{Report} $\ast$report)  throw (\-Test\-Framework\-Exception)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+map$<$ string, \hyperlink{classit_1_1testbench_1_1formatter_1_1FormatterFunctor}{Formatter\-Functor} $\ast$ $>$ \hyperlink{classit_1_1testbench_1_1formatter_1_1FormatterManager_abd0281f3608746fb1f324154526c87e7}{fmt\-Functor}
+\item 
+\hyperlink{classit_1_1testbench_1_1formatter_1_1ConsoleFunctor}{Console\-Functor} $\ast$ \hyperlink{classit_1_1testbench_1_1formatter_1_1FormatterManager_a47578a7455b65cfaa1ab3c42df2c7c84}{csl\-Functor}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Facade of the Formatter package to offer formatting functionalities to \hyperlink{classTCWorker}{T\-C\-Worker} threads (or possibly any other entity in the system) to make Report objects ready for output 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1formatter_1_1FormatterManager_ae1eff4c36299f8f735786b0d8e9bf555}{\index{it\-::testbench\-::formatter\-::\-Formatter\-Manager@{it\-::testbench\-::formatter\-::\-Formatter\-Manager}!Formatter\-Manager@{Formatter\-Manager}}
+\index{Formatter\-Manager@{Formatter\-Manager}!it::testbench::formatter::FormatterManager@{it\-::testbench\-::formatter\-::\-Formatter\-Manager}}
+\subsubsection[{Formatter\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::formatter\-::\-Formatter\-Manager\-::\-Formatter\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{da/daa/classit_1_1testbench_1_1formatter_1_1FormatterManager_ae1eff4c36299f8f735786b0d8e9bf555}
+\hypertarget{classit_1_1testbench_1_1formatter_1_1FormatterManager_a9ca0354d66131a7c13766b1920411413}{\index{it\-::testbench\-::formatter\-::\-Formatter\-Manager@{it\-::testbench\-::formatter\-::\-Formatter\-Manager}!$\sim$\-Formatter\-Manager@{$\sim$\-Formatter\-Manager}}
+\index{$\sim$\-Formatter\-Manager@{$\sim$\-Formatter\-Manager}!it::testbench::formatter::FormatterManager@{it\-::testbench\-::formatter\-::\-Formatter\-Manager}}
+\subsubsection[{$\sim$\-Formatter\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::formatter\-::\-Formatter\-Manager\-::$\sim$\-Formatter\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{da/daa/classit_1_1testbench_1_1formatter_1_1FormatterManager_a9ca0354d66131a7c13766b1920411413}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1formatter_1_1FormatterManager_a33569faa88b77304724dee5e7527e4cb}{\index{it\-::testbench\-::formatter\-::\-Formatter\-Manager@{it\-::testbench\-::formatter\-::\-Formatter\-Manager}!format\-For\-Console@{format\-For\-Console}}
+\index{format\-For\-Console@{format\-For\-Console}!it::testbench::formatter::FormatterManager@{it\-::testbench\-::formatter\-::\-Formatter\-Manager}}
+\subsubsection[{format\-For\-Console}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::formatter\-::\-Formatter\-Manager\-::format\-For\-Console (
+\begin{DoxyParamCaption}
+\item[{{\bf Report} $\ast$}]{report}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})}}\label{da/daa/classit_1_1testbench_1_1formatter_1_1FormatterManager_a33569faa88b77304724dee5e7527e4cb}
+Reads configuration from the report and formats it for console output
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em Report} & to format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return code describing the outcome of the operation 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1formatter_1_1FormatterManager_a5457654ded3f27226b4d23735b612901}{\index{it\-::testbench\-::formatter\-::\-Formatter\-Manager@{it\-::testbench\-::formatter\-::\-Formatter\-Manager}!format\-For\-File@{format\-For\-File}}
+\index{format\-For\-File@{format\-For\-File}!it::testbench::formatter::FormatterManager@{it\-::testbench\-::formatter\-::\-Formatter\-Manager}}
+\subsubsection[{format\-For\-File}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::formatter\-::\-Formatter\-Manager\-::format\-For\-File (
+\begin{DoxyParamCaption}
+\item[{{\bf Report} $\ast$}]{report}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})}}\label{da/daa/classit_1_1testbench_1_1formatter_1_1FormatterManager_a5457654ded3f27226b4d23735b612901}
+Reads configuration from the report and formats it for file output
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em Report} & to format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return code describing the outcome of the operation 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1formatter_1_1FormatterManager_a47578a7455b65cfaa1ab3c42df2c7c84}{\index{it\-::testbench\-::formatter\-::\-Formatter\-Manager@{it\-::testbench\-::formatter\-::\-Formatter\-Manager}!csl\-Functor@{csl\-Functor}}
+\index{csl\-Functor@{csl\-Functor}!it::testbench::formatter::FormatterManager@{it\-::testbench\-::formatter\-::\-Formatter\-Manager}}
+\subsubsection[{csl\-Functor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Console\-Functor}$\ast$ it\-::testbench\-::formatter\-::\-Formatter\-Manager\-::csl\-Functor\hspace{0.3cm}{\ttfamily [private]}}}\label{da/daa/classit_1_1testbench_1_1formatter_1_1FormatterManager_a47578a7455b65cfaa1ab3c42df2c7c84}
+formatter for console output \hypertarget{classit_1_1testbench_1_1formatter_1_1FormatterManager_abd0281f3608746fb1f324154526c87e7}{\index{it\-::testbench\-::formatter\-::\-Formatter\-Manager@{it\-::testbench\-::formatter\-::\-Formatter\-Manager}!fmt\-Functor@{fmt\-Functor}}
+\index{fmt\-Functor@{fmt\-Functor}!it::testbench::formatter::FormatterManager@{it\-::testbench\-::formatter\-::\-Formatter\-Manager}}
+\subsubsection[{fmt\-Functor}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, {\bf Formatter\-Functor}$\ast$$>$ it\-::testbench\-::formatter\-::\-Formatter\-Manager\-::fmt\-Functor\hspace{0.3cm}{\ttfamily [private]}}}\label{da/daa/classit_1_1testbench_1_1formatter_1_1FormatterManager_abd0281f3608746fb1f324154526c87e7}
+hashmap of available format functors for file output 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{formatter__manager_8h}{formatter\-\_\-manager.\-h}\item 
+\hyperlink{formatter__manager_8cpp}{formatter\-\_\-manager.\-cpp}\end{DoxyCompactItemize}

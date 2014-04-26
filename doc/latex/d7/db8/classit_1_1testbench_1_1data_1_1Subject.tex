@@ -1,0 +1,195 @@
+\hypertarget{classit_1_1testbench_1_1data_1_1Subject}{\section{it\-:\-:testbench\-:\-:data\-:\-:Subject Class Reference}
+\label{d7/db8/classit_1_1testbench_1_1data_1_1Subject}\index{it\-::testbench\-::data\-::\-Subject@{it\-::testbench\-::data\-::\-Subject}}
+}
+
+
+{\ttfamily \#include $<$observer.\-h$>$}
+
+
+
+Inheritance diagram for it\-:\-:testbench\-:\-:data\-:\-:Subject\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{dc/dfc/classit_1_1testbench_1_1data_1_1Subject__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1Subject_a71340cc0d556f600ae754c79704c49fe}{Subject} ()
+\begin{DoxyCompactList}\small\item\em S\-U\-B\-J\-E\-C\-T. \end{DoxyCompactList}\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1Subject_a8f5761379c56c57fcded140bfd795535}{$\sim$\-Subject} ()
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1data_1_1Subject_aed20252fb082edec1b278dbc4f5b9bc0}{add\-Observer} (\hyperlink{classit_1_1testbench_1_1data_1_1Observer}{Observer} $\ast$obs)
+\begin{DoxyCompactList}\small\item\em basic behaviour\-: add an observer \end{DoxyCompactList}\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1data_1_1Subject_aa2709fa7a534baab9515118e2735bd6d}{remove\-Observer} (const string \&identifier)
+\begin{DoxyCompactList}\small\item\em basic behaviour\-: remove an observer by Id \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1data_1_1Subject_a207cb996752bcf4af2d9ed721d85f07c}{notify\-Observers} (\hyperlink{classit_1_1testbench_1_1data_1_1Report}{Report} $\ast$report)
+\begin{DoxyCompactList}\small\item\em notify all observers \end{DoxyCompactList}\item 
+const unsigned int \& \hyperlink{classit_1_1testbench_1_1data_1_1Subject_a98644ffd18ffb564a3459cd050114bef}{actual\-Nr\-Of\-Observers} ()
+\begin{DoxyCompactList}\small\item\em notify all observers \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+map$<$ string, \hyperlink{classit_1_1testbench_1_1data_1_1Observer}{Observer} $\ast$ $>$ \hyperlink{classit_1_1testbench_1_1data_1_1Subject_aa39fb7d11c7336c09eb7df8c29700da6}{obs\-Entities}
+\item 
+map$<$ string, \hyperlink{classit_1_1testbench_1_1data_1_1Observer}{Observer} $\ast$ $>$\-::iterator \hyperlink{classit_1_1testbench_1_1data_1_1Subject_aeaf7e15b328c3e389a3ef08d3aa378da}{map\-Itr}
+\item 
+unsigned int \hyperlink{classit_1_1testbench_1_1data_1_1Subject_a68eac3643bebb743398daf5ec0feca19}{nr\-Of\-Observers}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classit_1_1testbench_1_1data_1_1Subject}{Subject} Data Type\-: 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1Subject_a71340cc0d556f600ae754c79704c49fe}{\index{it\-::testbench\-::data\-::\-Subject@{it\-::testbench\-::data\-::\-Subject}!Subject@{Subject}}
+\index{Subject@{Subject}!it::testbench::data::Subject@{it\-::testbench\-::data\-::\-Subject}}
+\subsubsection[{Subject}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::data\-::\-Subject\-::\-Subject (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d7/db8/classit_1_1testbench_1_1data_1_1Subject_a71340cc0d556f600ae754c79704c49fe}
+
+
+S\-U\-B\-J\-E\-C\-T. 
+
+\hypertarget{classit_1_1testbench_1_1data_1_1Subject_a8f5761379c56c57fcded140bfd795535}{\index{it\-::testbench\-::data\-::\-Subject@{it\-::testbench\-::data\-::\-Subject}!$\sim$\-Subject@{$\sim$\-Subject}}
+\index{$\sim$\-Subject@{$\sim$\-Subject}!it::testbench::data::Subject@{it\-::testbench\-::data\-::\-Subject}}
+\subsubsection[{$\sim$\-Subject}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::data\-::\-Subject\-::$\sim$\-Subject (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d7/db8/classit_1_1testbench_1_1data_1_1Subject_a8f5761379c56c57fcded140bfd795535}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1Subject_a98644ffd18ffb564a3459cd050114bef}{\index{it\-::testbench\-::data\-::\-Subject@{it\-::testbench\-::data\-::\-Subject}!actual\-Nr\-Of\-Observers@{actual\-Nr\-Of\-Observers}}
+\index{actual\-Nr\-Of\-Observers@{actual\-Nr\-Of\-Observers}!it::testbench::data::Subject@{it\-::testbench\-::data\-::\-Subject}}
+\subsubsection[{actual\-Nr\-Of\-Observers}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& it\-::testbench\-::data\-::\-Subject\-::actual\-Nr\-Of\-Observers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d7/db8/classit_1_1testbench_1_1data_1_1Subject_a98644ffd18ffb564a3459cd050114bef}
+
+
+notify all observers 
+
+Return the actual number of registered observers
+
+\begin{DoxyReturn}{Returns}
+Number of registered observers 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1data_1_1Subject_aed20252fb082edec1b278dbc4f5b9bc0}{\index{it\-::testbench\-::data\-::\-Subject@{it\-::testbench\-::data\-::\-Subject}!add\-Observer@{add\-Observer}}
+\index{add\-Observer@{add\-Observer}!it::testbench::data::Subject@{it\-::testbench\-::data\-::\-Subject}}
+\subsubsection[{add\-Observer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::data\-::\-Subject\-::add\-Observer (
+\begin{DoxyParamCaption}
+\item[{{\bf Observer} $\ast$}]{obs}
+\end{DoxyParamCaption}
+)}}\label{d7/db8/classit_1_1testbench_1_1data_1_1Subject_aed20252fb082edec1b278dbc4f5b9bc0}
+
+
+basic behaviour\-: add an observer 
+
+Add a new interested entities
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a specific \hyperlink{classit_1_1testbench_1_1data_1_1Observer}{Observer} entity. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/db8/classit_1_1testbench_1_1data_1_1Subject_aed20252fb082edec1b278dbc4f5b9bc0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1Subject_a207cb996752bcf4af2d9ed721d85f07c}{\index{it\-::testbench\-::data\-::\-Subject@{it\-::testbench\-::data\-::\-Subject}!notify\-Observers@{notify\-Observers}}
+\index{notify\-Observers@{notify\-Observers}!it::testbench::data::Subject@{it\-::testbench\-::data\-::\-Subject}}
+\subsubsection[{notify\-Observers}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::data\-::\-Subject\-::notify\-Observers (
+\begin{DoxyParamCaption}
+\item[{{\bf Report} $\ast$}]{report}
+\end{DoxyParamCaption}
+)}}\label{d7/db8/classit_1_1testbench_1_1data_1_1Subject_a207cb996752bcf4af2d9ed721d85f07c}
+
+
+notify all observers 
+
+Whenever new data ara available (in this specific case, new Reports) this method is called to asynchrnously notify all the subscribed observers
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a report generated by a test case execution. \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/db8/classit_1_1testbench_1_1data_1_1Subject_a207cb996752bcf4af2d9ed721d85f07c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/db8/classit_1_1testbench_1_1data_1_1Subject_a207cb996752bcf4af2d9ed721d85f07c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1Subject_aa2709fa7a534baab9515118e2735bd6d}{\index{it\-::testbench\-::data\-::\-Subject@{it\-::testbench\-::data\-::\-Subject}!remove\-Observer@{remove\-Observer}}
+\index{remove\-Observer@{remove\-Observer}!it::testbench::data::Subject@{it\-::testbench\-::data\-::\-Subject}}
+\subsubsection[{remove\-Observer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::data\-::\-Subject\-::remove\-Observer (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{identifier}
+\end{DoxyParamCaption}
+)}}\label{d7/db8/classit_1_1testbench_1_1data_1_1Subject_aa2709fa7a534baab9515118e2735bd6d}
+
+
+basic behaviour\-: remove an observer by Id 
+
+Remove an interested entity (by its own identifier)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Reference} & to a string containing the identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean value, true iff the \hyperlink{classit_1_1testbench_1_1data_1_1Observer}{Observer} exists and can be removed 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1Subject_aeaf7e15b328c3e389a3ef08d3aa378da}{\index{it\-::testbench\-::data\-::\-Subject@{it\-::testbench\-::data\-::\-Subject}!map\-Itr@{map\-Itr}}
+\index{map\-Itr@{map\-Itr}!it::testbench::data::Subject@{it\-::testbench\-::data\-::\-Subject}}
+\subsubsection[{map\-Itr}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, {\bf Observer}$\ast$$>$\-::iterator it\-::testbench\-::data\-::\-Subject\-::map\-Itr\hspace{0.3cm}{\ttfamily [protected]}}}\label{d7/db8/classit_1_1testbench_1_1data_1_1Subject_aeaf7e15b328c3e389a3ef08d3aa378da}
+iterator to the map of observer \hypertarget{classit_1_1testbench_1_1data_1_1Subject_a68eac3643bebb743398daf5ec0feca19}{\index{it\-::testbench\-::data\-::\-Subject@{it\-::testbench\-::data\-::\-Subject}!nr\-Of\-Observers@{nr\-Of\-Observers}}
+\index{nr\-Of\-Observers@{nr\-Of\-Observers}!it::testbench::data::Subject@{it\-::testbench\-::data\-::\-Subject}}
+\subsubsection[{nr\-Of\-Observers}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int it\-::testbench\-::data\-::\-Subject\-::nr\-Of\-Observers\hspace{0.3cm}{\ttfamily [protected]}}}\label{d7/db8/classit_1_1testbench_1_1data_1_1Subject_a68eac3643bebb743398daf5ec0feca19}
+counter of registered observers \hypertarget{classit_1_1testbench_1_1data_1_1Subject_aa39fb7d11c7336c09eb7df8c29700da6}{\index{it\-::testbench\-::data\-::\-Subject@{it\-::testbench\-::data\-::\-Subject}!obs\-Entities@{obs\-Entities}}
+\index{obs\-Entities@{obs\-Entities}!it::testbench::data::Subject@{it\-::testbench\-::data\-::\-Subject}}
+\subsubsection[{obs\-Entities}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, {\bf Observer}$\ast$$>$ it\-::testbench\-::data\-::\-Subject\-::obs\-Entities\hspace{0.3cm}{\ttfamily [protected]}}}\label{d7/db8/classit_1_1testbench_1_1data_1_1Subject_aa39fb7d11c7336c09eb7df8c29700da6}
+cached observers (interested entities) 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{observer_8h}{observer.\-h}\item 
+\hyperlink{observer_8cpp}{observer.\-cpp}\end{DoxyCompactItemize}

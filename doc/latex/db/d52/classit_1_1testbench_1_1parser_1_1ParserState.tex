@@ -1,0 +1,340 @@
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserState}{\section{it\-:\-:testbench\-:\-:parser\-:\-:Parser\-State Class Reference}
+\label{db/d52/classit_1_1testbench_1_1parser_1_1ParserState}\index{it\-::testbench\-::parser\-::\-Parser\-State@{it\-::testbench\-::parser\-::\-Parser\-State}}
+}
+
+
+{\ttfamily \#include $<$fsmparser.\-h$>$}
+
+
+
+Inheritance diagram for it\-:\-:testbench\-:\-:parser\-:\-:Parser\-State\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{d1/dd8/classit_1_1testbench_1_1parser_1_1ParserState__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1parser_1_1ParserState_aaf1f007449551a70735499fe303ae45e}{Parser\-State} ()
+\begin{DoxyCompactList}\small\item\em P\-A\-R\-S\-E\-R S\-T\-A\-T\-E. \end{DoxyCompactList}\item 
+virtual \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState_a47a1a7b4922b3ed1b6af237a6f9d61b6}{$\sim$\-Parser\-State} ()
+\item 
+\hyperlink{classit_1_1testbench_1_1parser_1_1ParserState}{Parser\-State} $\ast$ \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState_ae0cb9f5737ac335bac14466b7fddd641}{init} (\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$report)  throw (\-Test\-Framework\-Exception)
+\item 
+virtual \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState}{Parser\-State} $\ast$ \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState_a3ec7b3cd79f7725c702fd2b081e756de}{open} (const \hyperlink{structit_1_1testbench_1_1data_1_1Configuration}{Configuration} $\ast$cfg, string $\ast$cfg\-Stream, \hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$report)  throw (\-Test\-Framework\-Exception)
+\item 
+virtual \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState}{Parser\-State} $\ast$ \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState_a0ab282825d0fcfa537cdee099f59228e}{parse} (const string $\ast$loaded\-Cfg, \hyperlink{structit_1_1testbench_1_1data_1_1TestBench}{Test\-Bench} $\ast$res, \hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$report)  throw (\-Test\-Framework\-Exception)
+\item 
+virtual \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState}{Parser\-State} $\ast$ \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState_ae7f149551a8a7abce9dc3d6ffcdf684c}{validate} (const \hyperlink{structit_1_1testbench_1_1data_1_1TestBench}{Test\-Bench} $\ast$loaded\-Cfg, \hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$report)  throw (\-Test\-Framework\-Exception)
+\item 
+virtual \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState}{Parser\-State} $\ast$ \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState_ac484747e6178b71b937eec45265fb4a7}{reset} (\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$report)  throw (\-Test\-Framework\-Exception)
+\item 
+virtual \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState}{Parser\-State} $\ast$ \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState_a38dfe208d246a885006028870145f440}{error} (\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$report)  throw (\-Test\-Framework\-Exception)
+\item 
+bool \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState_a03b0e1fb6634738cb72f554cc8c12342}{is\-F\-S\-M\-Initialized} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState_a37ff06cea73b93936c08c364ceba28ca}{state\-Id}
+\item 
+bool \hyperlink{classit_1_1testbench_1_1parser_1_1ParserState_a352a009cc8f93cd7a8936b8b806b76df}{un\-Initialized}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classit_1_1testbench_1_1parser_1_1ParserState}{Parser\-State} defines the base Class for a proper state that can be traversed by the \hyperlink{classit_1_1testbench_1_1parser_1_1ParserManager}{Parser\-Manager}.
+
+The member funtions are properly redefined in derived class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserState_aaf1f007449551a70735499fe303ae45e}{\index{it\-::testbench\-::parser\-::\-Parser\-State@{it\-::testbench\-::parser\-::\-Parser\-State}!Parser\-State@{Parser\-State}}
+\index{Parser\-State@{Parser\-State}!it::testbench::parser::ParserState@{it\-::testbench\-::parser\-::\-Parser\-State}}
+\subsubsection[{Parser\-State}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::parser\-::\-Parser\-State\-::\-Parser\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_aaf1f007449551a70735499fe303ae45e}
+
+
+P\-A\-R\-S\-E\-R S\-T\-A\-T\-E. 
+
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserState_a47a1a7b4922b3ed1b6af237a6f9d61b6}{\index{it\-::testbench\-::parser\-::\-Parser\-State@{it\-::testbench\-::parser\-::\-Parser\-State}!$\sim$\-Parser\-State@{$\sim$\-Parser\-State}}
+\index{$\sim$\-Parser\-State@{$\sim$\-Parser\-State}!it::testbench::parser::ParserState@{it\-::testbench\-::parser\-::\-Parser\-State}}
+\subsubsection[{$\sim$\-Parser\-State}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::parser\-::\-Parser\-State\-::$\sim$\-Parser\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_a47a1a7b4922b3ed1b6af237a6f9d61b6}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserState_a38dfe208d246a885006028870145f440}{\index{it\-::testbench\-::parser\-::\-Parser\-State@{it\-::testbench\-::parser\-::\-Parser\-State}!error@{error}}
+\index{error@{error}!it::testbench::parser::ParserState@{it\-::testbench\-::parser\-::\-Parser\-State}}
+\subsubsection[{error}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Parser\-State} $\ast$ it\-::testbench\-::parser\-::\-Parser\-State\-::error (
+\begin{DoxyParamCaption}
+\item[{{\bf Return\-Code} $\ast$}]{report}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})\hspace{0.3cm}{\ttfamily [virtual]}}}\label{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_a38dfe208d246a885006028870145f440}
+Raised in case of processing error on caller-\/side\-: in any case the F\-S\-M but be forced to reset for an exceptional condition, this method should be triggered.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Test\-Framework\-Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em Return} & code, it allows to report the outcome of the processing to the caller\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the next statetreat an error condition\-: it is raised any time in the middle of the processing something wrong happens 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classit_1_1testbench_1_1parser_1_1ParserParsed_a13e123bb5d4ce40a94739253286aff84}{it\-::testbench\-::parser\-::\-Parser\-Parsed}, and \hyperlink{classit_1_1testbench_1_1parser_1_1ParserOpened_a0322e898a2a8df70f35104d75ff34489}{it\-::testbench\-::parser\-::\-Parser\-Opened}.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_a38dfe208d246a885006028870145f440_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserState_ae0cb9f5737ac335bac14466b7fddd641}{\index{it\-::testbench\-::parser\-::\-Parser\-State@{it\-::testbench\-::parser\-::\-Parser\-State}!init@{init}}
+\index{init@{init}!it::testbench::parser::ParserState@{it\-::testbench\-::parser\-::\-Parser\-State}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Parser\-State} $\ast$ it\-::testbench\-::parser\-::\-Parser\-State\-::init (
+\begin{DoxyParamCaption}
+\item[{{\bf Return\-Code} $\ast$}]{report}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})}}\label{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_ae0cb9f5737ac335bac14466b7fddd641}
+Initialization trigger for the F\-S\-M.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Test\-Framework\-Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em Return} & code, it allows to report the outcome of the processing to the caller\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return code data structureinitialization trigger 
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_ae0cb9f5737ac335bac14466b7fddd641_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserState_a03b0e1fb6634738cb72f554cc8c12342}{\index{it\-::testbench\-::parser\-::\-Parser\-State@{it\-::testbench\-::parser\-::\-Parser\-State}!is\-F\-S\-M\-Initialized@{is\-F\-S\-M\-Initialized}}
+\index{is\-F\-S\-M\-Initialized@{is\-F\-S\-M\-Initialized}!it::testbench::parser::ParserState@{it\-::testbench\-::parser\-::\-Parser\-State}}
+\subsubsection[{is\-F\-S\-M\-Initialized}]{\setlength{\rightskip}{0pt plus 5cm}bool it\-::testbench\-::parser\-::\-Parser\-State\-::is\-F\-S\-M\-Initialized (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_a03b0e1fb6634738cb72f554cc8c12342}
+Let the caller to discriminate whether or not the F\-S\-M is initialized.
+
+\begin{DoxyReturn}{Returns}
+Boolean value, it indicates whether or not the F\-S\-M is initializedreturn a predicate\-: whether or not the F\-S\-M is initialized 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserState_a3ec7b3cd79f7725c702fd2b081e756de}{\index{it\-::testbench\-::parser\-::\-Parser\-State@{it\-::testbench\-::parser\-::\-Parser\-State}!open@{open}}
+\index{open@{open}!it::testbench::parser::ParserState@{it\-::testbench\-::parser\-::\-Parser\-State}}
+\subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Parser\-State} $\ast$ it\-::testbench\-::parser\-::\-Parser\-State\-::open (
+\begin{DoxyParamCaption}
+\item[{const {\bf Configuration} $\ast$}]{cfg, }
+\item[{string $\ast$}]{cfg\-Stream, }
+\item[{{\bf Return\-Code} $\ast$}]{report}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})\hspace{0.3cm}{\ttfamily [virtual]}}}\label{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_a3ec7b3cd79f7725c702fd2b081e756de}
+Open a predefined stream from the File System. It wraps the bytestream in a string object which is passed back to the caller.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Test\-Framework\-Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Configuration} & data structure, it wraps the needed information to open a F\-S stream \\
+\hline
+\mbox{\tt in,out}  & {\em Loaded} & stream, it is a string represenation of the byte read from F\-S \\
+\hline
+\mbox{\tt in,out}  & {\em Return} & code, it allows to report the outcome of the processing to the caller\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the next stateopen a string from File System 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classit_1_1testbench_1_1parser_1_1ParserInitialized_a4c5e395ca0be2a58cf6351d30f69e3be}{it\-::testbench\-::parser\-::\-Parser\-Initialized}, and \hyperlink{classit_1_1testbench_1_1parser_1_1InheritedState_a661d01741575c4f2eeee66ffe3211ab5}{it\-::testbench\-::parser\-::\-Inherited\-State}.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_a3ec7b3cd79f7725c702fd2b081e756de_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserState_a0ab282825d0fcfa537cdee099f59228e}{\index{it\-::testbench\-::parser\-::\-Parser\-State@{it\-::testbench\-::parser\-::\-Parser\-State}!parse@{parse}}
+\index{parse@{parse}!it::testbench::parser::ParserState@{it\-::testbench\-::parser\-::\-Parser\-State}}
+\subsubsection[{parse}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Parser\-State} $\ast$ it\-::testbench\-::parser\-::\-Parser\-State\-::parse (
+\begin{DoxyParamCaption}
+\item[{const string $\ast$}]{loaded\-Cfg, }
+\item[{{\bf Test\-Bench} $\ast$}]{res, }
+\item[{{\bf Return\-Code} $\ast$}]{report}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})\hspace{0.3cm}{\ttfamily [virtual]}}}\label{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_a0ab282825d0fcfa537cdee099f59228e}
+Parse the previously opened resource from F\-S. A smart placeholde is created for each Test Plan defined in the configuration file.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Test\-Framework\-Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Loaded} & stream, it is a string represenation of the byte read from F\-S \\
+\hline
+\mbox{\tt in,out}  & {\em Pointer} & to a Test\-Bench data structure which collects the important attributes for every Test Plan \\
+\hline
+\mbox{\tt in,out}  & {\em Return} & code, it allows to report the outcome of the processing to the caller\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the next stateparse an already opened resource 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classit_1_1testbench_1_1parser_1_1ParserOpened_a1652b80f1a14d0c7274d044f88872167}{it\-::testbench\-::parser\-::\-Parser\-Opened}.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_a0ab282825d0fcfa537cdee099f59228e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserState_ac484747e6178b71b937eec45265fb4a7}{\index{it\-::testbench\-::parser\-::\-Parser\-State@{it\-::testbench\-::parser\-::\-Parser\-State}!reset@{reset}}
+\index{reset@{reset}!it::testbench::parser::ParserState@{it\-::testbench\-::parser\-::\-Parser\-State}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Parser\-State} $\ast$ it\-::testbench\-::parser\-::\-Parser\-State\-::reset (
+\begin{DoxyParamCaption}
+\item[{{\bf Return\-Code} $\ast$}]{report}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})\hspace{0.3cm}{\ttfamily [virtual]}}}\label{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_ac484747e6178b71b937eec45265fb4a7}
+Reset the F\-S\-M. Afeter this call, it will be possible to parse a new configuration.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Test\-Framework\-Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em Return} & code, it allows to report the outcome of the processing to the caller\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the next statereset the F\-S\-M to be ready to accept new requests 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classit_1_1testbench_1_1parser_1_1ParserFailed_afbafaf9663402f5b87aadc8540b358d8}{it\-::testbench\-::parser\-::\-Parser\-Failed}, and \hyperlink{classit_1_1testbench_1_1parser_1_1ParserValidated_a893e95379726032278abcf9f2a1bfd0e}{it\-::testbench\-::parser\-::\-Parser\-Validated}.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_ac484747e6178b71b937eec45265fb4a7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserState_ae7f149551a8a7abce9dc3d6ffcdf684c}{\index{it\-::testbench\-::parser\-::\-Parser\-State@{it\-::testbench\-::parser\-::\-Parser\-State}!validate@{validate}}
+\index{validate@{validate}!it::testbench::parser::ParserState@{it\-::testbench\-::parser\-::\-Parser\-State}}
+\subsubsection[{validate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Parser\-State} $\ast$ it\-::testbench\-::parser\-::\-Parser\-State\-::validate (
+\begin{DoxyParamCaption}
+\item[{const {\bf Test\-Bench} $\ast$}]{loaded\-Cfg, }
+\item[{{\bf Return\-Code} $\ast$}]{report}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})\hspace{0.3cm}{\ttfamily [virtual]}}}\label{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_ae7f149551a8a7abce9dc3d6ffcdf684c}
+Validate the loaded Test Bench configuration.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Test\-Framework\-Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to Test Bench data structure, it wraps the needed information to open a F\-S stream \\
+\hline
+\mbox{\tt in,out}  & {\em Return} & code, it allows to report the outcome of the processing to the caller\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the next statevalidate an already parsed resource 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classit_1_1testbench_1_1parser_1_1ParserParsed_a7965059d6cd9c7ae6444712b3c669399}{it\-::testbench\-::parser\-::\-Parser\-Parsed}.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_ae7f149551a8a7abce9dc3d6ffcdf684c_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserState_a37ff06cea73b93936c08c364ceba28ca}{\index{it\-::testbench\-::parser\-::\-Parser\-State@{it\-::testbench\-::parser\-::\-Parser\-State}!state\-Id@{state\-Id}}
+\index{state\-Id@{state\-Id}!it::testbench::parser::ParserState@{it\-::testbench\-::parser\-::\-Parser\-State}}
+\subsubsection[{state\-Id}]{\setlength{\rightskip}{0pt plus 5cm}string it\-::testbench\-::parser\-::\-Parser\-State\-::state\-Id\hspace{0.3cm}{\ttfamily [protected]}}}\label{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_a37ff06cea73b93936c08c364ceba28ca}
+string mainting the state Id (for tracing purpose) \hypertarget{classit_1_1testbench_1_1parser_1_1ParserState_a352a009cc8f93cd7a8936b8b806b76df}{\index{it\-::testbench\-::parser\-::\-Parser\-State@{it\-::testbench\-::parser\-::\-Parser\-State}!un\-Initialized@{un\-Initialized}}
+\index{un\-Initialized@{un\-Initialized}!it::testbench::parser::ParserState@{it\-::testbench\-::parser\-::\-Parser\-State}}
+\subsubsection[{un\-Initialized}]{\setlength{\rightskip}{0pt plus 5cm}bool it\-::testbench\-::parser\-::\-Parser\-State\-::un\-Initialized\hspace{0.3cm}{\ttfamily [protected]}}}\label{db/d52/classit_1_1testbench_1_1parser_1_1ParserState_a352a009cc8f93cd7a8936b8b806b76df}
+defines whether or not the F\-S\-M is initialized 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{fsmparser_8h}{fsmparser.\-h}\item 
+\hyperlink{fsmparser_8cpp}{fsmparser.\-cpp}\end{DoxyCompactItemize}

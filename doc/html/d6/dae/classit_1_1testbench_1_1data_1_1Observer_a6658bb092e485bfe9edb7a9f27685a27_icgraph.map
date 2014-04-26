@@ -1,0 +1,4 @@
+<map id="it::testbench::data::Observer::notify" name="it::testbench::data::Observer::notify">
+<area shape="rect" id="node3" href="$d7/db8/classit_1_1testbench_1_1data_1_1Subject.html#a207cb996752bcf4af2d9ed721d85f07c" title="notify all observers" alt="" coords="182,5,357,46"/>
+<area shape="rect" id="node5" href="$d9/d54/classit_1_1testbench_1_1rte_1_1RuntimeEngine.html#a9e1aaf1a127ea1f9242a4c67acbe70df" title="it::testbench::rte\l::RuntimeEngine::notify" alt="" coords="406,5,565,46"/>
+</map>

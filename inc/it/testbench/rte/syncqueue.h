@@ -43,6 +43,7 @@ class SynchronizedQueue {
     public:
         SynchronizedQueue() {
             pthread_mutex_init(&dataMutex, NULL);
+            pthread_mutex_init(&stateMutex, NULL);
             pthread_cond_init(&stateCond, NULL);
 
             sizeLimit = 0;
@@ -50,6 +51,7 @@ class SynchronizedQueue {
         }
         ~SynchronizedQueue() {
             pthread_mutex_destroy(&dataMutex);
+            pthread_mutex_init(&stateMutex, NULL);
             pthread_cond_destroy(&stateCond);
         }
 
@@ -60,13 +62,14 @@ class SynchronizedQueue {
          *
          */
         void enqueue(T item){
-            DATA_INFO_VAL("@Synchronized Queue #", label);
+//            DATA_INFO_VAL("@Synchronized Queue #", label);
             pthread_mutex_lock(&dataMutex);
-            DATA_INFO_VAL("Enqueuing an element, current size #", syncQueue.size());
+//            DATA_INFO_VAL("Enqueuing an element, current size #", syncQueue.size());
             syncQueue.push(item);
             counter++;
-            pthread_cond_signal(&stateCond);
             DATA_INFO_VAL("Element enqueued (Signal raised), current size #", syncQueue.size());
+
+            pthread_cond_signal(&stateCond);
             pthread_mutex_unlock(&dataMutex);
         }              /*!< push back the data element in the container */
         /**
@@ -77,10 +80,10 @@ class SynchronizedQueue {
          */
         T dequeue() {
             pthread_mutex_lock(&dataMutex);
-            DATA_INFO_VAL("@Synchronized Queue #", label);
-            DATA_INFO_VAL("Dequeuing an element, current size #", syncQueue.size());
+//            DATA_INFO_VAL("@Synchronized Queue #", label);
+//            DATA_INFO_VAL("Dequeuing an element, current size #", syncQueue.size());
             DATA_INFO_VAL("Is empty? #", syncQueue.empty());
-            if(counter == 0)
+            while(counter == 0)
                 pthread_cond_wait(&stateCond, &dataMutex);
             T item;
             if(counter > 0) {               //to protect: likely bug in pop -->> to be verified
@@ -175,6 +178,7 @@ class SynchronizedQueue {
 
     protected:
         pthread_mutex_t dataMutex;      /**< mutex on data: it guarantee mutual exclusive access on data */
+        pthread_mutex_t stateMutex;     /**< mutex on state: it guarantee mutual exclusive access on predicate */
         pthread_cond_t stateCond;       /**< condition variable on data: it allows signaling among consumer and producers Threads */
 
         queue<T> syncQueue;             /**< queue container of generica data T */

@@ -1,0 +1,271 @@
+\hypertarget{classit_1_1testbench_1_1rte_1_1Thread}{\section{it\-:\-:testbench\-:\-:rte\-:\-:Thread Class Reference}
+\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread}\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}}
+}
+
+
+{\ttfamily \#include $<$thread.\-h$>$}
+
+
+
+Inheritance diagram for it\-:\-:testbench\-:\-:rte\-:\-:Thread\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{df/dbf/classit_1_1testbench_1_1rte_1_1Thread__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1Thread_afdd03f099d4e37cfb18c10ad8e4e4130}{Thread} ()
+\item 
+virtual \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a15a6af58354a5ab748516b05e14b7951}{$\sim$\-Thread} ()
+\item 
+void \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a857850320841d000d9be9d70e2d0e6c5}{set\-Thread\-Id} (const string \&t\-Id)
+\item 
+const string $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a87e0b1517237b4484185a24709e20b92}{get\-Thread\-Id} () const 
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a3898d6f11d61bc45bd0e955d220517e0}{start} ()
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_abc34d6a5f94f0eb5d1f74532197c8ac2}{join} ()
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_afb9b601b26126e13200653edcc952ae6}{detach} ()
+\item 
+virtual void $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a52ddbcd22cd6493de8453458d2a0652d}{run} ()=0
+\item 
+bool \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a7bcb9a82de006162108a473b6d8c0596}{is\-Thread\-Alive} ()
+\item 
+bool \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a6908d4609cff32bf32672037c4926f49}{is\-Thread\-Running} ()
+\item 
+bool \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a663e89ee955f57f4810ef909cb61620f}{is\-Thread\-Busy} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_acd6c0156037661c5558d2241cb3e4a60}{thread\-Hook} (void $\ast$param)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+pthread\-\_\-t \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a461aaef7afe799a65616727b58b069d8}{this\-Thread}
+\item 
+pthread\-\_\-attr\-\_\-t \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a564b0b9b90d76effbcdc6164e5d1a8d6}{t\-Attribute}
+\item 
+string \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a5c9db3a81df5fc51a3987e4a3ca6aace}{thread\-Id}
+\item 
+bool \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a66f2d3623fbaaebf8aea079fb509ef7e}{is\-Busy}
+\item 
+bool \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_aab48976fffdc87659876c6e4661715ad}{is\-Alive}
+\item 
+bool \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a2011457d637ada9026f8ab2c2ca14763}{is\-Running}
+\item 
+int \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_ada467f1ac1ac01c62c245bce9ac379fd}{thread\-Init}
+\item 
+int \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_af5a9dd2c81470f0c41113f461bc91ed0}{thread\-Joined}
+\item 
+int \hyperlink{classit_1_1testbench_1_1rte_1_1Thread_a5ef7815e90cae33d623e09160bf65ade}{thread\-Detached}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} class provides wrapping capabilities for P\-O\-S\-I\-X pthread library. It defines a self contained entity aiming at providing flexibility and decoupling in implementing multithreading applications. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1Thread_afdd03f099d4e37cfb18c10ad8e4e4130}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!Thread@{Thread}}
+\index{Thread@{Thread}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{Thread}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::rte\-::\-Thread\-::\-Thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_afdd03f099d4e37cfb18c10ad8e4e4130}
+\hypertarget{classit_1_1testbench_1_1rte_1_1Thread_a15a6af58354a5ab748516b05e14b7951}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!$\sim$\-Thread@{$\sim$\-Thread}}
+\index{$\sim$\-Thread@{$\sim$\-Thread}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{$\sim$\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::rte\-::\-Thread\-::$\sim$\-Thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a15a6af58354a5ab748516b05e14b7951}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1Thread_afb9b601b26126e13200653edcc952ae6}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!detach@{detach}}
+\index{detach@{detach}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{detach}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::rte\-::\-Thread\-::detach (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_afb9b601b26126e13200653edcc952ae6}
+Detach the execution of a previously paused Thread.\-resume this \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} \hypertarget{classit_1_1testbench_1_1rte_1_1Thread_a87e0b1517237b4484185a24709e20b92}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!get\-Thread\-Id@{get\-Thread\-Id}}
+\index{get\-Thread\-Id@{get\-Thread\-Id}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{get\-Thread\-Id}]{\setlength{\rightskip}{0pt plus 5cm}const string $\ast$ it\-::testbench\-::rte\-::\-Thread\-::get\-Thread\-Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a87e0b1517237b4484185a24709e20b92}
+Get \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} unique identifier.
+
+\begin{DoxyReturn}{Returns}
+Reference to the string containing the \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} Idreturn this \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} Id 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1rte_1_1Thread_a7bcb9a82de006162108a473b6d8c0596}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!is\-Thread\-Alive@{is\-Thread\-Alive}}
+\index{is\-Thread\-Alive@{is\-Thread\-Alive}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{is\-Thread\-Alive}]{\setlength{\rightskip}{0pt plus 5cm}bool it\-::testbench\-::rte\-::\-Thread\-::is\-Thread\-Alive (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a7bcb9a82de006162108a473b6d8c0596}
+Let the caller to know whether ot not this \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} is alive.
+
+\begin{DoxyReturn}{Returns}
+True, iff the \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} is alive.\-it indicates whether the \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} is still alive 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1rte_1_1Thread_a663e89ee955f57f4810ef909cb61620f}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!is\-Thread\-Busy@{is\-Thread\-Busy}}
+\index{is\-Thread\-Busy@{is\-Thread\-Busy}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{is\-Thread\-Busy}]{\setlength{\rightskip}{0pt plus 5cm}bool it\-::testbench\-::rte\-::\-Thread\-::is\-Thread\-Busy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a663e89ee955f57f4810ef909cb61620f}
+Let the caller to know whether ot not this \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} is busy.
+
+\begin{DoxyReturn}{Returns}
+True, iff the \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} is busy working.\-it indicates whether the \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} is busy working 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1rte_1_1Thread_a6908d4609cff32bf32672037c4926f49}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!is\-Thread\-Running@{is\-Thread\-Running}}
+\index{is\-Thread\-Running@{is\-Thread\-Running}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{is\-Thread\-Running}]{\setlength{\rightskip}{0pt plus 5cm}bool it\-::testbench\-::rte\-::\-Thread\-::is\-Thread\-Running (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a6908d4609cff32bf32672037c4926f49}
+Let the caller to know whether ot not this \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} is running.
+
+\begin{DoxyReturn}{Returns}
+True, iff the \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} is running.\-it indicates whether the \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} is still running 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1rte_1_1Thread_abc34d6a5f94f0eb5d1f74532197c8ac2}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!join@{join}}
+\index{join@{join}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{join}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::rte\-::\-Thread\-::join (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_abc34d6a5f94f0eb5d1f74532197c8ac2}
+Join to the execution of a previously started Thread.\-pause this \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} \hypertarget{classit_1_1testbench_1_1rte_1_1Thread_a52ddbcd22cd6493de8453458d2a0652d}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!run@{run}}
+\index{run@{run}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}virtual void$\ast$ it\-::testbench\-::rte\-::\-Thread\-::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a52ddbcd22cd6493de8453458d2a0652d}
+Custom processing functionality. It allows the programmer to extend this wrapper class with its own processing logic.\-it defines a custom behaviour to be executed 
+
+Implemented in \hyperlink{classit_1_1testbench_1_1rte_1_1JobConsumer_a4457082ac2f792d8911c01b02811b94c}{it\-::testbench\-::rte\-::\-Job\-Consumer}, \hyperlink{classit_1_1testbench_1_1rte_1_1JobProducer_a48012263e93f1bcc93f8b0712e6b038a}{it\-::testbench\-::rte\-::\-Job\-Producer}, and \hyperlink{classit_1_1testbench_1_1rte_1_1ReportConsumer_a59043ea752911968640216a898b981a0}{it\-::testbench\-::rte\-::\-Report\-Consumer}.
+
+\hypertarget{classit_1_1testbench_1_1rte_1_1Thread_a857850320841d000d9be9d70e2d0e6c5}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!set\-Thread\-Id@{set\-Thread\-Id}}
+\index{set\-Thread\-Id@{set\-Thread\-Id}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{set\-Thread\-Id}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::rte\-::\-Thread\-::set\-Thread\-Id (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{t\-Id}
+\end{DoxyParamCaption}
+)}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a857850320841d000d9be9d70e2d0e6c5}
+Set \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} unique identifier.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Reference} & to the string containing the \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} Idset this \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} Id \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a857850320841d000d9be9d70e2d0e6c5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1rte_1_1Thread_a3898d6f11d61bc45bd0e955d220517e0}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!start@{start}}
+\index{start@{start}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::rte\-::\-Thread\-::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a3898d6f11d61bc45bd0e955d220517e0}
+Start the \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} and execute the specific business logic defined in the hook method containing the 'custom behaviour'.run this \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a3898d6f11d61bc45bd0e955d220517e0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1rte_1_1Thread_acd6c0156037661c5558d2241cb3e4a60}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!thread\-Hook@{thread\-Hook}}
+\index{thread\-Hook@{thread\-Hook}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{thread\-Hook}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ it\-::testbench\-::rte\-::\-Thread\-::thread\-Hook (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{param}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_acd6c0156037661c5558d2241cb3e4a60}
+\hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} Hook. This functionality represents an hook called by the \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} to execute a specific behaviour .
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to void accepting any kind of parameter typepointer to member function needed to create a pthread \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{df/df6/classit_1_1testbench_1_1rte_1_1Thread_acd6c0156037661c5558d2241cb3e4a60_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1Thread_aab48976fffdc87659876c6e4661715ad}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!is\-Alive@{is\-Alive}}
+\index{is\-Alive@{is\-Alive}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{is\-Alive}]{\setlength{\rightskip}{0pt plus 5cm}bool it\-::testbench\-::rte\-::\-Thread\-::is\-Alive\hspace{0.3cm}{\ttfamily [protected]}}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_aab48976fffdc87659876c6e4661715ad}
+it indicates whether or not the thread is alive \hypertarget{classit_1_1testbench_1_1rte_1_1Thread_a66f2d3623fbaaebf8aea079fb509ef7e}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!is\-Busy@{is\-Busy}}
+\index{is\-Busy@{is\-Busy}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{is\-Busy}]{\setlength{\rightskip}{0pt plus 5cm}bool it\-::testbench\-::rte\-::\-Thread\-::is\-Busy\hspace{0.3cm}{\ttfamily [protected]}}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a66f2d3623fbaaebf8aea079fb509ef7e}
+it indicates whether or not the thread is busy in elaborations \hypertarget{classit_1_1testbench_1_1rte_1_1Thread_a2011457d637ada9026f8ab2c2ca14763}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!is\-Running@{is\-Running}}
+\index{is\-Running@{is\-Running}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{is\-Running}]{\setlength{\rightskip}{0pt plus 5cm}bool it\-::testbench\-::rte\-::\-Thread\-::is\-Running\hspace{0.3cm}{\ttfamily [protected]}}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a2011457d637ada9026f8ab2c2ca14763}
+it indicates whether or not the thread is running \hypertarget{classit_1_1testbench_1_1rte_1_1Thread_a564b0b9b90d76effbcdc6164e5d1a8d6}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!t\-Attribute@{t\-Attribute}}
+\index{t\-Attribute@{t\-Attribute}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{t\-Attribute}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-attr\-\_\-t it\-::testbench\-::rte\-::\-Thread\-::t\-Attribute\hspace{0.3cm}{\ttfamily [protected]}}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a564b0b9b90d76effbcdc6164e5d1a8d6}
+it defines the attributes of this \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} \hypertarget{classit_1_1testbench_1_1rte_1_1Thread_a461aaef7afe799a65616727b58b069d8}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!this\-Thread@{this\-Thread}}
+\index{this\-Thread@{this\-Thread}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{this\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-t it\-::testbench\-::rte\-::\-Thread\-::this\-Thread\hspace{0.3cm}{\ttfamily [protected]}}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a461aaef7afe799a65616727b58b069d8}
+it defines itself \hypertarget{classit_1_1testbench_1_1rte_1_1Thread_a5ef7815e90cae33d623e09160bf65ade}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!thread\-Detached@{thread\-Detached}}
+\index{thread\-Detached@{thread\-Detached}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{thread\-Detached}]{\setlength{\rightskip}{0pt plus 5cm}int it\-::testbench\-::rte\-::\-Thread\-::thread\-Detached\hspace{0.3cm}{\ttfamily [protected]}}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a5ef7815e90cae33d623e09160bf65ade}
+initialization indicator\-: it indicates whether or not the caller requests a detach (it is not waiting for \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} termination) \hypertarget{classit_1_1testbench_1_1rte_1_1Thread_a5c9db3a81df5fc51a3987e4a3ca6aace}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!thread\-Id@{thread\-Id}}
+\index{thread\-Id@{thread\-Id}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{thread\-Id}]{\setlength{\rightskip}{0pt plus 5cm}string it\-::testbench\-::rte\-::\-Thread\-::thread\-Id\hspace{0.3cm}{\ttfamily [protected]}}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_a5c9db3a81df5fc51a3987e4a3ca6aace}
+unique identifier for this processing thread \hypertarget{classit_1_1testbench_1_1rte_1_1Thread_ada467f1ac1ac01c62c245bce9ac379fd}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!thread\-Init@{thread\-Init}}
+\index{thread\-Init@{thread\-Init}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{thread\-Init}]{\setlength{\rightskip}{0pt plus 5cm}int it\-::testbench\-::rte\-::\-Thread\-::thread\-Init\hspace{0.3cm}{\ttfamily [protected]}}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_ada467f1ac1ac01c62c245bce9ac379fd}
+thread indicator\-: it indicates whether or not the \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} has been correctly initialized \hypertarget{classit_1_1testbench_1_1rte_1_1Thread_af5a9dd2c81470f0c41113f461bc91ed0}{\index{it\-::testbench\-::rte\-::\-Thread@{it\-::testbench\-::rte\-::\-Thread}!thread\-Joined@{thread\-Joined}}
+\index{thread\-Joined@{thread\-Joined}!it::testbench::rte::Thread@{it\-::testbench\-::rte\-::\-Thread}}
+\subsubsection[{thread\-Joined}]{\setlength{\rightskip}{0pt plus 5cm}int it\-::testbench\-::rte\-::\-Thread\-::thread\-Joined\hspace{0.3cm}{\ttfamily [protected]}}}\label{df/df6/classit_1_1testbench_1_1rte_1_1Thread_af5a9dd2c81470f0c41113f461bc91ed0}
+initialization indicator\-: it indicates whether or not the caller requests a join (it is waiting for \hyperlink{classit_1_1testbench_1_1rte_1_1Thread}{Thread} termination) 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{thread_8h}{thread.\-h}\item 
+\hyperlink{thread_8cpp}{thread.\-cpp}\end{DoxyCompactItemize}

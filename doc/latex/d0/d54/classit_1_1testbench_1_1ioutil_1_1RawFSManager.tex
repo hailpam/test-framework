@@ -1,0 +1,263 @@
+\hypertarget{classit_1_1testbench_1_1ioutil_1_1RawFSManager}{\section{it\-:\-:testbench\-:\-:ioutil\-:\-:Raw\-F\-S\-Manager Class Reference}
+\label{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager}\index{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}}
+}
+
+
+{\ttfamily \#include $<$rawfsmanager.\-h$>$}
+
+
+
+Inheritance diagram for it\-:\-:testbench\-:\-:ioutil\-:\-:Raw\-F\-S\-Manager\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{db/dc6/classit_1_1testbench_1_1ioutil_1_1RawFSManager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for it\-:\-:testbench\-:\-:ioutil\-:\-:Raw\-F\-S\-Manager\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{d8/d72/classit_1_1testbench_1_1ioutil_1_1RawFSManager__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a4f5d15d03eb0f7de67d8fcddb83642d6}{create} (const \hyperlink{structit_1_1testbench_1_1data_1_1FormattedResource}{Formatted\-Resource} $\ast$fres)  throw (\-Test\-Framework\-Exception)
+\begin{DoxyCompactList}\small\item\em Create new file. \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a810adf55da360932e9c3761ae5aadeac}{read} (\hyperlink{structit_1_1testbench_1_1data_1_1FormattedResource}{Formatted\-Resource} $\ast$fres)  throw (\-Test\-Framework\-Exception)
+\begin{DoxyCompactList}\small\item\em Read file. \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a642d25f0c2a326c922583a0dc06474dd}{update} (const \hyperlink{structit_1_1testbench_1_1data_1_1FormattedResource}{Formatted\-Resource} $\ast$fres)  throw (\-Test\-Framework\-Exception)
+\begin{DoxyCompactList}\small\item\em Update file. \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a77361c79643be5209d8705c829243b91}{remove} (const \hyperlink{structit_1_1testbench_1_1data_1_1FormattedResource}{Formatted\-Resource} $\ast$fres)  throw (\-Test\-Framework\-Exception)
+\begin{DoxyCompactList}\small\item\em Delete file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classit_1_1testbench_1_1ioutil_1_1RawFSManager}{Raw\-F\-S\-Manager} $\ast$ \hyperlink{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a2e71ba68b65e5dfebb90082d3883b371}{get\-Instance} ()
+\begin{DoxyCompactList}\small\item\em gets existing instance \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1ioutil_1_1RawFSManager_acbffda7f5db0b9ee25ca38a3154cf63e}{Raw\-F\-S\-Manager} ()
+\item 
+\hyperlink{classit_1_1testbench_1_1ioutil_1_1RawFSManager_aff20e5a12c6c3dff1d83a8a3258e66b5}{$\sim$\-Raw\-F\-S\-Manager} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classit_1_1testbench_1_1ioutil_1_1RawFSManager}{Raw\-F\-S\-Manager} $\ast$ \hyperlink{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a80c0fcfb712921e4f05703ce1ecf99f2}{instance} = 0
+\item 
+static fstream \hyperlink{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a413121e26e9462f50b44d9709ab41914}{fs}
+\item 
+static pthread\-\_\-mutex\-\_\-t \hyperlink{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a3011d242d4bdc600bad7d57f94801e73}{fs\-Mux} = P\-T\-H\-R\-E\-A\-D\-\_\-\-M\-U\-T\-E\-X\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-R
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation of Logger based on simple File stream using the Singleton pattern. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1ioutil_1_1RawFSManager_acbffda7f5db0b9ee25ca38a3154cf63e}{\index{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}!Raw\-F\-S\-Manager@{Raw\-F\-S\-Manager}}
+\index{Raw\-F\-S\-Manager@{Raw\-F\-S\-Manager}!it::testbench::ioutil::RawFSManager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}}
+\subsubsection[{Raw\-F\-S\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Raw\-F\-S\-Manager\-::\-Raw\-F\-S\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager_acbffda7f5db0b9ee25ca38a3154cf63e}
+Logging service initialization is done at configuration time when a log file path and name is passed. \hypertarget{classit_1_1testbench_1_1ioutil_1_1RawFSManager_aff20e5a12c6c3dff1d83a8a3258e66b5}{\index{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}!$\sim$\-Raw\-F\-S\-Manager@{$\sim$\-Raw\-F\-S\-Manager}}
+\index{$\sim$\-Raw\-F\-S\-Manager@{$\sim$\-Raw\-F\-S\-Manager}!it::testbench::ioutil::RawFSManager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}}
+\subsubsection[{$\sim$\-Raw\-F\-S\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Raw\-F\-S\-Manager\-::$\sim$\-Raw\-F\-S\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager_aff20e5a12c6c3dff1d83a8a3258e66b5}
+Tear down the Logging service at system shutdown. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a4f5d15d03eb0f7de67d8fcddb83642d6}{\index{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}!create@{create}}
+\index{create@{create}!it::testbench::ioutil::RawFSManager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}void Raw\-F\-S\-Manager\-::create (
+\begin{DoxyParamCaption}
+\item[{const {\bf Formatted\-Resource} $\ast$}]{fres}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})\hspace{0.3cm}{\ttfamily [virtual]}}}\label{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager_a4f5d15d03eb0f7de67d8fcddb83642d6}
+
+
+Create new file. 
+
+Create new file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em fres} & Resource to create\\
+\hline
+\end{DoxyParams}
+Provisional implementation will sychronize on one filestream for each file.
+
+T\-O\-D\-O\-: create a map of $<$string, mutex, fstream$>$ that uses a mutex and a fstream for each single file to parallelize and speed up
+
+T\-O\-D\-O\-: dual-\/threaded buffered I/\-O (currently it's single-\/threaded) 
+
+Implements \hyperlink{classit_1_1testbench_1_1ioutil_1_1FSManager_ac6f45e94bd105d16d09e926b9eb290eb}{it\-::testbench\-::ioutil\-::\-F\-S\-Manager}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager_a4f5d15d03eb0f7de67d8fcddb83642d6_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a2e71ba68b65e5dfebb90082d3883b371}{\index{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}!get\-Instance@{get\-Instance}}
+\index{get\-Instance@{get\-Instance}!it::testbench::ioutil::RawFSManager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}}
+\subsubsection[{get\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Raw\-F\-S\-Manager} $\ast$ Raw\-F\-S\-Manager\-::get\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager_a2e71ba68b65e5dfebb90082d3883b371}
+
+
+gets existing instance 
+
+Return unique instance \hypertarget{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a810adf55da360932e9c3761ae5aadeac}{\index{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}!read@{read}}
+\index{read@{read}!it::testbench::ioutil::RawFSManager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}void Raw\-F\-S\-Manager\-::read (
+\begin{DoxyParamCaption}
+\item[{{\bf Formatted\-Resource} $\ast$}]{fres}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})\hspace{0.3cm}{\ttfamily [virtual]}}}\label{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager_a810adf55da360932e9c3761ae5aadeac}
+
+
+Read file. 
+
+Read file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em fres} & Resource to read \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classit_1_1testbench_1_1ioutil_1_1FSManager_a80ffde9a89e671453fd2c44941d5ac46}{it\-::testbench\-::ioutil\-::\-F\-S\-Manager}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager_a810adf55da360932e9c3761ae5aadeac_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager_a810adf55da360932e9c3761ae5aadeac_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a77361c79643be5209d8705c829243b91}{\index{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}!remove@{remove}}
+\index{remove@{remove}!it::testbench::ioutil::RawFSManager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Raw\-F\-S\-Manager\-::remove (
+\begin{DoxyParamCaption}
+\item[{const {\bf Formatted\-Resource} $\ast$}]{fres}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})\hspace{0.3cm}{\ttfamily [virtual]}}}\label{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager_a77361c79643be5209d8705c829243b91}
+
+
+Delete file. 
+
+Delete file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em fres} & Resource to delete \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classit_1_1testbench_1_1ioutil_1_1FSManager_aff3682f18dbef185c999d1a60c853d14}{it\-::testbench\-::ioutil\-::\-F\-S\-Manager}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager_a77361c79643be5209d8705c829243b91_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a642d25f0c2a326c922583a0dc06474dd}{\index{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}!update@{update}}
+\index{update@{update}!it::testbench::ioutil::RawFSManager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Raw\-F\-S\-Manager\-::update (
+\begin{DoxyParamCaption}
+\item[{const {\bf Formatted\-Resource} $\ast$}]{fres}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})\hspace{0.3cm}{\ttfamily [virtual]}}}\label{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager_a642d25f0c2a326c922583a0dc06474dd}
+
+
+Update file. 
+
+Update file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em fres} & Resource to write \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classit_1_1testbench_1_1ioutil_1_1FSManager_a88acc0f8998e26cd947b722f18feac13}{it\-::testbench\-::ioutil\-::\-F\-S\-Manager}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager_a642d25f0c2a326c922583a0dc06474dd_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a413121e26e9462f50b44d9709ab41914}{\index{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}!fs@{fs}}
+\index{fs@{fs}!it::testbench::ioutil::RawFSManager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}}
+\subsubsection[{fs}]{\setlength{\rightskip}{0pt plus 5cm}fstream Raw\-F\-S\-Manager\-::fs\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager_a413121e26e9462f50b44d9709ab41914}
+File stream used for log file \hypertarget{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a3011d242d4bdc600bad7d57f94801e73}{\index{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}!fs\-Mux@{fs\-Mux}}
+\index{fs\-Mux@{fs\-Mux}!it::testbench::ioutil::RawFSManager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}}
+\subsubsection[{fs\-Mux}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-mutex\-\_\-t Raw\-F\-S\-Manager\-::fs\-Mux = P\-T\-H\-R\-E\-A\-D\-\_\-\-M\-U\-T\-E\-X\-\_\-\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-R\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager_a3011d242d4bdc600bad7d57f94801e73}
+mutex for protecting static variables \hypertarget{classit_1_1testbench_1_1ioutil_1_1RawFSManager_a80c0fcfb712921e4f05703ce1ecf99f2}{\index{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}!instance@{instance}}
+\index{instance@{instance}!it::testbench::ioutil::RawFSManager@{it\-::testbench\-::ioutil\-::\-Raw\-F\-S\-Manager}}
+\subsubsection[{instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Raw\-F\-S\-Manager} $\ast$ Raw\-F\-S\-Manager\-::instance = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{d0/d54/classit_1_1testbench_1_1ioutil_1_1RawFSManager_a80c0fcfb712921e4f05703ce1ecf99f2}
+static pointer to ensure a single instance 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{rawfsmanager_8h}{rawfsmanager.\-h}\item 
+\hyperlink{rawfsmanager_8cpp}{rawfsmanager.\-cpp}\end{DoxyCompactItemize}

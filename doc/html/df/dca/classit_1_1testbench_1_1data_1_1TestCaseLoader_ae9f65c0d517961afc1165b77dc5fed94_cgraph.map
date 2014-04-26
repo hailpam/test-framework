@@ -1,0 +1,7 @@
+<map id="it::testbench::data::TestCaseLoader::loadTestCase" name="it::testbench::data::TestCaseLoader::loadTestCase">
+<area shape="rect" id="node3" href="$de/d0a/classit_1_1testbench_1_1data_1_1TestCase.html#ad38999e7794d219847327d01689a08ee" title="set the test case number" alt="" coords="275,5,491,46"/>
+<area shape="rect" id="node5" href="$de/d0a/classit_1_1testbench_1_1data_1_1TestCase.html#a6674ebc8f47ff4cb53cda5ec93c33a79" title="set the Setup Test Item" alt="" coords="283,70,482,111"/>
+<area shape="rect" id="node7" href="$de/d0a/classit_1_1testbench_1_1data_1_1TestCase.html#a7a48241e8eb157c08eb136ef6f9a8d9e" title="set the Tear down Test Item" alt="" coords="270,135,495,177"/>
+<area shape="rect" id="node9" href="$de/d0a/classit_1_1testbench_1_1data_1_1TestCase.html#af941b63139874e7030b71eaa746946e3" title="add a Runnable Test Item to the list" alt="" coords="271,201,494,242"/>
+<area shape="rect" id="node11" href="$d3/d37/classit_1_1testbench_1_1data_1_1TestCaseBuilder.html#a5a644d16273c9e8cf580db8558b73a2a" title="build a specific instance of Test Case" alt="" coords="273,266,492,307"/>
+</map>

@@ -42,6 +42,7 @@ RuntimeEngine::~RuntimeEngine()
 ReturnCode* RuntimeEngine::initEngine(const unsigned int nrOfWorkers)
 {
     //TODO : start thread when the synchronization issue is solved
+    //TODO : register observer to report consumer
     #warning TODO : start thread when the synchronization issue is solved
     ReturnCode* retCode = new ReturnCode;
     unsigned int lowerBound = 0;

@@ -1,0 +1,54 @@
+\hypertarget{inc_2json_2writer_8h}{\section{writer.\-h File Reference}
+\label{df/d4f/inc_2json_2writer_8h}\index{writer.\-h@{writer.\-h}}
+}
+{\ttfamily \#include \char`\"{}value.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+Include dependency graph for inc/json/writer.h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{d9/d23/inc_2json_2writer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{d7/d97/inc_2json_2writer_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classJson_1_1Writer}{Json\-::\-Writer}
+\begin{DoxyCompactList}\small\item\em Abstract class for writers. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1FastWriter}{Json\-::\-Fast\-Writer}
+\begin{DoxyCompactList}\small\item\em Outputs a \hyperlink{classJson_1_1Value}{Value} in \href{http://www.json.org}{\tt J\-S\-O\-N} format without formatting (not human friendly). \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1StyledWriter}{Json\-::\-Styled\-Writer}
+\begin{DoxyCompactList}\small\item\em Writes a \hyperlink{classJson_1_1Value}{Value} in \href{http://www.json.org}{\tt J\-S\-O\-N} format in a human friendly way. \end{DoxyCompactList}\item 
+class \hyperlink{classJson_1_1StyledStreamWriter}{Json\-::\-Styled\-Stream\-Writer}
+\begin{DoxyCompactList}\small\item\em Writes a \hyperlink{classJson_1_1Value}{Value} in \href{http://www.json.org}{\tt J\-S\-O\-N} format in a human friendly way, to a stream rather than to a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespaceJson}{Json}
+\begin{DoxyCompactList}\small\item\em J\-S\-O\-N (Java\-Script Object Notation). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{inc_2json_2config_8h_a1d61ffde86ce1a18fd83194ff0d9a206}{J\-S\-O\-N\-\_\-\-A\-P\-I} \hyperlink{namespaceJson_a05cd078d8e086a4bcc08d40948f711e7}{Json\-::value\-To\-String} (Int value)
+\item 
+std\-::string \hyperlink{inc_2json_2config_8h_a1d61ffde86ce1a18fd83194ff0d9a206}{J\-S\-O\-N\-\_\-\-A\-P\-I} \hyperlink{namespaceJson_abcb58ea0f384c30608729a94d539e2ce}{Json\-::value\-To\-String} (U\-Int value)
+\item 
+std\-::string \hyperlink{inc_2json_2config_8h_a1d61ffde86ce1a18fd83194ff0d9a206}{J\-S\-O\-N\-\_\-\-A\-P\-I} \hyperlink{namespaceJson_ac49317cb2f19e656c9cb548dd31e50d5}{Json\-::value\-To\-String} (double value)
+\item 
+std\-::string \hyperlink{inc_2json_2config_8h_a1d61ffde86ce1a18fd83194ff0d9a206}{J\-S\-O\-N\-\_\-\-A\-P\-I} \hyperlink{namespaceJson_a959f412bb2e8a5cf50f2cc36cd7b3376}{Json\-::value\-To\-String} (bool value)
+\item 
+std\-::string \hyperlink{inc_2json_2config_8h_a1d61ffde86ce1a18fd83194ff0d9a206}{J\-S\-O\-N\-\_\-\-A\-P\-I} \hyperlink{namespaceJson_aa89082c7ae7deaa6df955987015a0cbd}{Json\-::value\-To\-Quoted\-String} (const char $\ast$value)
+\item 
+std\-::ostream \& \hyperlink{namespaceJson_a87bc83d7e90fc666d28aa16727deda2f}{Json\-::operator$<$$<$} (std\-::ostream \&, const Value \&root)
+\begin{DoxyCompactList}\small\item\em Output using the \hyperlink{classJson_1_1StyledStreamWriter}{Styled\-Stream\-Writer}. \end{DoxyCompactList}\end{DoxyCompactItemize}

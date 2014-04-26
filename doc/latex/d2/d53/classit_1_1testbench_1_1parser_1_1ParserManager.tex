@@ -1,0 +1,204 @@
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserManager}{\section{it\-:\-:testbench\-:\-:parser\-:\-:Parser\-Manager Class Reference}
+\label{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager}\index{it\-::testbench\-::parser\-::\-Parser\-Manager@{it\-::testbench\-::parser\-::\-Parser\-Manager}}
+}
+
+
+{\ttfamily \#include $<$parser.\-h$>$}
+
+
+
+Collaboration diagram for it\-:\-:testbench\-:\-:parser\-:\-:Parser\-Manager\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/dcf/classit_1_1testbench_1_1parser_1_1ParserManager__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1parser_1_1ParserManager_a6113cfe5e4264ea5909ce228273ae77a}{Parser\-Manager} ()
+\item 
+\hyperlink{classit_1_1testbench_1_1parser_1_1ParserManager_af4130165f1d11bd66d23b13fc08f8a3d}{$\sim$\-Parser\-Manager} ()
+\item 
+void \hyperlink{classit_1_1testbench_1_1parser_1_1ParserManager_a7294575996b21ce73583da991de108ca}{load\-Config} (const \hyperlink{structit_1_1testbench_1_1data_1_1Configuration}{Configuration} \&file\-Cfg)  throw (\-Test\-Framework\-Exception)
+\item 
+void \hyperlink{classit_1_1testbench_1_1parser_1_1ParserManager_a62b50936918fa3484f62c470fe4bb57a}{parse\-Config} ()  throw (\-Test\-Framework\-Exception)
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1parser_1_1ParserManager_a4b0eb91653f8393f199546e6d4b76a34}{validate\-Config} (\hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration}{Test\-Bench\-Configuration} $\ast$tb\-Conf)
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1parser_1_1ParserManager_aa8acbb8b2c903b265f177e3fb72e0524}{init} (const \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseLoader}{Test\-Case\-Loader} $\ast$loader)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string $\ast$ \hyperlink{classit_1_1testbench_1_1parser_1_1ParserManager_aa1e940b6d527d5f8e6f3da64bd5022d9}{loaded\-Stream}
+\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1TestCaseLoader}{Test\-Case\-Loader} $\ast$ \hyperlink{classit_1_1testbench_1_1parser_1_1ParserManager_aac1d4a536ac5b3d19a970e9692d2ddff}{tc\-Loader}
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1Configuration}{Configuration} $\ast$ \hyperlink{classit_1_1testbench_1_1parser_1_1ParserManager_a8382d999a6d1f2ed096f47c8846b9d49}{loaded\-Cfg}
+\item 
+\hyperlink{classit_1_1testbench_1_1parser_1_1ParserState}{Parser\-State} $\ast$ \hyperlink{classit_1_1testbench_1_1parser_1_1ParserManager_a2bfc201d0554f851e394e6023e33f748}{current\-State}
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1TestBench}{Test\-Bench} $\ast$ \hyperlink{classit_1_1testbench_1_1parser_1_1ParserManager_a4fde8535856ac3efcf06b06b5de64254}{tb\-Parsed}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classit_1_1testbench_1_1parser_1_1ParserManager}{Parser\-Manager} component provides the capabilities to safely load, parse and validate a configuration file.
+
+Internally, an instance of \hyperlink{classit_1_1testbench_1_1parser_1_1ParserManager}{Parser\-Manager} acts an F\-S\-M (Finite State Machine) for which the processing flow is well defined\-: O = f(\-I, S), its implementation is done using a Moore machine model. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserManager_a6113cfe5e4264ea5909ce228273ae77a}{\index{it\-::testbench\-::parser\-::\-Parser\-Manager@{it\-::testbench\-::parser\-::\-Parser\-Manager}!Parser\-Manager@{Parser\-Manager}}
+\index{Parser\-Manager@{Parser\-Manager}!it::testbench::parser::ParserManager@{it\-::testbench\-::parser\-::\-Parser\-Manager}}
+\subsubsection[{Parser\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::parser\-::\-Parser\-Manager\-::\-Parser\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager_a6113cfe5e4264ea5909ce228273ae77a}
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserManager_af4130165f1d11bd66d23b13fc08f8a3d}{\index{it\-::testbench\-::parser\-::\-Parser\-Manager@{it\-::testbench\-::parser\-::\-Parser\-Manager}!$\sim$\-Parser\-Manager@{$\sim$\-Parser\-Manager}}
+\index{$\sim$\-Parser\-Manager@{$\sim$\-Parser\-Manager}!it::testbench::parser::ParserManager@{it\-::testbench\-::parser\-::\-Parser\-Manager}}
+\subsubsection[{$\sim$\-Parser\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::parser\-::\-Parser\-Manager\-::$\sim$\-Parser\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager_af4130165f1d11bd66d23b13fc08f8a3d}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserManager_aa8acbb8b2c903b265f177e3fb72e0524}{\index{it\-::testbench\-::parser\-::\-Parser\-Manager@{it\-::testbench\-::parser\-::\-Parser\-Manager}!init@{init}}
+\index{init@{init}!it::testbench::parser::ParserManager@{it\-::testbench\-::parser\-::\-Parser\-Manager}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::parser\-::\-Parser\-Manager\-::init (
+\begin{DoxyParamCaption}
+\item[{const {\bf Test\-Case\-Loader} $\ast$}]{loader}
+\end{DoxyParamCaption}
+)}}\label{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager_aa8acbb8b2c903b265f177e3fb72e0524}
+To be overriden specifically. Each concrete Test Case builder provides the ability to fully decouple the building process.
+
+\begin{DoxyReturn}{Returns}
+Report code data, it wraps the outcome of the initializationinitialize the Parser Manager 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager_aa8acbb8b2c903b265f177e3fb72e0524_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserManager_a7294575996b21ce73583da991de108ca}{\index{it\-::testbench\-::parser\-::\-Parser\-Manager@{it\-::testbench\-::parser\-::\-Parser\-Manager}!load\-Config@{load\-Config}}
+\index{load\-Config@{load\-Config}!it::testbench::parser::ParserManager@{it\-::testbench\-::parser\-::\-Parser\-Manager}}
+\subsubsection[{load\-Config}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::parser\-::\-Parser\-Manager\-::load\-Config (
+\begin{DoxyParamCaption}
+\item[{const {\bf Configuration} \&}]{file\-Cfg}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})}}\label{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager_a7294575996b21ce73583da991de108ca}
+Load the configuration files uniquely specifying the Test Plan to be run.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Test\-Framework\-Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Configuration} & data structure, it wraps the needed information to open a F\-S streamload the desired configuration file \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager_a7294575996b21ce73583da991de108ca_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserManager_a62b50936918fa3484f62c470fe4bb57a}{\index{it\-::testbench\-::parser\-::\-Parser\-Manager@{it\-::testbench\-::parser\-::\-Parser\-Manager}!parse\-Config@{parse\-Config}}
+\index{parse\-Config@{parse\-Config}!it::testbench::parser::ParserManager@{it\-::testbench\-::parser\-::\-Parser\-Manager}}
+\subsubsection[{parse\-Config}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::parser\-::\-Parser\-Manager\-::parse\-Config (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})}}\label{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager_a62b50936918fa3484f62c470fe4bb57a}
+Parse the previously loaded configuration file and in case of error throws an exception.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Test\-Framework\-Exceptionparse} & the loaded configuration \\
+\hline
+\end{DoxyExceptions}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager_a62b50936918fa3484f62c470fe4bb57a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserManager_a4b0eb91653f8393f199546e6d4b76a34}{\index{it\-::testbench\-::parser\-::\-Parser\-Manager@{it\-::testbench\-::parser\-::\-Parser\-Manager}!validate\-Config@{validate\-Config}}
+\index{validate\-Config@{validate\-Config}!it::testbench::parser::ParserManager@{it\-::testbench\-::parser\-::\-Parser\-Manager}}
+\subsubsection[{validate\-Config}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::parser\-::\-Parser\-Manager\-::validate\-Config (
+\begin{DoxyParamCaption}
+\item[{{\bf Test\-Bench\-Configuration} $\ast$}]{tb\-Conf}
+\end{DoxyParamCaption}
+)}}\label{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager_a4b0eb91653f8393f199546e6d4b76a34}
+Validate the previously loaded configuration file. The results are logged and returned in the Report\-Code data structured.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a locally created Testbench configuration file\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Report code data, it wraps the outcome of the initializationvalidate configuration 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager_a4b0eb91653f8393f199546e6d4b76a34_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1parser_1_1ParserManager_a2bfc201d0554f851e394e6023e33f748}{\index{it\-::testbench\-::parser\-::\-Parser\-Manager@{it\-::testbench\-::parser\-::\-Parser\-Manager}!current\-State@{current\-State}}
+\index{current\-State@{current\-State}!it::testbench::parser::ParserManager@{it\-::testbench\-::parser\-::\-Parser\-Manager}}
+\subsubsection[{current\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Parser\-State}$\ast$ it\-::testbench\-::parser\-::\-Parser\-Manager\-::current\-State\hspace{0.3cm}{\ttfamily [private]}}}\label{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager_a2bfc201d0554f851e394e6023e33f748}
+it maintains the current state \hypertarget{classit_1_1testbench_1_1parser_1_1ParserManager_a8382d999a6d1f2ed096f47c8846b9d49}{\index{it\-::testbench\-::parser\-::\-Parser\-Manager@{it\-::testbench\-::parser\-::\-Parser\-Manager}!loaded\-Cfg@{loaded\-Cfg}}
+\index{loaded\-Cfg@{loaded\-Cfg}!it::testbench::parser::ParserManager@{it\-::testbench\-::parser\-::\-Parser\-Manager}}
+\subsubsection[{loaded\-Cfg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Configuration}$\ast$ it\-::testbench\-::parser\-::\-Parser\-Manager\-::loaded\-Cfg\hspace{0.3cm}{\ttfamily [private]}}}\label{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager_a8382d999a6d1f2ed096f47c8846b9d49}
+loaded configuration \hypertarget{classit_1_1testbench_1_1parser_1_1ParserManager_aa1e940b6d527d5f8e6f3da64bd5022d9}{\index{it\-::testbench\-::parser\-::\-Parser\-Manager@{it\-::testbench\-::parser\-::\-Parser\-Manager}!loaded\-Stream@{loaded\-Stream}}
+\index{loaded\-Stream@{loaded\-Stream}!it::testbench::parser::ParserManager@{it\-::testbench\-::parser\-::\-Parser\-Manager}}
+\subsubsection[{loaded\-Stream}]{\setlength{\rightskip}{0pt plus 5cm}string$\ast$ it\-::testbench\-::parser\-::\-Parser\-Manager\-::loaded\-Stream\hspace{0.3cm}{\ttfamily [private]}}}\label{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager_aa1e940b6d527d5f8e6f3da64bd5022d9}
+loaded stream from File System \hypertarget{classit_1_1testbench_1_1parser_1_1ParserManager_a4fde8535856ac3efcf06b06b5de64254}{\index{it\-::testbench\-::parser\-::\-Parser\-Manager@{it\-::testbench\-::parser\-::\-Parser\-Manager}!tb\-Parsed@{tb\-Parsed}}
+\index{tb\-Parsed@{tb\-Parsed}!it::testbench::parser::ParserManager@{it\-::testbench\-::parser\-::\-Parser\-Manager}}
+\subsubsection[{tb\-Parsed}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Test\-Bench}$\ast$ it\-::testbench\-::parser\-::\-Parser\-Manager\-::tb\-Parsed\hspace{0.3cm}{\ttfamily [private]}}}\label{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager_a4fde8535856ac3efcf06b06b5de64254}
+parsed setting from the configuration file \hypertarget{classit_1_1testbench_1_1parser_1_1ParserManager_aac1d4a536ac5b3d19a970e9692d2ddff}{\index{it\-::testbench\-::parser\-::\-Parser\-Manager@{it\-::testbench\-::parser\-::\-Parser\-Manager}!tc\-Loader@{tc\-Loader}}
+\index{tc\-Loader@{tc\-Loader}!it::testbench::parser::ParserManager@{it\-::testbench\-::parser\-::\-Parser\-Manager}}
+\subsubsection[{tc\-Loader}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Test\-Case\-Loader}$\ast$ it\-::testbench\-::parser\-::\-Parser\-Manager\-::tc\-Loader\hspace{0.3cm}{\ttfamily [private]}}}\label{d2/d53/classit_1_1testbench_1_1parser_1_1ParserManager_aac1d4a536ac5b3d19a970e9692d2ddff}
+loader/builder of test cases 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{parser_8h}{parser.\-h}\item 
+\hyperlink{parser_8cpp}{parser.\-cpp}\end{DoxyCompactItemize}

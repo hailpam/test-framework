@@ -1,0 +1,174 @@
+\hypertarget{classit_1_1testbench_1_1rte_1_1Job}{\section{it\-:\-:testbench\-:\-:rte\-:\-:Job Class Reference}
+\label{d2/d1b/classit_1_1testbench_1_1rte_1_1Job}\index{it\-::testbench\-::rte\-::\-Job@{it\-::testbench\-::rte\-::\-Job}}
+}
+
+
+{\ttfamily \#include $<$job.\-h$>$}
+
+
+
+Collaboration diagram for it\-:\-:testbench\-:\-:rte\-:\-:Job\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d6f/classit_1_1testbench_1_1rte_1_1Job__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1Job_a905ef9eecf19f742af60d9f3d18d5e82}{Job} ()
+\item 
+\hyperlink{classit_1_1testbench_1_1rte_1_1Job_a408e03f5a32458b1fd2070e0d278b236}{$\sim$\-Job} ()
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1Job_abe859815dff77b6a4a860dfe67f5f7a8}{execute\-Test\-Case} ()
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1Job_ae0cc3d2e7578ad37cba7a8cbe69bf7f1}{generate\-Report} (\hyperlink{classit_1_1testbench_1_1data_1_1Report}{Report} $\ast$gen\-Report)
+\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1Job_a4fa3d5e3755f3acc83ad6cf4ee57225c}{set\-Test\-Case} (const \hyperlink{classit_1_1testbench_1_1data_1_1TestCase}{Test\-Case} $\ast$\hyperlink{classit_1_1testbench_1_1rte_1_1Job_ade77aa87844c9e4592804cd21a1fade9}{t\-Case})
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1TestCase}{Test\-Case} $\ast$ \hyperlink{classit_1_1testbench_1_1rte_1_1Job_ade77aa87844c9e4592804cd21a1fade9}{t\-Case}
+\item 
+bool \hyperlink{classit_1_1testbench_1_1rte_1_1Job_a5fff59f69e2405a6889ecde64981d5a2}{t\-Case\-Executed}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classit_1_1testbench_1_1rte_1_1Job}{Job} class defines a work item for a worker thread. It wrapes in the Test\-Case class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1Job_a905ef9eecf19f742af60d9f3d18d5e82}{\index{it\-::testbench\-::rte\-::\-Job@{it\-::testbench\-::rte\-::\-Job}!Job@{Job}}
+\index{Job@{Job}!it::testbench::rte::Job@{it\-::testbench\-::rte\-::\-Job}}
+\subsubsection[{Job}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::rte\-::\-Job\-::\-Job (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d2/d1b/classit_1_1testbench_1_1rte_1_1Job_a905ef9eecf19f742af60d9f3d18d5e82}
+\hypertarget{classit_1_1testbench_1_1rte_1_1Job_a408e03f5a32458b1fd2070e0d278b236}{\index{it\-::testbench\-::rte\-::\-Job@{it\-::testbench\-::rte\-::\-Job}!$\sim$\-Job@{$\sim$\-Job}}
+\index{$\sim$\-Job@{$\sim$\-Job}!it::testbench::rte::Job@{it\-::testbench\-::rte\-::\-Job}}
+\subsubsection[{$\sim$\-Job}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::rte\-::\-Job\-::$\sim$\-Job (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d2/d1b/classit_1_1testbench_1_1rte_1_1Job_a408e03f5a32458b1fd2070e0d278b236}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1Job_abe859815dff77b6a4a860dfe67f5f7a8}{\index{it\-::testbench\-::rte\-::\-Job@{it\-::testbench\-::rte\-::\-Job}!execute\-Test\-Case@{execute\-Test\-Case}}
+\index{execute\-Test\-Case@{execute\-Test\-Case}!it::testbench::rte::Job@{it\-::testbench\-::rte\-::\-Job}}
+\subsubsection[{execute\-Test\-Case}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} $\ast$ it\-::testbench\-::rte\-::\-Job\-::execute\-Test\-Case (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d2/d1b/classit_1_1testbench_1_1rte_1_1Job_abe859815dff77b6a4a860dfe67f5f7a8}
+Once the Test\-Case has been correctly set, a call to this method allows to executed all test items and collect the resutls;
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to the generated Report object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a Return\-Code object 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d1b/classit_1_1testbench_1_1rte_1_1Job_abe859815dff77b6a4a860dfe67f5f7a8_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{d2/d1b/classit_1_1testbench_1_1rte_1_1Job_abe859815dff77b6a4a860dfe67f5f7a8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1rte_1_1Job_ae0cc3d2e7578ad37cba7a8cbe69bf7f1}{\index{it\-::testbench\-::rte\-::\-Job@{it\-::testbench\-::rte\-::\-Job}!generate\-Report@{generate\-Report}}
+\index{generate\-Report@{generate\-Report}!it::testbench::rte::Job@{it\-::testbench\-::rte\-::\-Job}}
+\subsubsection[{generate\-Report}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} $\ast$ it\-::testbench\-::rte\-::\-Job\-::generate\-Report (
+\begin{DoxyParamCaption}
+\item[{{\bf Report} $\ast$}]{gen\-Report}
+\end{DoxyParamCaption}
+)}}\label{d2/d1b/classit_1_1testbench_1_1rte_1_1Job_ae0cc3d2e7578ad37cba7a8cbe69bf7f1}
+Once the Test\-Case has been executed, a call to this method allows to generate an aggregate Report containing the execution result.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to the generated Report object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a Return\-Code object 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d1b/classit_1_1testbench_1_1rte_1_1Job_ae0cc3d2e7578ad37cba7a8cbe69bf7f1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{d2/d1b/classit_1_1testbench_1_1rte_1_1Job_ae0cc3d2e7578ad37cba7a8cbe69bf7f1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1rte_1_1Job_a4fa3d5e3755f3acc83ad6cf4ee57225c}{\index{it\-::testbench\-::rte\-::\-Job@{it\-::testbench\-::rte\-::\-Job}!set\-Test\-Case@{set\-Test\-Case}}
+\index{set\-Test\-Case@{set\-Test\-Case}!it::testbench::rte::Job@{it\-::testbench\-::rte\-::\-Job}}
+\subsubsection[{set\-Test\-Case}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} $\ast$ it\-::testbench\-::rte\-::\-Job\-::set\-Test\-Case (
+\begin{DoxyParamCaption}
+\item[{const {\bf Test\-Case} $\ast$}]{t\-Case}
+\end{DoxyParamCaption}
+)}}\label{d2/d1b/classit_1_1testbench_1_1rte_1_1Job_a4fa3d5e3755f3acc83ad6cf4ee57225c}
+Set the Test\-Case as unit of work.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to the Test\-Cae \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a Return\-Code object 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1rte_1_1Job_ade77aa87844c9e4592804cd21a1fade9}{\index{it\-::testbench\-::rte\-::\-Job@{it\-::testbench\-::rte\-::\-Job}!t\-Case@{t\-Case}}
+\index{t\-Case@{t\-Case}!it::testbench::rte::Job@{it\-::testbench\-::rte\-::\-Job}}
+\subsubsection[{t\-Case}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Test\-Case}$\ast$ it\-::testbench\-::rte\-::\-Job\-::t\-Case\hspace{0.3cm}{\ttfamily [private]}}}\label{d2/d1b/classit_1_1testbench_1_1rte_1_1Job_ade77aa87844c9e4592804cd21a1fade9}
+pointer to the Test\-Case that should be executed \hypertarget{classit_1_1testbench_1_1rte_1_1Job_a5fff59f69e2405a6889ecde64981d5a2}{\index{it\-::testbench\-::rte\-::\-Job@{it\-::testbench\-::rte\-::\-Job}!t\-Case\-Executed@{t\-Case\-Executed}}
+\index{t\-Case\-Executed@{t\-Case\-Executed}!it::testbench::rte::Job@{it\-::testbench\-::rte\-::\-Job}}
+\subsubsection[{t\-Case\-Executed}]{\setlength{\rightskip}{0pt plus 5cm}bool it\-::testbench\-::rte\-::\-Job\-::t\-Case\-Executed\hspace{0.3cm}{\ttfamily [private]}}}\label{d2/d1b/classit_1_1testbench_1_1rte_1_1Job_a5fff59f69e2405a6889ecde64981d5a2}
+it indicates whether or not the Test\-Case has been executed 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{job_8h}{job.\-h}\item 
+\hyperlink{job_8cpp}{job.\-cpp}\end{DoxyCompactItemize}

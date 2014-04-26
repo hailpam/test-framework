@@ -1,0 +1,93 @@
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseContext}{\section{it\-:\-:testbench\-:\-:data\-:\-:Test\-Case\-Context Class Reference}
+\label{d9/d60/classit_1_1testbench_1_1data_1_1TestCaseContext}\index{it\-::testbench\-::data\-::\-Test\-Case\-Context@{it\-::testbench\-::data\-::\-Test\-Case\-Context}}
+}
+
+
+{\ttfamily \#include $<$testitem.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1TestCaseContext_ab9ad6284ea841be133f8eca9dd45109a}{Test\-Case\-Context} ()
+\item 
+virtual \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseContext_ae3883c1f16325e36894d9215b9a19e5b}{$\sim$\-Test\-Case\-Context} ()
+\item 
+virtual void \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseContext_aaae4618543410b39fee21b75c5e5a177}{set\-Description} (const string \&\hyperlink{classit_1_1testbench_1_1data_1_1TestCaseContext_a48eae7f179630179c3bb3cda1cbde0b0}{description})=0
+\begin{DoxyCompactList}\small\item\em set the test case description \end{DoxyCompactList}\item 
+virtual const string \& \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseContext_a2a00e41baa1fb2c18e64ab689270b17f}{get\-Description} () const =0
+\begin{DoxyCompactList}\small\item\em get the test case description \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseContext_a48eae7f179630179c3bb3cda1cbde0b0}{description}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract Data Type defining a Context Object that is used among the several Test Items contextually to a Test Case run.
+
+This class must be subclassed in order to contain the specific data types to be passed among the methods. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseContext_ab9ad6284ea841be133f8eca9dd45109a}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Context@{it\-::testbench\-::data\-::\-Test\-Case\-Context}!Test\-Case\-Context@{Test\-Case\-Context}}
+\index{Test\-Case\-Context@{Test\-Case\-Context}!it::testbench::data::TestCaseContext@{it\-::testbench\-::data\-::\-Test\-Case\-Context}}
+\subsubsection[{Test\-Case\-Context}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::data\-::\-Test\-Case\-Context\-::\-Test\-Case\-Context (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{d9/d60/classit_1_1testbench_1_1data_1_1TestCaseContext_ab9ad6284ea841be133f8eca9dd45109a}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseContext_ae3883c1f16325e36894d9215b9a19e5b}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Context@{it\-::testbench\-::data\-::\-Test\-Case\-Context}!$\sim$\-Test\-Case\-Context@{$\sim$\-Test\-Case\-Context}}
+\index{$\sim$\-Test\-Case\-Context@{$\sim$\-Test\-Case\-Context}!it::testbench::data::TestCaseContext@{it\-::testbench\-::data\-::\-Test\-Case\-Context}}
+\subsubsection[{$\sim$\-Test\-Case\-Context}]{\setlength{\rightskip}{0pt plus 5cm}virtual it\-::testbench\-::data\-::\-Test\-Case\-Context\-::$\sim$\-Test\-Case\-Context (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{d9/d60/classit_1_1testbench_1_1data_1_1TestCaseContext_ae3883c1f16325e36894d9215b9a19e5b}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseContext_a2a00e41baa1fb2c18e64ab689270b17f}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Context@{it\-::testbench\-::data\-::\-Test\-Case\-Context}!get\-Description@{get\-Description}}
+\index{get\-Description@{get\-Description}!it::testbench::data::TestCaseContext@{it\-::testbench\-::data\-::\-Test\-Case\-Context}}
+\subsubsection[{get\-Description}]{\setlength{\rightskip}{0pt plus 5cm}virtual const string\& it\-::testbench\-::data\-::\-Test\-Case\-Context\-::get\-Description (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{d9/d60/classit_1_1testbench_1_1data_1_1TestCaseContext_a2a00e41baa1fb2c18e64ab689270b17f}
+
+
+get the test case description 
+
+Retrieve the Test Case Description
+
+\begin{DoxyReturn}{Returns}
+Pointer to a string containing the description 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseContext_aaae4618543410b39fee21b75c5e5a177}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Context@{it\-::testbench\-::data\-::\-Test\-Case\-Context}!set\-Description@{set\-Description}}
+\index{set\-Description@{set\-Description}!it::testbench::data::TestCaseContext@{it\-::testbench\-::data\-::\-Test\-Case\-Context}}
+\subsubsection[{set\-Description}]{\setlength{\rightskip}{0pt plus 5cm}virtual void it\-::testbench\-::data\-::\-Test\-Case\-Context\-::set\-Description (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{description}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{d9/d60/classit_1_1testbench_1_1data_1_1TestCaseContext_aaae4618543410b39fee21b75c5e5a177}
+
+
+set the test case description 
+
+Set the Test Case Context Description
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a string containing the description \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseContext_a48eae7f179630179c3bb3cda1cbde0b0}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Context@{it\-::testbench\-::data\-::\-Test\-Case\-Context}!description@{description}}
+\index{description@{description}!it::testbench::data::TestCaseContext@{it\-::testbench\-::data\-::\-Test\-Case\-Context}}
+\subsubsection[{description}]{\setlength{\rightskip}{0pt plus 5cm}string it\-::testbench\-::data\-::\-Test\-Case\-Context\-::description\hspace{0.3cm}{\ttfamily [protected]}}}\label{d9/d60/classit_1_1testbench_1_1data_1_1TestCaseContext_a48eae7f179630179c3bb3cda1cbde0b0}
+context descriptionc 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{testitem_8h}{testitem.\-h}\end{DoxyCompactItemize}

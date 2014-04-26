@@ -1,0 +1,155 @@
+\hypertarget{classJson_1_1Features}{\section{Json\-:\-:Features Class Reference}
+\label{d0/d7e/classJson_1_1Features}\index{Json\-::\-Features@{Json\-::\-Features}}
+}
+
+
+Configuration passed to reader and writer. This configuration object can be used to force the \hyperlink{classJson_1_1Reader}{Reader} or \hyperlink{classJson_1_1Writer}{Writer} to behave in a standard conforming way.  
+
+
+
+
+{\ttfamily \#include $<$jsonfeatures.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classJson_1_1Features_ad15a091cb61bb31323299a95970d2644}{Features} ()
+\begin{DoxyCompactList}\small\item\em Initialize the configuration like Json\-Config\-::all\-Features;. \end{DoxyCompactList}\item 
+\hyperlink{classJson_1_1Features_ad15a091cb61bb31323299a95970d2644}{Features} ()
+\begin{DoxyCompactList}\small\item\em Initialize the configuration like Json\-Config\-::all\-Features;. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classJson_1_1Features}{Features} \hyperlink{classJson_1_1Features_a9f17db1b4ebbef8c645825344959481b}{all} ()
+\begin{DoxyCompactList}\small\item\em A configuration that allows all features and assumes all strings are U\-T\-F-\/8. \end{DoxyCompactList}\item 
+static \hyperlink{classJson_1_1Features}{Features} \hyperlink{classJson_1_1Features_aed3a2845df0cfd2ebe7338442361bd13}{strict\-Mode} ()
+\begin{DoxyCompactList}\small\item\em A configuration that is strictly compatible with the J\-S\-O\-N specification. \end{DoxyCompactList}\item 
+static \hyperlink{classJson_1_1Features}{Features} \hyperlink{classJson_1_1Features_a9f17db1b4ebbef8c645825344959481b}{all} ()
+\begin{DoxyCompactList}\small\item\em A configuration that allows all features and assumes all strings are U\-T\-F-\/8. \end{DoxyCompactList}\item 
+static \hyperlink{classJson_1_1Features}{Features} \hyperlink{classJson_1_1Features_aed3a2845df0cfd2ebe7338442361bd13}{strict\-Mode} ()
+\begin{DoxyCompactList}\small\item\em A configuration that is strictly compatible with the J\-S\-O\-N specification. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classJson_1_1Features_a33afd389719624b6bdb23950b3c346c9}{allow\-Comments\-\_\-}
+\begin{DoxyCompactList}\small\item\em {\ttfamily true} if comments are allowed. Default\-: {\ttfamily true}. \end{DoxyCompactList}\item 
+bool \hyperlink{classJson_1_1Features_a1162c37a1458adc32582b585b552f9c3}{strict\-Root\-\_\-}
+\begin{DoxyCompactList}\small\item\em {\ttfamily true} if root must be either an array or an object value. Default\-: {\ttfamily false}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Configuration passed to reader and writer. This configuration object can be used to force the \hyperlink{classJson_1_1Reader}{Reader} or \hyperlink{classJson_1_1Writer}{Writer} to behave in a standard conforming way. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classJson_1_1Features_ad15a091cb61bb31323299a95970d2644}{\index{Json\-::\-Features@{Json\-::\-Features}!Features@{Features}}
+\index{Features@{Features}!Json::Features@{Json\-::\-Features}}
+\subsubsection[{Features}]{\setlength{\rightskip}{0pt plus 5cm}Json\-::\-Features\-::\-Features (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d0/d7e/classJson_1_1Features_ad15a091cb61bb31323299a95970d2644}
+
+
+Initialize the configuration like Json\-Config\-::all\-Features;. 
+
+\hypertarget{classJson_1_1Features_ad15a091cb61bb31323299a95970d2644}{\index{Json\-::\-Features@{Json\-::\-Features}!Features@{Features}}
+\index{Features@{Features}!Json::Features@{Json\-::\-Features}}
+\subsubsection[{Features}]{\setlength{\rightskip}{0pt plus 5cm}Json\-::\-Features\-::\-Features (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d0/d7e/classJson_1_1Features_ad15a091cb61bb31323299a95970d2644}
+
+
+Initialize the configuration like Json\-Config\-::all\-Features;. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classJson_1_1Features_a9f17db1b4ebbef8c645825344959481b}{\index{Json\-::\-Features@{Json\-::\-Features}!all@{all}}
+\index{all@{all}!Json::Features@{Json\-::\-Features}}
+\subsubsection[{all}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Features} Json\-::\-Features\-::all (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{d0/d7e/classJson_1_1Features_a9f17db1b4ebbef8c645825344959481b}
+
+
+A configuration that allows all features and assumes all strings are U\-T\-F-\/8. 
+
+
+\begin{DoxyItemize}
+\item C \& C++ comments are allowed
+\item Root object can be any J\-S\-O\-N value
+\item Assumes \hyperlink{classJson_1_1Value}{Value} strings are encoded in U\-T\-F-\/8 
+\end{DoxyItemize}\hypertarget{classJson_1_1Features_a9f17db1b4ebbef8c645825344959481b}{\index{Json\-::\-Features@{Json\-::\-Features}!all@{all}}
+\index{all@{all}!Json::Features@{Json\-::\-Features}}
+\subsubsection[{all}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Features} Json\-::\-Features\-::all (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{d0/d7e/classJson_1_1Features_a9f17db1b4ebbef8c645825344959481b}
+
+
+A configuration that allows all features and assumes all strings are U\-T\-F-\/8. 
+
+
+\begin{DoxyItemize}
+\item C \& C++ comments are allowed
+\item Root object can be any J\-S\-O\-N value
+\item Assumes \hyperlink{classJson_1_1Value}{Value} strings are encoded in U\-T\-F-\/8 
+\end{DoxyItemize}\hypertarget{classJson_1_1Features_aed3a2845df0cfd2ebe7338442361bd13}{\index{Json\-::\-Features@{Json\-::\-Features}!strict\-Mode@{strict\-Mode}}
+\index{strict\-Mode@{strict\-Mode}!Json::Features@{Json\-::\-Features}}
+\subsubsection[{strict\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Features} Json\-::\-Features\-::strict\-Mode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{d0/d7e/classJson_1_1Features_aed3a2845df0cfd2ebe7338442361bd13}
+
+
+A configuration that is strictly compatible with the J\-S\-O\-N specification. 
+
+
+\begin{DoxyItemize}
+\item Comments are forbidden.
+\item Root object must be either an array or an object value.
+\item Assumes \hyperlink{classJson_1_1Value}{Value} strings are encoded in U\-T\-F-\/8 
+\end{DoxyItemize}\hypertarget{classJson_1_1Features_aed3a2845df0cfd2ebe7338442361bd13}{\index{Json\-::\-Features@{Json\-::\-Features}!strict\-Mode@{strict\-Mode}}
+\index{strict\-Mode@{strict\-Mode}!Json::Features@{Json\-::\-Features}}
+\subsubsection[{strict\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Features} Json\-::\-Features\-::strict\-Mode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{d0/d7e/classJson_1_1Features_aed3a2845df0cfd2ebe7338442361bd13}
+
+
+A configuration that is strictly compatible with the J\-S\-O\-N specification. 
+
+
+\begin{DoxyItemize}
+\item Comments are forbidden.
+\item Root object must be either an array or an object value.
+\item Assumes \hyperlink{classJson_1_1Value}{Value} strings are encoded in U\-T\-F-\/8 
+\end{DoxyItemize}
+
+\subsection{Member Data Documentation}
+\hypertarget{classJson_1_1Features_a33afd389719624b6bdb23950b3c346c9}{\index{Json\-::\-Features@{Json\-::\-Features}!allow\-Comments\-\_\-@{allow\-Comments\-\_\-}}
+\index{allow\-Comments\-\_\-@{allow\-Comments\-\_\-}!Json::Features@{Json\-::\-Features}}
+\subsubsection[{allow\-Comments\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}bool Json\-::\-Features\-::allow\-Comments\-\_\-}}\label{d0/d7e/classJson_1_1Features_a33afd389719624b6bdb23950b3c346c9}
+
+
+{\ttfamily true} if comments are allowed. Default\-: {\ttfamily true}. 
+
+\hypertarget{classJson_1_1Features_a1162c37a1458adc32582b585b552f9c3}{\index{Json\-::\-Features@{Json\-::\-Features}!strict\-Root\-\_\-@{strict\-Root\-\_\-}}
+\index{strict\-Root\-\_\-@{strict\-Root\-\_\-}!Json::Features@{Json\-::\-Features}}
+\subsubsection[{strict\-Root\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}bool Json\-::\-Features\-::strict\-Root\-\_\-}}\label{d0/d7e/classJson_1_1Features_a1162c37a1458adc32582b585b552f9c3}
+
+
+{\ttfamily true} if root must be either an array or an object value. Default\-: {\ttfamily false}. 
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{jsonfeatures_8h}{jsonfeatures.\-h}\item 
+\hyperlink{features_8h}{features.\-h}\end{DoxyCompactItemize}

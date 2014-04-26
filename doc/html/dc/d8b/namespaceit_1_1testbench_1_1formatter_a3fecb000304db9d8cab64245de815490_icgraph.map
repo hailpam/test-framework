@@ -1,0 +1,9 @@
+<map id="it::testbench::formatter::indent" name="it::testbench::formatter::indent">
+<area shape="rect" id="node3" href="$d2/d36/classit_1_1testbench_1_1formatter_1_1ConsoleFunctor.html#ab61212bcbf0fd24147484fbdb89bcd24" title="it::testbench::formatter\l::ConsoleFunctor::format" alt="" coords="217,5,383,46"/>
+<area shape="rect" id="node5" href="$d0/def/classit_1_1testbench_1_1formatter_1_1JsonFunctor.html#ac475795ec8d62b448bc9b3e6faa6de60" title="it::testbench::formatter\l::JsonFunctor::JsonFunctor" alt="" coords="209,70,391,111"/>
+<area shape="rect" id="node7" href="$d0/def/classit_1_1testbench_1_1formatter_1_1JsonFunctor.html#a1f05866bc07e491d920c7c38e3ff6682" title="it::testbench::formatter\l::JsonFunctor::format" alt="" coords="223,135,377,177"/>
+<area shape="rect" id="node9" href="$d3/d73/classit_1_1testbench_1_1formatter_1_1TxtFunctor.html#a6592a18314c54a3b98182fe7b38108d5" title="it::testbench::formatter\l::TxtFunctor::TxtFunctor" alt="" coords="218,201,382,242"/>
+<area shape="rect" id="node11" href="$d3/d73/classit_1_1testbench_1_1formatter_1_1TxtFunctor.html#ad172e2a419acff495920555b83a274a9" title="it::testbench::formatter\l::TxtFunctor::format" alt="" coords="223,266,377,307"/>
+<area shape="rect" id="node13" href="$d4/d4d/classit_1_1testbench_1_1formatter_1_1XmlFunctor.html#acd709999f1888003453452e79fe238af" title="it::testbench::formatter\l::XmlFunctor::XmlFunctor" alt="" coords="214,331,386,373"/>
+<area shape="rect" id="node15" href="$d4/d4d/classit_1_1testbench_1_1formatter_1_1XmlFunctor.html#acbb02d9ff51defbc6993c0388c54cd6e" title="it::testbench::formatter\l::XmlFunctor::format" alt="" coords="223,397,377,438"/>
+</map>

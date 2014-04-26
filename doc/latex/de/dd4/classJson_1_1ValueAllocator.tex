@@ -1,0 +1,156 @@
+\hypertarget{classJson_1_1ValueAllocator}{\section{Json\-:\-:Value\-Allocator Class Reference}
+\label{de/dd4/classJson_1_1ValueAllocator}\index{Json\-::\-Value\-Allocator@{Json\-::\-Value\-Allocator}}
+}
+
+
+Experimental do not use\-: Allocator to customize member name and string value memory management done by \hyperlink{classJson_1_1Value}{Value}.  
+
+
+
+
+{\ttfamily \#include $<$value.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{classJson_1_1ValueAllocator_a4ad5932b165e5b11e1a6227f503e38a6a38d36853ecb0922efe7ac03c10d5cf75}{unknown} = (unsigned)-\/1
+ \}
+\item 
+enum \{ \hyperlink{classJson_1_1ValueAllocator_a4ad5932b165e5b11e1a6227f503e38a6a38d36853ecb0922efe7ac03c10d5cf75}{unknown} = (unsigned)-\/1
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classJson_1_1ValueAllocator_a3c931f5b641a77f5b18a62e54cbb244d}{$\sim$\-Value\-Allocator} ()
+\item 
+virtual char $\ast$ \hyperlink{classJson_1_1ValueAllocator_af2370043912c62bb2f3d3277b2c0a125}{make\-Member\-Name} (const char $\ast$member\-Name)=0
+\item 
+virtual void \hyperlink{classJson_1_1ValueAllocator_ae8206cbaf1004994696a1ffec0d7e29a}{release\-Member\-Name} (char $\ast$member\-Name)=0
+\item 
+virtual char $\ast$ \hyperlink{classJson_1_1ValueAllocator_aaa63197291f55d060541a01fcf5a5dfc}{duplicate\-String\-Value} (const char $\ast$value, unsigned int length=\hyperlink{classJson_1_1ValueAllocator_a4ad5932b165e5b11e1a6227f503e38a6a38d36853ecb0922efe7ac03c10d5cf75}{unknown})=0
+\item 
+virtual void \hyperlink{classJson_1_1ValueAllocator_aa75c50f08bab7db386673ab355668c99}{release\-String\-Value} (char $\ast$value)=0
+\item 
+virtual \hyperlink{classJson_1_1ValueAllocator_a3c931f5b641a77f5b18a62e54cbb244d}{$\sim$\-Value\-Allocator} ()
+\item 
+virtual char $\ast$ \hyperlink{classJson_1_1ValueAllocator_af2370043912c62bb2f3d3277b2c0a125}{make\-Member\-Name} (const char $\ast$member\-Name)=0
+\item 
+virtual void \hyperlink{classJson_1_1ValueAllocator_ae8206cbaf1004994696a1ffec0d7e29a}{release\-Member\-Name} (char $\ast$member\-Name)=0
+\item 
+virtual char $\ast$ \hyperlink{classJson_1_1ValueAllocator_aaa63197291f55d060541a01fcf5a5dfc}{duplicate\-String\-Value} (const char $\ast$value, unsigned int length=\hyperlink{classJson_1_1ValueAllocator_a4ad5932b165e5b11e1a6227f503e38a6a38d36853ecb0922efe7ac03c10d5cf75}{unknown})=0
+\item 
+virtual void \hyperlink{classJson_1_1ValueAllocator_aa75c50f08bab7db386673ab355668c99}{release\-String\-Value} (char $\ast$value)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Experimental do not use\-: Allocator to customize member name and string value memory management done by \hyperlink{classJson_1_1Value}{Value}. 
+
+
+\begin{DoxyItemize}
+\item \hyperlink{classJson_1_1ValueAllocator_af2370043912c62bb2f3d3277b2c0a125}{make\-Member\-Name()} and \hyperlink{classJson_1_1ValueAllocator_ae8206cbaf1004994696a1ffec0d7e29a}{release\-Member\-Name()} are called to respectively duplicate and free an \hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea6ca35c0a30ea3d1b8ec95c2d1e41a1a8}{Json\-::object\-Value} member name.
+\item \hyperlink{classJson_1_1ValueAllocator_aaa63197291f55d060541a01fcf5a5dfc}{duplicate\-String\-Value()} and \hyperlink{classJson_1_1ValueAllocator_aa75c50f08bab7db386673ab355668c99}{release\-String\-Value()} are called similarly to duplicate and free a \hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4ea8376d6395b33f22c7ec18b3fa016bb1c}{Json\-::string\-Value} value. 
+\end{DoxyItemize}
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classJson_1_1ValueAllocator_a8ae4b347009c7a1eea42c5b944baddc8}{\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}\label{de/dd4/classJson_1_1ValueAllocator_a8ae4b347009c7a1eea42c5b944baddc8}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{unknown@{unknown}!Json\-::\-Value\-Allocator@{Json\-::\-Value\-Allocator}}\index{Json\-::\-Value\-Allocator@{Json\-::\-Value\-Allocator}!unknown@{unknown}}\item[{\em 
+\hypertarget{classJson_1_1ValueAllocator_a4ad5932b165e5b11e1a6227f503e38a6a38d36853ecb0922efe7ac03c10d5cf75}{unknown}\label{de/dd4/classJson_1_1ValueAllocator_a4ad5932b165e5b11e1a6227f503e38a6a38d36853ecb0922efe7ac03c10d5cf75}
+}]\end{description}
+\end{Desc}
+\hypertarget{classJson_1_1ValueAllocator_a4ad5932b165e5b11e1a6227f503e38a6}{\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}\label{de/dd4/classJson_1_1ValueAllocator_a4ad5932b165e5b11e1a6227f503e38a6}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{unknown@{unknown}!Json\-::\-Value\-Allocator@{Json\-::\-Value\-Allocator}}\index{Json\-::\-Value\-Allocator@{Json\-::\-Value\-Allocator}!unknown@{unknown}}\item[{\em 
+\hypertarget{classJson_1_1ValueAllocator_a4ad5932b165e5b11e1a6227f503e38a6a38d36853ecb0922efe7ac03c10d5cf75}{unknown}\label{de/dd4/classJson_1_1ValueAllocator_a4ad5932b165e5b11e1a6227f503e38a6a38d36853ecb0922efe7ac03c10d5cf75}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classJson_1_1ValueAllocator_a3c931f5b641a77f5b18a62e54cbb244d}{\index{Json\-::\-Value\-Allocator@{Json\-::\-Value\-Allocator}!$\sim$\-Value\-Allocator@{$\sim$\-Value\-Allocator}}
+\index{$\sim$\-Value\-Allocator@{$\sim$\-Value\-Allocator}!Json::ValueAllocator@{Json\-::\-Value\-Allocator}}
+\subsubsection[{$\sim$\-Value\-Allocator}]{\setlength{\rightskip}{0pt plus 5cm}virtual Json\-::\-Value\-Allocator\-::$\sim$\-Value\-Allocator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{de/dd4/classJson_1_1ValueAllocator_a3c931f5b641a77f5b18a62e54cbb244d}
+\hypertarget{classJson_1_1ValueAllocator_a3c931f5b641a77f5b18a62e54cbb244d}{\index{Json\-::\-Value\-Allocator@{Json\-::\-Value\-Allocator}!$\sim$\-Value\-Allocator@{$\sim$\-Value\-Allocator}}
+\index{$\sim$\-Value\-Allocator@{$\sim$\-Value\-Allocator}!Json::ValueAllocator@{Json\-::\-Value\-Allocator}}
+\subsubsection[{$\sim$\-Value\-Allocator}]{\setlength{\rightskip}{0pt plus 5cm}virtual Json\-::\-Value\-Allocator\-::$\sim$\-Value\-Allocator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{de/dd4/classJson_1_1ValueAllocator_a3c931f5b641a77f5b18a62e54cbb244d}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classJson_1_1ValueAllocator_aaa63197291f55d060541a01fcf5a5dfc}{\index{Json\-::\-Value\-Allocator@{Json\-::\-Value\-Allocator}!duplicate\-String\-Value@{duplicate\-String\-Value}}
+\index{duplicate\-String\-Value@{duplicate\-String\-Value}!Json::ValueAllocator@{Json\-::\-Value\-Allocator}}
+\subsubsection[{duplicate\-String\-Value}]{\setlength{\rightskip}{0pt plus 5cm}virtual char$\ast$ Json\-::\-Value\-Allocator\-::duplicate\-String\-Value (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{value, }
+\item[{unsigned int}]{length = {\ttfamily {\bf unknown}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{de/dd4/classJson_1_1ValueAllocator_aaa63197291f55d060541a01fcf5a5dfc}
+\hypertarget{classJson_1_1ValueAllocator_aaa63197291f55d060541a01fcf5a5dfc}{\index{Json\-::\-Value\-Allocator@{Json\-::\-Value\-Allocator}!duplicate\-String\-Value@{duplicate\-String\-Value}}
+\index{duplicate\-String\-Value@{duplicate\-String\-Value}!Json::ValueAllocator@{Json\-::\-Value\-Allocator}}
+\subsubsection[{duplicate\-String\-Value}]{\setlength{\rightskip}{0pt plus 5cm}virtual char$\ast$ Json\-::\-Value\-Allocator\-::duplicate\-String\-Value (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{value, }
+\item[{unsigned int}]{length = {\ttfamily {\bf unknown}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{de/dd4/classJson_1_1ValueAllocator_aaa63197291f55d060541a01fcf5a5dfc}
+\hypertarget{classJson_1_1ValueAllocator_af2370043912c62bb2f3d3277b2c0a125}{\index{Json\-::\-Value\-Allocator@{Json\-::\-Value\-Allocator}!make\-Member\-Name@{make\-Member\-Name}}
+\index{make\-Member\-Name@{make\-Member\-Name}!Json::ValueAllocator@{Json\-::\-Value\-Allocator}}
+\subsubsection[{make\-Member\-Name}]{\setlength{\rightskip}{0pt plus 5cm}virtual char$\ast$ Json\-::\-Value\-Allocator\-::make\-Member\-Name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{member\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{de/dd4/classJson_1_1ValueAllocator_af2370043912c62bb2f3d3277b2c0a125}
+\hypertarget{classJson_1_1ValueAllocator_af2370043912c62bb2f3d3277b2c0a125}{\index{Json\-::\-Value\-Allocator@{Json\-::\-Value\-Allocator}!make\-Member\-Name@{make\-Member\-Name}}
+\index{make\-Member\-Name@{make\-Member\-Name}!Json::ValueAllocator@{Json\-::\-Value\-Allocator}}
+\subsubsection[{make\-Member\-Name}]{\setlength{\rightskip}{0pt plus 5cm}virtual char$\ast$ Json\-::\-Value\-Allocator\-::make\-Member\-Name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{member\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{de/dd4/classJson_1_1ValueAllocator_af2370043912c62bb2f3d3277b2c0a125}
+\hypertarget{classJson_1_1ValueAllocator_ae8206cbaf1004994696a1ffec0d7e29a}{\index{Json\-::\-Value\-Allocator@{Json\-::\-Value\-Allocator}!release\-Member\-Name@{release\-Member\-Name}}
+\index{release\-Member\-Name@{release\-Member\-Name}!Json::ValueAllocator@{Json\-::\-Value\-Allocator}}
+\subsubsection[{release\-Member\-Name}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Json\-::\-Value\-Allocator\-::release\-Member\-Name (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{member\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{de/dd4/classJson_1_1ValueAllocator_ae8206cbaf1004994696a1ffec0d7e29a}
+\hypertarget{classJson_1_1ValueAllocator_ae8206cbaf1004994696a1ffec0d7e29a}{\index{Json\-::\-Value\-Allocator@{Json\-::\-Value\-Allocator}!release\-Member\-Name@{release\-Member\-Name}}
+\index{release\-Member\-Name@{release\-Member\-Name}!Json::ValueAllocator@{Json\-::\-Value\-Allocator}}
+\subsubsection[{release\-Member\-Name}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Json\-::\-Value\-Allocator\-::release\-Member\-Name (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{member\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{de/dd4/classJson_1_1ValueAllocator_ae8206cbaf1004994696a1ffec0d7e29a}
+\hypertarget{classJson_1_1ValueAllocator_aa75c50f08bab7db386673ab355668c99}{\index{Json\-::\-Value\-Allocator@{Json\-::\-Value\-Allocator}!release\-String\-Value@{release\-String\-Value}}
+\index{release\-String\-Value@{release\-String\-Value}!Json::ValueAllocator@{Json\-::\-Value\-Allocator}}
+\subsubsection[{release\-String\-Value}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Json\-::\-Value\-Allocator\-::release\-String\-Value (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{de/dd4/classJson_1_1ValueAllocator_aa75c50f08bab7db386673ab355668c99}
+\hypertarget{classJson_1_1ValueAllocator_aa75c50f08bab7db386673ab355668c99}{\index{Json\-::\-Value\-Allocator@{Json\-::\-Value\-Allocator}!release\-String\-Value@{release\-String\-Value}}
+\index{release\-String\-Value@{release\-String\-Value}!Json::ValueAllocator@{Json\-::\-Value\-Allocator}}
+\subsubsection[{release\-String\-Value}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Json\-::\-Value\-Allocator\-::release\-String\-Value (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{de/dd4/classJson_1_1ValueAllocator_aa75c50f08bab7db386673ab355668c99}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{dependencies_2json_2value_8h}{dependencies/json/value.\-h}\item 
+\hyperlink{inc_2json_2value_8h}{inc/json/value.\-h}\end{DoxyCompactItemize}

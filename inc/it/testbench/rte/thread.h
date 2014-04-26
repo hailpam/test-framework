@@ -9,9 +9,9 @@
 #include <rawlogger.h>
 
 /**
- * @file rte.h
+ * @file thread.h
  * Thread definition. This file defines the Thread class that is basically
- * a wrapper around the Posix pthread library of functionalities.
+ * a wrapper around the Posix pthread library.
  *
  * @brief
  *
@@ -66,7 +66,8 @@ class Thread {
          */
         ReturnCode start();                              /*!< run this Thread */
         /**
-         * Join to the execution of a previously started Thread.
+         * Join to the execution of a previou
+         sly started Thread.
          *
          */
         ReturnCode join();                               /*!< pause this Thread */

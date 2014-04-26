@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$d3/dc1/classit_1_1testbench_1_1formatter_1_1FormatterFunctor.html" title="it::testbench::formatter\l::FormatterFunctor" alt="" coords="5,135,160,177"/>
+<area shape="rect" id="node3" href="$d2/d36/classit_1_1testbench_1_1formatter_1_1ConsoleFunctor.html" title="it::testbench::formatter\l::ConsoleFunctor" alt="" coords="208,5,363,46"/>
+<area shape="rect" id="node5" href="$d0/d12/classit_1_1testbench_1_1formatter_1_1CsvFunctor.html" title="it::testbench::formatter\l::CsvFunctor" alt="" coords="208,70,363,111"/>
+<area shape="rect" id="node7" href="$d0/def/classit_1_1testbench_1_1formatter_1_1JsonFunctor.html" title="it::testbench::formatter\l::JsonFunctor" alt="" coords="208,135,363,177"/>
+<area shape="rect" id="node9" href="$d3/d73/classit_1_1testbench_1_1formatter_1_1TxtFunctor.html" title="it::testbench::formatter\l::TxtFunctor" alt="" coords="208,201,363,242"/>
+<area shape="rect" id="node11" href="$d4/d4d/classit_1_1testbench_1_1formatter_1_1XmlFunctor.html" title="it::testbench::formatter\l::XmlFunctor" alt="" coords="208,266,363,307"/>
+</map>

@@ -1,0 +1,121 @@
+\hypertarget{xml__functor_8cpp}{\section{xml\-\_\-functor.\-cpp File Reference}
+\label{d1/d37/xml__functor_8cpp}\index{xml\-\_\-functor.\-cpp@{xml\-\_\-functor.\-cpp}}
+}
+{\ttfamily \#include $<$formatter\-\_\-functor.\-h$>$}\\*
+{\ttfamily \#include $<$formatter\-\_\-util.\-h$>$}\\*
+Include dependency graph for xml\-\_\-functor.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/dfc/xml__functor_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespaceit}{it}
+\item 
+namespace \hyperlink{namespaceit_1_1testbench}{it\-::testbench}
+\item 
+namespace \hyperlink{namespaceit_1_1testbench_1_1formatter}{it\-::testbench\-::formatter}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{xml__functor_8cpp_a3b086322d8b412386d0da2bf9061e39b}{X\-M\-L\-\_\-\-B\-E\-G\-I\-N\-\_\-\-T\-A\-G}(a)
+\item 
+\#define \hyperlink{xml__functor_8cpp_ac1465f0a7e1ef7c42861995d04b30c9d}{X\-M\-L\-\_\-\-E\-N\-D\-\_\-\-T\-A\-G}()
+\item 
+\#define \hyperlink{xml__functor_8cpp_a2c087643f5151d196d842a583fe52f6e}{X\-M\-L\-\_\-\-E\-N\-D\-\_\-\-C\-L\-O\-S\-E\-\_\-\-T\-A\-G}(a)
+\item 
+\#define \hyperlink{xml__functor_8cpp_a6d61e7a9bbecd31f5a532f6c24d27faa}{X\-M\-L\-\_\-\-T\-A\-G\-\_\-\-P\-A\-I\-R}(a, b)
+\item 
+\#define \hyperlink{xml__functor_8cpp_a8f18c6973534d3e57352abff73b2ffc6}{X\-M\-L\-\_\-\-C\-L\-O\-S\-E\-\_\-\-T\-A\-G}(a)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char \hyperlink{namespaceit_1_1testbench_1_1formatter_a073fb47e25b058f3f9a068c500a4beba}{it\-::testbench\-::formatter\-::\-X\-M\-L\-\_\-\-B\-E\-G\-I\-N\-\_\-\-M\-A\-R\-K\-U\-P} = '$<$'
+\item 
+const char \hyperlink{namespaceit_1_1testbench_1_1formatter_a2dde1c317bf13d5dedc8c60596bcab59}{it\-::testbench\-::formatter\-::\-X\-M\-L\-\_\-\-E\-N\-D\-\_\-\-M\-A\-R\-K\-U\-P} = '$>$'
+\item 
+const char \hyperlink{namespaceit_1_1testbench_1_1formatter_abd718a599d6070b0ac79c28faa30f4cd}{it\-::testbench\-::formatter\-::\-X\-M\-L\-\_\-\-C\-L\-O\-S\-E\-\_\-\-M\-A\-R\-K\-U\-P} = '/'
+\item 
+const char \hyperlink{namespaceit_1_1testbench_1_1formatter_ad2f283844e5350a92faad734efaf3045}{it\-::testbench\-::formatter\-::\-X\-M\-L\-\_\-\-Q\-U\-O\-T\-E} = '\textbackslash{}\char`\"{}'
+\item 
+const char \hyperlink{namespaceit_1_1testbench_1_1formatter_a42ffc3f8609f004630ef6f671aa0a658}{it\-::testbench\-::formatter\-::\-X\-M\-L\-\_\-\-E\-Q\-U\-A\-L} = '='
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{xml__functor_8cpp_a3b086322d8b412386d0da2bf9061e39b}{\index{xml\-\_\-functor.\-cpp@{xml\-\_\-functor.\-cpp}!X\-M\-L\-\_\-\-B\-E\-G\-I\-N\-\_\-\-T\-A\-G@{X\-M\-L\-\_\-\-B\-E\-G\-I\-N\-\_\-\-T\-A\-G}}
+\index{X\-M\-L\-\_\-\-B\-E\-G\-I\-N\-\_\-\-T\-A\-G@{X\-M\-L\-\_\-\-B\-E\-G\-I\-N\-\_\-\-T\-A\-G}!xml_functor.cpp@{xml\-\_\-functor.\-cpp}}
+\subsubsection[{X\-M\-L\-\_\-\-B\-E\-G\-I\-N\-\_\-\-T\-A\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-M\-L\-\_\-\-B\-E\-G\-I\-N\-\_\-\-T\-A\-G(
+\begin{DoxyParamCaption}
+\item[{}]{a}
+\end{DoxyParamCaption}
+)}}\label{d1/d37/xml__functor_8cpp_a3b086322d8b412386d0da2bf9061e39b}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\{ fres->content += beginMarkup; \(\backslash\)
+    fres->content += (a); \}
+\end{DoxyCode}
+Macros for tag formatting \hypertarget{xml__functor_8cpp_a8f18c6973534d3e57352abff73b2ffc6}{\index{xml\-\_\-functor.\-cpp@{xml\-\_\-functor.\-cpp}!X\-M\-L\-\_\-\-C\-L\-O\-S\-E\-\_\-\-T\-A\-G@{X\-M\-L\-\_\-\-C\-L\-O\-S\-E\-\_\-\-T\-A\-G}}
+\index{X\-M\-L\-\_\-\-C\-L\-O\-S\-E\-\_\-\-T\-A\-G@{X\-M\-L\-\_\-\-C\-L\-O\-S\-E\-\_\-\-T\-A\-G}!xml_functor.cpp@{xml\-\_\-functor.\-cpp}}
+\subsubsection[{X\-M\-L\-\_\-\-C\-L\-O\-S\-E\-\_\-\-T\-A\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-M\-L\-\_\-\-C\-L\-O\-S\-E\-\_\-\-T\-A\-G(
+\begin{DoxyParamCaption}
+\item[{}]{a}
+\end{DoxyParamCaption}
+)}}\label{d1/d37/xml__functor_8cpp_a8f18c6973534d3e57352abff73b2ffc6}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\{ fres->content += beginMarkup; \(\backslash\)
+    fres->content += closeMarkup; \(\backslash\)
+    fres->content += (a); \(\backslash\)
+    fres->content += endMarkup; \(\backslash\)
+    fres->content += newLine; \}
+\end{DoxyCode}
+\hypertarget{xml__functor_8cpp_a2c087643f5151d196d842a583fe52f6e}{\index{xml\-\_\-functor.\-cpp@{xml\-\_\-functor.\-cpp}!X\-M\-L\-\_\-\-E\-N\-D\-\_\-\-C\-L\-O\-S\-E\-\_\-\-T\-A\-G@{X\-M\-L\-\_\-\-E\-N\-D\-\_\-\-C\-L\-O\-S\-E\-\_\-\-T\-A\-G}}
+\index{X\-M\-L\-\_\-\-E\-N\-D\-\_\-\-C\-L\-O\-S\-E\-\_\-\-T\-A\-G@{X\-M\-L\-\_\-\-E\-N\-D\-\_\-\-C\-L\-O\-S\-E\-\_\-\-T\-A\-G}!xml_functor.cpp@{xml\-\_\-functor.\-cpp}}
+\subsubsection[{X\-M\-L\-\_\-\-E\-N\-D\-\_\-\-C\-L\-O\-S\-E\-\_\-\-T\-A\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-M\-L\-\_\-\-E\-N\-D\-\_\-\-C\-L\-O\-S\-E\-\_\-\-T\-A\-G(
+\begin{DoxyParamCaption}
+\item[{}]{a}
+\end{DoxyParamCaption}
+)}}\label{d1/d37/xml__functor_8cpp_a2c087643f5151d196d842a583fe52f6e}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\{ fres->content += spaceStr; \(\backslash\)
+    fres->content += (a); \(\backslash\)
+    fres->content += endMarkup; \(\backslash\)
+    fres->content += newLine; \}
+\end{DoxyCode}
+\hypertarget{xml__functor_8cpp_ac1465f0a7e1ef7c42861995d04b30c9d}{\index{xml\-\_\-functor.\-cpp@{xml\-\_\-functor.\-cpp}!X\-M\-L\-\_\-\-E\-N\-D\-\_\-\-T\-A\-G@{X\-M\-L\-\_\-\-E\-N\-D\-\_\-\-T\-A\-G}}
+\index{X\-M\-L\-\_\-\-E\-N\-D\-\_\-\-T\-A\-G@{X\-M\-L\-\_\-\-E\-N\-D\-\_\-\-T\-A\-G}!xml_functor.cpp@{xml\-\_\-functor.\-cpp}}
+\subsubsection[{X\-M\-L\-\_\-\-E\-N\-D\-\_\-\-T\-A\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-M\-L\-\_\-\-E\-N\-D\-\_\-\-T\-A\-G(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{d1/d37/xml__functor_8cpp_ac1465f0a7e1ef7c42861995d04b30c9d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\{ fres->content += endMarkup; \(\backslash\)
+    fres->content += newLine; \}
+\end{DoxyCode}
+\hypertarget{xml__functor_8cpp_a6d61e7a9bbecd31f5a532f6c24d27faa}{\index{xml\-\_\-functor.\-cpp@{xml\-\_\-functor.\-cpp}!X\-M\-L\-\_\-\-T\-A\-G\-\_\-\-P\-A\-I\-R@{X\-M\-L\-\_\-\-T\-A\-G\-\_\-\-P\-A\-I\-R}}
+\index{X\-M\-L\-\_\-\-T\-A\-G\-\_\-\-P\-A\-I\-R@{X\-M\-L\-\_\-\-T\-A\-G\-\_\-\-P\-A\-I\-R}!xml_functor.cpp@{xml\-\_\-functor.\-cpp}}
+\subsubsection[{X\-M\-L\-\_\-\-T\-A\-G\-\_\-\-P\-A\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-M\-L\-\_\-\-T\-A\-G\-\_\-\-P\-A\-I\-R(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}}\label{d1/d37/xml__functor_8cpp_a6d61e7a9bbecd31f5a532f6c24d27faa}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\{ fres->content += spaceStr; \(\backslash\)
+    fres->content += (a); \(\backslash\)
+    fres->content += equalStr; \(\backslash\)
+    fres->content += quoteStr; \(\backslash\)
+    fres->content += (b); \(\backslash\)
+    fres->content += quoteStr; \}
+\end{DoxyCode}

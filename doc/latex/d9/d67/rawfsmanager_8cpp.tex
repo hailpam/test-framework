@@ -1,0 +1,98 @@
+\hypertarget{rawfsmanager_8cpp}{\section{rawfsmanager.\-cpp File Reference}
+\label{d9/d67/rawfsmanager_8cpp}\index{rawfsmanager.\-cpp@{rawfsmanager.\-cpp}}
+}
+{\ttfamily \#include $<$cstdio$>$}\\*
+{\ttfamily \#include $<$cstring$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include $<$sys/stat.\-h$>$}\\*
+{\ttfamily \#include $<$rawfsmanager.\-h$>$}\\*
+{\ttfamily \#include $<$debug.\-h$>$}\\*
+Include dependency graph for rawfsmanager.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d41/rawfsmanager_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{rawfsmanager_8cpp_a3f62feb5b7ddac4c1335fe40d434becb}{valid\-Res} (const \hyperlink{structit_1_1testbench_1_1data_1_1FormattedResource}{Formatted\-Resource} $\ast$fres)
+\item 
+string \hyperlink{rawfsmanager_8cpp_a267b405671f6344b0231c157313ab637}{string\-Name} (const \hyperlink{structit_1_1testbench_1_1data_1_1FormattedResource}{Formatted\-Resource} $\ast$fres)
+\item 
+bool \hyperlink{rawfsmanager_8cpp_af7aef1667241e45b837449e36bc3d711}{file\-Exists} (const string filename)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{rawfsmanager_8cpp_a36bc189fb5890a73e1e00d53972cb90c}{B\-U\-F\-\_\-\-S\-I\-Z\-E} = 4096
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{rawfsmanager_8cpp_af7aef1667241e45b837449e36bc3d711}{\index{rawfsmanager.\-cpp@{rawfsmanager.\-cpp}!file\-Exists@{file\-Exists}}
+\index{file\-Exists@{file\-Exists}!rawfsmanager.cpp@{rawfsmanager.\-cpp}}
+\subsubsection[{file\-Exists}]{\setlength{\rightskip}{0pt plus 5cm}bool file\-Exists (
+\begin{DoxyParamCaption}
+\item[{const string}]{filename}
+\end{DoxyParamCaption}
+)}}\label{d9/d67/rawfsmanager_8cpp_af7aef1667241e45b837449e36bc3d711}
+Check if file exists 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d67/rawfsmanager_8cpp_af7aef1667241e45b837449e36bc3d711_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rawfsmanager_8cpp_a267b405671f6344b0231c157313ab637}{\index{rawfsmanager.\-cpp@{rawfsmanager.\-cpp}!string\-Name@{string\-Name}}
+\index{string\-Name@{string\-Name}!rawfsmanager.cpp@{rawfsmanager.\-cpp}}
+\subsubsection[{string\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string string\-Name (
+\begin{DoxyParamCaption}
+\item[{const {\bf Formatted\-Resource} $\ast$}]{fres}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{d9/d67/rawfsmanager_8cpp_a267b405671f6344b0231c157313ab637}
+Gets the complete file name, in the format name.\-ext, from the Formatted\-Resource 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d67/rawfsmanager_8cpp_a267b405671f6344b0231c157313ab637_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rawfsmanager_8cpp_a3f62feb5b7ddac4c1335fe40d434becb}{\index{rawfsmanager.\-cpp@{rawfsmanager.\-cpp}!valid\-Res@{valid\-Res}}
+\index{valid\-Res@{valid\-Res}!rawfsmanager.cpp@{rawfsmanager.\-cpp}}
+\subsubsection[{valid\-Res}]{\setlength{\rightskip}{0pt plus 5cm}bool valid\-Res (
+\begin{DoxyParamCaption}
+\item[{const {\bf Formatted\-Resource} $\ast$}]{fres}
+\end{DoxyParamCaption}
+)}}\label{d9/d67/rawfsmanager_8cpp_a3f62feb5b7ddac4c1335fe40d434becb}
+Helper functions 
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d67/rawfsmanager_8cpp_a3f62feb5b7ddac4c1335fe40d434becb_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{rawfsmanager_8cpp_a36bc189fb5890a73e1e00d53972cb90c}{\index{rawfsmanager.\-cpp@{rawfsmanager.\-cpp}!B\-U\-F\-\_\-\-S\-I\-Z\-E@{B\-U\-F\-\_\-\-S\-I\-Z\-E}}
+\index{B\-U\-F\-\_\-\-S\-I\-Z\-E@{B\-U\-F\-\_\-\-S\-I\-Z\-E}!rawfsmanager.cpp@{rawfsmanager.\-cpp}}
+\subsubsection[{B\-U\-F\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}const int B\-U\-F\-\_\-\-S\-I\-Z\-E = 4096}}\label{d9/d67/rawfsmanager_8cpp_a36bc189fb5890a73e1e00d53972cb90c}
+Buffer used for decoupling Read and Update from the string 

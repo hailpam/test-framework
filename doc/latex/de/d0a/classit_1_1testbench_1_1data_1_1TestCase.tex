@@ -1,0 +1,490 @@
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase}{\section{it\-:\-:testbench\-:\-:data\-:\-:Test\-Case Class Reference}
+\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase}\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}}
+}
+
+
+{\ttfamily \#include $<$testbench.\-h$>$}
+
+
+
+Collaboration diagram for it\-:\-:testbench\-:\-:data\-:\-:Test\-Case\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d4c/classit_1_1testbench_1_1data_1_1TestCase__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1TestCase_a222ecfeaeee5f64e2a3d952edb6e202a}{Test\-Case} ()
+\begin{DoxyCompactList}\small\item\em T\-E\-S\-T C\-A\-S\-E. \end{DoxyCompactList}\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1TestCase_ac42069475cd5c89c492f355af7adb05f}{$\sim$\-Test\-Case} ()
+\begin{DoxyCompactList}\small\item\em it deallocates the dynamic instances \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_aef165620fc621f6b7ed00bd9a36881f2}{set\-Parent} (const \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan}{Test\-Plan} $\ast$\hyperlink{classit_1_1testbench_1_1data_1_1TestCase_a80afa358e2299772f9fbe5e788789280}{parent})
+\begin{DoxyCompactList}\small\item\em set pointer to parent \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_a67373edb7eb1be62b27d5a90b570261e}{setup\-Test\-Case} ()  throw (\-Test\-Framework\-Exception)
+\begin{DoxyCompactList}\small\item\em set up a Test Case \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_ac78ae6e5a0cfaac6e9be4212be017cb7}{run\-Test\-Case} ()  throw (\-Test\-Framework\-Exception)
+\begin{DoxyCompactList}\small\item\em execute a Test Case \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_a5f13e6419d7bb60c257d0a40097901aa}{tear\-Down\-Test\-Case} ()  throw (\-Test\-Framework\-Exception)
+\begin{DoxyCompactList}\small\item\em tear down a Test Case \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_a6674ebc8f47ff4cb53cda5ec93c33a79}{set\-Setup\-Test\-Item} (const \hyperlink{classit_1_1testbench_1_1data_1_1SetupTestItem}{Setup\-Test\-Item} $\ast$\hyperlink{classit_1_1testbench_1_1data_1_1TestCase_ae1f04f1177b5a11841cedf052c270631}{s\-Test\-Item})
+\begin{DoxyCompactList}\small\item\em set the Setup Test Item \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_a7a48241e8eb157c08eb136ef6f9a8d9e}{set\-Tear\-Down\-Test\-Item} (const \hyperlink{classit_1_1testbench_1_1data_1_1TearDownTestItem}{Tear\-Down\-Test\-Item} $\ast$\hyperlink{classit_1_1testbench_1_1data_1_1TestCase_a58c8c8823ed6c7521d1c47d621ba01d8}{td\-Test\-Item})
+\begin{DoxyCompactList}\small\item\em set the Tear down Test Item \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_a06b8a0fb6f3f120b0ff42d95c505920e}{set\-Test\-Case\-Context\-Object} (const \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseContext}{Test\-Case\-Context} $\ast$tc\-Ctx\-Object)
+\begin{DoxyCompactList}\small\item\em set the Test Case Context Object \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_af941b63139874e7030b71eaa746946e3}{add\-Runnable\-Test\-Item} (const \hyperlink{classit_1_1testbench_1_1data_1_1RunnableTestItem}{Runnable\-Test\-Item} $\ast$r\-Test\-Item)
+\begin{DoxyCompactList}\small\item\em add a Runnable Test Item to the list \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_aafe760d197ac5c9be1fb69a88ca02832}{add\-Return\-Code} (const \hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$ret\-Code)
+\begin{DoxyCompactList}\small\item\em add a \hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} to the list \end{DoxyCompactList}\item 
+void \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_ad38999e7794d219847327d01689a08ee}{set\-Test\-Case\-Number} (const unsigned int tc\-No)
+\begin{DoxyCompactList}\small\item\em set the test case number \end{DoxyCompactList}\item 
+const unsigned int \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_a679bc6cdfe23716461009c61191dbd22}{get\-Test\-Case\-Number} () const 
+\begin{DoxyCompactList}\small\item\em return the test case number \end{DoxyCompactList}\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1Report}{Report} $\ast$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_a04f88bf593d93a1514b886a1e3967ff7}{finalize\-Report} ()
+\begin{DoxyCompactList}\small\item\em finalize the report by the reports of the single test items \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan}{Test\-Plan} $\ast$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_a80afa358e2299772f9fbe5e788789280}{parent}
+\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1SetupTestItem}{Setup\-Test\-Item} $\ast$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_ae1f04f1177b5a11841cedf052c270631}{s\-Test\-Item}
+\item 
+list$<$ \hyperlink{classit_1_1testbench_1_1data_1_1RunnableTestItem}{Runnable\-Test\-Item} $\ast$ $>$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_a4d596b1e388e3955dc6007e64391e214}{r\-Test\-Items}
+\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1TearDownTestItem}{Tear\-Down\-Test\-Item} $\ast$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_a58c8c8823ed6c7521d1c47d621ba01d8}{td\-Test\-Item}
+\item 
+list$<$ \hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} $\ast$ $>$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_a4754cbcd70fd4d23a745a80af3caf28c}{tc\-Retcodes}
+\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1TestCaseContext}{Test\-Case\-Context} $\ast$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_af03e52147e65966b332f3374f8df9f0c}{ctx\-Object}
+\item 
+unsigned int \hyperlink{classit_1_1testbench_1_1data_1_1TestCase_ab59292afb38506aa15b5b83c758805b5}{tc\-Number}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract Data Type defining a Context Object that is used among the several Test Items contextually to a Test Case run.
+
+This class must be subclassed in order to contain the specific data types to be passed among the methods. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase_a222ecfeaeee5f64e2a3d952edb6e202a}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!Test\-Case@{Test\-Case}}
+\index{Test\-Case@{Test\-Case}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{Test\-Case}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::data\-::\-Test\-Case\-::\-Test\-Case (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a222ecfeaeee5f64e2a3d952edb6e202a}
+
+
+T\-E\-S\-T C\-A\-S\-E. 
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase_ac42069475cd5c89c492f355af7adb05f}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!$\sim$\-Test\-Case@{$\sim$\-Test\-Case}}
+\index{$\sim$\-Test\-Case@{$\sim$\-Test\-Case}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{$\sim$\-Test\-Case}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::data\-::\-Test\-Case\-::$\sim$\-Test\-Case (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_ac42069475cd5c89c492f355af7adb05f}
+
+
+it deallocates the dynamic instances 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase_aafe760d197ac5c9be1fb69a88ca02832}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!add\-Return\-Code@{add\-Return\-Code}}
+\index{add\-Return\-Code@{add\-Return\-Code}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{add\-Return\-Code}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::data\-::\-Test\-Case\-::add\-Return\-Code (
+\begin{DoxyParamCaption}
+\item[{const {\bf Return\-Code} $\ast$}]{ret\-Code}
+\end{DoxyParamCaption}
+)}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_aafe760d197ac5c9be1fb69a88ca02832}
+
+
+add a \hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} to the list 
+
+Add a return code to a list of return codes generated by runnable Test Items
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a return code object \\
+\hline
+\end{DoxyParams}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase_af941b63139874e7030b71eaa746946e3}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!add\-Runnable\-Test\-Item@{add\-Runnable\-Test\-Item}}
+\index{add\-Runnable\-Test\-Item@{add\-Runnable\-Test\-Item}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{add\-Runnable\-Test\-Item}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::data\-::\-Test\-Case\-::add\-Runnable\-Test\-Item (
+\begin{DoxyParamCaption}
+\item[{const {\bf Runnable\-Test\-Item} $\ast$}]{r\-Test\-Item}
+\end{DoxyParamCaption}
+)}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_af941b63139874e7030b71eaa746946e3}
+
+
+add a Runnable Test Item to the list 
+
+Add a specific \hyperlink{classit_1_1testbench_1_1data_1_1RunnableTestItem}{Runnable\-Test\-Item} (particularized instance)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a specific runnable test item \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_af941b63139874e7030b71eaa746946e3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase_a04f88bf593d93a1514b886a1e3967ff7}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!finalize\-Report@{finalize\-Report}}
+\index{finalize\-Report@{finalize\-Report}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{finalize\-Report}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Report} $\ast$ it\-::testbench\-::data\-::\-Test\-Case\-::finalize\-Report (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a04f88bf593d93a1514b886a1e3967ff7}
+
+
+finalize the report by the reports of the single test items 
+
+Finalize the reports by the single Items creating a merged and final \hyperlink{classit_1_1testbench_1_1data_1_1Report}{Report}
+
+\begin{DoxyReturn}{Returns}
+Pointer to a newly created \hyperlink{classit_1_1testbench_1_1data_1_1Report}{Report} 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a04f88bf593d93a1514b886a1e3967ff7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a04f88bf593d93a1514b886a1e3967ff7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase_a679bc6cdfe23716461009c61191dbd22}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!get\-Test\-Case\-Number@{get\-Test\-Case\-Number}}
+\index{get\-Test\-Case\-Number@{get\-Test\-Case\-Number}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{get\-Test\-Case\-Number}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int it\-::testbench\-::data\-::\-Test\-Case\-::get\-Test\-Case\-Number (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a679bc6cdfe23716461009c61191dbd22}
+
+
+return the test case number 
+
+Get the Test Case number
+
+\begin{DoxyReturn}{Returns}
+An integer representing the test case number 
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a679bc6cdfe23716461009c61191dbd22_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase_ac78ae6e5a0cfaac6e9be4212be017cb7}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!run\-Test\-Case@{run\-Test\-Case}}
+\index{run\-Test\-Case@{run\-Test\-Case}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{run\-Test\-Case}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::data\-::\-Test\-Case\-::run\-Test\-Case (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_ac78ae6e5a0cfaac6e9be4212be017cb7}
+
+
+execute a Test Case 
+
+Executes the Test Items specific to this Test Case
+
+\begin{DoxyReturn}{Returns}
+Boolean value, true if everythig gone well 
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_ac78ae6e5a0cfaac6e9be4212be017cb7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase_aef165620fc621f6b7ed00bd9a36881f2}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!set\-Parent@{set\-Parent}}
+\index{set\-Parent@{set\-Parent}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{set\-Parent}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::data\-::\-Test\-Case\-::set\-Parent (
+\begin{DoxyParamCaption}
+\item[{const {\bf Test\-Plan} $\ast$}]{parent}
+\end{DoxyParamCaption}
+)}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_aef165620fc621f6b7ed00bd9a36881f2}
+
+
+set pointer to parent 
+
+Set a pointer to parent \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan}{Test\-Plan}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to the parent test plan \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_aef165620fc621f6b7ed00bd9a36881f2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase_a6674ebc8f47ff4cb53cda5ec93c33a79}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!set\-Setup\-Test\-Item@{set\-Setup\-Test\-Item}}
+\index{set\-Setup\-Test\-Item@{set\-Setup\-Test\-Item}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{set\-Setup\-Test\-Item}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::data\-::\-Test\-Case\-::set\-Setup\-Test\-Item (
+\begin{DoxyParamCaption}
+\item[{const {\bf Setup\-Test\-Item} $\ast$}]{s\-Test\-Item}
+\end{DoxyParamCaption}
+)}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a6674ebc8f47ff4cb53cda5ec93c33a79}
+
+
+set the Setup Test Item 
+
+Set up the specific \hyperlink{classit_1_1testbench_1_1data_1_1SetupTestItem}{Setup\-Test\-Item} (particularized instance)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a specific setup test item \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a6674ebc8f47ff4cb53cda5ec93c33a79_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase_a7a48241e8eb157c08eb136ef6f9a8d9e}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!set\-Tear\-Down\-Test\-Item@{set\-Tear\-Down\-Test\-Item}}
+\index{set\-Tear\-Down\-Test\-Item@{set\-Tear\-Down\-Test\-Item}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{set\-Tear\-Down\-Test\-Item}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::data\-::\-Test\-Case\-::set\-Tear\-Down\-Test\-Item (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tear\-Down\-Test\-Item} $\ast$}]{td\-Test\-Item}
+\end{DoxyParamCaption}
+)}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a7a48241e8eb157c08eb136ef6f9a8d9e}
+
+
+set the Tear down Test Item 
+
+Set up the specific \hyperlink{classit_1_1testbench_1_1data_1_1TearDownTestItem}{Tear\-Down\-Test\-Item} (particularized instance)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a specific tear down test item \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a7a48241e8eb157c08eb136ef6f9a8d9e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase_a06b8a0fb6f3f120b0ff42d95c505920e}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!set\-Test\-Case\-Context\-Object@{set\-Test\-Case\-Context\-Object}}
+\index{set\-Test\-Case\-Context\-Object@{set\-Test\-Case\-Context\-Object}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{set\-Test\-Case\-Context\-Object}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::data\-::\-Test\-Case\-::set\-Test\-Case\-Context\-Object (
+\begin{DoxyParamCaption}
+\item[{const {\bf Test\-Case\-Context} $\ast$}]{tc\-Ctx\-Object}
+\end{DoxyParamCaption}
+)}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a06b8a0fb6f3f120b0ff42d95c505920e}
+
+
+set the Test Case Context Object 
+
+Set the Test Case Context Description
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to a specific \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseContext}{Test\-Case\-Context} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase_ad38999e7794d219847327d01689a08ee}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!set\-Test\-Case\-Number@{set\-Test\-Case\-Number}}
+\index{set\-Test\-Case\-Number@{set\-Test\-Case\-Number}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{set\-Test\-Case\-Number}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::data\-::\-Test\-Case\-::set\-Test\-Case\-Number (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{tc\-No}
+\end{DoxyParamCaption}
+)}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_ad38999e7794d219847327d01689a08ee}
+
+
+set the test case number 
+
+Set the Test Case number
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em An} & integer representing the test case number \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_ad38999e7794d219847327d01689a08ee_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase_a67373edb7eb1be62b27d5a90b570261e}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!setup\-Test\-Case@{setup\-Test\-Case}}
+\index{setup\-Test\-Case@{setup\-Test\-Case}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{setup\-Test\-Case}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::data\-::\-Test\-Case\-::setup\-Test\-Case (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a67373edb7eb1be62b27d5a90b570261e}
+
+
+set up a Test Case 
+
+Initialize the data structure specific to this Test Case
+
+\begin{DoxyReturn}{Returns}
+Boolean value, true if everythig gone well 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a67373edb7eb1be62b27d5a90b570261e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a67373edb7eb1be62b27d5a90b570261e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase_a5f13e6419d7bb60c257d0a40097901aa}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!tear\-Down\-Test\-Case@{tear\-Down\-Test\-Case}}
+\index{tear\-Down\-Test\-Case@{tear\-Down\-Test\-Case}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{tear\-Down\-Test\-Case}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::data\-::\-Test\-Case\-::tear\-Down\-Test\-Case (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)  throw ({\bf Test\-Framework\-Exception})}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a5f13e6419d7bb60c257d0a40097901aa}
+
+
+tear down a Test Case 
+
+Tear down the data structures initialized for this Test Case
+
+\begin{DoxyReturn}{Returns}
+Boolean value, true if everythig gone well 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a5f13e6419d7bb60c257d0a40097901aa_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a5f13e6419d7bb60c257d0a40097901aa_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCase_af03e52147e65966b332f3374f8df9f0c}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!ctx\-Object@{ctx\-Object}}
+\index{ctx\-Object@{ctx\-Object}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{ctx\-Object}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Test\-Case\-Context}$\ast$ it\-::testbench\-::data\-::\-Test\-Case\-::ctx\-Object\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_af03e52147e65966b332f3374f8df9f0c}
+context object\-: it maintanis the pointers to specific data structures to be used \hypertarget{classit_1_1testbench_1_1data_1_1TestCase_a80afa358e2299772f9fbe5e788789280}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!parent@{parent}}
+\index{parent@{parent}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{parent}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Test\-Plan}$\ast$ it\-::testbench\-::data\-::\-Test\-Case\-::parent\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a80afa358e2299772f9fbe5e788789280}
+pointer at parent \hypertarget{classit_1_1testbench_1_1data_1_1TestCase_a4d596b1e388e3955dc6007e64391e214}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!r\-Test\-Items@{r\-Test\-Items}}
+\index{r\-Test\-Items@{r\-Test\-Items}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{r\-Test\-Items}]{\setlength{\rightskip}{0pt plus 5cm}list$<${\bf Runnable\-Test\-Item}$\ast$$>$ it\-::testbench\-::data\-::\-Test\-Case\-::r\-Test\-Items\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a4d596b1e388e3955dc6007e64391e214}
+specific test item looking after the run aspects \hypertarget{classit_1_1testbench_1_1data_1_1TestCase_ae1f04f1177b5a11841cedf052c270631}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!s\-Test\-Item@{s\-Test\-Item}}
+\index{s\-Test\-Item@{s\-Test\-Item}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{s\-Test\-Item}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Setup\-Test\-Item}$\ast$ it\-::testbench\-::data\-::\-Test\-Case\-::s\-Test\-Item\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_ae1f04f1177b5a11841cedf052c270631}
+specific test item looking after the setup \hypertarget{classit_1_1testbench_1_1data_1_1TestCase_ab59292afb38506aa15b5b83c758805b5}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!tc\-Number@{tc\-Number}}
+\index{tc\-Number@{tc\-Number}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{tc\-Number}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int it\-::testbench\-::data\-::\-Test\-Case\-::tc\-Number\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_ab59292afb38506aa15b5b83c758805b5}
+test case number\-: it is an identifier \hypertarget{classit_1_1testbench_1_1data_1_1TestCase_a4754cbcd70fd4d23a745a80af3caf28c}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!tc\-Retcodes@{tc\-Retcodes}}
+\index{tc\-Retcodes@{tc\-Retcodes}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{tc\-Retcodes}]{\setlength{\rightskip}{0pt plus 5cm}list$<${\bf Return\-Code}$\ast$$>$ it\-::testbench\-::data\-::\-Test\-Case\-::tc\-Retcodes\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a4754cbcd70fd4d23a745a80af3caf28c}
+list of reports (one for each runnable item \hypertarget{classit_1_1testbench_1_1data_1_1TestCase_a58c8c8823ed6c7521d1c47d621ba01d8}{\index{it\-::testbench\-::data\-::\-Test\-Case@{it\-::testbench\-::data\-::\-Test\-Case}!td\-Test\-Item@{td\-Test\-Item}}
+\index{td\-Test\-Item@{td\-Test\-Item}!it::testbench::data::TestCase@{it\-::testbench\-::data\-::\-Test\-Case}}
+\subsubsection[{td\-Test\-Item}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tear\-Down\-Test\-Item}$\ast$ it\-::testbench\-::data\-::\-Test\-Case\-::td\-Test\-Item\hspace{0.3cm}{\ttfamily [private]}}}\label{de/d0a/classit_1_1testbench_1_1data_1_1TestCase_a58c8c8823ed6c7521d1c47d621ba01d8}
+specific test item looking after the deallocation 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{testbench_8h}{testbench.\-h}\item 
+\hyperlink{testbench_8cpp}{testbench.\-cpp}\end{DoxyCompactItemize}

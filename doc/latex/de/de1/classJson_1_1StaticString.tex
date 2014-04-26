@@ -1,0 +1,106 @@
+\hypertarget{classJson_1_1StaticString}{\section{Json\-:\-:Static\-String Class Reference}
+\label{de/de1/classJson_1_1StaticString}\index{Json\-::\-Static\-String@{Json\-::\-Static\-String}}
+}
+
+
+Lightweight wrapper to tag static string.  
+
+
+
+
+{\ttfamily \#include $<$value.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classJson_1_1StaticString_afb6baf1ec078ce76f0b0f9b39d19437f}{Static\-String} (const char $\ast$czstring)
+\item 
+\hyperlink{classJson_1_1StaticString_ac2b334d46bbea4c0227e508fc66433e9}{operator const char $\ast$} () const 
+\item 
+const char $\ast$ \hyperlink{classJson_1_1StaticString_ab86fc6a3183adf12fdba4b370acf1754}{c\-\_\-str} () const 
+\item 
+\hyperlink{classJson_1_1StaticString_afb6baf1ec078ce76f0b0f9b39d19437f}{Static\-String} (const char $\ast$czstring)
+\item 
+\hyperlink{classJson_1_1StaticString_ac2b334d46bbea4c0227e508fc66433e9}{operator const char $\ast$} () const 
+\item 
+const char $\ast$ \hyperlink{classJson_1_1StaticString_ab86fc6a3183adf12fdba4b370acf1754}{c\-\_\-str} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{classJson_1_1StaticString_a70ae5d020dde2080a97e23d816e0bab0}{str\-\_\-}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Lightweight wrapper to tag static string. 
+
+\hyperlink{classJson_1_1Value}{Value} constructor and object\-Value member assignement takes advantage of the \hyperlink{classJson_1_1StaticString}{Static\-String} and avoid the cost of string duplication when storing the string or the member name.
+
+Example of usage\-: 
+\begin{DoxyCode}
+\hyperlink{classJson_1_1Value}{Json::Value} aValue( \hyperlink{classJson_1_1StaticString_afb6baf1ec078ce76f0b0f9b39d19437f}{StaticString}(\textcolor{stringliteral}{"some text"}) );
+\hyperlink{classJson_1_1Value}{Json::Value} object;
+\textcolor{keyword}{static} \textcolor{keyword}{const} \hyperlink{classJson_1_1StaticString_afb6baf1ec078ce76f0b0f9b39d19437f}{StaticString} code(\textcolor{stringliteral}{"code"});
+\textcolor{keywordtype}{object}[code] = 1234;
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classJson_1_1StaticString_afb6baf1ec078ce76f0b0f9b39d19437f}{\index{Json\-::\-Static\-String@{Json\-::\-Static\-String}!Static\-String@{Static\-String}}
+\index{Static\-String@{Static\-String}!Json::StaticString@{Json\-::\-Static\-String}}
+\subsubsection[{Static\-String}]{\setlength{\rightskip}{0pt plus 5cm}Json\-::\-Static\-String\-::\-Static\-String (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{czstring}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}}\label{de/de1/classJson_1_1StaticString_afb6baf1ec078ce76f0b0f9b39d19437f}
+\hypertarget{classJson_1_1StaticString_afb6baf1ec078ce76f0b0f9b39d19437f}{\index{Json\-::\-Static\-String@{Json\-::\-Static\-String}!Static\-String@{Static\-String}}
+\index{Static\-String@{Static\-String}!Json::StaticString@{Json\-::\-Static\-String}}
+\subsubsection[{Static\-String}]{\setlength{\rightskip}{0pt plus 5cm}Json\-::\-Static\-String\-::\-Static\-String (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{czstring}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}}\label{de/de1/classJson_1_1StaticString_afb6baf1ec078ce76f0b0f9b39d19437f}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classJson_1_1StaticString_ab86fc6a3183adf12fdba4b370acf1754}{\index{Json\-::\-Static\-String@{Json\-::\-Static\-String}!c\-\_\-str@{c\-\_\-str}}
+\index{c\-\_\-str@{c\-\_\-str}!Json::StaticString@{Json\-::\-Static\-String}}
+\subsubsection[{c\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ Json\-::\-Static\-String\-::c\-\_\-str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{de/de1/classJson_1_1StaticString_ab86fc6a3183adf12fdba4b370acf1754}
+\hypertarget{classJson_1_1StaticString_ab86fc6a3183adf12fdba4b370acf1754}{\index{Json\-::\-Static\-String@{Json\-::\-Static\-String}!c\-\_\-str@{c\-\_\-str}}
+\index{c\-\_\-str@{c\-\_\-str}!Json::StaticString@{Json\-::\-Static\-String}}
+\subsubsection[{c\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ Json\-::\-Static\-String\-::c\-\_\-str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{de/de1/classJson_1_1StaticString_ab86fc6a3183adf12fdba4b370acf1754}
+\hypertarget{classJson_1_1StaticString_ac2b334d46bbea4c0227e508fc66433e9}{\index{Json\-::\-Static\-String@{Json\-::\-Static\-String}!operator const char $\ast$@{operator const char $\ast$}}
+\index{operator const char $\ast$@{operator const char $\ast$}!Json::StaticString@{Json\-::\-Static\-String}}
+\subsubsection[{operator const char $\ast$}]{\setlength{\rightskip}{0pt plus 5cm}Json\-::\-Static\-String\-::operator const char $\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{de/de1/classJson_1_1StaticString_ac2b334d46bbea4c0227e508fc66433e9}
+\hypertarget{classJson_1_1StaticString_ac2b334d46bbea4c0227e508fc66433e9}{\index{Json\-::\-Static\-String@{Json\-::\-Static\-String}!operator const char $\ast$@{operator const char $\ast$}}
+\index{operator const char $\ast$@{operator const char $\ast$}!Json::StaticString@{Json\-::\-Static\-String}}
+\subsubsection[{operator const char $\ast$}]{\setlength{\rightskip}{0pt plus 5cm}Json\-::\-Static\-String\-::operator const char $\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{de/de1/classJson_1_1StaticString_ac2b334d46bbea4c0227e508fc66433e9}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classJson_1_1StaticString_a70ae5d020dde2080a97e23d816e0bab0}{\index{Json\-::\-Static\-String@{Json\-::\-Static\-String}!str\-\_\-@{str\-\_\-}}
+\index{str\-\_\-@{str\-\_\-}!Json::StaticString@{Json\-::\-Static\-String}}
+\subsubsection[{str\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ Json\-::\-Static\-String\-::str\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{de/de1/classJson_1_1StaticString_a70ae5d020dde2080a97e23d816e0bab0}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{dependencies_2json_2value_8h}{dependencies/json/value.\-h}\item 
+\hyperlink{inc_2json_2value_8h}{inc/json/value.\-h}\end{DoxyCompactItemize}

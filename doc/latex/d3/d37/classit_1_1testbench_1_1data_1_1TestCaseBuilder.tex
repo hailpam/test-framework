@@ -1,0 +1,55 @@
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseBuilder}{\section{it\-:\-:testbench\-:\-:data\-:\-:Test\-Case\-Builder Class Reference}
+\label{d3/d37/classit_1_1testbench_1_1data_1_1TestCaseBuilder}\index{it\-::testbench\-::data\-::\-Test\-Case\-Builder@{it\-::testbench\-::data\-::\-Test\-Case\-Builder}}
+}
+
+
+{\ttfamily \#include $<$testbench.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classit_1_1testbench_1_1data_1_1TestCase}{Test\-Case} $\ast$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCaseBuilder_a5a644d16273c9e8cf580db8558b73a2a}{build\-Test\-Case} ()=0
+\begin{DoxyCompactList}\small\item\em build a specific instance of Test Case \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract Data Type defining a Test Case Builder.
+
+At run time, a concrete builder will provide the ability to build specific test cases based on specific Test Items\-: the programmer has to write only the specific source code for the Test Item and a specifc Test Case builder.
+
+Applying the buildre pattern strategy, the engine will be completely decoupled. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestCaseBuilder_a5a644d16273c9e8cf580db8558b73a2a}{\index{it\-::testbench\-::data\-::\-Test\-Case\-Builder@{it\-::testbench\-::data\-::\-Test\-Case\-Builder}!build\-Test\-Case@{build\-Test\-Case}}
+\index{build\-Test\-Case@{build\-Test\-Case}!it::testbench::data::TestCaseBuilder@{it\-::testbench\-::data\-::\-Test\-Case\-Builder}}
+\subsubsection[{build\-Test\-Case}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Test\-Case}$\ast$ it\-::testbench\-::data\-::\-Test\-Case\-Builder\-::build\-Test\-Case (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{d3/d37/classit_1_1testbench_1_1data_1_1TestCaseBuilder_a5a644d16273c9e8cf580db8558b73a2a}
+
+
+build a specific instance of Test Case 
+
+To be overriden specifically. Each concrete Test Case builder provides the ability to fully decouple the building process.
+
+\begin{DoxyReturn}{Returns}
+Boolean value, true iff the building has been performed successfully 
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d37/classit_1_1testbench_1_1data_1_1TestCaseBuilder_a5a644d16273c9e8cf580db8558b73a2a_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{testbench_8h}{testbench.\-h}\end{DoxyCompactItemize}

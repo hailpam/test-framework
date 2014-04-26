@@ -1,0 +1,380 @@
+\hypertarget{classit_1_1testbench_1_1data_1_1TestPlan}{\section{it\-:\-:testbench\-:\-:data\-:\-:Test\-Plan Class Reference}
+\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan}\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+}
+
+
+{\ttfamily \#include $<$testbench.\-h$>$}
+
+
+
+Collaboration diagram for it\-:\-:testbench\-:\-:data\-:\-:Test\-Plan\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{d4/db4/classit_1_1testbench_1_1data_1_1TestPlan__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_ad33876e2df1471adc6feaecb4be01170}{Test\-Plan} ()
+\begin{DoxyCompactList}\small\item\em T\-E\-S\-T P\-L\-A\-N. \end{DoxyCompactList}\item 
+\hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_a4d5b6ca833ea746153a7eab0b3e01e9d}{$\sim$\-Test\-Plan} ()
+\item 
+void \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_a56a7b7f2aec78d8dfba3a4f2110eedf6}{set\-Parent} (const \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration}{Test\-Bench\-Configuration} $\ast$\hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_a79f502dcaa5c97db247d81c4808da43d}{parent})
+\begin{DoxyCompactList}\small\item\em set pointer to parent \end{DoxyCompactList}\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_aaf7ae0fd7ba3aeaf9716c00c7461bd5c}{set\-Test\-Plan\-Id} (const string \&t\-Id)
+\begin{DoxyCompactList}\small\item\em set the test plan Id \end{DoxyCompactList}\item 
+const string $\ast$ \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_a23d8699783d6d8cd52426e1c5f0fafb9}{get\-Test\-Plan\-Id} () const 
+\begin{DoxyCompactList}\small\item\em get the test plan Id \end{DoxyCompactList}\item 
+const string $\ast$ \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_a2fd269c840f4ea2ebf12d801f257a67c}{get\-Session\-Id} () const 
+\begin{DoxyCompactList}\small\item\em get the session Id \end{DoxyCompactList}\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_a4613f6641ce2f7eae4f2b0b2e32ac6f3}{add\-Test\-Case} (unsigned int tc\-Idx, \hyperlink{classit_1_1testbench_1_1data_1_1TestCase}{Test\-Case} $\ast$t\-Case)
+\begin{DoxyCompactList}\small\item\em add a Test Case \end{DoxyCompactList}\item 
+const \hyperlink{classit_1_1testbench_1_1data_1_1TestCase}{Test\-Case} $\ast$ \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_abf04bf012b35a099b0815a7fa28b4477}{retrieve\-Test\-Case} (unsigned int tc\-Idx) const 
+\begin{DoxyCompactList}\small\item\em retrieve a Test Case \end{DoxyCompactList}\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_a31d4b0d2f023f08201ec38607785e243}{remove\-Test\-Case} (unsigned int tc\-Idx)
+\begin{DoxyCompactList}\small\item\em remove a Test Case \end{DoxyCompactList}\item 
+\hyperlink{structit_1_1testbench_1_1data_1_1ReturnCode}{Return\-Code} \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_a4e507335d0a606def0bac51f1daf26f1}{update\-Test\-Case} (unsigned int tc\-Idx, const \hyperlink{classit_1_1testbench_1_1data_1_1TestCase}{Test\-Case} $\ast$t\-Case)
+\begin{DoxyCompactList}\small\item\em update a Test Case \end{DoxyCompactList}\item 
+const unsigned int \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_af2012ac37c9834ea0128856b1a28c5fd}{get\-Nr\-Of\-Test\-Cases} ()
+\begin{DoxyCompactList}\small\item\em get the number of test cases \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration}{Test\-Bench\-Configuration} $\ast$ \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_a79f502dcaa5c97db247d81c4808da43d}{parent}
+\item 
+vector$<$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCase}{Test\-Case} $\ast$ $>$ \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_a83df4e37302bb57f0edd2f48caeeb1a9}{list\-Of\-Tests}
+\item 
+vector$<$ \hyperlink{classit_1_1testbench_1_1data_1_1TestCase}{Test\-Case} $\ast$ $>$\-::iterator \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_aa1e35baeb0392f101d2553319dcc12cf}{itr\-List}
+\item 
+string \hyperlink{classit_1_1testbench_1_1data_1_1TestPlan_aafc66e80e83fa15da6a4b725f8008667}{test\-Plan\-Id}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+It defines a Data Structure that is basically a collection of Test Cases.
+
+Each Test Case will be executed independently. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestPlan_ad33876e2df1471adc6feaecb4be01170}{\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}!Test\-Plan@{Test\-Plan}}
+\index{Test\-Plan@{Test\-Plan}!it::testbench::data::TestPlan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+\subsubsection[{Test\-Plan}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::data\-::\-Test\-Plan\-::\-Test\-Plan (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_ad33876e2df1471adc6feaecb4be01170}
+
+
+T\-E\-S\-T P\-L\-A\-N. 
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestPlan_a4d5b6ca833ea746153a7eab0b3e01e9d}{\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}!$\sim$\-Test\-Plan@{$\sim$\-Test\-Plan}}
+\index{$\sim$\-Test\-Plan@{$\sim$\-Test\-Plan}!it::testbench::data::TestPlan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+\subsubsection[{$\sim$\-Test\-Plan}]{\setlength{\rightskip}{0pt plus 5cm}it\-::testbench\-::data\-::\-Test\-Plan\-::$\sim$\-Test\-Plan (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_a4d5b6ca833ea746153a7eab0b3e01e9d}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestPlan_a4613f6641ce2f7eae4f2b0b2e32ac6f3}{\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}!add\-Test\-Case@{add\-Test\-Case}}
+\index{add\-Test\-Case@{add\-Test\-Case}!it::testbench::data::TestPlan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+\subsubsection[{add\-Test\-Case}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::data\-::\-Test\-Plan\-::add\-Test\-Case (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{tc\-Idx, }
+\item[{{\bf Test\-Case} $\ast$}]{t\-Case}
+\end{DoxyParamCaption}
+)}}\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_a4613f6641ce2f7eae4f2b0b2e32ac6f3}
+
+
+add a Test Case 
+
+Add a Test Case (addressed by an ordinal number)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Index} & where to put the Test Case \\
+\hline
+\mbox{\tt in}  & {\em Pointer} & to a Test Case object \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_a4613f6641ce2f7eae4f2b0b2e32ac6f3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestPlan_af2012ac37c9834ea0128856b1a28c5fd}{\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}!get\-Nr\-Of\-Test\-Cases@{get\-Nr\-Of\-Test\-Cases}}
+\index{get\-Nr\-Of\-Test\-Cases@{get\-Nr\-Of\-Test\-Cases}!it::testbench::data::TestPlan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+\subsubsection[{get\-Nr\-Of\-Test\-Cases}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int it\-::testbench\-::data\-::\-Test\-Plan\-::get\-Nr\-Of\-Test\-Cases (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_af2012ac37c9834ea0128856b1a28c5fd}
+
+
+get the number of test cases 
+
+Get total number of Test Cases
+
+\begin{DoxyReturn}{Returns}
+An integer, representing the number of total Test Cases 
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_af2012ac37c9834ea0128856b1a28c5fd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestPlan_a2fd269c840f4ea2ebf12d801f257a67c}{\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}!get\-Session\-Id@{get\-Session\-Id}}
+\index{get\-Session\-Id@{get\-Session\-Id}!it::testbench::data::TestPlan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+\subsubsection[{get\-Session\-Id}]{\setlength{\rightskip}{0pt plus 5cm}const string $\ast$ it\-::testbench\-::data\-::\-Test\-Plan\-::get\-Session\-Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_a2fd269c840f4ea2ebf12d801f257a67c}
+
+
+get the session Id 
+
+Retrieve the Session Id
+
+\begin{DoxyReturn}{Returns}
+Pointer to a string containing the session Id 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_a2fd269c840f4ea2ebf12d801f257a67c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_a2fd269c840f4ea2ebf12d801f257a67c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestPlan_a23d8699783d6d8cd52426e1c5f0fafb9}{\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}!get\-Test\-Plan\-Id@{get\-Test\-Plan\-Id}}
+\index{get\-Test\-Plan\-Id@{get\-Test\-Plan\-Id}!it::testbench::data::TestPlan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+\subsubsection[{get\-Test\-Plan\-Id}]{\setlength{\rightskip}{0pt plus 5cm}const string $\ast$ it\-::testbench\-::data\-::\-Test\-Plan\-::get\-Test\-Plan\-Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_a23d8699783d6d8cd52426e1c5f0fafb9}
+
+
+get the test plan Id 
+
+Retrieve the Test Plan Id
+
+\begin{DoxyReturn}{Returns}
+Pointer to a string containing the test plan Id 
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_a23d8699783d6d8cd52426e1c5f0fafb9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestPlan_a31d4b0d2f023f08201ec38607785e243}{\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}!remove\-Test\-Case@{remove\-Test\-Case}}
+\index{remove\-Test\-Case@{remove\-Test\-Case}!it::testbench::data::TestPlan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+\subsubsection[{remove\-Test\-Case}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::data\-::\-Test\-Plan\-::remove\-Test\-Case (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{tc\-Idx}
+\end{DoxyParamCaption}
+)}}\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_a31d4b0d2f023f08201ec38607785e243}
+
+
+remove a Test Case 
+
+Remove a specific Test Case (addressed by an ordinal number)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Index} & of the Test Case \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean value, true if the Test Case was present and updated 
+\end{DoxyReturn}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestPlan_abf04bf012b35a099b0815a7fa28b4477}{\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}!retrieve\-Test\-Case@{retrieve\-Test\-Case}}
+\index{retrieve\-Test\-Case@{retrieve\-Test\-Case}!it::testbench::data::TestPlan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+\subsubsection[{retrieve\-Test\-Case}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Test\-Case} $\ast$ it\-::testbench\-::data\-::\-Test\-Plan\-::retrieve\-Test\-Case (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{tc\-Idx}
+\end{DoxyParamCaption}
+) const}}\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_abf04bf012b35a099b0815a7fa28b4477}
+
+
+retrieve a Test Case 
+
+Retrieve a specific Test Case (addressed by an ordinal number)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Index} & of the Test Case \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a Test Case object 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_abf04bf012b35a099b0815a7fa28b4477_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_abf04bf012b35a099b0815a7fa28b4477_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestPlan_a56a7b7f2aec78d8dfba3a4f2110eedf6}{\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}!set\-Parent@{set\-Parent}}
+\index{set\-Parent@{set\-Parent}!it::testbench::data::TestPlan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+\subsubsection[{set\-Parent}]{\setlength{\rightskip}{0pt plus 5cm}void it\-::testbench\-::data\-::\-Test\-Plan\-::set\-Parent (
+\begin{DoxyParamCaption}
+\item[{const {\bf Test\-Bench\-Configuration} $\ast$}]{parent}
+\end{DoxyParamCaption}
+)}}\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_a56a7b7f2aec78d8dfba3a4f2110eedf6}
+
+
+set pointer to parent 
+
+Set a pointer to parent \hyperlink{classit_1_1testbench_1_1data_1_1TestBenchConfiguration}{Test\-Bench\-Configuration}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Pointer} & to the parent test bench configuration \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_a56a7b7f2aec78d8dfba3a4f2110eedf6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestPlan_aaf7ae0fd7ba3aeaf9716c00c7461bd5c}{\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}!set\-Test\-Plan\-Id@{set\-Test\-Plan\-Id}}
+\index{set\-Test\-Plan\-Id@{set\-Test\-Plan\-Id}!it::testbench::data::TestPlan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+\subsubsection[{set\-Test\-Plan\-Id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::data\-::\-Test\-Plan\-::set\-Test\-Plan\-Id (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{t\-Id}
+\end{DoxyParamCaption}
+)}}\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_aaf7ae0fd7ba3aeaf9716c00c7461bd5c}
+
+
+set the test plan Id 
+
+Set Test Plan Id
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em String} & used as test plan Id \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_aaf7ae0fd7ba3aeaf9716c00c7461bd5c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classit_1_1testbench_1_1data_1_1TestPlan_a4e507335d0a606def0bac51f1daf26f1}{\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}!update\-Test\-Case@{update\-Test\-Case}}
+\index{update\-Test\-Case@{update\-Test\-Case}!it::testbench::data::TestPlan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+\subsubsection[{update\-Test\-Case}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\-Code} it\-::testbench\-::data\-::\-Test\-Plan\-::update\-Test\-Case (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{tc\-Idx, }
+\item[{const {\bf Test\-Case} $\ast$}]{t\-Case}
+\end{DoxyParamCaption}
+)}}\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_a4e507335d0a606def0bac51f1daf26f1}
+
+
+update a Test Case 
+
+Update a specific Test Case (addressed by an ordinal number)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Index} & of the Test Case \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean value, true if the Test Case was present and updated 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classit_1_1testbench_1_1data_1_1TestPlan_aa1e35baeb0392f101d2553319dcc12cf}{\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}!itr\-List@{itr\-List}}
+\index{itr\-List@{itr\-List}!it::testbench::data::TestPlan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+\subsubsection[{itr\-List}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Test\-Case}$\ast$$>$\-::iterator it\-::testbench\-::data\-::\-Test\-Plan\-::itr\-List\hspace{0.3cm}{\ttfamily [private]}}}\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_aa1e35baeb0392f101d2553319dcc12cf}
+iterator to the vector structure \hypertarget{classit_1_1testbench_1_1data_1_1TestPlan_a83df4e37302bb57f0edd2f48caeeb1a9}{\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}!list\-Of\-Tests@{list\-Of\-Tests}}
+\index{list\-Of\-Tests@{list\-Of\-Tests}!it::testbench::data::TestPlan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+\subsubsection[{list\-Of\-Tests}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Test\-Case}$\ast$$>$ it\-::testbench\-::data\-::\-Test\-Plan\-::list\-Of\-Tests\hspace{0.3cm}{\ttfamily [private]}}}\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_a83df4e37302bb57f0edd2f48caeeb1a9}
+list of Test Cases composing this Test Plan \hypertarget{classit_1_1testbench_1_1data_1_1TestPlan_a79f502dcaa5c97db247d81c4808da43d}{\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}!parent@{parent}}
+\index{parent@{parent}!it::testbench::data::TestPlan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+\subsubsection[{parent}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Test\-Bench\-Configuration}$\ast$ it\-::testbench\-::data\-::\-Test\-Plan\-::parent\hspace{0.3cm}{\ttfamily [private]}}}\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_a79f502dcaa5c97db247d81c4808da43d}
+pointer to parent \hypertarget{classit_1_1testbench_1_1data_1_1TestPlan_aafc66e80e83fa15da6a4b725f8008667}{\index{it\-::testbench\-::data\-::\-Test\-Plan@{it\-::testbench\-::data\-::\-Test\-Plan}!test\-Plan\-Id@{test\-Plan\-Id}}
+\index{test\-Plan\-Id@{test\-Plan\-Id}!it::testbench::data::TestPlan@{it\-::testbench\-::data\-::\-Test\-Plan}}
+\subsubsection[{test\-Plan\-Id}]{\setlength{\rightskip}{0pt plus 5cm}string it\-::testbench\-::data\-::\-Test\-Plan\-::test\-Plan\-Id\hspace{0.3cm}{\ttfamily [private]}}}\label{db/d7b/classit_1_1testbench_1_1data_1_1TestPlan_aafc66e80e83fa15da6a4b725f8008667}
+test plan identifier\-: it is a string 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{testbench_8h}{testbench.\-h}\item 
+\hyperlink{testbench_8cpp}{testbench.\-cpp}\end{DoxyCompactItemize}
